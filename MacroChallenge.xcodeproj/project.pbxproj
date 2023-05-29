@@ -10,10 +10,10 @@
 		BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F002A2516A0001F71ED /* AppDelegate.swift */; };
 		BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F022A2516A0001F71ED /* SceneDelegate.swift */; };
 		BBD62F052A2516A0001F71ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F042A2516A0001F71ED /* ViewController.swift */; };
-		BBD62F082A2516A0001F71ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD62F062A2516A0001F71ED /* Main.storyboard */; };
 		BBD62F0A2A2516A1001F71ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBD62F092A2516A1001F71ED /* Assets.xcassets */; };
 		BBD62F0D2A2516A1001F71ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD62F0B2A2516A1001F71ED /* LaunchScreen.storyboard */; };
 		BBD62F182A2516A1001F71ED /* MacroChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F172A2516A1001F71ED /* MacroChallengeTests.swift */; };
+		BBD62F362A251AA0001F71ED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F352A251AA0001F71ED /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +31,12 @@
 		BBD62F002A2516A0001F71ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD62F022A2516A0001F71ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BBD62F042A2516A0001F71ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BBD62F072A2516A0001F71ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBD62F092A2516A1001F71ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBD62F0C2A2516A1001F71ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBD62F0E2A2516A1001F71ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBD62F132A2516A1001F71ED /* MacroChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacroChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD62F172A2516A1001F71ED /* MacroChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroChallengeTests.swift; sourceTree = "<group>"; };
+		BBD62F352A251AA0001F71ED /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				BBD62F0B2A2516A1001F71ED /* LaunchScreen.storyboard */,
-				BBD62F062A2516A0001F71ED /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				BBD62F042A2516A0001F71ED /* ViewController.swift */,
+				BBD62F352A251AA0001F71ED /* TabBarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -212,7 +212,6 @@
 			files = (
 				BBD62F0D2A2516A1001F71ED /* LaunchScreen.storyboard in Resources */,
 				BBD62F0A2A2516A1001F71ED /* Assets.xcassets in Resources */,
-				BBD62F082A2516A0001F71ED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBD62F362A251AA0001F71ED /* TabBarViewController.swift in Sources */,
 				BBD62F052A2516A0001F71ED /* ViewController.swift in Sources */,
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
 				BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */,
@@ -255,14 +255,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BBD62F062A2516A0001F71ED /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BBD62F072A2516A0001F71ED /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BBD62F0B2A2516A1001F71ED /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

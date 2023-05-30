@@ -33,7 +33,7 @@ extension TabBarViewController: ViewCode {
 //MARK: - Functions here
 extension TabBarViewController {
     private func setupTabItems() {
-        let exampleViewController = UINavigationController(rootViewController: ExampleViewController())
+        let exampleViewController = UINavigationController(rootViewController: FoodViewController())
         let exampleSecondaryViewController = UINavigationController(rootViewController: ExampleSecondaryViewController())
         
         self.setViewControllers([exampleViewController, exampleSecondaryViewController], animated: true)

@@ -8,7 +8,12 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
+    private var foods = [Food]()
+    private var dataIsReceived = false
+    lazy private var foodManager = FoodManager(response: {
+        self.dataIsReceived = true
+        self.setupViewConfiguration()
+    })
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViewConfiguration()
@@ -24,6 +29,12 @@ extension TabBarViewController: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
+        
+        if !self.dataIsReceived {
+            self.foodManager.fetchFood()
+        } else {
+            self.foods = self.foodManager.foods
+        }
         self.tabBar.backgroundColor = .white
         self.tabBar.isTranslucent = false
         self.setupTabItems()

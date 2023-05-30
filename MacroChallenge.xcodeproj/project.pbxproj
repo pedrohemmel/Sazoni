@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F47FB252A251A2E00356430 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F47FB242A251A2E00356430 /* data.json */; };
 		BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F002A2516A0001F71ED /* AppDelegate.swift */; };
 		BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F022A2516A0001F71ED /* SceneDelegate.swift */; };
 		BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F042A2516A0001F71ED /* TabBarViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F47FB242A251A2E00356430 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		BBD62EFD2A2516A0001F71ED /* MacroChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD62F002A2516A0001F71ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD62F022A2516A0001F71ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F47FB232A25199800356430 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3F47FB242A251A2E00356430 /* data.json */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		BBD62EF42A2516A0001F71ED = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 			children = (
 				BBD62F002A2516A0001F71ED /* AppDelegate.swift */,
 				BBD62F022A2516A0001F71ED /* SceneDelegate.swift */,
+				3F47FB232A25199800356430 /* Source */,
 				BBD62F332A25170B001F71ED /* Utils */,
 				BBD62F302A2516D6001F71ED /* Model */,
 				BBD62F312A2516DF001F71ED /* View */,
@@ -217,6 +228,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBD62F0A2A2516A1001F71ED /* Assets.xcassets in Resources */,
+				BBD62F082A2516A0001F71ED /* Main.storyboard in Resources */,
+				3F47FB252A251A2E00356430 /* data.json in Resources */,
 				BBD62F402A25291F001F71ED /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

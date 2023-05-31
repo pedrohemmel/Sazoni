@@ -8,6 +8,7 @@
 import UIKit
 
 class NavigationBarViewComponent: UINavigationBar {
+    weak var monthButtonDelegate: MCMonthNavigationButtonDelegate? = nil
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -18,7 +19,7 @@ class NavigationBarViewComponent: UINavigationBar {
 
 //MARK: - Functions
 extension NavigationBarViewComponent {
-    func setupItems(title: String?, trailingButtonTitle: String?, leadingButtonTitle: String?) {
+    func setupItems(title: String?, trailingButtonTitle: String?, leadingButtonTitle: String?, centerButtonTitle: String?) {
         var navItem = UINavigationItem()
         if let title = title {
             navItem = UINavigationItem(title: "\(title)")
@@ -34,16 +35,27 @@ extension NavigationBarViewComponent {
             navItem.leftBarButtonItem = leadingItem
         }
         
+        if let centerButtonTitle = centerButtonTitle {
+            let centerItem = UIButton()
+            centerItem.setTitle(centerButtonTitle, for: .normal)
+            centerItem.setTitleColor(.blue, for: .normal)
+            centerItem.addTarget(nil, action: #selector(self.centerButtonAction), for: .touchUpInside)
+            navItem.titleView = centerItem
+        }
+        
         self.setItems([navItem], animated: true)
     }
     
     @objc func trailingButtonAction() {
         
     }
-    
     @objc func leadingButtonAction() {
         
     }
+    @objc func centerButtonAction() {
+        self.monthButtonDelegate?.didClickMonthButton(currentMonth: "Abril")
+    }
+
 }
 
 

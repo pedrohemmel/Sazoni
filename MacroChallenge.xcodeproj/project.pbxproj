@@ -154,19 +154,19 @@
 		BBD62F452A253E5C001F71ED /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				BBD62F4C2A254176001F71ED /* Cells */,
-				BBD62F492A253F0B001F71ED /* Components */,
 				BBD62F432A253D29001F71ED /* CategoryView.swift */,
+				BBD62F492A253F0B001F71ED /* Views */,
 			);
 			path = Category;
 			sourceTree = "<group>";
 		};
-		BBD62F492A253F0B001F71ED /* Components */ = {
+		BBD62F492A253F0B001F71ED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BBD62F4C2A254176001F71ED /* Cells */,
 				BBD62F4A2A253F51001F71ED /* CategoryCollectionViewComponent.swift */,
 			);
-			path = Components;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BBD62F4C2A254176001F71ED /* Cells */ = {

@@ -28,6 +28,7 @@
 		BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F4D2A254190001F71ED /* CategoryCollectionViewCell.swift */; };
 		BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */; };
 		BBD62F532A2696C0001F71ED /* NavigationBarViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */; };
+		BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F562A27BE42001F71ED /* FoodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		BBD62F4D2A254190001F71ED /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewComponent.swift; sourceTree = "<group>"; };
+		BBD62F562A27BE42001F71ED /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				BBD62F042A2516A0001F71ED /* TabBarViewController.swift */,
 				BBD62F3B2A2525A8001F71ED /* ExampleViewController.swift */,
 				BBD62F3D2A25278D001F71ED /* ExampleSecondaryViewController.swift */,
+				BBD62F562A27BE42001F71ED /* FoodViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			files = (
 				BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */,
 				3F1252E82A266C230048E7FB /* FoodManager.swift in Sources */,
+				BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */,
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
 				3F1252EA2A266DD90048E7FB /* FoodModel.swift in Sources */,
 				BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */,

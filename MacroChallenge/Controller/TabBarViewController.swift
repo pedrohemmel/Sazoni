@@ -1,5 +1,5 @@
 //
-//  TabBaraViewController.swift
+//  TabBarViewController.swift
 //  MacroChallenge
 //
 //  Created by Pedro henrique Dias hemmel de oliveira souza on 29/05/23.
@@ -32,15 +32,17 @@ extension TabBarViewController: ViewCode {
 //MARK: - Functions here
 extension TabBarViewController {
     private func setupTabItems() {
+        let categoryViewController = UINavigationController(rootViewController: CategoryViewController())
         let exampleViewController = UINavigationController(rootViewController: ExampleViewController())
         let exampleSecondaryViewController = UINavigationController(rootViewController: ExampleSecondaryViewController())
         
-        self.setViewControllers([exampleViewController, exampleSecondaryViewController], animated: true)
+        self.setViewControllers([categoryViewController, exampleViewController, exampleSecondaryViewController], animated: false)
         
         guard let items = self.tabBar.items else { return }
         
-        items[0].image = UIImage(systemName: "function")
-        items[1].image = UIImage(systemName: "person.circle")
+        items[0].image = UIImage(systemName: "house")
+        items[1].image = UIImage(systemName: "function")
+        items[2].image = UIImage(systemName: "person.circle")
     }
 }
 

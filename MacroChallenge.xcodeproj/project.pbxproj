@@ -17,6 +17,12 @@
 		BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F3B2A2525A8001F71ED /* ExampleViewController.swift */; };
 		BBD62F3E2A25278D001F71ED /* ExampleSecondaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F3D2A25278D001F71ED /* ExampleSecondaryViewController.swift */; };
 		BBD62F402A25291F001F71ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */; };
+		BBD62F422A253C90001F71ED /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F412A253C90001F71ED /* CategoryViewController.swift */; };
+		BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F432A253D29001F71ED /* CategoryView.swift */; };
+		BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F4A2A253F51001F71ED /* CategoryCollectionViewComponent.swift */; };
+		BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F4D2A254190001F71ED /* CategoryCollectionViewCell.swift */; };
+		BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */; };
+		BBD62F532A2696C0001F71ED /* NavigationBarViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,12 @@
 		BBD62F3B2A2525A8001F71ED /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		BBD62F3D2A25278D001F71ED /* ExampleSecondaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSecondaryViewController.swift; sourceTree = "<group>"; };
 		BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MacroChallenge/Controller/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		BBD62F412A253C90001F71ED /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		BBD62F432A253D29001F71ED /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryView.swift; path = MacroChallenge/View/Category/CategoryView.swift; sourceTree = SOURCE_ROOT; };
+		BBD62F4A2A253F51001F71ED /* CategoryCollectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewComponent.swift; sourceTree = "<group>"; };
+		BBD62F4D2A254190001F71ED /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +134,8 @@
 		BBD62F312A2516DF001F71ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BBD62F512A2696A0001F71ED /* Components */,
+				BBD62F452A253E5C001F71ED /* Category */,
 				BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -130,6 +144,7 @@
 		BBD62F322A2516E4001F71ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BBD62F412A253C90001F71ED /* CategoryViewController.swift */,
 				BBD62F042A2516A0001F71ED /* TabBarViewController.swift */,
 				BBD62F3B2A2525A8001F71ED /* ExampleViewController.swift */,
 				BBD62F3D2A25278D001F71ED /* ExampleSecondaryViewController.swift */,
@@ -142,8 +157,43 @@
 			children = (
 				BBD62F092A2516A1001F71ED /* Assets.xcassets */,
 				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
+				BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BBD62F452A253E5C001F71ED /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F432A253D29001F71ED /* CategoryView.swift */,
+				BBD62F492A253F0B001F71ED /* Views */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		BBD62F492A253F0B001F71ED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F4C2A254176001F71ED /* Cells */,
+				BBD62F4A2A253F51001F71ED /* CategoryCollectionViewComponent.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BBD62F4C2A254176001F71ED /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F4D2A254190001F71ED /* CategoryCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BBD62F512A2696A0001F71ED /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +300,15 @@
 			files = (
 				BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */,
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
+				BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */,
+				BBD62F532A2696C0001F71ED /* NavigationBarViewComponent.swift in Sources */,
+				BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */,
+				BBD62F422A253C90001F71ED /* CategoryViewController.swift in Sources */,
 				BBD62F3E2A25278D001F71ED /* ExampleSecondaryViewController.swift in Sources */,
 				BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */,
+				BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */,
 				BBD62F382A251C8B001F71ED /* ViewCode.swift in Sources */,
+				BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */,
 				BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

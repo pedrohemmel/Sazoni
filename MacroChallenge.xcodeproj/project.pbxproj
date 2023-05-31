@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3F1252E72A266C230048E7FB /* FoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodManager.swift; path = MacroChallenge/Source/FoodManager.swift; sourceTree = SOURCE_ROOT; };
+		3F1252E72A266C230048E7FB /* FoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodManager.swift; path = MacroChallenge/Utils/FoodManager.swift; sourceTree = SOURCE_ROOT; };
 		3F1252E92A266DD90048E7FB /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodModel.swift; path = MacroChallenge/Source/FoodModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252EB2A266FE00048E7FB /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = MacroChallenge/Source/CategoryModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeasonalityModel.swift; path = MacroChallenge/Source/SeasonalityModel.swift; sourceTree = SOURCE_ROOT; };
@@ -102,6 +102,7 @@
 		BBD62EFF2A2516A0001F71ED /* MacroChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				BBD62F092A2516A1001F71ED /* Assets.xcassets */,
 				BBD62F002A2516A0001F71ED /* AppDelegate.swift */,
 				BBD62F022A2516A0001F71ED /* SceneDelegate.swift */,
 				3F47FB232A25199800356430 /* Source */,
@@ -126,7 +127,6 @@
 		BBD62F302A2516D6001F71ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3F1252E72A266C230048E7FB /* FoodManager.swift */,
 				3F1252E92A266DD90048E7FB /* FoodModel.swift */,
 				3F1252EB2A266FE00048E7FB /* CategoryModel.swift */,
 				3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */,
@@ -155,7 +155,7 @@
 		BBD62F332A25170B001F71ED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				BBD62F092A2516A1001F71ED /* Assets.xcassets */,
+				3F1252E72A266C230048E7FB /* FoodManager.swift */,
 				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
 			);
 			path = Utils;

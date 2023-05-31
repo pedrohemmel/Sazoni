@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 class CategoryViewController: UIViewController {
-    
-    lazy var categoryView = CategoryView()
+    //MARK: - Views
+    lazy var categoryView = CategoryView(frame: self.view.frame)
     
     override func loadView() {
         super.loadView()

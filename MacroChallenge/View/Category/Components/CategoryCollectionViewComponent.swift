@@ -21,34 +21,35 @@ class CategoryCollectionViewComponent: UICollectionView {
 extension CategoryCollectionViewComponent: ViewCode {
     func buildViewHierarchy() {
     }
-    
     func setupConstraints() {
     }
-    
     func setupAdditionalConfiguration() {
         self.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
-        
         self.delegate = self
         self.dataSource = self
-        
-        self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = UIColor.clear
     }
-}
-
-//MARK: - UICollectionViewDelegate
-extension CategoryCollectionViewComponent: UICollectionViewDelegate {
-    
 }
 
 //MARK: - UICollectionViewDataSource
 extension CategoryCollectionViewComponent: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         cell.title.text = "Ola\(indexPath.row)"
+        cell.backgroundColor = .gray
+        cell.layer.cornerRadius = 10
         return cell
     }
 }
+
+//MARK: - UICollectionViewDelegate
+extension CategoryCollectionViewComponent: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("clicou")
+    }
+}
+

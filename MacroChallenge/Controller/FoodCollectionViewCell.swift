@@ -15,7 +15,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 25
         view.layer.borderWidth = 3
-//        view.layer.borderColor = .init(red: 0, green: 1, blue: 0, alpha: 0.5)
         view.backgroundColor = .clear
         return view
     }()
@@ -54,11 +53,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        self.nameFood.text = ""
-//    }
 }
 
 
@@ -67,7 +61,8 @@ extension FoodCollectionViewCell: ViewCode{
         contentView.addSubview(container)
         container.addSubview(nameFood)
         container.addSubview(sazonality)
-        container.addSubview(foodImage)
+        contentView.addSubview(foodImage)
+//        container.addSubview(foodImage)
     }
     
     func setupConstraints() {
@@ -83,10 +78,11 @@ extension FoodCollectionViewCell: ViewCode{
             ]}
         self.foodImage.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: topAnchor),
+                view.topAnchor.constraint(equalTo: self.topAnchor, constant: -80),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+                view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                view.heightAnchor.constraint(equalToConstant: 100)
             ]
         }
         
@@ -94,7 +90,6 @@ extension FoodCollectionViewCell: ViewCode{
             [
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 view.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-//                view.topAnchor.constraint(equalTo: container.topAnchor),
                 view.leadingAnchor.constraint(equalTo: container.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: container.trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: sazonality.topAnchor)

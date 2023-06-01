@@ -77,7 +77,7 @@
      }
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//         backgroundColor = .cyan
+         backgroundColor = .clear
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCollectionViewCell", for: indexPath) as! FoodCollectionViewCell
          cell.foodImage.image = UIImage(named: "abobrinha_brasileira")
          cell.nameFood.text = foods[indexPath.row].name_food
@@ -91,7 +91,6 @@
                                                                         .seasonalities[2]
                                                                         .state_seasonality)?.cgColor
          
-         cell.backgroundColor = .cyan
          return cell
      }
 

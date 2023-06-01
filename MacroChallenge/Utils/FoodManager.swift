@@ -1,8 +1,6 @@
 import Foundation
 import UIKit
 
-
-
 class FoodManager{
     var foods: [Food] = [Food]()
     var response: (() -> Void)

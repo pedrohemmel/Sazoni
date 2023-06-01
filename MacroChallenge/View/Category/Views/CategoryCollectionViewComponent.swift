@@ -49,7 +49,7 @@ extension CategoryCollectionViewComponent: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension CategoryCollectionViewComponent: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("clicou")
+        print(Date())
     }
 }
 

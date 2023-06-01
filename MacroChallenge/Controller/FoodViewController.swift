@@ -8,7 +8,6 @@
 
 
  final class FoodViewController: UIViewController {
-
      private lazy var collectionView: FoodCollectionView = {
 
          let layout = UICollectionViewFlowLayout()
@@ -33,8 +32,7 @@
      }
  }
 
- extension FoodViewController: ViewCode{
-
+ extension FoodViewController: ViewCode {
      func buildViewHierarchy() {
          view.addSubview(collectionView)
      }
@@ -50,12 +48,10 @@
 
      func setupAdditionalConfiguration() {
      }
-
  }
 
 
  class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
-
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
          return 30
      }
@@ -66,5 +62,4 @@
          cell.layer.cornerRadius = 10
          return cell
      }
-
  }

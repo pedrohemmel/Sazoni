@@ -19,7 +19,7 @@ class TabBarViewController: UITabBarController {
         }
     }
     private var categoryViewController = CategoryViewController()
-    private var exampleViewController = ExampleViewController()
+    private var foodViewController = FoodViewController()
     private var exampleSecondaryViewController = ExampleSecondaryViewController()
     
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ extension TabBarViewController: MCMonthUpdates {
 extension TabBarViewController {
     private func setupTabItems() {
         let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
-        let exampleViewController = UINavigationController(rootViewController: self.exampleViewController)
+        let exampleViewController = UINavigationController(rootViewController: self.foodViewController)
         let exampleSecondaryViewController = UINavigationController(rootViewController: self.exampleSecondaryViewController)
         
         self.setViewControllers([categoryViewController, exampleViewController, exampleSecondaryViewController], animated: false)
@@ -55,7 +55,8 @@ extension TabBarViewController {
     
     private func setupViewControllers() {
         //Here we set the variables that we want to pass through the controllers
-        self.exampleViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
+//        self.exampleViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth) /
+        
     }
     
     private func getCurrentMonth() -> String {

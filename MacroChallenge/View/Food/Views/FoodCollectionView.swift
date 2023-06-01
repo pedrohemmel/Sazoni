@@ -8,6 +8,7 @@
 import UIKit
 
 class FoodCollectionView: UICollectionView {
+    var foods = [Food]()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -29,8 +30,7 @@ extension FoodCollectionView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = UIColor.white
-        self.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CustomCell")
+        self.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "FoodCollectionViewCell")
         self.delegate = self
         self.dataSource = self
     }
@@ -38,17 +38,36 @@ extension FoodCollectionView: ViewCode {
 
 extension FoodCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return foods.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath)
-        cell.backgroundColor = UIColor.lightGray
-        cell.layer.cornerRadius = 10
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCollectionViewCell", for: indexPath) as! FoodCollectionViewCell
+        cell.foodImage.image = UIImage(named: "laranja")
+        cell.nameFood.text = foods[indexPath.row].name_food
+        cell.sazonality.text = foods[indexPath.row].seasonalities[2].state_seasonality + " disponibilidade"
+        
+        cell.container.backgroundColor = UIColor(named: foods[indexPath.row]
+                                                           .seasonalities[2]
+                                                           .state_seasonality)
+        cell.layer.cornerRadius = 20
+        cell.container.layer.borderColor = UIColor(named: "Border"+foods[indexPath.row]
+                                                                       .seasonalities[2]
+                                                                       .state_seasonality)?.cgColor
+        
+        cell.backgroundColor = .cyan
         return cell
     }
 }
 
 extension FoodCollectionView: UICollectionViewDelegate {
     
+}
+
+//MARK: - Functions here
+extension FoodCollectionView {
+    func setup(foods: [Food]) {
+        self.foods = foods
+        self.reloadData()
+    }
 }

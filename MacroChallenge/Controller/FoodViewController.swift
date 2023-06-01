@@ -8,42 +8,35 @@
 
 
  final class FoodViewController: UIViewController {
-     private lazy var collectionView: FoodCollectionView = {
-
-         let layout = UICollectionViewFlowLayout()
-         layout.scrollDirection = .vertical
-         layout.itemSize = CGSize(width: 100, height: 132)
-         layout.minimumInteritemSpacing = 20
-         layout.minimumLineSpacing = 20
-
-         let collectionViewInstance = FoodCollectionView(frame: .zero, collectionViewLayout: layout)
-         collectionViewInstance.translatesAutoresizingMaskIntoConstraints = false
-         
-         return collectionViewInstance
-     }()
+     
+     var foods = [Food]()
+     private var dataIsReceived = false
+     lazy private var foodManager = FoodManager(response: {
+         self.dataIsReceived = true
+         self.getFood()
+     })
+     
+     lazy private var foodView = FoodView(frame: self.view.frame)
+     
+     override func loadView() {
+         super.loadView()
+         self.view = foodView
+     }
 
      override func viewDidLoad() {
          super.viewDidLoad()
-         self.setupViewConfiguration()
+         self.getFood()
      }
  }
 
- extension FoodViewController: ViewCode {
-     func buildViewHierarchy() {
-         view.addSubview(collectionView)
-     }
-
-     func setupConstraints() {
-         NSLayoutConstraint.activate([
-             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-         ])
-     }
-
-     func setupAdditionalConfiguration() {
-     }
- }
-
-
+//MARK: - Functions here
+extension FoodViewController {
+    func getFood() {
+        if !self.dataIsReceived {
+            self.foodManager.fetchFood()
+        } else {
+            self.foods = self.foodManager.foods
+            self.foodView.setup(foods: self.foods)
+        }
+    }
+}

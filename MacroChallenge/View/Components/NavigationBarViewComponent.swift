@@ -19,7 +19,7 @@ class NavigationBarViewComponent: UINavigationBar {
 
 //MARK: - Functions
 extension NavigationBarViewComponent {
-    func setupItems(title: String?, trailingButtonTitle: String?, leadingButtonTitle: String?, centerButtonTitle: String?) {
+    func setupItems(title: String?, trailingButtonTitle: String?, leadingButtonTitle: String?, centerButtonTitle: String?, centeredMonthButton: UIButton?) {
         var navItem = UINavigationItem()
         if let title = title {
             navItem = UINavigationItem(title: "\(title)")
@@ -43,16 +43,22 @@ extension NavigationBarViewComponent {
             navItem.titleView = centerItem
         }
         
+        if let centeredMonthButton = centeredMonthButton {
+            centeredMonthButton.addTarget(nil, action: #selector(self.centeredMonthButtonAction), for: .touchUpInside)
+            navItem.titleView = centeredMonthButton
+        }
+        
         self.setItems([navItem], animated: true)
     }
     
     @objc func trailingButtonAction() {
-        
     }
     @objc func leadingButtonAction() {
-        
     }
     @objc func centerButtonAction() {
+    }
+    
+    @objc func centeredMonthButtonAction() {
         self.monthButtonDelegate?.didClickMonthButton(currentMonth: "Abril")
     }
 

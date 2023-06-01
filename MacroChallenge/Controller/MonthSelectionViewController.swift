@@ -12,9 +12,23 @@ protocol MCMonthSelectionDelegate: AnyObject {
 }
 
 class MonthSelectionViewController: UIViewController {
-    
-    lazy var monthSelectionView = MonthSelectionView(frame: self.view.frame)
     weak var delegate: MCMonthNavigationButtonDelegate? = nil
+    lazy var monthSelectionView = MonthSelectionView(frame: self.view.frame)
+    private var months: [String] = [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro"
+    ]
+    
     
     override func loadView() {
         super.loadView()
@@ -23,16 +37,13 @@ class MonthSelectionViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.monthSelectionView.monthSelectionCollectionView.monthSelectionDelegate = self
+        self.monthSelectionView.setupMonthSelectionCollectionView(months: self.months, monthSelectionDelegate: self)
     }
 }
 
 extension MonthSelectionViewController: MCMonthSelectionDelegate {
     func didSelectCell(month: String) {
         self.delegate?.didSelectNewMonth(month: month)
-        
         self.dismiss(animated: true)
     }
-    
-    
 }

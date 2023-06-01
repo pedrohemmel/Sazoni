@@ -9,6 +9,12 @@ import UIKit
 
 class MonthSelectionView: UIView {
     //MARK: - Views
+    private var capsule: UIImageView = {
+        let capsule = UIImageView(image: UIImage(systemName: "chevron.compact.up", withConfiguration: UIImage.SymbolConfiguration(scale: .large)))
+        capsule.translatesAutoresizingMaskIntoConstraints = false
+        return capsule
+    }()
+    
     lazy var monthSelectionCollectionView: MonthSelectionCollectionView = {
         let collectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let spaceBetweenItems = 40.0
@@ -34,13 +40,20 @@ class MonthSelectionView: UIView {
 //MARK: - ViewCode
 extension MonthSelectionView: ViewCode {
     func buildViewHierarchy() {
-        [self.monthSelectionCollectionView].forEach({self.addSubview($0)})
+        [self.capsule, self.monthSelectionCollectionView].forEach({self.addSubview($0)})
     }
     
     func setupConstraints() {
-        self.monthSelectionCollectionView.setupConstraints { view in
+        self.capsule.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                view.bottomAnchor.constraint(equalTo: self.monthSelectionCollectionView.topAnchor, constant: -20)
+            ]
+        }
+        self.monthSelectionCollectionView.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.capsule.bottomAnchor, constant: 20),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
@@ -50,5 +63,12 @@ extension MonthSelectionView: ViewCode {
     
     func setupAdditionalConfiguration() {
         self.backgroundColor = .blue
+    }
+}
+
+//MARK: - Functions here
+extension MonthSelectionView {
+    func setupMonthSelectionCollectionView(months: [String], monthSelectionDelegate: MCMonthSelectionDelegate) {
+        self.monthSelectionCollectionView.setup(months: months, monthSelectionDelegate: monthSelectionDelegate)
     }
 }

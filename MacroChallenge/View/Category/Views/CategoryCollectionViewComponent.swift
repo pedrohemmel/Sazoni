@@ -8,6 +8,9 @@
 import UIKit
 
 class CategoryCollectionViewComponent: UICollectionView {
+    
+    weak var selectedCategoryDelegate: MCSelectedCategoryDelegate? = nil
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         self.setupViewConfiguration()
@@ -49,7 +52,14 @@ extension CategoryCollectionViewComponent: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension CategoryCollectionViewComponent: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("clicou")
+        self.selectedCategoryDelegate?.didSelectCategory(category: indexPath.row)
+    }
+}
+
+//MARK: - Functions
+extension CategoryCollectionViewComponent {
+    func setup(selectedCategoryDelegate: MCSelectedCategoryDelegate) {
+        self.selectedCategoryDelegate = selectedCategoryDelegate
     }
 }
 

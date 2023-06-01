@@ -9,7 +9,6 @@
 
  final class FoodViewController: UIViewController {
      private lazy var collectionView: FoodCollectionView = {
-
          let layout = UICollectionViewFlowLayout()
          layout.scrollDirection = .vertical
          layout.itemSize = CGSize(width: 100, height: 132)

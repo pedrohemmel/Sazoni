@@ -29,7 +29,6 @@ class MonthSelectionViewController: UIViewController {
         "Dezembro"
     ]
     
-    
     override func loadView() {
         super.loadView()
         self.view = monthSelectionView

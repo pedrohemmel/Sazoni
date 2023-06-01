@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MCMonthUpdates: AnyObject {
+protocol MCMonthUpdatesDelegate: AnyObject {
     func didChangeMonth(newMonthName: String)
 }
 
@@ -15,7 +15,8 @@ class TabBarViewController: UITabBarController {
     lazy var currentMonth = self.getCurrentMonth() {
         didSet {
             self.setupViewControllers()
-            self.setupTabItems()
+//            self.setupTabItems()
+//            self.setupop()
         }
     }
     private var categoryViewController = CategoryViewController()
@@ -31,7 +32,7 @@ class TabBarViewController: UITabBarController {
     }
 }
 
-extension TabBarViewController: MCMonthUpdates {
+extension TabBarViewController: MCMonthUpdatesDelegate {
     func didChangeMonth(newMonthName: String) {
         self.currentMonth = newMonthName
     }
@@ -55,8 +56,13 @@ extension TabBarViewController {
     
     private func setupViewControllers() {
         //Here we set the variables that we want to pass through the controllers
+        self.categoryViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
         self.exampleViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
     }
+//    func setupop() {
+
+//        self.categoryViewController.currentMonth = "Ola"
+//    }
     
     private func getCurrentMonth() -> String {
         let now = Date()

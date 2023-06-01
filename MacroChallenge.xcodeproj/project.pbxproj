@@ -13,6 +13,7 @@
 		3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */; };
 		3F1252F02A267EF50048E7FB /* FoodManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1252EF2A267EF50048E7FB /* FoodManagerTests.swift */; };
 		3F47FB252A251A2E00356430 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F47FB242A251A2E00356430 /* data.json */; };
+		88940E412A27C46A00A12C2B /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88940E402A27C46A00A12C2B /* FoodCollectionViewCell.swift */; };
 		BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F002A2516A0001F71ED /* AppDelegate.swift */; };
 		BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F022A2516A0001F71ED /* SceneDelegate.swift */; };
 		BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F042A2516A0001F71ED /* TabBarViewController.swift */; };
@@ -52,6 +53,7 @@
 		3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeasonalityModel.swift; path = MacroChallenge/Source/SeasonalityModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252EF2A267EF50048E7FB /* FoodManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagerTests.swift; sourceTree = "<group>"; };
 		3F47FB242A251A2E00356430 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		88940E402A27C46A00A12C2B /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBD62EFD2A2516A0001F71ED /* MacroChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD62F002A2516A0001F71ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD62F022A2516A0001F71ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,13 @@
 				3F47FB242A251A2E00356430 /* data.json */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		88940E3F2A27C33C00A12C2B /* Food */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Food;
 			sourceTree = "<group>";
 		};
 		BBD62EF42A2516A0001F71ED = {
@@ -159,6 +168,7 @@
 		BBD62F312A2516DF001F71ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88940E3F2A27C33C00A12C2B /* Food */,
 				BBD62F512A2696A0001F71ED /* Components */,
 				BBD62F5A2A27CCD7001F71ED /* MonthSelection */,
 				BBD62F452A253E5C001F71ED /* Category */,
@@ -175,6 +185,7 @@
 				BBD62F3B2A2525A8001F71ED /* ExampleViewController.swift */,
 				BBD62F3D2A25278D001F71ED /* ExampleSecondaryViewController.swift */,
 				BBD62F562A27BE42001F71ED /* FoodViewController.swift */,
+				88940E402A27C46A00A12C2B /* FoodCollectionViewCell.swift */,
 				BBD62F582A27CC5B001F71ED /* MonthSelectionViewController.swift */,
 			);
 			path = Controller;
@@ -371,6 +382,7 @@
 				3F1252EC2A266FE00048E7FB /* CategoryModel.swift in Sources */,
 				3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */,
 				BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */,
+				88940E412A27C46A00A12C2B /* FoodCollectionViewCell.swift in Sources */,
 				BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,7 +528,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 273QY7G77Q;
+				DEVELOPMENT_TEAM = Z2T622XX3F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacroChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -543,7 +555,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 273QY7G77Q;
+				DEVELOPMENT_TEAM = Z2T622XX3F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacroChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

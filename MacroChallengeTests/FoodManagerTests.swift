@@ -8,6 +8,7 @@
 import XCTest
 @testable import MacroChallenge
 final class FoodManagerTests: XCTestCase {
+    
     private var foods = [Food]()
     private var dataIsReceived = false
     lazy private var foodManager = FoodManager(response: {

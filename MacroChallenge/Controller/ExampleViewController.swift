@@ -15,7 +15,7 @@ protocol MCMonthNavigationButtonDelegate: AnyObject {
 
 class ExampleViewController: UIViewController {
     
-    weak private var monthUpdatesDelegate: MCMonthUpdates? = nil
+    weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
     var currentMonth: String? = nil
     
     //MARK: - Views
@@ -96,7 +96,7 @@ extension ExampleViewController: MCMonthNavigationButtonDelegate {
 
 //MARK: - Functions
 extension ExampleViewController {
-    func setup(monthUpdatesDelegate: MCMonthUpdates, currentMonth: String) {
+    func setup(monthUpdatesDelegate: MCMonthUpdatesDelegate, currentMonth: String) {
         self.monthUpdatesDelegate = monthUpdatesDelegate
         self.currentMonth = currentMonth
     }

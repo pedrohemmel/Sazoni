@@ -3,4 +3,86 @@
    uuid = "18FDBE82-2EA3-4DFC-978B-CD907DCF1AEE"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE4B4A6D-F790-446D-93FF-B58AAD6327D5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroChallenge/Controller/TabBarViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "didChangeMonth(newMonthName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "031E6D0A-815A-4145-988A-4B0F8186E049"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroChallenge/Controller/CategoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "didSelectCategory(category:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "031E6D0A-815A-4145-988A-4B0F8186E049 - 1a25f3ee0a690246"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroChallenge.CategoryViewController.didSelectCategory(category: Swift.Int) -&gt; ()"
+                  moduleName = "MacroChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/CategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "031E6D0A-815A-4145-988A-4B0F8186E049 - 1a25f3ee0a6902a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroChallenge.CategoryViewController.didSelectCategory(category: Swift.Int) -&gt; ()"
+                  moduleName = "MacroChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/CategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E571722E-4E81-4B09-9A27-48172D37BBA4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroChallenge/Controller/CategoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "setup(monthUpdatesDelegate:currentMonth:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

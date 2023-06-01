@@ -8,16 +8,13 @@
 
 
  final class FoodViewController: UIViewController {
-
      var foods = [Food]()
      private var dataIsReceived = false
      lazy private var foodManager = FoodManager(response: {
          self.dataIsReceived = true
          self.setupViewConfiguration()
      })
-
      private lazy var collectionView: FoodCollectionView = {
-
          let layout = UICollectionViewFlowLayout()
          layout.scrollDirection = .vertical
          layout.itemSize = CGSize(width: 105, height: 162)
@@ -38,8 +35,7 @@
      }
  }
 
- extension FoodViewController: ViewCode{
-
+ extension FoodViewController: ViewCode {
      func buildViewHierarchy() {
          view.addSubview(collectionView)
      }
@@ -63,15 +59,11 @@
              self.collectionView.reloadData()
          }
      }
-
  }
+    
 
-
- class FoodCollectionView: UICollectionView, UICollectionViewDataSource {
-     
-     var foods = [Food]()
-
-     
+ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
+    var foods = [Food]()
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
          return foods.count
      }
@@ -93,7 +85,6 @@
          
          return cell
      }
-
  }
 
 

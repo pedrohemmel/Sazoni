@@ -7,34 +7,43 @@
 
 import UIKit
 
+protocol MCMonthUpdatesDelegate: AnyObject {
+    func didChangeMonth(newMonthName: String)
+}
+
 class TabBarViewController: UITabBarController {
+    lazy var currentMonth = self.getCurrentMonth() {
+        didSet {
+            self.setupViewControllers()
+//            self.setupTabItems()
+//            self.setupop()
+        }
+    }
+    private var categoryViewController = CategoryViewController()
+    private var exampleViewController = ExampleViewController()
+    private var exampleSecondaryViewController = ExampleSecondaryViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupViewConfiguration()
+        self.tabBar.backgroundColor = .white
+        self.tabBar.isTranslucent = false
+        self.setupViewControllers()
+        self.setupTabItems()
     }
 }
 
-//MARK: - ViewCode
-extension TabBarViewController: ViewCode {
-    func buildViewHierarchy() {
-    }
-    
-    func setupConstraints() {
-    }
-    
-    func setupAdditionalConfiguration() {
-        self.tabBar.backgroundColor = .white
-        self.tabBar.isTranslucent = false
-        self.setupTabItems()
+extension TabBarViewController: MCMonthUpdatesDelegate {
+    func didChangeMonth(newMonthName: String) {
+        self.currentMonth = newMonthName
     }
 }
 
 //MARK: - Functions here
 extension TabBarViewController {
     private func setupTabItems() {
-        let categoryViewController = UINavigationController(rootViewController: CategoryViewController())
-        let exampleViewController = UINavigationController(rootViewController: FoodViewController())
-        let exampleSecondaryViewController = UINavigationController(rootViewController: ExampleSecondaryViewController())
+        let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
+        let exampleViewController = UINavigationController(rootViewController: self.exampleViewController)
+        let exampleSecondaryViewController = UINavigationController(rootViewController: self.exampleSecondaryViewController)
         
         self.setViewControllers([categoryViewController, exampleViewController, exampleSecondaryViewController], animated: false)
         
@@ -44,5 +53,22 @@ extension TabBarViewController {
         items[1].image = UIImage(systemName: "function")
         items[2].image = UIImage(systemName: "person.circle")
     }
-}
+    
+    private func setupViewControllers() {
+        //Here we set the variables that we want to pass through the controllers
+        self.categoryViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
+        self.exampleViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
+    }
+//    func setupop() {
 
+//        self.categoryViewController.currentMonth = "Ola"
+//    }
+    
+    private func getCurrentMonth() -> String {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth = dateFormatter.string(from: now)
+        return nameOfMonth.capitalized
+    }
+}

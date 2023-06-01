@@ -16,13 +16,9 @@
          layout.minimumInteritemSpacing = 20
          layout.minimumLineSpacing = 20
 
-         let collectionViewInstance = FoodCollectionView(frame: view.bounds, collectionViewLayout: layout)
+         let collectionViewInstance = FoodCollectionView(frame: .zero, collectionViewLayout: layout)
          collectionViewInstance.translatesAutoresizingMaskIntoConstraints = false
-         collectionViewInstance.backgroundColor = UIColor.white
-         collectionViewInstance.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CustomCell")
-         collectionViewInstance.delegate = collectionViewInstance
-         collectionViewInstance.dataSource = collectionViewInstance
-
+         
          return collectionViewInstance
      }()
 
@@ -51,15 +47,3 @@
  }
 
 
- class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
-     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return 30
-     }
-
-     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath)
-         cell.backgroundColor = UIColor.lightGray
-         cell.layer.cornerRadius = 10
-         return cell
-     }
- }

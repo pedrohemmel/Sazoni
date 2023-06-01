@@ -33,6 +33,9 @@
 		BBD62F5F2A27CE7F001F71ED /* MonthSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F5E2A27CE7F001F71ED /* MonthSelectionCollectionView.swift */; };
 		BBD62F622A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F612A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift */; };
 		BBD62F642A290442001F71ED /* MonthSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F632A290442001F71ED /* MonthSelectionTests.swift */; };
+		BBD62F672A292E23001F71ED /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F662A292E23001F71ED /* FoodView.swift */; };
+		BBD62F6C2A292E50001F71ED /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F6B2A292E50001F71ED /* FoodCollectionViewCell.swift */; };
+		BBD62F6E2A292E8E001F71ED /* FoodCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F6D2A292E8E001F71ED /* FoodCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		BBD62F5E2A27CE7F001F71ED /* MonthSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionCollectionView.swift; sourceTree = "<group>"; };
 		BBD62F612A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBD62F632A290442001F71ED /* MonthSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionTests.swift; sourceTree = "<group>"; };
+		BBD62F662A292E23001F71ED /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
+		BBD62F6B2A292E50001F71ED /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		BBD62F6D2A292E8E001F71ED /* FoodCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,7 @@
 		BBD62F312A2516DF001F71ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BBD62F652A292E14001F71ED /* Food */,
 				BBD62F512A2696A0001F71ED /* Components */,
 				BBD62F5A2A27CCD7001F71ED /* MonthSelection */,
 				BBD62F452A253E5C001F71ED /* Category */,
@@ -246,6 +253,32 @@
 			isa = PBXGroup;
 			children = (
 				BBD62F612A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BBD62F652A292E14001F71ED /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F662A292E23001F71ED /* FoodView.swift */,
+				BBD62F682A292E28001F71ED /* Views */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		BBD62F682A292E28001F71ED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F6A2A292E39001F71ED /* Cells */,
+				BBD62F6D2A292E8E001F71ED /* FoodCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BBD62F6A2A292E39001F71ED /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F6B2A292E50001F71ED /* FoodCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -352,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBD62F5F2A27CE7F001F71ED /* MonthSelectionCollectionView.swift in Sources */,
+				BBD62F6C2A292E50001F71ED /* FoodCollectionViewCell.swift in Sources */,
 				BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */,
 				3F1252E82A266C230048E7FB /* FoodManager.swift in Sources */,
 				BBD62F622A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift in Sources */,
@@ -360,11 +394,13 @@
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
 				3F1252EA2A266DD90048E7FB /* FoodModel.swift in Sources */,
 				BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */,
+				BBD62F6E2A292E8E001F71ED /* FoodCollectionView.swift in Sources */,
 				BBD62F532A2696C0001F71ED /* NavigationBarViewComponent.swift in Sources */,
 				BBD62F5C2A27CD38001F71ED /* MonthSelectionView.swift in Sources */,
 				BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */,
 				BBD62F422A253C90001F71ED /* CategoryViewController.swift in Sources */,
 				BBD62F3E2A25278D001F71ED /* ExampleSecondaryViewController.swift in Sources */,
+				BBD62F672A292E23001F71ED /* FoodView.swift in Sources */,
 				BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */,
 				BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */,
 				BBD62F382A251C8B001F71ED /* ViewCode.swift in Sources */,

@@ -15,10 +15,17 @@ class TabBarViewController: UITabBarController {
     lazy var currentMonth = self.getCurrentMonth() {
         didSet {
             self.setupViewControllers()
-//            self.setupTabItems()
-//            self.setupop()
         }
     }
+    private var categories: [Category] = [Category]()
+    
+    var foods = [Food]()
+         private var dataIsReceived = false
+         lazy private var foodManager = FoodManager(response: {
+             self.dataIsReceived = true
+             self.getFoodData()
+         })
+
     private var categoryViewController = CategoryViewController()
     private var exampleViewController = ExampleViewController()
     private var exampleSecondaryViewController = ExampleSecondaryViewController()
@@ -29,6 +36,7 @@ class TabBarViewController: UITabBarController {
         self.tabBar.isTranslucent = false
         self.setupViewControllers()
         self.setupTabItems()
+        self.getFoodData()
     }
 }
 
@@ -55,14 +63,21 @@ extension TabBarViewController {
     }
     
     private func setupViewControllers() {
-        //Here we set the variables that we want to pass through the controllers
-        self.categoryViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
+        if !self.categories.isEmpty {
+            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth)
+        }
         self.exampleViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
     }
-//    func setupop() {
-
-//        self.categoryViewController.currentMonth = "Ola"
-//    }
+    
+    private func getFoodData() {
+        if !self.dataIsReceived {
+            self.foodManager.fetchFood()
+        } else {
+            self.foods = self.foodManager.foods
+            self.getAllCategories()
+            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth)
+        }
+    }
     
     private func getCurrentMonth() -> String {
         let now = Date()
@@ -70,5 +85,15 @@ extension TabBarViewController {
         dateFormatter.dateFormat = "LLLL"
         let nameOfMonth = dateFormatter.string(from: now)
         return nameOfMonth.capitalized
+    }
+    
+    private func getAllCategories() {
+        var categories = [Category]()
+        for food in self.foods {
+            if !categories.contains(where: {$0.id_category == food.category_food.id_category}) {
+                categories.append(food.category_food)
+            }
+        }
+        self.categories = categories
     }
 }

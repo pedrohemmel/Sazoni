@@ -7,63 +7,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FE4B4A6D-F790-446D-93FF-B58AAD6327D5"
+            uuid = "3FB18F79-2D9E-4478-9A13-E65D54AFEB5F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacroChallenge/Controller/TabBarViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "didChangeMonth(newMonthName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "031E6D0A-815A-4145-988A-4B0F8186E049"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/CategoryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "didSelectCategory(category:)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "getAllCategories()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "031E6D0A-815A-4145-988A-4B0F8186E049 - 1a25f3ee0a690246"
+                  uuid = "3FB18F79-2D9E-4478-9A13-E65D54AFEB5F - a31f898144c6a130"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.CategoryViewController.didSelectCategory(category: Swift.Int) -&gt; ()"
+                  symbolName = "MacroChallenge.TabBarViewController.getAllCategories() -&gt; Swift.Array&lt;MacroChallenge.Category&gt;"
                   moduleName = "MacroChallenge"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/CategoryViewController.swift"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/TabBarViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "48">
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "532">
                </Location>
                <Location
-                  uuid = "031E6D0A-815A-4145-988A-4B0F8186E049 - 1a25f3ee0a6902a7"
+                  uuid = "3FB18F79-2D9E-4478-9A13-E65D54AFEB5F - 99e5375264daae33"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.CategoryViewController.didSelectCategory(category: Swift.Int) -&gt; ()"
+                  symbolName = "closure #1 (MacroChallenge.Category) -&gt; Swift.Bool in MacroChallenge.TabBarViewController.getAllCategories() -&gt; Swift.Array&lt;MacroChallenge.Category&gt;"
                   moduleName = "MacroChallenge"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/CategoryViewController.swift"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/TabBarViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "48">
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "3FB18F79-2D9E-4478-9A13-E65D54AFEB5F - a31f898144c6a130"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroChallenge.TabBarViewController.getAllCategories() -&gt; Swift.Array&lt;MacroChallenge.Category&gt;"
+                  moduleName = "MacroChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/TabBarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "744">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -71,16 +70,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E571722E-4E81-4B09-9A27-48172D37BBA4"
+            uuid = "A24317B5-074E-41E5-812F-580DB47872F3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/CategoryViewController.swift"
+            filePath = "MacroChallenge/Controller/TabBarViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "setup(monthUpdatesDelegate:currentMonth:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "getFoodData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A24317B5-074E-41E5-812F-580DB47872F3 - bddee10d9b2726e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroChallenge.TabBarViewController.getFoodData() -&gt; ()"
+                  moduleName = "MacroChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/TabBarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "296">
+               </Location>
+               <Location
+                  uuid = "A24317B5-074E-41E5-812F-580DB47872F3 - bddee10d9b2726e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroChallenge.TabBarViewController.getFoodData() -&gt; ()"
+                  moduleName = "MacroChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/TabBarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADEEC848-3727-418B-928F-6B2ED109C435"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroChallenge/Controller/TabBarViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getAllCategories()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE398F42-3C4C-4E02-9346-90A537A1FBC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroChallenge/View/Category/Views/CategoryCollectionViewComponent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

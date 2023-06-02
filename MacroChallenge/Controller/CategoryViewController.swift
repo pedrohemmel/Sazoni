@@ -17,8 +17,9 @@ class CategoryViewController: UIViewController {
     //MARK: - Views
     weak private var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
     var currentMonth: String? = nil
+    private var categories: [Category]? = nil
     
-    var exampleViewController = ExampleViewController()
+    var foodViewController = FoodViewController()
     
     lazy var categoryView = CategoryView(frame: self.view.frame)
     
@@ -29,13 +30,12 @@ class CategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.categoryView.categoryCollectionViewComponent.setup(selectedCategoryDelegate: self)
     }
 }
 
 extension CategoryViewController: MCSelectedCategoryDelegate {
     func didSelectCategory(category: Int) {
-        self.navigationController?.pushViewController(exampleViewController, animated: true)
+        self.navigationController?.pushViewController(self.foodViewController, animated: true)
     }
     
     func didSelectMonthButton() {
@@ -45,8 +45,11 @@ extension CategoryViewController: MCSelectedCategoryDelegate {
 
 //MARK: - Functions
 extension CategoryViewController {
-    func setup(monthUpdatesDelegate: MCMonthUpdatesDelegate, currentMonth: String) {
+    func setup(categories: [Category], monthUpdatesDelegate: MCMonthUpdatesDelegate, foods: [Food], currentMonth: String) {
+        self.categories = categories
         self.currentMonth = currentMonth
-        self.exampleViewController.setup(monthUpdatesDelegate: monthUpdatesDelegate, currentMonth: currentMonth)
+        self.categoryView.setup(currentMonth: currentMonth)
+        self.categoryView.categoryCollectionViewComponent.setup(selectedCategoryDelegate: self, categories: categories)
+        self.foodViewController.setup(foods: foods, currentMonth: currentMonth, monthUpdatesDelegate: monthUpdatesDelegate)
     }
 }

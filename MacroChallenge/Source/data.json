@@ -665,7 +665,6 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
         },
         "seasonalities": [{
                 "month_name_seasonality": "Janeiro",

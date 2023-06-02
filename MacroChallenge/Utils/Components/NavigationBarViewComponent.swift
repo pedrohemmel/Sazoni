@@ -11,14 +11,34 @@ class NavigationBarViewComponent: UINavigationBar {
     weak var monthButtonDelegate: MCMonthNavigationButtonDelegate? = nil
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.setupViewConfiguration()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
+extension NavigationBarViewComponent: ViewCode {
+    func buildViewHierarchy() {
+        
+    }
+    
+    func setupConstraints() {
+        
+    }
+    
+    func setupAdditionalConfiguration() {
+        self.backgroundColor = UIColor.clear
+//        self.backgroundView = UIView(frame: CGRect.zero)
+        
+    }
+}
+
 //MARK: - Functions
 extension NavigationBarViewComponent {
+    func setup(monthButtonDelegate: MCMonthNavigationButtonDelegate) {
+        self.monthButtonDelegate = monthButtonDelegate
+    }
     func setupItems(title: String?, trailingButtonTitle: String?, leadingButtonTitle: String?, centerButtonTitle: String?, centeredMonthButton: UIButton?) {
         var navItem = UINavigationItem()
         if let title = title {

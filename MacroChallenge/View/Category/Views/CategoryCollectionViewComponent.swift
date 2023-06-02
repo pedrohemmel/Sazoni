@@ -11,6 +11,8 @@ class CategoryCollectionViewComponent: UICollectionView {
     
     weak var selectedCategoryDelegate: MCSelectedCategoryDelegate? = nil
     
+    private var categories: [Category] = [Category]()
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         self.setupViewConfiguration()
@@ -37,14 +39,18 @@ extension CategoryCollectionViewComponent: ViewCode {
 //MARK: - UICollectionViewDataSource
 extension CategoryCollectionViewComponent: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return self.categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
-        cell.title.text = "Ola\(indexPath.row)"
-        cell.backgroundColor = .gray
-        cell.layer.cornerRadius = 10
+        cell.categoryFood.text = self.categories[indexPath.row].name_category
+        cell.categoryFood.textColor = UIColor(named: "border_\(indexPath.row)")
+        cell.categoryImage.image = UIImage(named: "icon_\(self.categories[indexPath.row].id_category)")
+        cell.backgroundColor = UIColor(named: "background_\(indexPath.row)")
+        cell.layer.borderColor = UIColor(named: "border_\(indexPath.row)")?.cgColor
+        cell.layer.borderWidth = 5
+        cell.layer.cornerRadius = 20
         return cell
     }
 }
@@ -52,14 +58,16 @@ extension CategoryCollectionViewComponent: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension CategoryCollectionViewComponent: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedCategoryDelegate?.didSelectCategory(category: indexPath.row)
+        self.selectedCategoryDelegate?.didSelectCategory(category: self.categories[indexPath.row])
     }
 }
 
 //MARK: - Functions
 extension CategoryCollectionViewComponent {
-    func setup(selectedCategoryDelegate: MCSelectedCategoryDelegate) {
+    func setup(selectedCategoryDelegate: MCSelectedCategoryDelegate, categories: [Category]) {
+        self.categories = categories
         self.selectedCategoryDelegate = selectedCategoryDelegate
+        self.reloadData()
     }
 }
 

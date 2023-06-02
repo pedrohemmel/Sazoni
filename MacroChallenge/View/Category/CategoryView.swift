@@ -8,6 +8,9 @@
 import UIKit
 
 class CategoryView: UIView {
+    
+    private var currentMonth: String? = nil
+    
     //MARK: - Views
     lazy var categoryTitle: UILabel = {
         let title = UILabel()
@@ -21,18 +24,21 @@ class CategoryView: UIView {
     lazy var monthBtn: UIButton = {
         let monthBtn = UIButton()
         monthBtn.setTitle("Mês", for: .normal)
-        monthBtn.backgroundColor = .gray
-        monthBtn.layer.cornerRadius = 10
+        monthBtn.setTitleColor(.black, for: .normal)
+        monthBtn.titleLabel?.font =  UIFont.systemFont(ofSize: 30, weight: .heavy)
+        monthBtn.layer.borderColor = UIColor.black.cgColor
+        monthBtn.layer.borderWidth = 5
+        monthBtn.layer.cornerRadius = 20
         monthBtn.translatesAutoresizingMaskIntoConstraints = false
         return monthBtn
     }()
     
     lazy var categoryCollectionViewComponent = {
         let collectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let spaceBetweenItems = 40.0
+        let spaceBetweenItems = 20.0
         collectionViewLayout.itemSize = CGSize(width: (self.bounds.width / 2 - spaceBetweenItems), height: (self.bounds.width / 2 - spaceBetweenItems))
-        collectionViewLayout.minimumInteritemSpacing = 20
-        collectionViewLayout.minimumLineSpacing = 20
+        collectionViewLayout.minimumInteritemSpacing = 10
+        collectionViewLayout.minimumLineSpacing = 10
         collectionViewLayout.scrollDirection = .vertical
         
         let categoryCollectionViewComponent = CategoryCollectionViewComponent(frame: .zero, collectionViewLayout: collectionViewLayout)
@@ -51,22 +57,15 @@ class CategoryView: UIView {
 
 extension CategoryView: ViewCode {
     func buildViewHierarchy() {
-        [self.categoryTitle, self.monthBtn, self.categoryCollectionViewComponent].forEach({self.addSubview($0)})
+        [self.monthBtn, self.categoryCollectionViewComponent].forEach({self.addSubview($0)})
     }
     
     func setupConstraints() {
-        self.categoryTitle.setupConstraints { view in
-            [
-                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.bottomAnchor.constraint(equalTo: self.monthBtn.topAnchor, constant: -(self.bounds.height * 0.05))
-            ]
-        }
         self.monthBtn.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.categoryTitle.bottomAnchor, constant: (self.bounds.height * 0.05)),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: (self.bounds.height * 0.05)),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
                 view.bottomAnchor.constraint(equalTo: self.categoryCollectionViewComponent.topAnchor, constant: -20),
                 view.heightAnchor.constraint(equalToConstant: 150)
             ]
@@ -75,14 +74,22 @@ extension CategoryView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.monthBtn.bottomAnchor, constant: 20),
                 view.widthAnchor.constraint(equalToConstant: self.bounds.width),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ]
         }
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = .systemGray5
+        self.backgroundColor = .white
+    }
+}
+
+//MARK: - Functions here
+extension CategoryView {
+    func setup(currentMonth: String) {
+        self.currentMonth = currentMonth
+        self.monthBtn.setTitle("\(currentMonth)", for: .normal)
     }
 }

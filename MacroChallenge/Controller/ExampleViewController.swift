@@ -8,10 +8,7 @@
 import Foundation
 import UIKit
 
-protocol MCMonthNavigationButtonDelegate: AnyObject {
-    func didClickMonthButton(currentMonth: String)
-    func didSelectNewMonth(month: String)
-}
+
 
 class ExampleViewController: UIViewController {
     

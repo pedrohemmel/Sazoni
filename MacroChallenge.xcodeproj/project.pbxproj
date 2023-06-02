@@ -13,7 +13,6 @@
 		3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */; };
 		3F1252F02A267EF50048E7FB /* FoodManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1252EF2A267EF50048E7FB /* FoodManagerTests.swift */; };
 		3F47FB252A251A2E00356430 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F47FB242A251A2E00356430 /* data.json */; };
-		88940E412A27C46A00A12C2B /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88940E402A27C46A00A12C2B /* FoodCollectionViewCell.swift */; };
 		BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F002A2516A0001F71ED /* AppDelegate.swift */; };
 		BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F022A2516A0001F71ED /* SceneDelegate.swift */; };
 		BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F042A2516A0001F71ED /* TabBarViewController.swift */; };
@@ -34,6 +33,10 @@
 		BBD62F5F2A27CE7F001F71ED /* MonthSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F5E2A27CE7F001F71ED /* MonthSelectionCollectionView.swift */; };
 		BBD62F622A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F612A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift */; };
 		BBD62F642A290442001F71ED /* MonthSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F632A290442001F71ED /* MonthSelectionTests.swift */; };
+		BBD62F712A2996AE001F71ED /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F702A2996AE001F71ED /* FoodView.swift */; };
+		BBD62F742A2996F3001F71ED /* FoodCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */; };
+		BBD62F772A29973A001F71ED /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F762A29973A001F71ED /* FoodCollectionViewCell.swift */; };
+		BBD62F7A2A2A28A2001F71ED /* FoodSwipeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F792A2A28A2001F71ED /* FoodSwipeCategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +56,6 @@
 		3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeasonalityModel.swift; path = MacroChallenge/Source/SeasonalityModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252EF2A267EF50048E7FB /* FoodManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagerTests.swift; sourceTree = "<group>"; };
 		3F47FB242A251A2E00356430 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
-		88940E402A27C46A00A12C2B /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBD62EFD2A2516A0001F71ED /* MacroChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD62F002A2516A0001F71ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD62F022A2516A0001F71ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,10 @@
 		BBD62F5E2A27CE7F001F71ED /* MonthSelectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionCollectionView.swift; sourceTree = "<group>"; };
 		BBD62F612A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBD62F632A290442001F71ED /* MonthSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionTests.swift; sourceTree = "<group>"; };
+		BBD62F702A2996AE001F71ED /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
+		BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionView.swift; sourceTree = "<group>"; };
+		BBD62F762A29973A001F71ED /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		BBD62F792A2A28A2001F71ED /* FoodSwipeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSwipeCategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +109,6 @@
 				3F47FB242A251A2E00356430 /* data.json */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		88940E3F2A27C33C00A12C2B /* Food */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Food;
 			sourceTree = "<group>";
 		};
 		BBD62EF42A2516A0001F71ED = {
@@ -168,8 +167,7 @@
 		BBD62F312A2516DF001F71ED /* View */ = {
 			isa = PBXGroup;
 			children = (
-				88940E3F2A27C33C00A12C2B /* Food */,
-				BBD62F512A2696A0001F71ED /* Components */,
+				BBD62F6F2A29969B001F71ED /* Food */,
 				BBD62F5A2A27CCD7001F71ED /* MonthSelection */,
 				BBD62F452A253E5C001F71ED /* Category */,
 				BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */,
@@ -185,7 +183,6 @@
 				BBD62F3B2A2525A8001F71ED /* ExampleViewController.swift */,
 				BBD62F3D2A25278D001F71ED /* ExampleSecondaryViewController.swift */,
 				BBD62F562A27BE42001F71ED /* FoodViewController.swift */,
-				88940E402A27C46A00A12C2B /* FoodCollectionViewCell.swift */,
 				BBD62F582A27CC5B001F71ED /* MonthSelectionViewController.swift */,
 			);
 			path = Controller;
@@ -194,6 +191,7 @@
 		BBD62F332A25170B001F71ED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BBD62F512A2696A0001F71ED /* Components */,
 				3F1252E72A266C230048E7FB /* FoodManager.swift */,
 				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
 				BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */,
@@ -230,7 +228,9 @@
 		BBD62F512A2696A0001F71ED /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BBD62F752A299700001F71ED /* Cells */,
 				BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */,
+				BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -259,6 +259,31 @@
 				BBD62F612A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BBD62F6F2A29969B001F71ED /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F702A2996AE001F71ED /* FoodView.swift */,
+				BBD62F782A2A2882001F71ED /* Views */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		BBD62F752A299700001F71ED /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F762A29973A001F71ED /* FoodCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BBD62F782A2A2882001F71ED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F792A2A28A2001F71ED /* FoodSwipeCategoryView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBD62F712A2996AE001F71ED /* FoodView.swift in Sources */,
 				BBD62F5F2A27CE7F001F71ED /* MonthSelectionCollectionView.swift in Sources */,
 				BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */,
 				3F1252E82A266C230048E7FB /* FoodManager.swift in Sources */,
@@ -371,6 +397,8 @@
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
 				3F1252EA2A266DD90048E7FB /* FoodModel.swift in Sources */,
 				BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */,
+				BBD62F772A29973A001F71ED /* FoodCollectionViewCell.swift in Sources */,
+				BBD62F742A2996F3001F71ED /* FoodCollectionView.swift in Sources */,
 				BBD62F532A2696C0001F71ED /* NavigationBarViewComponent.swift in Sources */,
 				BBD62F5C2A27CD38001F71ED /* MonthSelectionView.swift in Sources */,
 				BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */,
@@ -382,8 +410,8 @@
 				3F1252EC2A266FE00048E7FB /* CategoryModel.swift in Sources */,
 				3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */,
 				BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */,
-				88940E412A27C46A00A12C2B /* FoodCollectionViewCell.swift in Sources */,
 				BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */,
+				BBD62F7A2A2A28A2001F71ED /* FoodSwipeCategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

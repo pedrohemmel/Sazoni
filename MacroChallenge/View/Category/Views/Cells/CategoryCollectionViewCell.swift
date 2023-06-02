@@ -9,11 +9,22 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     //MARK: - Views
-    var title: UILabel = {
-        let title = UILabel()
-        title.textColor = .white
-        title.translatesAutoresizingMaskIntoConstraints = false
-        return title
+    lazy var categoryImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
+    lazy var categoryFood: UILabel = {
+        let nameFood = UILabel()
+        nameFood.textColor = .black
+        nameFood.translatesAutoresizingMaskIntoConstraints = false
+        nameFood.textAlignment = .center
+        nameFood.numberOfLines = 3
+        nameFood.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        return nameFood
     }()
     
     override init(frame: CGRect) {
@@ -26,21 +37,30 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.title.text = ""
+        self.categoryFood.text = ""
+        self.categoryImage.image = nil
     }
 }
 
 //MARK: - ViewCode
 extension CategoryCollectionViewCell: ViewCode {
     func buildViewHierarchy() {
-        [self.title].forEach({self.addSubview($0)})
+        [self.categoryFood, self.categoryImage].forEach({self.addSubview($0)})
     }
     
     func setupConstraints() {
-        self.title.setupConstraints { view in
+        self.categoryFood.setupConstraints { view in
             [
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+                view.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+                view.bottomAnchor.constraint(equalTo: self.categoryImage.topAnchor, constant: -20)
+            ]
+        }
+        
+        self.categoryImage.setupConstraints { view in
+            [
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                view.topAnchor.constraint(equalTo: self.categoryFood.bottomAnchor, constant: 20)
             ]
         }
     }

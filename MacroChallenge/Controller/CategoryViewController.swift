@@ -9,16 +9,16 @@ import Foundation
 import UIKit
 
 protocol MCSelectedCategoryDelegate: AnyObject {
-    func didSelectCategory(category: Int)
+    func didSelectCategory(category: Category)
     func didSelectMonthButton()
 }
 
 class CategoryViewController: UIViewController {
     //MARK: - Views
     weak private var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
-    var currentMonth: String? = nil
-    
-    var exampleViewController = ExampleViewController()
+    private var categories: [Category] = [Category]()
+    private var foods: [Food] = [Food]()
+    var currentMonth: String = ""
     
     lazy var categoryView = CategoryView(frame: self.view.frame)
     
@@ -29,13 +29,18 @@ class CategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.categoryView.categoryCollectionViewComponent.setup(selectedCategoryDelegate: self)
     }
 }
 
 extension CategoryViewController: MCSelectedCategoryDelegate {
-    func didSelectCategory(category: Int) {
-        self.navigationController?.pushViewController(exampleViewController, animated: true)
+    
+    func didSelectCategory(category: Category) {
+        let foodViewController = FoodViewController()
+        if let monthUpdatesDelegate = monthUpdatesDelegate {
+            foodViewController.setup(foods: self.foods, currentMonth: self.currentMonth, monthUpdatesDelegate: monthUpdatesDelegate, category: category, categories: self.categories)
+        }
+        
+        self.navigationController?.pushViewController(foodViewController, animated: true)
     }
     
     func didSelectMonthButton() {
@@ -45,8 +50,12 @@ extension CategoryViewController: MCSelectedCategoryDelegate {
 
 //MARK: - Functions
 extension CategoryViewController {
-    func setup(monthUpdatesDelegate: MCMonthUpdatesDelegate, currentMonth: String) {
+    func setup(categories: [Category], monthUpdatesDelegate: MCMonthUpdatesDelegate, foods: [Food], currentMonth: String) {
+        self.foods = foods
+        self.categories = categories
         self.currentMonth = currentMonth
-        self.exampleViewController.setup(monthUpdatesDelegate: monthUpdatesDelegate, currentMonth: currentMonth)
+        self.monthUpdatesDelegate = monthUpdatesDelegate
+        self.categoryView.setup(currentMonth: currentMonth)
+        self.categoryView.categoryCollectionViewComponent.setup(selectedCategoryDelegate: self, categories: categories)
     }
 }

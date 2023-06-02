@@ -6,88 +6,116 @@
  //
  import UIKit
 
+protocol MCMonthNavigationButtonDelegate: AnyObject {
+    func didClickMonthButton(currentMonth: String)
+    func didSelectNewMonth(month: String)
+}
+
+protocol MCCategorySwipeDelegate: AnyObject {
+    func didClickBackCategory()
+    func didClickNextCategory()
+}
 
  final class FoodViewController: UIViewController {
+     
+     weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
+     var currentMonth: String? = nil
      var foods = [Food]()
-     private var dataIsReceived = false
-     lazy private var foodManager = FoodManager(response: {
-         self.dataIsReceived = true
-         self.setupViewConfiguration()
-     })
-     private lazy var collectionView: FoodCollectionView = {
-         let layout = UICollectionViewFlowLayout()
-         layout.scrollDirection = .vertical
-         layout.itemSize = CGSize(width: 105, height: 162)
-
-         let collectionViewInstance = FoodCollectionView(frame: view.bounds, collectionViewLayout: layout)
-         collectionViewInstance.translatesAutoresizingMaskIntoConstraints = false
-         collectionViewInstance.backgroundColor = UIColor.white
-         collectionViewInstance.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "FoodCollectionViewCell")
-         collectionViewInstance.delegate = collectionViewInstance
-         collectionViewInstance.dataSource = collectionViewInstance
-
-         return collectionViewInstance
-     }()
+     var category: Category = Category(id_category: 0, name_category: "")
+     var categories = [Category]()
+     var filteredFoods = [Food]()
+     
+     lazy private var foodView = FoodView(frame: self.view.frame)
+     
+     override func loadView() {
+         super.loadView()
+         self.view = foodView
+     }
 
      override func viewDidLoad() {
          super.viewDidLoad()
-         self.setupViewConfiguration()
+         self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "Erro mês", category: self.category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+         self.navigationItem.hidesBackButton = true
      }
  }
 
- extension FoodViewController: ViewCode {
-     func buildViewHierarchy() {
-         view.addSubview(collectionView)
-     }
-
-     func setupConstraints() {
-         NSLayoutConstraint.activate([
-             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-         ])
-     }
-
-     func setupAdditionalConfiguration() {
-         
-         if !self.dataIsReceived {
-             self.foodManager.fetchFood()
-         } else {
-             self.foods = self.foodManager.foods
-             self.collectionView.foods = self.foods
-             self.collectionView.reloadData()
-         }
-     }
- }
+extension FoodViewController: MCMonthNavigationButtonDelegate {
+    func didClickMonthButton(currentMonth: String) {
+        let newVC = MonthSelectionViewController()
+        newVC.delegate = self
+        newVC.sheetPresentationController?.detents = [.medium()]
+        self.present(newVC, animated: true)
+    }
     
+    func didSelectNewMonth(month: String) {
+        self.monthUpdatesDelegate?.didChangeMonth(newMonthName: month)
+        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: month)
+        self.foodView.setup(foods: self.filteredFoods, currentMonth: month, category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+    }
+}
 
- class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
-    var foods = [Food]()
-     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return foods.count
-     }
-
-     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         backgroundColor = .clear
-         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCollectionViewCell", for: indexPath) as! FoodCollectionViewCell
-         cell.foodImage.image = UIImage(named: "abobrinha_brasileira")
-         cell.nameFood.text = foods[indexPath.row].name_food
-         cell.sazonality.text = foods[indexPath.row].seasonalities[2].state_seasonality + " disponibilidade"
-         
-         cell.container.backgroundColor = UIColor(named: foods[indexPath.row]
-                                                            .seasonalities[2]
-                                                            .state_seasonality)
-         cell.layer.cornerRadius = 20
-         cell.container.layer.borderColor = UIColor(named: "Border"+foods[indexPath.row]
-                                                                        .seasonalities[2]
-                                                                        .state_seasonality)?.cgColor
-         
-         return cell
-     }
- }
-
-
-extension FoodCollectionView: UICollectionViewDelegate{
+extension FoodViewController: MCCategorySwipeDelegate {
+    func didClickBackCategory() {
+        let currentCategoryIndex = self.categories.firstIndex(where: {$0.id_category == self.category.id_category}) ?? 0
+        if currentCategoryIndex > 0 {
+            self.category = self.categories[currentCategoryIndex - 1]
+        }
+        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: self.currentMonth ?? "")
+        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+    }
     
+    func didClickNextCategory() {
+        let currentCategoryIndex = self.categories.firstIndex(where: {$0.id_category == self.category.id_category}) ?? 0
+        let lastIndexOfCategories = self.categories.firstIndex(where: {$0.id_category == self.categories.last?.id_category}) ?? 0
+        if currentCategoryIndex < lastIndexOfCategories {
+            self.category = self.categories[currentCategoryIndex + 1]
+        }
+        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: self.currentMonth ?? "")
+        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+    }
+}
+
+//MARK: - Functions here
+extension FoodViewController {
+    func setup(foods: [Food], currentMonth: String, monthUpdatesDelegate: MCMonthUpdatesDelegate, category: Category, categories: [Category]) {
+        self.foods = foods
+        self.currentMonth = currentMonth
+        self.monthUpdatesDelegate = monthUpdatesDelegate
+        self.category = category
+        
+        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: currentMonth)
+    }
+    
+    func filterFoods(foods: [Food], category: Category, currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        newFoods = self.filterFoodsByCategory(foods: foods, category: category)
+        newFoods = self.orderFoodsByHighQualityInCurrentMonth(foods: newFoods, currentMonth: currentMonth)
+        return newFoods
+    }
+    func filterFoodsByCategory(foods: [Food], category: Category) -> [Food] {
+        return foods.filter({ food in
+            return food.category_food.id_category == category.id_category
+        })
+    }
+    func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Alta", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Média", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Baixa", foods: foods, currentMonth: currentMonth))
+        return newFoods
+    }
+    
+    func getFoodsInCurrentMonthWithState(state: String, foods: [Food], currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        for food in foods {
+            for seasonality in food.seasonalities {
+                if seasonality.month_name_seasonality.lowercased() == currentMonth.lowercased() {
+                    if seasonality.state_seasonality.lowercased() == state.lowercased() {
+                        newFoods.append(food)
+                    }
+                }
+            }
+        }
+        return newFoods
+    }
 }

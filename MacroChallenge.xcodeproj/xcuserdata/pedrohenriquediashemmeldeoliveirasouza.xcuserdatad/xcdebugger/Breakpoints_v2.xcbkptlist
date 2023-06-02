@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D5B311AF-1044-4074-94CC-470BFE6B7781"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FoodViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "setup(foods:currentMonth:monthUpdatesDelegate:category:categories:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1E4051F5-C988-43BF-B718-436940C9EEF9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -128,54 +112,6 @@
                   startingLineNumber = "40"
                   endingLineNumber = "40"
                   offsetFromSymbolStart = "184">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E110A79B-792A-4750-8195-49004365C779"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FoodViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "setup(foods:currentMonth:monthUpdatesDelegate:category:categories:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E110A79B-792A-4750-8195-49004365C779 - e20fa0f867331be5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FoodViewController.setup(foods: Swift.Array&lt;MacroChallenge.Food&gt;, currentMonth: Swift.String, monthUpdatesDelegate: MacroChallenge.MCMonthUpdatesDelegate, category: MacroChallenge.Category) -&gt; ()"
-                  moduleName = "MacroChallenge"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FoodViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "212">
-               </Location>
-               <Location
-                  uuid = "E110A79B-792A-4750-8195-49004365C779 - e20fa0f867331be5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FoodViewController.setup(foods: Swift.Array&lt;MacroChallenge.Food&gt;, currentMonth: Swift.String, monthUpdatesDelegate: MacroChallenge.MCMonthUpdatesDelegate, category: MacroChallenge.Category) -&gt; ()"
-                  moduleName = "MacroChallenge"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FoodViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "128">
                </Location>
             </Locations>
          </BreakpointContent>

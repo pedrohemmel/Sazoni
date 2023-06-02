@@ -62,7 +62,7 @@ extension MonthSelectionView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = .blue
+        self.backgroundColor = .white
     }
 }
 

@@ -27,7 +27,7 @@ class TabBarViewController: UITabBarController {
          })
 
     private var categoryViewController = CategoryViewController()
-    private var exampleViewController = ExampleViewController()
+    private var exampleViewController = SearchViewController()
     private var exampleSecondaryViewController = ExampleSecondaryViewController()
     
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ extension TabBarViewController {
         guard let items = self.tabBar.items else { return }
         
         items[0].image = UIImage(systemName: "house")
-        items[1].image = UIImage(systemName: "function")
+        items[1].image = UIImage(systemName: "magnifyingglass")
         items[2].image = UIImage(systemName: "person.circle")
     }
     
@@ -66,7 +66,6 @@ extension TabBarViewController {
         if !self.categories.isEmpty {
             self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth)
         }
-        self.exampleViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
     }
     
     private func getFoodData() {

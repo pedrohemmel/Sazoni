@@ -1,10 +1,3 @@
-//
- //  FoodViewController.swift
- //  MacroChallenge
- //
- //  Created by Bruno Lafayette on 29/05/23.
- //
- import UIKit
 
 protocol MCMonthNavigationButtonDelegate: AnyObject {
     func didClickMonthButton(currentMonth: String)
@@ -15,6 +8,8 @@ protocol MCCategorySwipeDelegate: AnyObject {
     func didClickBackCategory()
     func didClickNextCategory()
 }
+
+import UIKit
 
  final class FoodViewController: UIViewController {
      
@@ -46,7 +41,6 @@ extension FoodViewController: MCMonthNavigationButtonDelegate {
         newVC.sheetPresentationController?.detents = [.medium()]
         self.present(newVC, animated: true)
     }
-    
     func didSelectNewMonth(month: String) {
         self.monthUpdatesDelegate?.didChangeMonth(newMonthName: month)
         self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: month)

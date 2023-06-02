@@ -13,6 +13,9 @@
 		3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */; };
 		3F1252F02A267EF50048E7FB /* FoodManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1252EF2A267EF50048E7FB /* FoodManagerTests.swift */; };
 		3F47FB252A251A2E00356430 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F47FB242A251A2E00356430 /* data.json */; };
+		889904822A2A0BA40067FEC7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889904812A2A0BA40067FEC7 /* SearchViewController.swift */; };
+		88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4694E2A2995BF00755698 /* SearchBarComponent.swift */; };
+		88B469522A299CCB00755698 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B469512A299CCB00755698 /* SearchView.swift */; };
 		BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F002A2516A0001F71ED /* AppDelegate.swift */; };
 		BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F022A2516A0001F71ED /* SceneDelegate.swift */; };
 		BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F042A2516A0001F71ED /* TabBarViewController.swift */; };
@@ -56,6 +59,9 @@
 		3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeasonalityModel.swift; path = MacroChallenge/Source/SeasonalityModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252EF2A267EF50048E7FB /* FoodManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagerTests.swift; sourceTree = "<group>"; };
 		3F47FB242A251A2E00356430 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		889904812A2A0BA40067FEC7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		88B4694E2A2995BF00755698 /* SearchBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarComponent.swift; sourceTree = "<group>"; };
+		88B469512A299CCB00755698 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		BBD62EFD2A2516A0001F71ED /* MacroChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD62F002A2516A0001F71ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD62F022A2516A0001F71ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +115,14 @@
 				3F47FB242A251A2E00356430 /* data.json */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		88B469502A299C9600755698 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				88B469512A299CCB00755698 /* SearchView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		BBD62EF42A2516A0001F71ED = {
@@ -171,6 +185,7 @@
 				BBD62F5A2A27CCD7001F71ED /* MonthSelection */,
 				BBD62F452A253E5C001F71ED /* Category */,
 				BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */,
+				88B469502A299C9600755698 /* Search */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				BBD62F412A253C90001F71ED /* CategoryViewController.swift */,
+				889904812A2A0BA40067FEC7 /* SearchViewController.swift */,
 				BBD62F042A2516A0001F71ED /* TabBarViewController.swift */,
 				BBD62F3B2A2525A8001F71ED /* ExampleViewController.swift */,
 				BBD62F3D2A25278D001F71ED /* ExampleSecondaryViewController.swift */,
@@ -231,6 +247,7 @@
 				BBD62F752A299700001F71ED /* Cells */,
 				BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */,
 				BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */,
+				88B4694E2A2995BF00755698 /* SearchBarComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -392,6 +409,8 @@
 				BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */,
 				3F1252E82A266C230048E7FB /* FoodManager.swift in Sources */,
 				BBD62F622A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift in Sources */,
+				88B469522A299CCB00755698 /* SearchView.swift in Sources */,
+				88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */,
 				BBD62F592A27CC5B001F71ED /* MonthSelectionViewController.swift in Sources */,
 				BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */,
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
@@ -403,6 +422,7 @@
 				BBD62F5C2A27CD38001F71ED /* MonthSelectionView.swift in Sources */,
 				BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */,
 				BBD62F422A253C90001F71ED /* CategoryViewController.swift in Sources */,
+				889904822A2A0BA40067FEC7 /* SearchViewController.swift in Sources */,
 				BBD62F3E2A25278D001F71ED /* ExampleSecondaryViewController.swift in Sources */,
 				BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */,
 				BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */,

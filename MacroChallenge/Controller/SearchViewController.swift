@@ -59,7 +59,9 @@ extension SearchViewController{
             self.searchView.gridFood.foods = self.filteredFoods
             self.searchView.gridFood.reloadData()
         } else {
-            filteredFoods = foods.filter { $0.name_food.lowercased().contains(searchText.lowercased()) || $0.seasonalities[5].state_seasonality.lowercased().contains(searchText.lowercased()) }
+            filteredFoods = foods.filter { $0.name_food.lowercased().contains(searchText.lowercased()) ||                       $0.seasonalities[5].state_seasonality.lowercased().contains(searchText.lowercased()) ||
+                $0.category_food.name_category.lowercased().contains(searchText.lowercased())
+            }
             self.searchView.gridFood.foods = self.filteredFoods
             self.searchView.gridFood.reloadData()
         }

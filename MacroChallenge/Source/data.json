@@ -1860,7 +1860,7 @@
     {
         "id_food": 31,
         "name_food": "Bonito",
-        "image_source_food": "sem_imaegm.jpg",
+        "image_source_food": "sem_imagem.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 3,

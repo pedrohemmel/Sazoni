@@ -9,17 +9,16 @@ import Foundation
 import UIKit
 
 protocol MCSelectedCategoryDelegate: AnyObject {
-    func didSelectCategory(category: Int)
+    func didSelectCategory(category: Category)
     func didSelectMonthButton()
 }
 
 class CategoryViewController: UIViewController {
     //MARK: - Views
     weak private var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
-    var currentMonth: String? = nil
-    private var categories: [Category]? = nil
-    
-    var foodViewController = FoodViewController()
+    private var categories: [Category] = [Category]()
+    private var foods: [Food] = [Food]()
+    var currentMonth: String = ""
     
     lazy var categoryView = CategoryView(frame: self.view.frame)
     
@@ -34,8 +33,14 @@ class CategoryViewController: UIViewController {
 }
 
 extension CategoryViewController: MCSelectedCategoryDelegate {
-    func didSelectCategory(category: Int) {
-        self.navigationController?.pushViewController(self.foodViewController, animated: true)
+    
+    func didSelectCategory(category: Category) {
+        let foodViewController = FoodViewController()
+        if let monthUpdatesDelegate = monthUpdatesDelegate {
+            foodViewController.setup(foods: self.foods, currentMonth: self.currentMonth, monthUpdatesDelegate: monthUpdatesDelegate, category: category, categories: self.categories)
+        }
+        
+        self.navigationController?.pushViewController(foodViewController, animated: true)
     }
     
     func didSelectMonthButton() {
@@ -46,10 +51,11 @@ extension CategoryViewController: MCSelectedCategoryDelegate {
 //MARK: - Functions
 extension CategoryViewController {
     func setup(categories: [Category], monthUpdatesDelegate: MCMonthUpdatesDelegate, foods: [Food], currentMonth: String) {
+        self.foods = foods
         self.categories = categories
         self.currentMonth = currentMonth
+        self.monthUpdatesDelegate = monthUpdatesDelegate
         self.categoryView.setup(currentMonth: currentMonth)
         self.categoryView.categoryCollectionViewComponent.setup(selectedCategoryDelegate: self, categories: categories)
-        self.foodViewController.setup(foods: foods, currentMonth: currentMonth, monthUpdatesDelegate: monthUpdatesDelegate)
     }
 }

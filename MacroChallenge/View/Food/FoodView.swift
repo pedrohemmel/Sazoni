@@ -13,6 +13,7 @@ class FoodView: UIView {
     weak var monthButtonDelegate: MCMonthNavigationButtonDelegate? = nil
     var currentMonth: String? = nil
     private var foods = [Food]()
+    var category = Category(id_category: 0, name_category: "")
     
     //MARK: - Views
     lazy private var monthTitle: UILabel = {
@@ -28,6 +29,12 @@ class FoodView: UIView {
         monthTitleButton.addTarget(nil, action: #selector(self.centeredMonthButtonAction), for: .touchUpInside)
         monthTitleButton.translatesAutoresizingMaskIntoConstraints = false
         return monthTitleButton
+    }()
+    
+    lazy private var foodSwipeCategoryView: FoodSwipeCategoryView = {
+        let foodSwipeCategoryView = FoodSwipeCategoryView(frame: .zero)
+        foodSwipeCategoryView.translatesAutoresizingMaskIntoConstraints = false
+        return foodSwipeCategoryView
     }()
     
     private lazy var collectionView: FoodCollectionView = {
@@ -54,7 +61,7 @@ class FoodView: UIView {
 
 extension FoodView: ViewCode {
     func buildViewHierarchy() {
-        [self.monthTitleBtn, self.collectionView].forEach({self.addSubview($0)})
+        [self.monthTitleBtn, self.foodSwipeCategoryView, self.collectionView].forEach({self.addSubview($0)})
     }
 
     func setupConstraints() {
@@ -63,7 +70,7 @@ extension FoodView: ViewCode {
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor)
+                view.bottomAnchor.constraint(equalTo: self.foodSwipeCategoryView.topAnchor)
             ]
         }
         self.monthTitle.setupConstraints { view in
@@ -73,9 +80,18 @@ extension FoodView: ViewCode {
             ]
         }
         
+        self.foodSwipeCategoryView.setupConstraints { view in
+            [
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                view.topAnchor.constraint(equalTo: self.monthTitleBtn.bottomAnchor, constant: 10),
+                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10),
+                view.heightAnchor.constraint(equalToConstant: 25)
+            ]
+        }
+        
         self.collectionView.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.monthTitleBtn.bottomAnchor),
+                view.topAnchor.constraint(equalTo: self.foodSwipeCategoryView.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
@@ -90,11 +106,13 @@ extension FoodView: ViewCode {
 
 //MARK: - Functions here
 extension FoodView {
-    func setup(foods: [Food], currentMonth: String, monthButtonDelegate: MCMonthNavigationButtonDelegate) {
+    func setup(foods: [Food], currentMonth: String, category: Category, monthButtonDelegate: MCMonthNavigationButtonDelegate, categorySwipeDelegeta: MCCategorySwipeDelegate) {
         self.foods = foods
         self.currentMonth = currentMonth
+        self.category = category
         
-        self.collectionView.setup(foods: foods)
+        self.foodSwipeCategoryView.setup(selectedCategory: category, categorySwipeDelegate: categorySwipeDelegeta)
+        self.collectionView.setup(foods: foods, currentMonth: currentMonth)
         self.monthTitle.text = currentMonth
         
         self.monthButtonDelegate = monthButtonDelegate
@@ -102,7 +120,6 @@ extension FoodView {
     }
     
     @objc func centeredMonthButtonAction() {
-        print("oi")
         self.monthButtonDelegate?.didClickMonthButton(currentMonth: "Abril")
     }
 }

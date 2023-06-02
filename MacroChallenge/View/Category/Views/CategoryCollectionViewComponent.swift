@@ -58,7 +58,7 @@ extension CategoryCollectionViewComponent: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension CategoryCollectionViewComponent: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedCategoryDelegate?.didSelectCategory(category: indexPath.row)
+        self.selectedCategoryDelegate?.didSelectCategory(category: self.categories[indexPath.row])
     }
 }
 

@@ -9,6 +9,7 @@ import UIKit
 
 class FoodCollectionView: UICollectionView {
     var foods = [Food]()
+    var currentMonth = ""
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -44,16 +45,16 @@ extension FoodCollectionView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCollectionViewCell", for: indexPath) as! FoodCollectionViewCell
-        cell.foodImage.image = UIImage(named: "atum")
+        cell.foodImage.image = UIImage(named: "\(self.foods[indexPath.row].image_source_food)")
         cell.nameFood.text = foods[indexPath.row].name_food
         cell.sazonality.text = foods[indexPath.row].seasonalities[2].state_seasonality + " disponibilidade"
         
         cell.container.backgroundColor = UIColor(named: foods[indexPath.row]
-                                                           .seasonalities[2]
+            .seasonalities[foods[indexPath.row].seasonalities.firstIndex(where: {$0.month_name_seasonality == self.currentMonth}) ?? 0]
                                                            .state_seasonality)
         cell.layer.cornerRadius = 20
         cell.container.layer.borderColor = UIColor(named: "Border"+foods[indexPath.row]
-                                                                       .seasonalities[2]
+                                                                       .seasonalities[foods[indexPath.row].seasonalities.firstIndex(where: {$0.month_name_seasonality == self.currentMonth}) ?? 0]
                                                                        .state_seasonality)?.cgColor
         
         return cell
@@ -66,8 +67,9 @@ extension FoodCollectionView: UICollectionViewDelegate {
 
 //MARK: - Functions here
 extension FoodCollectionView {
-    func setup(foods: [Food]) {
+    func setup(foods: [Food], currentMonth: String) {
         self.foods = foods
+        self.currentMonth = currentMonth
         self.reloadData()
     }
 }

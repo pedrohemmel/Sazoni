@@ -11,12 +11,20 @@ protocol MCMonthNavigationButtonDelegate: AnyObject {
     func didSelectNewMonth(month: String)
 }
 
+protocol MCCategorySwipeDelegate: AnyObject {
+    func didClickBackCategory()
+    func didClickNextCategory()
+}
+
  final class FoodViewController: UIViewController {
      
      weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
-     var foods = [Food]()
      var currentMonth: String? = nil
-    
+     var foods = [Food]()
+     var category: Category = Category(id_category: 0, name_category: "")
+     var categories = [Category]()
+     var filteredFoods = [Food]()
+     
      lazy private var foodView = FoodView(frame: self.view.frame)
      
      override func loadView() {
@@ -26,7 +34,7 @@ protocol MCMonthNavigationButtonDelegate: AnyObject {
 
      override func viewDidLoad() {
          super.viewDidLoad()
-         self.foodView.setup(foods: self.foods, currentMonth: self.currentMonth ?? "Erro mês", monthButtonDelegate: self)
+         self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "Erro mês", category: self.category, monthButtonDelegate: self, categorySwipeDelegeta: self)
          self.navigationItem.hidesBackButton = true
      }
  }
@@ -41,15 +49,73 @@ extension FoodViewController: MCMonthNavigationButtonDelegate {
     
     func didSelectNewMonth(month: String) {
         self.monthUpdatesDelegate?.didChangeMonth(newMonthName: month)
-        self.foodView.setup(foods: self.foods, currentMonth: month, monthButtonDelegate: self)
+        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: month)
+        self.foodView.setup(foods: self.filteredFoods, currentMonth: month, category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+    }
+}
+
+extension FoodViewController: MCCategorySwipeDelegate {
+    func didClickBackCategory() {
+        let currentCategoryIndex = self.categories.firstIndex(where: {$0.id_category == self.category.id_category}) ?? 0
+        if currentCategoryIndex > 0 {
+            self.category = self.categories[currentCategoryIndex - 1]
+        }
+        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: self.currentMonth ?? "")
+        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+    }
+    
+    func didClickNextCategory() {
+        let currentCategoryIndex = self.categories.firstIndex(where: {$0.id_category == self.category.id_category}) ?? 0
+        let lastIndexOfCategories = self.categories.firstIndex(where: {$0.id_category == self.categories.last?.id_category}) ?? 0
+        if currentCategoryIndex < lastIndexOfCategories {
+            self.category = self.categories[currentCategoryIndex + 1]
+        }
+        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: self.currentMonth ?? "")
+        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
     }
 }
 
 //MARK: - Functions here
 extension FoodViewController {
-    func setup(foods: [Food], currentMonth: String, monthUpdatesDelegate: MCMonthUpdatesDelegate) {
+    func setup(foods: [Food], currentMonth: String, monthUpdatesDelegate: MCMonthUpdatesDelegate, category: Category, categories: [Category]) {
         self.foods = foods
         self.currentMonth = currentMonth
         self.monthUpdatesDelegate = monthUpdatesDelegate
+        self.category = category
+        
+        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: currentMonth)
+    }
+    
+    func filterFoods(foods: [Food], category: Category, currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        newFoods = self.filterFoodsByCategory(foods: foods, category: category)
+        newFoods = self.orderFoodsByHighQualityInCurrentMonth(foods: newFoods, currentMonth: currentMonth)
+        return newFoods
+    }
+    func filterFoodsByCategory(foods: [Food], category: Category) -> [Food] {
+        return foods.filter({ food in
+            return food.category_food.id_category == category.id_category
+        })
+    }
+    func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Alta", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Média", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Baixa", foods: foods, currentMonth: currentMonth))
+        return newFoods
+    }
+    
+    func getFoodsInCurrentMonthWithState(state: String, foods: [Food], currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        for food in foods {
+            for seasonality in food.seasonalities {
+                if seasonality.month_name_seasonality.lowercased() == currentMonth.lowercased() {
+                    if seasonality.state_seasonality.lowercased() == state.lowercased() {
+                        newFoods.append(food)
+                    }
+                }
+            }
+        }
+        return newFoods
     }
 }

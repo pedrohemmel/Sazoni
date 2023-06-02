@@ -1558,8 +1558,8 @@
     },
     {
         "id_food": 26,
-        "name_food": "Minho Verde",
-        "image_source_food": "minho_verde.jpg",
+        "name_food": "Milho Verde",
+        "image_source_food": "milho_verde.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 2,

@@ -82,8 +82,8 @@ extension FoodCollectionViewCell: ViewCode{
         self.foodImage.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.topAnchor),
-                view.heightAnchor.constraint(equalToConstant: self.frame.width / 1.5),
-                view.heightAnchor.constraint(equalToConstant: self.frame.width / 1.5),
+                view.heightAnchor.constraint(equalToConstant: self.frame.width / 1.3),
+                view.heightAnchor.constraint(equalToConstant: self.frame.width / 1.3),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor)
             ]
         }
@@ -91,8 +91,8 @@ extension FoodCollectionViewCell: ViewCode{
         self.nameFood.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.foodImage.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.container.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.container.trailingAnchor),
+                view.leadingAnchor.constraint(equalTo: self.container.leadingAnchor, constant: 20),
+                view.trailingAnchor.constraint(equalTo: self.container.trailingAnchor, constant: -20),
                 view.bottomAnchor.constraint(equalTo: self.sazonality.topAnchor, constant: -20)
             ]
         }
@@ -100,8 +100,8 @@ extension FoodCollectionViewCell: ViewCode{
         self.sazonality.setupConstraints { view in
             [
                 view.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: -10),
-                view.leadingAnchor.constraint(equalTo: self.container.leadingAnchor, constant: 5),
-                view.trailingAnchor.constraint(equalTo: self.container.trailingAnchor, constant: -5)
+                view.leadingAnchor.constraint(equalTo: self.container.leadingAnchor, constant: 2),
+                view.trailingAnchor.constraint(equalTo: self.container.trailingAnchor, constant: -2)
             ]
         }
     }

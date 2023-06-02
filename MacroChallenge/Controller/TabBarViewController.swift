@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
         }
     }
     private var categoryViewController = CategoryViewController()
-    private var exampleViewController = ExampleViewController()
+    private var exampleViewController = SearchViewController()
     private var exampleSecondaryViewController = ExampleSecondaryViewController()
     
     override func viewDidLoad() {
@@ -50,14 +50,14 @@ extension TabBarViewController {
         guard let items = self.tabBar.items else { return }
         
         items[0].image = UIImage(systemName: "house")
-        items[1].image = UIImage(systemName: "function")
+        items[1].image = UIImage(systemName: "magnifyingglass")
         items[2].image = UIImage(systemName: "person.circle")
     }
     
     private func setupViewControllers() {
         //Here we set the variables that we want to pass through the controllers
         self.categoryViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
-        self.exampleViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
+//        self.exampleViewController.setup(monthUpdatesDelegate: self, currentMonth: self.currentMonth)
     }
 //    func setupop() {
 

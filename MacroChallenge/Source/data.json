@@ -659,7 +659,7 @@
     },
     {
         "id_food": 11,
-        "name_food": "Abrobrinha Japonesa",
+        "name_food": "Abrobrinha Brasileira",
         "image_source_food": "abobrinha_brasileira.jpg",
         "is_favorite_food": false,
         "category_food": {

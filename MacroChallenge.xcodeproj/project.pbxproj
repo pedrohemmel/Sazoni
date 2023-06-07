@@ -16,6 +16,10 @@
 		889904822A2A0BA40067FEC7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889904812A2A0BA40067FEC7 /* SearchViewController.swift */; };
 		88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4694E2A2995BF00755698 /* SearchBarComponent.swift */; };
 		88B469522A299CCB00755698 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B469512A299CCB00755698 /* SearchView.swift */; };
+		BB0EFA8F2A30F625009DA542 /* FastFilterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA8E2A30F625009DA542 /* FastFilterComponent.swift */; };
+		BB0EFA922A30FD3E009DA542 /* FilterSelectedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA912A30FD3E009DA542 /* FilterSelectedCollectionView.swift */; };
+		BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */; };
+		BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */; };
 		BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F002A2516A0001F71ED /* AppDelegate.swift */; };
 		BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F022A2516A0001F71ED /* SceneDelegate.swift */; };
 		BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F042A2516A0001F71ED /* TabBarViewController.swift */; };
@@ -62,6 +66,10 @@
 		889904812A2A0BA40067FEC7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		88B4694E2A2995BF00755698 /* SearchBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarComponent.swift; sourceTree = "<group>"; };
 		88B469512A299CCB00755698 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		BB0EFA8E2A30F625009DA542 /* FastFilterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterComponent.swift; sourceTree = "<group>"; };
+		BB0EFA912A30FD3E009DA542 /* FilterSelectedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectedCollectionView.swift; sourceTree = "<group>"; };
+		BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
+		BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBD62EFD2A2516A0001F71ED /* MacroChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD62F002A2516A0001F71ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD62F022A2516A0001F71ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +131,33 @@
 				88B469512A299CCB00755698 /* SearchView.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		BB0EFA902A30FD07009DA542 /* FastFilter */ = {
+			isa = PBXGroup;
+			children = (
+				BB0EFA932A30FD47009DA542 /* Views */,
+				BB0EFA8E2A30F625009DA542 /* FastFilterComponent.swift */,
+			);
+			path = FastFilter;
+			sourceTree = "<group>";
+		};
+		BB0EFA932A30FD47009DA542 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB0EFA962A311DCA009DA542 /* Cells */,
+				BB0EFA912A30FD3E009DA542 /* FilterSelectedCollectionView.swift */,
+				BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB0EFA962A311DCA009DA542 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		BBD62EF42A2516A0001F71ED = {
@@ -244,6 +279,7 @@
 		BBD62F512A2696A0001F71ED /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BB0EFA902A30FD07009DA542 /* FastFilter */,
 				BBD62F752A299700001F71ED /* Cells */,
 				BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */,
 				BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */,
@@ -410,7 +446,9 @@
 				3F1252E82A266C230048E7FB /* FoodManager.swift in Sources */,
 				BBD62F622A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift in Sources */,
 				88B469522A299CCB00755698 /* SearchView.swift in Sources */,
+				BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */,
 				88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */,
+				BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */,
 				BBD62F592A27CC5B001F71ED /* MonthSelectionViewController.swift in Sources */,
 				BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */,
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
@@ -427,11 +465,13 @@
 				BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */,
 				BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */,
 				BBD62F382A251C8B001F71ED /* ViewCode.swift in Sources */,
+				BB0EFA922A30FD3E009DA542 /* FilterSelectedCollectionView.swift in Sources */,
 				3F1252EC2A266FE00048E7FB /* CategoryModel.swift in Sources */,
 				3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */,
 				BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */,
 				BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */,
 				BBD62F7A2A2A28A2001F71ED /* FoodSwipeCategoryView.swift in Sources */,
+				BB0EFA8F2A30F625009DA542 /* FastFilterComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,9 +6,11 @@
 //
 
 import UIKit
+ 
 
 class FoodCollectionView: UICollectionView {
     var foods = [Food]()
+    weak var foodDelegate: FoodDetailDelegate? = nil
     var currentMonth = ""
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -22,6 +24,7 @@ class FoodCollectionView: UICollectionView {
 }
 
 extension FoodCollectionView: ViewCode {
+    
     func buildViewHierarchy() {
     }
     
@@ -32,13 +35,13 @@ extension FoodCollectionView: ViewCode {
         self.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "FoodCollectionViewCell")
         self.delegate = self
         self.dataSource = self
-        
         self.backgroundColor = UIColor.white
         self.backgroundView = UIView(frame: CGRect.zero)
     }
 }
 
 extension FoodCollectionView: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return foods.count
     }
@@ -53,16 +56,18 @@ extension FoodCollectionView: UICollectionViewDataSource {
             .seasonalities[foods[indexPath.row].seasonalities.firstIndex(where: {$0.month_name_seasonality == self.currentMonth}) ?? 0]
                                                            .state_seasonality)
         cell.layer.cornerRadius = 20
-        cell.container.layer.borderColor = UIColor(named: "Border"+foods[indexPath.row]
-                                                                       .seasonalities[foods[indexPath.row].seasonalities.firstIndex(where: {$0.month_name_seasonality == self.currentMonth}) ?? 0]
-                                                                       .state_seasonality)?.cgColor
+        cell.container.layer.borderColor = UIColor(named: "Border"+foods[indexPath.row].seasonalities[foods[indexPath.row].seasonalities.firstIndex(where: {$0.month_name_seasonality == self.currentMonth}) ?? 0].state_seasonality)?.cgColor
         
         return cell
     }
 }
 
 extension FoodCollectionView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print(indexPath.row)
+        self.foodDelegate?.selectFood()
+    }
 }
 
 //MARK: - Functions here

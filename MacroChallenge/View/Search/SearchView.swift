@@ -7,24 +7,21 @@ class SearchView: UIView {
     lazy var search: SearchBarComponent = {
         let view = SearchBarComponent()
         view.placeholder = "Digite sua pesquisa"
-//        view.barStyle = .default
         view.barTintColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var gridFood: FoodCollectionView = {
+    lazy var collectionView: FoodCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 105, height: 162)
+        layout.itemSize = CGSize(width: (self.bounds.width / 3) - 20, height: 180)
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
 
         let collectionViewInstance = FoodCollectionView(frame: .zero, collectionViewLayout: layout)
         collectionViewInstance.translatesAutoresizingMaskIntoConstraints = false
-        collectionViewInstance.backgroundColor = UIColor.white
-        collectionViewInstance.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "FoodCollectionViewCell")
-        collectionViewInstance.delegate = collectionViewInstance
-        collectionViewInstance.dataSource = collectionViewInstance
-
+        
         return collectionViewInstance
     }()
 
@@ -41,8 +38,9 @@ class SearchView: UIView {
 
 extension SearchView: ViewCode{
     func buildViewHierarchy() {
+        self.addSubview(collectionView)
         self.addSubview(search)
-        self.addSubview(gridFood)
+    
     }
     
     func setupConstraints() {
@@ -51,10 +49,10 @@ extension SearchView: ViewCode{
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                view.bottomAnchor.constraint(equalTo: gridFood.topAnchor)
+                view.bottomAnchor.constraint(equalTo: collectionView.topAnchor)
             ]}
         
-        gridFood.setupConstraints { view in
+        collectionView.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: search.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),

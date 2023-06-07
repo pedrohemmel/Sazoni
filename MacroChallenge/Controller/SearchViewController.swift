@@ -1,14 +1,18 @@
 
 import UIKit
 
-class SearchViewController: UISearchController {
+
+protocol FoodDetailDelegate: AnyObject{
+    func selectFood()
+}
+
+class SearchViewController: UIViewController {
     
     lazy var searchView = SearchView(frame: self.view.frame)
 
-    
     private var filteredFoods: [Food] = [] {
         didSet {
-            self.searchView.gridFood.reloadData()
+            self.searchView.collectionView.reloadData()
         }
     }
     
@@ -21,8 +25,8 @@ class SearchViewController: UISearchController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.setupViewConfiguration()
+        self.searchView.collectionView.foodDelegate = self
     }
     
 
@@ -31,6 +35,7 @@ class SearchViewController: UISearchController {
 extension SearchViewController: ViewCode{
     func buildViewHierarchy() {
         view.addSubview(searchView)
+        
     }
     
     func setupConstraints() {}
@@ -45,7 +50,7 @@ extension SearchViewController: ViewCode{
         } else {
             self.foods = self.foodManager.foods
             self.filteredFoods = self.foods
-            self.searchView.gridFood.foods = self.filteredFoods
+            self.searchView.collectionView.foods = self.filteredFoods
         }
     }
 }
@@ -56,14 +61,14 @@ extension SearchViewController{
     func filterFoods(with searchText: String) {
         if searchText.isEmpty {
             filteredFoods = foods
-            self.searchView.gridFood.foods = self.filteredFoods
-            self.searchView.gridFood.reloadData()
+            self.searchView.collectionView.foods = self.filteredFoods
+            self.searchView.collectionView.reloadData()
         } else {
             filteredFoods = foods.filter { $0.name_food.lowercased().contains(searchText.lowercased()) ||                       $0.seasonalities[5].state_seasonality.lowercased().contains(searchText.lowercased()) ||
                 $0.category_food.name_category.lowercased().contains(searchText.lowercased())
             }
-            self.searchView.gridFood.foods = self.filteredFoods
-            self.searchView.gridFood.reloadData()
+            self.searchView.collectionView.foods = self.filteredFoods
+            self.searchView.collectionView.reloadData()
         }
     }
     
@@ -71,5 +76,13 @@ extension SearchViewController{
     @objc func dismissKeyboard(){
         view.endEditing(true)
     }
+    
+}
+
+extension SearchViewController: FoodDetailDelegate{
+    func selectFood() {
+        print("Delegate Funciona")
+    }
+    
     
 }

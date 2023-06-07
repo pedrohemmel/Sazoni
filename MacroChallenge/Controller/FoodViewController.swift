@@ -67,6 +67,7 @@ extension FoodViewController: MCCategorySwipeDelegate {
         self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: self.currentMonth ?? "")
         self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
     }
+    
 }
 
 //MARK: - Functions here

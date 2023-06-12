@@ -8,7 +8,10 @@
 import UIKit
 
 class FilterCollectionView: UICollectionView {
-    weak var openSheetDelegate: OpenSheetDelegate? = nil
+    
+    weak var fastFilterDelegate: FastFilterDelegate? = nil
+    private var fastFilters = [FastFilterModel]()
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         self.register(FilterCollectionViewCell.self, forCellWithReuseIdentifier: "filterCollectionViewCell")
@@ -19,22 +22,24 @@ class FilterCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
         
     }
-    
-    func setup(openSheetDelegate: OpenSheetDelegate) {
-        self.openSheetDelegate = openSheetDelegate
-    }
 }
 
 //MARK: - DataSource
 extension FilterCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.fastFilters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCollectionViewCell", for: indexPath) as! FilterCollectionViewCell
-        cell.filterImage.image = UIImage(named: "pescada_amarela")
-        cell.backgroundColor = .black
+        let fastFilter = self.fastFilters[indexPath.row]
+        
+        if (fastFilter.filterIsSelected ?? false) {
+            cell.filterImage.image = UIImage(named: "\(fastFilter.name)")
+        } else {
+            cell.filterImage.image = UIImage(named: "\(fastFilter.name)")
+        }
+        
         return cell
     }
     
@@ -43,6 +48,25 @@ extension FilterCollectionView: UICollectionViewDataSource {
 //MARK: - Delegate
 extension FilterCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.openSheetDelegate?.didClickCell()
+        let fastFilter = self.fastFilters[indexPath.row]
+        if !(fastFilter.filterIsSelected ?? false)  {
+            if fastFilter.idCategory == nil {
+                if fastFilter.name == "months" {
+                    self.fastFilterDelegate?.didClickMonthFilter()
+                }
+            } else {
+                self.fastFilterDelegate?.didClickCategoryFilter(fastFilter: fastFilter)
+            }
+        }
+        
+    }
+}
+
+//MARK: - Functions here
+extension FilterCollectionView {
+    func setup(fastFilterDelegate: FastFilterDelegate, fastFilters: [FastFilterModel]) {
+        self.fastFilterDelegate = fastFilterDelegate
+        self.fastFilters = fastFilters
+        self.reloadData()
     }
 }

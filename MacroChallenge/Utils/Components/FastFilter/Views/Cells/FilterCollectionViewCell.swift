@@ -34,8 +34,8 @@ extension FilterCollectionViewCell: ViewCode {
             [
                 view.centerYAnchor.constraint(equalTo: self.centerYAnchor),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.heightAnchor.constraint(equalToConstant: 40),
-                view.widthAnchor.constraint(equalToConstant: 40)
+                view.heightAnchor.constraint(equalToConstant: 50),
+                view.widthAnchor.constraint(equalToConstant: 50)
             ]
         }
     }

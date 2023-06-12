@@ -8,10 +8,12 @@
 import UIKit
 
 class FilterSelectedCollectionView: UICollectionView {
-    weak var openSheetDelegate: OpenSheetDelegate? = nil
+    weak private var fastFilterDelegate: FastFilterDelegate? = nil
+    private var choosenFilters = [FastFilterModel]()
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        self.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        self.register(FilterSelectedCollectionViewCell.self, forCellWithReuseIdentifier: "FilterSelectedCollectionViewCell")
         self.delegate = self
         self.dataSource = self
     }
@@ -19,21 +21,19 @@ class FilterSelectedCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(openSheetDelegate: OpenSheetDelegate) {
-        self.openSheetDelegate = openSheetDelegate
-    }
+    
 }
 
 //MARK: - DataSource
 extension FilterSelectedCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.choosenFilters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .black
-        cell.layer.cornerRadius = 10
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterSelectedCollectionViewCell", for: indexPath) as! FilterSelectedCollectionViewCell
+        cell.lblFilterSelected.text = self.choosenFilters[indexPath.row].name.capitalized
+        cell.addLeftBorder(color: .brown, width: 4.0)
         return cell
     }
     
@@ -42,7 +42,14 @@ extension FilterSelectedCollectionView: UICollectionViewDataSource {
 //MARK: - Delegate
 extension FilterSelectedCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.openSheetDelegate?.didClickCell()
     }
 }
 
+//MARK: - Functions here
+extension FilterSelectedCollectionView {
+    func setup(fastFilterDelegate: FastFilterDelegate, choosenFilters: [FastFilterModel]) {
+        self.fastFilterDelegate = fastFilterDelegate
+        self.choosenFilters = choosenFilters
+        self.reloadData()
+    }
+}

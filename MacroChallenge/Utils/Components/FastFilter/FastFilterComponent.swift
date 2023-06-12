@@ -20,10 +20,9 @@ class FastFilterComponent: UIView {
     
     lazy var filterSelectedCollectionView: FilterSelectedCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let spaceBetweenItems = 20
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 10
+        layout.itemSize = CGSize(width: 150, height: 60)
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 5
         layout.scrollDirection = .horizontal
         
         let filterSelectedCollectionView = FilterSelectedCollectionView(frame: .zero, collectionViewLayout: layout)
@@ -33,10 +32,9 @@ class FastFilterComponent: UIView {
     
     lazy var filterCollectionView: FilterCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let spaceBetweenItems = 20
         layout.itemSize = CGSize(width: 60, height: 60)
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 5
         layout.scrollDirection = .horizontal
         
         let filterCollectionView = FilterCollectionView(frame: .zero, collectionViewLayout: layout)

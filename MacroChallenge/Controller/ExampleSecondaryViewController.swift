@@ -53,13 +53,22 @@ extension ExampleSecondaryViewController: FastFilterDelegate {
         self.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
     }
     func didClickMonthFilter() {
+        let newVC = MonthSelectionViewController()
+        newVC.fastFilterDelegate = self
+        newVC.sheetPresentationController?.detents = [.medium()]
+        self.present(newVC, animated: true)
     }
     func didSelectMonthFilter(monthName: String) {
+        self.deleteMonthIfItExists()
         self.choosenFilters.append(FastFilterModel(name: monthName, idCategory: nil, filterIsSelected: nil))
+        self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == "months" }) ?? 0].filterIsSelected = true
+        self.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
     }
     func didDeleteFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
+        self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0].filterIsSelected = false
+        self.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
     }
 }
@@ -82,5 +91,31 @@ extension ExampleSecondaryViewController: ViewCode {
     
     func setupAdditionalConfiguration() {
         self.view.backgroundColor = .blue
+    }
+}
+
+//MARK: - Functions here
+extension ExampleSecondaryViewController {
+    func deleteMonthIfItExists() {
+        let months = [
+            "Janeiro",
+            "Fevereiro",
+            "Março",
+            "Abril",
+            "Maio",
+            "Junho",
+            "Julho",
+            "Agosto",
+            "Setembro",
+            "Outubro",
+            "Novembro",
+            "Dezembro"
+        ]
+        
+        for month in months {
+            if self.choosenFilters.contains(where: { $0.name == month }) {
+                self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == month }) ?? 0)
+            }
+        }
     }
 }

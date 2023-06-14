@@ -21,7 +21,6 @@ class FoodManager{
                         self.foods = formattedData
                         self.response()
                     }
-
                 }
                 catch
                 {

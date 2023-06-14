@@ -35,7 +35,7 @@ extension FilterCollectionView: UICollectionViewDataSource {
         let fastFilter = self.fastFilters[indexPath.row]
         
         if (fastFilter.filterIsSelected ?? false) {
-            cell.filterImage.image = UIImage(named: "\(fastFilter.name)")
+            cell.filterImage.image = UIImage(named: "\(fastFilter.name)Selected")
         } else {
             cell.filterImage.image = UIImage(named: "\(fastFilter.name)")
         }
@@ -50,15 +50,11 @@ extension FilterCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let fastFilter = self.fastFilters[indexPath.row]
         if !(fastFilter.filterIsSelected ?? false)  {
-            if fastFilter.idCategory == nil {
-                if fastFilter.name == "months" {
-                    self.fastFilterDelegate?.didClickMonthFilter()
-                }
-            } else {
-                self.fastFilterDelegate?.didClickCategoryFilter(fastFilter: fastFilter)
-            }
+            self.fastFilterDelegate?.didClickCategoryFilter(fastFilter: fastFilter)
         }
-        
+        if fastFilter.name == "months" {
+            self.fastFilterDelegate?.didClickMonthFilter()
+        }
     }
 }
 

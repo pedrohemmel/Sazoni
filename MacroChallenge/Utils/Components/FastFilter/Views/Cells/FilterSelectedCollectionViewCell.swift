@@ -9,13 +9,16 @@ import UIKit
 
 class FilterSelectedCollectionViewCell: UICollectionViewCell {
     
+    weak var fastFilterDelegate: FastFilterDelegate? = nil
+    
+    //MARK: - Views
     var lblFilterSelected: UILabel = {
         let lblFilterSelected = UILabel()
         lblFilterSelected.textColor = .brown
         lblFilterSelected.translatesAutoresizingMaskIntoConstraints = false
         return lblFilterSelected
     }()
-    var btnDeleteFilterSelected: UIButton = {
+    lazy var btnDeleteFilterSelected: UIButton = {
         let btnDeleteFilterSelected = UIButton()
         btnDeleteFilterSelected.setImage(UIImage(systemName: "xmark"), for: .normal)
         btnDeleteFilterSelected.tintColor = .brown

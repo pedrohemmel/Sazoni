@@ -12,12 +12,7 @@ protocol OpenSheetDelegate: AnyObject {
     func didClickCell()
 }
 
-protocol FastFilterDelegate: AnyObject {
-    func didClickCategoryFilter(fastFilter: FastFilterModel)
-    func didClickMonthFilter()
-    func didSelectMonthFilter(monthName: String)
-    func didDeleteFilter(fastFilter: FastFilterModel)
-}
+
 
 class ExampleSecondaryViewController: UIViewController {
     

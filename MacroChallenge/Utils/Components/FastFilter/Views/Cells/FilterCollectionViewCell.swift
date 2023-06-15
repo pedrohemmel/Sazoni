@@ -33,9 +33,9 @@ extension FilterCollectionViewCell: ViewCode {
         self.filterImage.setupConstraints { view in
             [
                 view.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.heightAnchor.constraint(equalToConstant: 50),
-                view.widthAnchor.constraint(equalToConstant: 50)
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                view.heightAnchor.constraint(equalToConstant: 50)
             ]
         }
     }

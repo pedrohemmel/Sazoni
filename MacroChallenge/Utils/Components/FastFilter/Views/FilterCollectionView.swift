@@ -50,7 +50,9 @@ extension FilterCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let fastFilter = self.fastFilters[indexPath.row]
         if !(fastFilter.filterIsSelected ?? false)  {
-            self.fastFilterDelegate?.didClickCategoryFilter(fastFilter: fastFilter)
+            if fastFilter.idCategory != nil {
+                self.fastFilterDelegate?.didClickCategoryFilter(fastFilter: fastFilter)
+            }
         }
         if fastFilter.name == "months" {
             self.fastFilterDelegate?.didClickMonthFilter()

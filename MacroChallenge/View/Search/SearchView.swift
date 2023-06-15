@@ -16,7 +16,7 @@ class SearchView: UIView {
     lazy var gridFood: FoodCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 105, height: 162)
+        layout.itemSize = CGSize(width: 105, height: 140)
 
         let collectionViewInstance = FoodCollectionView(frame: .zero, collectionViewLayout: layout)
         collectionViewInstance.translatesAutoresizingMaskIntoConstraints = false

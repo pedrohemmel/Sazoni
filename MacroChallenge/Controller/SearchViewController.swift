@@ -3,13 +3,13 @@ import UIKit
 
 
 protocol FoodDetailDelegate: AnyObject{
-    func selectFood()
+    func selectFood(food: Food)
 }
 
 class SearchViewController: UIViewController {
     
     lazy var searchView = SearchView(frame: self.view.frame)
-
+    
     private var filteredFoods: [Food] = [] {
         didSet {
             self.searchView.collectionView.reloadData()
@@ -26,10 +26,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViewConfiguration()
-        self.searchView.collectionView.foodDelegate = self
+//        self.searchView.collectionView.foodDelegate = self
     }
     
-
+    
 }
 
 extension SearchViewController: ViewCode{
@@ -41,8 +41,8 @@ extension SearchViewController: ViewCode{
     func setupConstraints() {}
     
     func setupAdditionalConfiguration() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        //        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        //        view.addGestureRecognizer(tap)
         self.searchView.search.searchViewController = self
         
         if !self.dataIsReceived {
@@ -78,11 +78,9 @@ extension SearchViewController{
     }
     
 }
-
-extension SearchViewController: FoodDetailDelegate{
-    func selectFood() {
-        print("Delegate Funciona")
-    }
-    
-    
-}
+//
+//extension SearchViewController: FoodDetailDelegate{
+//    func selectFood() {
+//        print("Delegate Funciona")
+//    }
+//}

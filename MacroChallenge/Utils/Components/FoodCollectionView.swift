@@ -64,17 +64,16 @@ extension FoodCollectionView: UICollectionViewDataSource {
 
 extension FoodCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        print(indexPath.row)
-        self.foodDelegate?.selectFood()
+        self.foodDelegate?.selectFood(food: foods[indexPath.row])
     }
 }
 
 //MARK: - Functions here
 extension FoodCollectionView {
-    func setup(foods: [Food], currentMonth: String) {
+    func setup(foods: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate?) {
         self.foods = foods
         self.currentMonth = currentMonth
+        self.foodDelegate = foodDelegate
         self.reloadData()
     }
 }

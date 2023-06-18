@@ -29,11 +29,13 @@ class TabBarViewController: UITabBarController {
     private var categoryViewController = CategoryViewController()
     private var exampleViewController = SearchViewController()
     private var exampleSecondaryViewController = ExampleSecondaryViewController()
+    private var foodViewController = FoodViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.backgroundColor = .white
         self.tabBar.isTranslucent = false
+        self.exampleViewController.searchView.collectionView.foodDelegate = self
         self.setupViewControllers()
         self.setupTabItems()
         self.getFoodData()
@@ -64,7 +66,7 @@ extension TabBarViewController {
     
     private func setupViewControllers() {
         if !self.categories.isEmpty {
-            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth)
+            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
         }
     }
     
@@ -74,7 +76,7 @@ extension TabBarViewController {
         } else {
             self.foods = self.foodManager.foods
             self.getAllCategories()
-            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth)
+            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
         }
     }
     
@@ -82,6 +84,7 @@ extension TabBarViewController {
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
+//        dateFormatter.locale = Locale(identifier: "pt_BR")
         let nameOfMonth = dateFormatter.string(from: now)
         return nameOfMonth.capitalized
     }
@@ -94,5 +97,14 @@ extension TabBarViewController {
             }
         }
         self.categories = categories
+    }
+}
+
+extension TabBarViewController: FoodDetailDelegate{
+    func selectFood(food: Food) {
+        let detailVC = DetailSheetViewController(food)
+        detailVC.sheetPresentationController?.detents = [.large()]
+        detailVC.sheetPresentationController?.prefersGrabberVisible = true
+        self.present(detailVC, animated: true)
     }
 }

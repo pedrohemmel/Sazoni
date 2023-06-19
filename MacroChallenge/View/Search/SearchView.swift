@@ -15,7 +15,7 @@ class SearchView: UIView {
     lazy var collectionView: FoodCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 105, height: 140)
+        layout.itemSize = CGSize(width: (self.bounds.width / 3) - 20, height: 180)
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
 

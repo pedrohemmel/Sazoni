@@ -50,15 +50,13 @@ extension FoodCollectionView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCollectionViewCell", for: indexPath) as! FoodCollectionViewCell
         cell.foodImage.image = UIImage(named: "\(self.foods[indexPath.row].image_source_food)")
         cell.nameFood.text = foods[indexPath.row].name_food
+        cell.sazonality.text = foods[indexPath.row].seasonalities[2].state_seasonality + " disponibilidade"
         
-        let currentStateSeasonality = self.foods[indexPath.row].seasonalities[self.foods[indexPath.row].seasonalities.firstIndex(where: { $0.month_name_seasonality == self.currentMonth }) ?? 0].state_seasonality
-        cell.sazonality.text = currentStateSeasonality
-        cell.sazonality.backgroundColor = UIColor(named: "\(currentStateSeasonality)")
-        
-        cell.backgroundColor = .white
+        cell.container.backgroundColor = UIColor(named: foods[indexPath.row]
+            .seasonalities[foods[indexPath.row].seasonalities.firstIndex(where: {$0.month_name_seasonality == self.currentMonth}) ?? 0]
+                                                           .state_seasonality)
         cell.layer.cornerRadius = 20
-        cell.layer.borderWidth = 3
-        cell.layer.borderColor = UIColor.brown.cgColor
+        cell.container.layer.borderColor = UIColor(named: "Border"+foods[indexPath.row].seasonalities[foods[indexPath.row].seasonalities.firstIndex(where: {$0.month_name_seasonality == self.currentMonth}) ?? 0].state_seasonality)?.cgColor
         
         return cell
     }

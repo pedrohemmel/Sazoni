@@ -44,8 +44,8 @@
 		BBD62F642A290442001F71ED /* MonthSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F632A290442001F71ED /* MonthSelectionTests.swift */; };
 		BBD62F712A2996AE001F71ED /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F702A2996AE001F71ED /* FoodView.swift */; };
 		BBD62F742A2996F3001F71ED /* FoodCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */; };
-		BBD62F772A29973A001F71ED /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F762A29973A001F71ED /* FoodCollectionViewCell.swift */; };
 		BBD62F7A2A2A28A2001F71ED /* FoodSwipeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F792A2A28A2001F71ED /* FoodSwipeCategoryView.swift */; };
+		BBD912952A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD912942A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +60,9 @@
 
 /* Begin PBXFileReference section */
 		3F1252E72A266C230048E7FB /* FoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodManager.swift; path = MacroChallenge/Utils/FoodManager.swift; sourceTree = SOURCE_ROOT; };
-		3F1252E92A266DD90048E7FB /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodModel.swift; path = MacroChallenge/Source/FoodModel.swift; sourceTree = SOURCE_ROOT; };
-		3F1252EB2A266FE00048E7FB /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = MacroChallenge/Source/CategoryModel.swift; sourceTree = SOURCE_ROOT; };
-		3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeasonalityModel.swift; path = MacroChallenge/Source/SeasonalityModel.swift; sourceTree = SOURCE_ROOT; };
+		3F1252E92A266DD90048E7FB /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodModel.swift; path = MacroChallenge/Model/FoodModel.swift; sourceTree = SOURCE_ROOT; };
+		3F1252EB2A266FE00048E7FB /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = MacroChallenge/Model/CategoryModel.swift; sourceTree = SOURCE_ROOT; };
+		3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeasonalityModel.swift; path = MacroChallenge/Model/SeasonalityModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252EF2A267EF50048E7FB /* FoodManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManagerTests.swift; sourceTree = "<group>"; };
 		3F47FB242A251A2E00356430 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		88272B9F2A388AB100B807BD /* DetailSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSheetViewController.swift; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 		BBD62F632A290442001F71ED /* MonthSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionTests.swift; sourceTree = "<group>"; };
 		BBD62F702A2996AE001F71ED /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionView.swift; sourceTree = "<group>"; };
-		BBD62F762A29973A001F71ED /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBD62F792A2A28A2001F71ED /* FoodSwipeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSwipeCategoryView.swift; sourceTree = "<group>"; };
+		BBD912942A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +171,7 @@
 				BBD62F022A2516A0001F71ED /* SceneDelegate.swift */,
 				3F47FB232A25199800356430 /* Source */,
 				BBD62F332A25170B001F71ED /* Utils */,
-				BBD62F302A2516D6001F71ED /* Model */,
+				BBD912962A3B8B4000BE1BA5 /* Model */,
 				BBD62F312A2516DF001F71ED /* View */,
 				BBD62F322A2516E4001F71ED /* Controller */,
 				BBD62F0E2A2516A1001F71ED /* Info.plist */,
@@ -187,16 +187,6 @@
 				BBD62F632A290442001F71ED /* MonthSelectionTests.swift */,
 			);
 			path = MacroChallengeTests;
-			sourceTree = "<group>";
-		};
-		BBD62F302A2516D6001F71ED /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3F1252E92A266DD90048E7FB /* FoodModel.swift */,
-				3F1252EB2A266FE00048E7FB /* CategoryModel.swift */,
-				3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		BBD62F312A2516DF001F71ED /* View */ = {
@@ -315,7 +305,7 @@
 		BBD62F752A299700001F71ED /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BBD62F762A29973A001F71ED /* FoodCollectionViewCell.swift */,
+				BBD912942A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift */,
 				88272BA32A39082C00B807BD /* SeasonalityCollectionViewCell.swift */,
 			);
 			path = Cells;
@@ -327,6 +317,16 @@
 				BBD62F792A2A28A2001F71ED /* FoodSwipeCategoryView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		BBD912962A3B8B4000BE1BA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F1252E92A266DD90048E7FB /* FoodModel.swift */,
+				3F1252EB2A266FE00048E7FB /* CategoryModel.swift */,
+				3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,7 +442,6 @@
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
 				3F1252EA2A266DD90048E7FB /* FoodModel.swift in Sources */,
 				BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */,
-				BBD62F772A29973A001F71ED /* FoodCollectionViewCell.swift in Sources */,
 				BBD62F742A2996F3001F71ED /* FoodCollectionView.swift in Sources */,
 				BBD62F532A2696C0001F71ED /* NavigationBarViewComponent.swift in Sources */,
 				BBD62F5C2A27CD38001F71ED /* MonthSelectionView.swift in Sources */,
@@ -460,7 +459,8 @@
 				3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */,
 				BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */,
 				886664952A31005D0031D242 /* DetailSheetView.swift in Sources */,
-				BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */,
+				BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */,=
+				BBD912952A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift in Sources */,
 				88272BA22A39036800B807BD /* SeasonalityCollectionViewComponent.swift in Sources */,
 				BBD62F7A2A2A28A2001F71ED /* FoodSwipeCategoryView.swift in Sources */,
 			);

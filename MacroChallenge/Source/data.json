@@ -1,62 +1,63 @@
-[{
-        "id_food": 0,
-        "name_food": "Abacate Avocado",
-        "image_source_food": "abacate_avocado.jpg",
-        "is_favorite_food": false,
-        "category_food": {
-            "id_category": 0,
-            "name_category": "Frutas"
-        },
-        "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Fevereiro",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Março",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Abril",
-                "state_seasonality": "Alta"
-            },
-            {
-                "month_name_seasonality": "Maio",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Junho",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Julho",
-                "state_seasonality": "Alta"
-            },
-            {
-                "month_name_seasonality": "Agosto",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Setembro",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Outubro",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Novembro",
-                "state_seasonality": "Alta"
-            },
-            {
-                "month_name_seasonality": "Dezembro",
-                "state_seasonality": "Média"
-            }
-        ]
+[
+    {
+    "id_food": 0,
+    "name_food": "Abacate Avocado",
+    "image_source_food": "abacate_avocado.jpg",
+    "is_favorite_food": false,
+    "category_food": {
+        "id_category": 0,
+        "name_category": "Frutas"
     },
+    "seasonalities": [{
+        "month_name_seasonality": "Janeiro",
+        "state_seasonality": "Baixa"
+    },
+        {
+            "month_name_seasonality": "Fevereiro",
+            "state_seasonality": "Baixa"
+        },
+        {
+            "month_name_seasonality": "Março",
+            "state_seasonality": "Baixa"
+        },
+        {
+            "month_name_seasonality": "Abril",
+            "state_seasonality": "Alta"
+        },
+        {
+            "month_name_seasonality": "Maio",
+            "state_seasonality": "Média"
+        },
+        {
+            "month_name_seasonality": "Junho",
+            "state_seasonality": "Média"
+        },
+        {
+            "month_name_seasonality": "Julho",
+            "state_seasonality": "Alta"
+        },
+        {
+            "month_name_seasonality": "Agosto",
+            "state_seasonality": "Média"
+        },
+        {
+            "month_name_seasonality": "Setembro",
+            "state_seasonality": "Média"
+        },
+        {
+            "month_name_seasonality": "Outubro",
+            "state_seasonality": "Média"
+        },
+        {
+            "month_name_seasonality": "Novembro",
+            "state_seasonality": "Alta"
+        },
+        {
+            "month_name_seasonality": "Dezembro",
+            "state_seasonality": "Média"
+        }
+    ]
+},
     {
         "id_food": 1,
         "name_food": "Banana Maçã",
@@ -65,12 +66,12 @@
         "category_food": {
             "id_category": 0,
             "name_category": "Frutas"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -125,12 +126,12 @@
         "category_food": {
             "id_category": 0,
             "name_category": "Frutas"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -179,18 +180,18 @@
     },
     {
         "id_food": 3,
-        "name_food": "Coco verde",
+        "name_food": "Coco Verde",
         "image_source_food": "coco_verde.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
             "name_category": "Frutas"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -245,12 +246,12 @@
         "category_food": {
             "id_category": 0,
             "name_category": "Frutas"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -305,12 +306,12 @@
         "category_food": {
             "id_category": 0,
             "name_category": "Frutas"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -365,12 +366,12 @@
         "category_food": {
             "id_category": 0,
             "name_category": "Frutas"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Média"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -425,12 +426,12 @@
         "category_food": {
             "id_category": 0,
             "name_category": "Frutas"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -485,12 +486,12 @@
         "category_food": {
             "id_category": 0,
             "name_category": "Frutas"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -545,12 +546,12 @@
         "category_food": {
             "id_category": 0,
             "name_category": "Frutas"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -605,12 +606,12 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -667,9 +668,9 @@
             "name_category": "Legumes"
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -724,12 +725,12 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -784,12 +785,12 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Média"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -844,12 +845,12 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Média"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -904,12 +905,12 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Média"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -964,12 +965,12 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -1024,12 +1025,12 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -1084,12 +1085,12 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Média"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -1144,12 +1145,12 @@
         "category_food": {
             "id_category": 1,
             "name_category": "Legumes"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -1204,12 +1205,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -1264,12 +1265,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -1324,12 +1325,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Média"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -1384,12 +1385,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -1444,12 +1445,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -1504,12 +1505,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Média"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -1564,12 +1565,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -1624,12 +1625,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -1684,12 +1685,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Média"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -1744,12 +1745,12 @@
         "category_food": {
             "id_category": 2,
             "name_category": "Verduras"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -1804,12 +1805,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Alta"
@@ -1864,12 +1865,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Média"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -1924,12 +1925,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -1984,12 +1985,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -2044,12 +2045,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Média"
@@ -2104,12 +2105,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -2164,12 +2165,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Alta"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -2224,12 +2225,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -2284,12 +2285,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -2344,12 +2345,12 @@
         "category_food": {
             "id_category": 3,
             "name_category": "Pescados"
-
+            
         },
         "seasonalities": [{
-                "month_name_seasonality": "Janeiro",
-                "state_seasonality": "Baixa"
-            },
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
             {
                 "month_name_seasonality": "Fevereiro",
                 "state_seasonality": "Baixa"
@@ -2393,6 +2394,4784 @@
             {
                 "month_name_seasonality": "Dezembro",
                 "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 40,
+        "name_food": "Abacate Fortuna",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Muito baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Muito baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 41,
+        "name_food": "Abacate Geada",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 42,
+        "name_food": "Abacate Margarida",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Muito baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Muito Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 43,
+        "name_food": "Abacate Margarida",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Muito baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Nédia"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 44,
+        "name_food": "Abacate Quintal",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Muito baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Muito baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 45,
+        "name_food": "Abacate Havai",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 46,
+        "name_food": "Abacate Pérola",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 47,
+        "name_food": "Abiu",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 48,
+        "name_food": "Acerola",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 49,
+        "name_food": "Ameixa Import. Americana",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Muito Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Muito baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 50,
+        "name_food": "Ameixa Import. Espanhola",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Muito Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Muito aaixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 51,
+        "name_food": "Ameixa Import",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 52,
+        "name_food": "Ameixa Nacional",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 53,
+        "name_food": "Amêndoa",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 54,
+        "name_food": "Amora",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 55,
+        "name_food": "Atemoia",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 56,
+        "name_food": "Avelã",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Muito aaixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Muito baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 57,
+        "name_food": "Banana Nanica",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Muito baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 58,
+        "name_food": "Banana Prata MG",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 59,
+        "name_food": "Banana Prata SP",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 60,
+        "name_food": "Caju",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 0,
+            "name_category": "Frutas"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 61,
+        "name_food": "Abóbora D'agua",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 62,
+        "name_food": "Abóbora Morango",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 63,
+        "name_food": "Abóbora Paulista",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 64,
+        "name_food": "Abóbora Seca",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 65,
+        "name_food": "Abobrinha Italiana",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 66,
+        "name_food": "Alcachofra",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 67,
+        "name_food": "Batata Doce Amarela",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 68,
+        "name_food": "Batata Doce Branca",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 69,
+        "name_food": "Batata Doce Rosada",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 70,
+        "name_food": "Batata Doce Roxa",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 71,
+        "name_food": "Berinjela Comum",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 72,
+        "name_food": "Berinjela Conserva",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 73,
+        "name_food": "Berinjela Japonesa",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 74,
+        "name_food": "Cará",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 75,
+        "name_food": "Ervilha Comum",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 76,
+        "name_food": "Ervilha Torta",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 77,
+        "name_food": "Fava",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Muito baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 78,
+        "name_food": "Feijão Corado",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 79,
+        "name_food": "Inhame",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 80,
+        "name_food": "Jiló",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 1,
+            "name_category": "Legumes"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 81,
+        "name_food": "Salsa",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 82,
+        "name_food": "Acelga",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 83,
+        "name_food": "Agrião",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 84,
+        "name_food": "Alface Americana",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 85,
+        "name_food": "Alface Lisa",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 86,
+        "name_food": "Alho Porro",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 87,
+        "name_food": "Almeirão",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 88,
+        "name_food": "Aspargos",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },{
+        "id_food": 89,
+        "name_food": "Beterraba com Folhas",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 90,
+        "name_food": "Brócolis Ninja",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 91,
+        "name_food": "Brócolis Ramoso",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 92,
+        "name_food": "Catalonha",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 93,
+        "name_food": "Cenoura com Folhas",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 94,
+        "name_food": "Chicória",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 95,
+        "name_food": "Coentro",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 96,
+        "name_food": "Cogumelo Shitake",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 97,
+        "name_food": "Couve",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 98,
+        "name_food": "Couve Bruxelas",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 99,
+        "name_food": "Endivias",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 100,
+        "name_food": "Erva Doce",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 101,
+        "name_food": "Escarola",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 2,
+            "name_category": "Verduras"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 102,
+        "name_food": "Abrotea",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 103,
+        "name_food": "Anchovas",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 104,
+        "name_food": "Badejo",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 105,
+        "name_food": "Bagre",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 106,
+        "name_food": "Betarra",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Alta"
+            }
+        ]
+    },
+    {
+        "id_food": 107,
+        "name_food": "Cação",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 108,
+        "name_food": "Camarão Médio",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 109,
+        "name_food": "Camarão Sete Barbas",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 110,
+        "name_food": "Xixarro",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 111,
+        "name_food": "Conglio",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 112,
+        "name_food": "Corvina",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 113,
+        "name_food": "Curimbatá",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 114,
+        "name_food": "Dourado",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 115,
+        "name_food": "Espada",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 116,
+        "name_food": "Garoupa",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 117,
+        "name_food": "Guaivira",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Média"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 118,
+        "name_food": "Lambari",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Muito baixa"
+            }
+        ]
+    },
+    {
+        "id_food": 119,
+        "name_food": "Lula",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Alta"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Baixa"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Média"
+            }
+        ]
+    },
+    {
+        "id_food": 120,
+        "name_food": "Mandi",
+        "image_source_food": "sem_imagem.jpg",
+        "is_favorite_food": false,
+        "category_food": {
+            "id_category": 3,
+            "name_category": "Pescados"
+        },
+        "seasonalities": [{
+            "month_name_seasonality": "Janeiro",
+            "state_seasonality": "Muito baixa"
+        },
+            {
+                "month_name_seasonality": "Fevereiro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Março",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Abril",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Maio",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Junho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Julho",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Agosto",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Setembro",
+                "state_seasonality": "Alta"
+            },
+            {
+                "month_name_seasonality": "Outubro",
+                "state_seasonality": "Média"
+            },
+            {
+                "month_name_seasonality": "Novembro",
+                "state_seasonality": "Muito baixa"
+            },
+            {
+                "month_name_seasonality": "Dezembro",
+                "state_seasonality": "Muito baixa"
             }
         ]
     }

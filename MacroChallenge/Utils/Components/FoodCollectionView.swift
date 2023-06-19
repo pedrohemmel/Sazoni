@@ -6,9 +6,11 @@
 //
 
 import UIKit
+ 
 
 class FoodCollectionView: UICollectionView {
     var foods = [Food]()
+    weak var foodDelegate: FoodDetailDelegate? = nil
     var currentMonth = ""
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -22,6 +24,7 @@ class FoodCollectionView: UICollectionView {
 }
 
 extension FoodCollectionView: ViewCode {
+    
     func buildViewHierarchy() {
     }
     
@@ -32,13 +35,13 @@ extension FoodCollectionView: ViewCode {
         self.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "FoodCollectionViewCell")
         self.delegate = self
         self.dataSource = self
-        
         self.backgroundColor = UIColor.white
         self.backgroundView = UIView(frame: CGRect.zero)
     }
 }
 
 extension FoodCollectionView: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return foods.count
     }
@@ -62,14 +65,17 @@ extension FoodCollectionView: UICollectionViewDataSource {
 }
 
 extension FoodCollectionView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.foodDelegate?.selectFood(food: foods[indexPath.row])
+    }
 }
 
 //MARK: - Functions here
 extension FoodCollectionView {
-    func setup(foods: [Food], currentMonth: String) {
+    func setup(foods: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate?) {
         self.foods = foods
         self.currentMonth = currentMonth
+        self.foodDelegate = foodDelegate
         self.reloadData()
     }
 }

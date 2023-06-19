@@ -14,6 +14,7 @@ import UIKit
  final class FoodViewController: UIViewController {
      
      weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
+     weak var foodDelegate: FoodDetailDelegate? = nil
      var currentMonth: String? = nil
      var foods = [Food]()
      var category: Category = Category(id_category: 0, name_category: "")
@@ -29,7 +30,7 @@ import UIKit
 
      override func viewDidLoad() {
          super.viewDidLoad()
-         self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "Erro mês", category: self.category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+         self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "Erro mês", category: self.category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
          self.navigationItem.hidesBackButton = true
      }
  }
@@ -44,7 +45,8 @@ extension FoodViewController: MCMonthNavigationButtonDelegate {
     func didSelectNewMonth(month: String) {
         self.monthUpdatesDelegate?.didChangeMonth(newMonthName: month)
         self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: month)
-        self.foodView.setup(foods: self.filteredFoods, currentMonth: month, category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+    
+        self.foodView.setup(foods: self.filteredFoods, currentMonth: month, category: category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
     }
 }
 
@@ -55,7 +57,7 @@ extension FoodViewController: MCCategorySwipeDelegate {
             self.category = self.categories[currentCategoryIndex - 1]
         }
         self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: self.currentMonth ?? "")
-        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
     }
     
     func didClickNextCategory() {
@@ -65,18 +67,19 @@ extension FoodViewController: MCCategorySwipeDelegate {
             self.category = self.categories[currentCategoryIndex + 1]
         }
         self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: self.currentMonth ?? "")
-        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self)
+        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
     }
+    
 }
 
 //MARK: - Functions here
 extension FoodViewController {
-    func setup(foods: [Food], currentMonth: String, monthUpdatesDelegate: MCMonthUpdatesDelegate, category: Category, categories: [Category]) {
+    func setup(foods: [Food], currentMonth: String, monthUpdatesDelegate: MCMonthUpdatesDelegate, category: Category, categories: [Category], foodDelegate: FoodDetailDelegate?) {
         self.foods = foods
         self.currentMonth = currentMonth
         self.monthUpdatesDelegate = monthUpdatesDelegate
         self.category = category
-        
+        self.foodDelegate = foodDelegate
         self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: currentMonth)
     }
     
@@ -113,3 +116,4 @@ extension FoodViewController {
         return newFoods
     }
 }
+

@@ -11,6 +11,12 @@ class SearchView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+ 
+    var fastFilterComponent: FastFilterComponent = {
+        let fastFilterComponent = FastFilterComponent(frame: .zero)
+        fastFilterComponent.translatesAutoresizingMaskIntoConstraints = false
+        return fastFilterComponent
+    }()
     
     lazy var collectionView: FoodCollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -38,29 +44,38 @@ class SearchView: UIView {
 
 extension SearchView: ViewCode{
     func buildViewHierarchy() {
-        self.addSubview(collectionView)
-        self.addSubview(search)
-    
+        [self.search, self.fastFilterComponent, self.gridFood].forEach({ self.addSubview($0) })
     }
     
     func setupConstraints() {
-        search.setupConstraints { view in
+        self.search.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor, constant: -20)
+            ]}
+        
+        self.fastFilterComponent.setupConstraints { view in
                 view.bottomAnchor.constraint(equalTo: collectionView.topAnchor)
             ]}
         
-        collectionView.setupConstraints { view in
+        self.collectionView.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: search.bottomAnchor),
+                view.topAnchor.constraint(equalTo: self.search.bottomAnchor, constant: 20),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+                view.heightAnchor.constraint(equalToConstant: 100),
+                view.bottomAnchor.constraint(equalTo: self.gridFood.topAnchor)
+            ]
+        }
+        self.gridFood.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.fastFilterComponent.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
                 view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -90)
             ]}
-        
-        
     }
     
     func setupAdditionalConfiguration() {

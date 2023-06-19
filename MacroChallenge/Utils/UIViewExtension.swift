@@ -16,5 +16,13 @@ extension UIView {
     func setupConstraints(_ activate: (UIView) -> [NSLayoutConstraint]) {
         NSLayoutConstraint.activate(activate(self))
     }
+    
+    func addLeftBorder(color: UIColor, width: CGFloat) {
+        let leftBorder = CALayer()
+        leftBorder.backgroundColor = color.cgColor
+        leftBorder.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.height)
+        
+        self.layer.addSublayer(leftBorder)
+    }
 }
 

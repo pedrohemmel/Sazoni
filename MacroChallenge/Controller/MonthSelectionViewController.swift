@@ -13,6 +13,7 @@ protocol MCMonthSelectionDelegate: AnyObject {
 
 class MonthSelectionViewController: UIViewController {
     weak var delegate: MCMonthNavigationButtonDelegate? = nil
+    weak var fastFilterDelegate: FastFilterDelegate? = nil
     lazy var monthSelectionView = MonthSelectionView(frame: self.view.frame)
     private var months: [String] = [
         "Janeiro",
@@ -43,6 +44,7 @@ class MonthSelectionViewController: UIViewController {
 extension MonthSelectionViewController: MCMonthSelectionDelegate {
     func didSelectCell(month: String) {
         self.delegate?.didSelectNewMonth(month: month)
+        self.fastFilterDelegate?.didSelectMonthFilter(monthName: month)
         self.dismiss(animated: true)
     }
 }

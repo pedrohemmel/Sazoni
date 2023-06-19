@@ -8,6 +8,10 @@ protocol FastFilterDelegate: AnyObject {
     func didDeleteFilter(fastFilter: FastFilterModel)
 }
 
+protocol FoodDetailDelegate: AnyObject{
+    func selectFood(food: Food)
+}
+
 class SearchViewController: UISearchController {
     
     lazy var searchView = SearchView(frame: self.view.frame)
@@ -15,7 +19,7 @@ class SearchViewController: UISearchController {
     //For collectionViewOfFoods
     private var filteredFoods: [Food] = [] {
         didSet {
-            self.searchView.gridFood.reloadData()
+            self.searchView.collectionView.reloadData()
         }
     }
     
@@ -40,9 +44,10 @@ class SearchViewController: UISearchController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViewConfiguration()
+//        self.searchView.collectionView.foodDelegate = self
     }
     
-
+    
 }
 
 extension SearchViewController: FastFilterDelegate {
@@ -73,6 +78,7 @@ extension SearchViewController: FastFilterDelegate {
 extension SearchViewController: ViewCode{
     func buildViewHierarchy() {
         view.addSubview(searchView)
+        
     }
     
     func setupConstraints() {}
@@ -85,7 +91,7 @@ extension SearchViewController: ViewCode{
         } else {
             self.foods = self.foodManager.foods
             self.filteredFoods = self.foods
-            self.searchView.gridFood.foods = self.filteredFoods
+            self.searchView.collectionView.foods = self.filteredFoods
         }
         
         self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
@@ -170,9 +176,7 @@ extension SearchViewController{
     }
     
     
-    @objc func dismissKeyboard(){
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
 }
-

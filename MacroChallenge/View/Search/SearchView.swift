@@ -11,25 +11,23 @@ class SearchView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+ 
     var fastFilterComponent: FastFilterComponent = {
         let fastFilterComponent = FastFilterComponent(frame: .zero)
         fastFilterComponent.translatesAutoresizingMaskIntoConstraints = false
         return fastFilterComponent
     }()
     
-    lazy var gridFood: FoodCollectionView = {
+    lazy var collectionView: FoodCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 105, height: 162)
+        layout.itemSize = CGSize(width: 105, height: 140)
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
 
         let collectionViewInstance = FoodCollectionView(frame: .zero, collectionViewLayout: layout)
         collectionViewInstance.translatesAutoresizingMaskIntoConstraints = false
-        collectionViewInstance.backgroundColor = UIColor.white
-        collectionViewInstance.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "FoodCollectionViewCell")
-        collectionViewInstance.delegate = collectionViewInstance
-        collectionViewInstance.dataSource = collectionViewInstance
-
+        
         return collectionViewInstance
     }()
 
@@ -59,6 +57,10 @@ extension SearchView: ViewCode{
             ]}
         
         self.fastFilterComponent.setupConstraints { view in
+                view.bottomAnchor.constraint(equalTo: collectionView.topAnchor)
+            ]}
+        
+        self.collectionView.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.search.bottomAnchor, constant: 20),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),

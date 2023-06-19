@@ -106,13 +106,13 @@ extension FoodView: ViewCode {
 
 //MARK: - Functions here
 extension FoodView {
-    func setup(foods: [Food], currentMonth: String, category: Category, monthButtonDelegate: MCMonthNavigationButtonDelegate, categorySwipeDelegeta: MCCategorySwipeDelegate) {
+    func setup(foods: [Food], currentMonth: String, category: Category, monthButtonDelegate: MCMonthNavigationButtonDelegate, categorySwipeDelegeta: MCCategorySwipeDelegate, foodDelegate: FoodDetailDelegate?) {
         self.foods = foods
         self.currentMonth = currentMonth
         self.category = category
         
         self.foodSwipeCategoryView.setup(selectedCategory: category, categorySwipeDelegate: categorySwipeDelegeta)
-        self.collectionView.setup(foods: foods, currentMonth: currentMonth)
+        self.collectionView.setup(foods: foods, currentMonth: currentMonth, foodDelegate: foodDelegate)
         self.monthTitle.text = currentMonth
         
         self.monthButtonDelegate = monthButtonDelegate

@@ -29,8 +29,6 @@ extension NavigationBarViewComponent: ViewCode {
     
     func setupAdditionalConfiguration() {
         self.backgroundColor = UIColor.clear
-//        self.backgroundView = UIView(frame: CGRect.zero)
-        
     }
 }
 

@@ -459,7 +459,7 @@
 				3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */,
 				BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */,
 				886664952A31005D0031D242 /* DetailSheetView.swift in Sources */,
-				BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */,=
+				BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */,
 				BBD912952A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift in Sources */,
 				88272BA22A39036800B807BD /* SeasonalityCollectionViewComponent.swift in Sources */,
 				BBD62F7A2A2A28A2001F71ED /* FoodSwipeCategoryView.swift in Sources */,

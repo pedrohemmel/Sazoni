@@ -13,13 +13,36 @@ class SearchBarComponent: UISearchBar {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.delegate = self
+        self.setupViewConfiguration()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+extension SearchBarComponent: ViewCode {
+    func buildViewHierarchy() {
+    }
+    
+    func setupConstraints() {
+    }
+    
+    func setupAdditionalConfiguration() {
+        self.delegate = self
+        self.layer.borderWidth = 1;
+        self.layer.borderColor = UIColor.white.cgColor
+        self.searchBarStyle = UISearchBar.Style.minimal
+        self.barTintColor = .brown
+        self.searchTextField.layer.cornerRadius = 10
+        self.searchTextField.layer.borderWidth = 2
+        self.searchTextField.layer.borderColor = UIColor.brown.cgColor
+        self.searchTextField.tintColor = .brown
+        self.searchTextField.textColor = .brown
+        self.searchTextField.leftView?.tintColor = .brown
+        self.searchTextField.backgroundColor = .white
+    }
 }
 
 extension SearchBarComponent: UISearchBarDelegate{

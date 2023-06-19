@@ -124,8 +124,8 @@ extension SearchViewController{
             }
         }
         
-        self.searchView.gridFood.foods = self.filteredFoods
-        self.searchView.gridFood.reloadData()
+        self.searchView.collectionView.foods = self.filteredFoods
+        self.searchView.collectionView.reloadData()
     }
     
     func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {

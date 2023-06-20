@@ -51,31 +51,30 @@ extension SearchView: ViewCode{
         self.search.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor, constant: -20)
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -0),
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor)
             ]}
         
         self.fastFilterComponent.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.search.bottomAnchor, constant: 20),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-                view.heightAnchor.constraint(equalToConstant: 100),
-                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor)
+                view.topAnchor.constraint(equalTo: self.search.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10)
             ]}
         
         self.collectionView.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.fastFilterComponent.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-                view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -90)
+                view.topAnchor.constraint(equalTo: self.fastFilterComponent.bottomAnchor, constant: 10),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+                view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -83)
             ]
         }
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor(named: "Background")
     }
 }

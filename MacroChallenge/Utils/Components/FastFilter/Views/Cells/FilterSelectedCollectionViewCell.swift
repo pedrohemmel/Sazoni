@@ -18,13 +18,6 @@ class FilterSelectedCollectionViewCell: UICollectionViewCell {
         lblFilterSelected.translatesAutoresizingMaskIntoConstraints = false
         return lblFilterSelected
     }()
-    lazy var btnDeleteFilterSelected: UIButton = {
-        let btnDeleteFilterSelected = UIButton()
-        btnDeleteFilterSelected.setImage(UIImage(systemName: "xmark"), for: .normal)
-        btnDeleteFilterSelected.tintColor = .brown
-        btnDeleteFilterSelected.translatesAutoresizingMaskIntoConstraints = false
-        return btnDeleteFilterSelected
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +30,7 @@ class FilterSelectedCollectionViewCell: UICollectionViewCell {
 
 extension FilterSelectedCollectionViewCell: ViewCode {
     func buildViewHierarchy() {
-        [self.lblFilterSelected, self.btnDeleteFilterSelected].forEach({self.addSubview($0)})
+        [self.lblFilterSelected].forEach({self.addSubview($0)})
     }
     
     func setupConstraints() {
@@ -45,15 +38,7 @@ extension FilterSelectedCollectionViewCell: ViewCode {
             [
                 view.centerYAnchor.constraint(equalTo: self.centerYAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-                view.trailingAnchor.constraint(equalTo: self.btnDeleteFilterSelected.leadingAnchor, constant: -10)
-            ]
-        }
-        
-        self.btnDeleteFilterSelected.setupConstraints { view in
-            [
-                view.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-                view.leadingAnchor.constraint(equalTo: self.lblFilterSelected.trailingAnchor, constant: 10)
+                view.trailingAnchor.constraint(equalTo: trailingAnchor)
             ]
         }
     }

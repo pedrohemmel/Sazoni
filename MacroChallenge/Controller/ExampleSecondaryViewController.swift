@@ -41,6 +41,10 @@ class ExampleSecondaryViewController: UIViewController {
 }
 
 extension ExampleSecondaryViewController: FastFilterDelegate {
+    func selectInitialMonth() {
+        
+    }
+    
     func didClickCategoryFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.append(FastFilterModel(name: fastFilter.name, idCategory: fastFilter.idCategory, filterIsSelected: nil))
         self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0].filterIsSelected = true

@@ -28,6 +28,7 @@
 		BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */; };
 		BB0EFB312A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */; };
 		BB3B0EBC2A37965500774A3D /* FastFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */; };
+		BB51055F2A421EEF002A928F /* FastFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB51055E2A421EEF002A928F /* FastFilterTests.swift */; };
 		BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F002A2516A0001F71ED /* AppDelegate.swift */; };
 		BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F022A2516A0001F71ED /* SceneDelegate.swift */; };
 		BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F042A2516A0001F71ED /* TabBarViewController.swift */; };
@@ -50,7 +51,6 @@
 		BBD62F642A290442001F71ED /* MonthSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F632A290442001F71ED /* MonthSelectionTests.swift */; };
 		BBD62F712A2996AE001F71ED /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F702A2996AE001F71ED /* FoodView.swift */; };
 		BBD62F742A2996F3001F71ED /* FoodCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */; };
-		BBD62F7A2A2A28A2001F71ED /* FoodSwipeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F792A2A28A2001F71ED /* FoodSwipeCategoryView.swift */; };
 		BBD912952A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD912942A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +86,7 @@
 		BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterModel.swift; sourceTree = "<group>"; };
+		BB51055E2A421EEF002A928F /* FastFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterTests.swift; sourceTree = "<group>"; };
 		BBD62EFD2A2516A0001F71ED /* MacroChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD62F002A2516A0001F71ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD62F022A2516A0001F71ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +112,6 @@
 		BBD62F632A290442001F71ED /* MonthSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionTests.swift; sourceTree = "<group>"; };
 		BBD62F702A2996AE001F71ED /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionView.swift; sourceTree = "<group>"; };
-		BBD62F792A2A28A2001F71ED /* FoodSwipeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSwipeCategoryView.swift; sourceTree = "<group>"; };
 		BBD912942A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,7 +211,7 @@
 				BBD62F022A2516A0001F71ED /* SceneDelegate.swift */,
 				3F47FB232A25199800356430 /* Source */,
 				BBD62F332A25170B001F71ED /* Utils */,
-                BBD62F302A2516D6001F71ED /* Model */,
+				BBD62F302A2516D6001F71ED /* Model */,
 				BBD62F312A2516DF001F71ED /* View */,
 				BBD62F322A2516E4001F71ED /* Controller */,
 				BBD62F0E2A2516A1001F71ED /* Info.plist */,
@@ -225,6 +225,7 @@
 				3F1252EF2A267EF50048E7FB /* FoodManagerTests.swift */,
 				8894BF202A3B9D4000C97894 /* FavoriteTests.swift */,
 				BBD62F632A290442001F71ED /* MonthSelectionTests.swift */,
+				BB51055E2A421EEF002A928F /* FastFilterTests.swift */,
 			);
 			path = MacroChallengeTests;
 			sourceTree = "<group>";
@@ -349,7 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				BBD62F702A2996AE001F71ED /* FoodView.swift */,
-				BBD62F782A2A2882001F71ED /* Views */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -361,14 +361,6 @@
 				88272BA32A39082C00B807BD /* SeasonalityCollectionViewCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		BBD62F782A2A2882001F71ED /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				BBD62F792A2A28A2001F71ED /* FoodSwipeCategoryView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,7 +500,6 @@
 				BBD62F3C2A2525A8001F71ED /* ExampleViewController.swift in Sources */,
 				BBD912952A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift in Sources */,
 				88272BA22A39036800B807BD /* SeasonalityCollectionViewComponent.swift in Sources */,
-				BBD62F7A2A2A28A2001F71ED /* FoodSwipeCategoryView.swift in Sources */,
 				BB0EFA8F2A30F625009DA542 /* FastFilterComponent.swift in Sources */,
 				BB3B0EBC2A37965500774A3D /* FastFilterModel.swift in Sources */,
 			);
@@ -521,6 +512,7 @@
 				8894BF212A3B9D4000C97894 /* FavoriteTests.swift in Sources */,
 				3F1252F02A267EF50048E7FB /* FoodManagerTests.swift in Sources */,
 				BBD62F642A290442001F71ED /* MonthSelectionTests.swift in Sources */,
+				BB51055F2A421EEF002A928F /* FastFilterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

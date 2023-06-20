@@ -10,7 +10,6 @@ import UIKit
 class FilterCollectionViewCell: UICollectionViewCell {
     var filterImage: UIImageView = {
         let filterImage = UIImageView()
-        filterImage.contentMode = .scaleAspectFit
         filterImage.translatesAutoresizingMaskIntoConstraints = false
         return filterImage
     }()
@@ -32,15 +31,14 @@ extension FilterCollectionViewCell: ViewCode {
     func setupConstraints() {
         self.filterImage.setupConstraints { view in
             [
-                view.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+                view.topAnchor.constraint(equalTo: self.topAnchor),
+                view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                view.heightAnchor.constraint(equalToConstant: 50)
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor)
             ]
         }
     }
     
     func setupAdditionalConfiguration() {
-            
     }
 }

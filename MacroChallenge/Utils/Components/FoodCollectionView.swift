@@ -37,8 +37,8 @@ extension FoodCollectionView: ViewCode {
         self.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "FoodCollectionViewCell")
         self.delegate = self
         self.dataSource = self
-        self.backgroundColor = UIColor.white
-        self.backgroundView = UIView(frame: CGRect.zero)
+        self.backgroundView = .none
+        self.backgroundColor = .clear
     }
 }
 

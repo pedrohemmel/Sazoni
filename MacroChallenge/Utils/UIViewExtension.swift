@@ -24,5 +24,20 @@ extension UIView {
         
         self.layer.addSublayer(leftBorder)
     }
+    
+    func addTopBorder(color: UIColor, height: CGFloat) {
+        let topBorder = CALayer()
+        topBorder.backgroundColor = UIColor.brown.cgColor
+        topBorder.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: height)
+        
+        self.layer.addSublayer(topBorder)
+    }
+    
+    func removeBottomBorder(borderWidth: CGFloat) {
+        let bottomBorder = CALayer()
+        bottomBorder.backgroundColor = UIColor.clear.cgColor
+        bottomBorder.frame = CGRect(x: 0, y: frame.size.height - borderWidth, width: frame.size.width, height: 1)
+        self.layer.addSublayer(bottomBorder)
+    }
 }
 

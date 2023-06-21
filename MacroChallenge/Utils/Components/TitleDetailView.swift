@@ -5,8 +5,8 @@ import UIKit
 class TitleDetailView: UIView {
     
     private let userDefaults = UserDefaults.standard
-    private let keyUserDefaults = "test"
-
+    private let keyUserDefaults = "favorite"
+    private let favorite = FavoriteList.shared
     private lazy var titleFood: UILabel = {
         let title = UILabel()
         title.font = UIFont.systemFont(ofSize: 33, weight: .bold)
@@ -26,7 +26,7 @@ class TitleDetailView: UIView {
     private lazy var buttonToFavorite: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(self.addFavoriteFood), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.addFood), for: .touchUpInside)
         return button
     }()
     
@@ -94,60 +94,16 @@ extension TitleDetailView{
         self.titleFood.text = nameFood
     }
     
-    @objc private func addFavoriteFood() {
-        let foodID = buttonToFavorite.tag
-        
-        if var listFavoriteFood = userDefaults.array(forKey: keyUserDefaults) as? [Int] {
-            let isActive = checkFavoriteFood(id: foodID)
-            
-            if !isActive {
-                saveItem(id: foodID, keyUserDefaults)
-                buttonToFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            } else {
-                if let index = listFavoriteFood.firstIndex(of: foodID) {
-                    listFavoriteFood.remove(at: index)
-                    userDefaults.set(listFavoriteFood, forKey: keyUserDefaults)
-                }
-                buttonToFavorite.setImage(UIImage(systemName: "star"), for: .normal)
-            }
-            buttonToFavorite.tintColor = UIColor(named: "TextColor")
-        }
+    @objc func addFood(){
+        favorite.addFavoriteFood(self.buttonToFavorite)
     }
+    
 
-    
-    private func checkFavoriteFood(id: Int) -> Bool {
-        if let favoriteFood = userDefaults.array(forKey: keyUserDefaults) as? [Int]{
-            for favorite in favoriteFood {
-                if favorite == id {
-                    return true
-                }
-            }
-        }
-        return false
-    }
-    
-    func saveItem(id: Int,_ keyUserDefaults: String){
-        if let listFavoriteFood = userDefaults.array(forKey: keyUserDefaults){
-            var newList = listFavoriteFood
-            newList.append(id)
-            userDefaults.set(newList, forKey: keyUserDefaults)
-        } else {
-            userDefaults.set([id], forKey: keyUserDefaults)
-        }
-    }
-    
-    private func setImageButton(_ isActive: Bool) -> String {
-        if isActive{
-            return "star.fill"
-        }else{
-            return "star"
-        }
-    }
-    
     func setButton(id: Int){
         self.buttonToFavorite.tag = id
-        self.buttonToFavorite.setImage(UIImage(systemName: setImageButton(checkFavoriteFood(id: id))), for: .normal)
+        self.buttonToFavorite.setImage(UIImage(systemName: favorite.setImageButton(favorite.checkFavoriteFood(id: id))), for: .normal)
         self.buttonToFavorite.tintColor = UIColor(named: "TextColor")
     }
+    
     
 }

@@ -22,7 +22,6 @@ class FoodCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
 }
 
 extension FoodCollectionView: ViewCode {

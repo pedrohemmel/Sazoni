@@ -16,6 +16,9 @@
 		88272BA02A388AB100B807BD /* DetailSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88272B9F2A388AB100B807BD /* DetailSheetViewController.swift */; };
 		88272BA22A39036800B807BD /* SeasonalityCollectionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88272BA12A39036800B807BD /* SeasonalityCollectionViewComponent.swift */; };
 		88272BA42A39082C00B807BD /* SeasonalityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88272BA32A39082C00B807BD /* SeasonalityCollectionViewCell.swift */; };
+		883A7F162A426FD100E7D4E1 /* FavoriteFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A7F152A426FD100E7D4E1 /* FavoriteFoodViewController.swift */; };
+		883A7F192A42700D00E7D4E1 /* FavoriteFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A7F182A42700D00E7D4E1 /* FavoriteFoodView.swift */; };
+		883A7F1B2A429F1A00E7D4E1 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */; };
 		886664952A31005D0031D242 /* DetailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886664942A31005D0031D242 /* DetailSheetView.swift */; };
 		8894BF212A3B9D4000C97894 /* FavoriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8894BF202A3B9D4000C97894 /* FavoriteTests.swift */; };
 		8894BF232A3BA97500C97894 /* TitleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8894BF222A3BA97500C97894 /* TitleDetailView.swift */; };
@@ -74,6 +77,9 @@
 		88272B9F2A388AB100B807BD /* DetailSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSheetViewController.swift; sourceTree = "<group>"; };
 		88272BA12A39036800B807BD /* SeasonalityCollectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalityCollectionViewComponent.swift; sourceTree = "<group>"; };
 		88272BA32A39082C00B807BD /* SeasonalityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalityCollectionViewCell.swift; sourceTree = "<group>"; };
+		883A7F152A426FD100E7D4E1 /* FavoriteFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFoodViewController.swift; sourceTree = "<group>"; };
+		883A7F182A42700D00E7D4E1 /* FavoriteFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFoodView.swift; sourceTree = "<group>"; };
+		883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		886664942A31005D0031D242 /* DetailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSheetView.swift; sourceTree = "<group>"; };
 		8894BF202A3B9D4000C97894 /* FavoriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTests.swift; sourceTree = "<group>"; };
 		8894BF222A3BA97500C97894 /* TitleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailView.swift; sourceTree = "<group>"; };
@@ -139,6 +145,14 @@
 				3F47FB242A251A2E00356430 /* data.json */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		883A7F172A426FDC00E7D4E1 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				883A7F182A42700D00E7D4E1 /* FavoriteFoodView.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 		886664932A31001F0031D242 /* DetailsFood */ = {
@@ -211,7 +225,7 @@
 				BBD62F022A2516A0001F71ED /* SceneDelegate.swift */,
 				3F47FB232A25199800356430 /* Source */,
 				BBD62F332A25170B001F71ED /* Utils */,
-                BBD62F302A2516D6001F71ED /* Model */,
+				BBD62F302A2516D6001F71ED /* Model */,
 				BBD62F312A2516DF001F71ED /* View */,
 				BBD62F322A2516E4001F71ED /* Controller */,
 				BBD62F0E2A2516A1001F71ED /* Info.plist */,
@@ -243,6 +257,7 @@
 		BBD62F312A2516DF001F71ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				883A7F172A426FDC00E7D4E1 /* Favorite */,
 				BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */,
 				BBD62F452A253E5C001F71ED /* Category */,
 				886664932A31001F0031D242 /* DetailsFood */,
@@ -258,6 +273,7 @@
 			children = (
 				BBD62F412A253C90001F71ED /* CategoryViewController.swift */,
 				88272B9F2A388AB100B807BD /* DetailSheetViewController.swift */,
+				883A7F152A426FD100E7D4E1 /* FavoriteFoodViewController.swift */,
 				889904812A2A0BA40067FEC7 /* SearchViewController.swift */,
 				BBD62F042A2516A0001F71ED /* TabBarViewController.swift */,
 				BBD62F3B2A2525A8001F71ED /* ExampleViewController.swift */,
@@ -274,6 +290,7 @@
 				BBD62F512A2696A0001F71ED /* Components */,
 				3F1252E72A266C230048E7FB /* FoodManager.swift */,
 				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
+				883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */,
 				BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */,
 			);
 			path = Utils;
@@ -479,6 +496,7 @@
 				3F1252E82A266C230048E7FB /* FoodManager.swift in Sources */,
 				BBD62F622A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift in Sources */,
 				88B469522A299CCB00755698 /* SearchView.swift in Sources */,
+				883A7F192A42700D00E7D4E1 /* FavoriteFoodView.swift in Sources */,
 				BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */,
 				88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */,
 				BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */,
@@ -492,6 +510,8 @@
 				BBD62F5C2A27CD38001F71ED /* MonthSelectionView.swift in Sources */,
 				BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */,
 				BBD62F422A253C90001F71ED /* CategoryViewController.swift in Sources */,
+				883A7F1B2A429F1A00E7D4E1 /* FavoriteList.swift in Sources */,
+				883A7F162A426FD100E7D4E1 /* FavoriteFoodViewController.swift in Sources */,
 				8894BF232A3BA97500C97894 /* TitleDetailView.swift in Sources */,
 				889904822A2A0BA40067FEC7 /* SearchViewController.swift in Sources */,
 				88272BA02A388AB100B807BD /* DetailSheetViewController.swift in Sources */,

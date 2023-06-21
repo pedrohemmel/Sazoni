@@ -5,7 +5,7 @@ import UIKit
 class TitleDetailView: UIView {
     
     private let userDefaults = UserDefaults.standard
-    private let keyUserDefaults = "test"
+    private let keyUserDefaults = "favorite"
 
     private lazy var titleFood: UILabel = {
         let title = UILabel()
@@ -96,22 +96,20 @@ extension TitleDetailView{
     
     @objc private func addFavoriteFood() {
         let foodID = buttonToFavorite.tag
-        
-        if var listFavoriteFood = userDefaults.array(forKey: keyUserDefaults) as? [Int] {
-            let isActive = checkFavoriteFood(id: foodID)
-            
-            if !isActive {
-                saveItem(id: foodID, keyUserDefaults)
-                buttonToFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            } else {
+        let isActive = checkFavoriteFood(id: foodID)
+        if !isActive {
+            saveItem(id: foodID, keyUserDefaults)
+            buttonToFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            if var listFavoriteFood = userDefaults.array(forKey: keyUserDefaults) as? [Int] {
                 if let index = listFavoriteFood.firstIndex(of: foodID) {
                     listFavoriteFood.remove(at: index)
                     userDefaults.set(listFavoriteFood, forKey: keyUserDefaults)
                 }
                 buttonToFavorite.setImage(UIImage(systemName: "star"), for: .normal)
             }
-            buttonToFavorite.tintColor = UIColor(named: "TextColor")
         }
+        buttonToFavorite.tintColor = UIColor(named: "TextColor")
     }
 
     

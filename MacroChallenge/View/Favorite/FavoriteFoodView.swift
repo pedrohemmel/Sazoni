@@ -83,12 +83,3 @@ extension FavoriteFoodView: ViewCode {
     }
     
 }
-
-extension FavoriteFoodView {
-    
-    func setup(foods: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate?) {
-        self.collectionView.setup(foods: foods, currentMonth: currentMonth, foodDelegate: foodDelegate)
-        self.setupViewConfiguration()
-    }
-    
-}

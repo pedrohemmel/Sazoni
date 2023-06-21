@@ -138,6 +138,7 @@ extension TabBarViewController: FoodDetailDelegate{
     }
 }
 
+
 extension TabBarViewController: FavoritesObserver{
     func favoriteListDidUpdate(){
         let listFavorite = UserDefaults.standard.array(forKey: "favorite") as? [Int]
@@ -152,7 +153,7 @@ extension TabBarViewController: FavoritesObserver{
             }
         }
         DispatchQueue.main.async {
-            self.favoriteFoodViewController.favoriteFoodView.setup(foods: listFavoriteFood, currentMonth: self.currentMonth, foodDelegate: self)
+            self.favoriteFoodViewController.favoriteFoodView.collectionView.setup(foods: listFavoriteFood, currentMonth: self.currentMonth, foodDelegate: self)
         }
     }
     

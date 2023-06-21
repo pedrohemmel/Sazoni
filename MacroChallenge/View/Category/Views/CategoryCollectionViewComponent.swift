@@ -45,10 +45,10 @@ extension CategoryCollectionViewComponent: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         cell.categoryFood.text = self.categories[indexPath.row].name_category
-        cell.categoryFood.textColor = UIColor(named: "border_\(indexPath.row)")
+        cell.categoryFood.textColor = .brown
         cell.categoryImage.image = UIImage(named: "icon_\(self.categories[indexPath.row].id_category)")
-        cell.backgroundColor = UIColor(named: "background_\(indexPath.row)")
-        cell.layer.borderColor = UIColor(named: "border_\(indexPath.row)")?.cgColor
+        cell.backgroundColor = .white
+        cell.layer.borderColor = UIColor.brown.cgColor
         cell.layer.borderWidth = 5
         cell.layer.cornerRadius = 20
         return cell

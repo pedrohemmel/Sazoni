@@ -14,6 +14,8 @@ class FilterCollectionView: UICollectionView {
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
+        self.backgroundView = .none
+        self.backgroundColor = .clear
         self.register(FilterCollectionViewCell.self, forCellWithReuseIdentifier: "filterCollectionViewCell")
         self.delegate = self
         self.dataSource = self
@@ -53,9 +55,12 @@ extension FilterCollectionView: UICollectionViewDelegate {
             if fastFilter.idCategory != nil {
                 self.fastFilterDelegate?.didClickCategoryFilter(fastFilter: fastFilter)
             }
-        }
-        if fastFilter.name == "months" {
-            self.fastFilterDelegate?.didClickMonthFilter()
+        } else {
+            if fastFilter.name == "months" {
+                self.fastFilterDelegate?.didClickMonthFilter()
+            } else {
+                self.fastFilterDelegate?.didDeleteFilter(fastFilter: fastFilter)
+            }
         }
     }
 }

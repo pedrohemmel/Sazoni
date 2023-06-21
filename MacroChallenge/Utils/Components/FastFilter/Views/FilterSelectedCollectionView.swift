@@ -13,6 +13,8 @@ class FilterSelectedCollectionView: UICollectionView {
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
+        self.backgroundView = .none
+        self.backgroundColor = .clear
         self.register(FilterSelectedCollectionViewCell.self, forCellWithReuseIdentifier: "FilterSelectedCollectionViewCell")
         self.delegate = self
         self.dataSource = self
@@ -31,8 +33,6 @@ extension FilterSelectedCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterSelectedCollectionViewCell", for: indexPath) as! FilterSelectedCollectionViewCell
         cell.lblFilterSelected.text = self.choosenFilters[indexPath.row].name.capitalized
-        cell.btnDeleteFilterSelected.tag = indexPath.row
-        cell.btnDeleteFilterSelected.addTarget(self, action: #selector(self.actionBtn), for: .touchUpInside)
         cell.addLeftBorder(color: .brown, width: 4.0)
         cell.contentView.isUserInteractionEnabled = false
         return cell
@@ -51,9 +51,5 @@ extension FilterSelectedCollectionView {
         self.fastFilterDelegate = fastFilterDelegate
         self.choosenFilters = choosenFilters
         self.reloadData()
-    }
-    
-    @objc func actionBtn(button: UIButton) {
-        self.fastFilterDelegate?.didDeleteFilter(fastFilter: self.choosenFilters[button.tag])
     }
 }

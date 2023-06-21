@@ -13,7 +13,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         return imageView
     }()
     
@@ -23,7 +22,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         nameFood.translatesAutoresizingMaskIntoConstraints = false
         nameFood.textAlignment = .center
         nameFood.numberOfLines = 3
-        nameFood.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        nameFood.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         return nameFood
     }()
     
@@ -49,18 +48,19 @@ extension CategoryCollectionViewCell: ViewCode {
     }
     
     func setupConstraints() {
-        self.categoryFood.setupConstraints { view in
-            [
-                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-                view.bottomAnchor.constraint(equalTo: self.categoryImage.topAnchor, constant: -20)
-            ]
-        }
-        
         self.categoryImage.setupConstraints { view in
             [
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.topAnchor.constraint(equalTo: self.categoryFood.bottomAnchor, constant: 20)
+//                view.bottomAnchor.constraint(equalTo: self.categoryFood.topAnchor, constant: -20)
+                view.bottomAnchor.constraint(equalTo: self.categoryFood.topAnchor)
+            ]
+        }
+        self.categoryFood.setupConstraints { view in
+            [
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+//                view.topAnchor.constraint(equalTo: self.categoryImage.bottomAnchor, constant: 20),
+                view.topAnchor.constraint(equalTo: self.categoryImage.bottomAnchor),
+                view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20)
             ]
         }
     }

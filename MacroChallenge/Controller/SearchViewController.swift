@@ -4,6 +4,7 @@ import UIKit
 protocol FastFilterDelegate: AnyObject {
     func didClickCategoryFilter(fastFilter: FastFilterModel)
     func didClickMonthFilter()
+    func selectInitialMonth()
     func didSelectMonthFilter(monthName: String)
     func didDeleteFilter(fastFilter: FastFilterModel)
 }
@@ -17,15 +18,15 @@ class SearchViewController: UISearchController {
     lazy var searchView = SearchView(frame: self.view.frame)
     
     //For collectionViewOfFoods
-    private var filteredFoods: [Food] = [] {
+    var filteredFoods: [Food] = [] {
         didSet {
             self.searchView.collectionView.reloadData()
         }
     }
     
     //FastFilter
-    private var choosenFilters = [FastFilterModel]()
-    private var fastFilters = [
+    var choosenFilters = [FastFilterModel]()
+    var fastFilters = [
         FastFilterModel(name: "months", idCategory: nil, filterIsSelected: false),
         FastFilterModel(name: "fruits", idCategory: 0, filterIsSelected: false),
         FastFilterModel(name: "greenstuff", idCategory: 1, filterIsSelected: false),
@@ -44,6 +45,7 @@ class SearchViewController: UISearchController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViewConfiguration()
+        self.selectInitialMonth()
     }
 }
 
@@ -58,6 +60,11 @@ extension SearchViewController: FastFilterDelegate {
         newVC.fastFilterDelegate = self
         newVC.sheetPresentationController?.detents = [.medium()]
         self.present(newVC, animated: true)
+    }
+    func selectInitialMonth() {
+        self.choosenFilters.append(FastFilterModel(name: self.getCurrentMonth(), idCategory: nil, filterIsSelected: nil))
+        self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
+        self.filterFoods(with: "\(self.searchView.search.text ?? "")")
     }
     func didSelectMonthFilter(monthName: String) {
         self.deleteMonthIfItExists()
@@ -75,7 +82,6 @@ extension SearchViewController: FastFilterDelegate {
 extension SearchViewController: ViewCode{
     func buildViewHierarchy() {
         view.addSubview(searchView)
-        
     }
     
     func setupConstraints() {}
@@ -170,6 +176,14 @@ extension SearchViewController{
                 self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == month }) ?? 0)
             }
         }
+    }
+    
+    private func getCurrentMonth() -> String {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth = dateFormatter.string(from: now)
+        return nameOfMonth.capitalized
     }
     
     

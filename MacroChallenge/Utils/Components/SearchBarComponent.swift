@@ -32,15 +32,18 @@ extension SearchBarComponent: ViewCode {
     func setupAdditionalConfiguration() {
         self.delegate = self
         self.layer.borderWidth = 1;
-        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderColor = UIColor(named: "Background")?.cgColor
         self.searchBarStyle = UISearchBar.Style.minimal
-        self.barTintColor = .brown
+        
         self.searchTextField.layer.cornerRadius = 10
-        self.searchTextField.layer.borderWidth = 2
+        self.searchTextField.layer.borderWidth = 3
         self.searchTextField.layer.borderColor = UIColor.brown.cgColor
+        
         self.searchTextField.tintColor = .brown
         self.searchTextField.textColor = .brown
         self.searchTextField.leftView?.tintColor = .brown
+        
+        self.searchTextField.background = .none
         self.searchTextField.backgroundColor = .white
     }
 }

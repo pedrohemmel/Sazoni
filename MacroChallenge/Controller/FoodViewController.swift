@@ -1,4 +1,3 @@
-
 protocol MCMonthNavigationButtonDelegate: AnyObject {
     func didClickMonthButton(currentMonth: String)
     func didSelectNewMonth(month: String)
@@ -79,6 +78,7 @@ extension FoodViewController {
         self.currentMonth = currentMonth
         self.monthUpdatesDelegate = monthUpdatesDelegate
         self.category = category
+        self.categories = categories
         self.foodDelegate = foodDelegate
         self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: currentMonth)
     }

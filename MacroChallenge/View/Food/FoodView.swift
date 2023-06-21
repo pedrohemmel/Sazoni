@@ -9,41 +9,54 @@ import UIKit
 
 class FoodView: UIView {
     
-//    weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
+    weak var categorySwipeDelegate: MCCategorySwipeDelegate? = nil
     weak var monthButtonDelegate: MCMonthNavigationButtonDelegate? = nil
     var currentMonth: String? = nil
     private var foods = [Food]()
     var category = Category(id_category: 0, name_category: "")
     
     //MARK: - Views
-    lazy private var monthTitle: UILabel = {
+    lazy var monthTitle: UILabel = {
         let monthTitle = UILabel()
         monthTitle.text = self.currentMonth
-        monthTitle.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+        monthTitle.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        monthTitle.textColor = .brown
         monthTitle.translatesAutoresizingMaskIntoConstraints = false
         return monthTitle
     }()
-    lazy private var monthTitleBtn: UIButton = {
-        let monthTitleButton = UIButton()
-        monthTitleButton.addSubview(self.monthTitle)
-        monthTitleButton.addTarget(nil, action: #selector(self.centeredMonthButtonAction), for: .touchUpInside)
-        monthTitleButton.translatesAutoresizingMaskIntoConstraints = false
-        return monthTitleButton
+    
+    lazy var foodCategoryName: UILabel = {
+        let foodCategoryName = UILabel()
+        foodCategoryName.text = self.category.name_category
+        foodCategoryName.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        foodCategoryName.textColor = .brown
+        foodCategoryName.translatesAutoresizingMaskIntoConstraints = false
+        return  foodCategoryName
+    }()
+    lazy var chevronLeftButton: UIButton = {
+        let chevronLeftButton = UIButton()
+        chevronLeftButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        chevronLeftButton.tintColor = .brown
+        chevronLeftButton.addTarget(self, action: #selector(self.chevronLeftAction), for: .touchUpInside)
+        chevronLeftButton.translatesAutoresizingMaskIntoConstraints = false
+        return chevronLeftButton
+    }()
+    lazy var chevronRightButton: UIButton = {
+        let chevronRightButton = UIButton()
+        chevronRightButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        chevronRightButton.tintColor = .brown
+        chevronRightButton.addTarget(self, action: #selector(self.chevronRightAction), for: .touchUpInside)
+        chevronRightButton.translatesAutoresizingMaskIntoConstraints = false
+        return chevronRightButton
     }()
     
-    lazy private var foodSwipeCategoryView: FoodSwipeCategoryView = {
-        let foodSwipeCategoryView = FoodSwipeCategoryView(frame: .zero)
-        foodSwipeCategoryView.translatesAutoresizingMaskIntoConstraints = false
-        return foodSwipeCategoryView
-    }()
-    
-    private lazy var collectionView: FoodCollectionView = {
+    lazy var collectionView: FoodCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: (self.bounds.width / 3) - 20, height: 180)
+        layout.itemSize = CGSize(width: 105, height: 140)
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
-
+        
         let collectionViewInstance = FoodCollectionView(frame: .zero, collectionViewLayout: layout)
         collectionViewInstance.translatesAutoresizingMaskIntoConstraints = false
         
@@ -61,37 +74,44 @@ class FoodView: UIView {
 
 extension FoodView: ViewCode {
     func buildViewHierarchy() {
-        [self.monthTitleBtn, self.foodSwipeCategoryView, self.collectionView].forEach({self.addSubview($0)})
+        [self.monthTitle, self.foodCategoryName, self.chevronLeftButton, self.chevronRightButton, self.collectionView].forEach({self.addSubview($0)})
     }
 
     func setupConstraints() {
-        self.monthTitleBtn.setupConstraints { view in
-            [
-                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                view.bottomAnchor.constraint(equalTo: self.foodSwipeCategoryView.topAnchor)
-            ]
-        }
         self.monthTitle.setupConstraints { view in
             [
-                view.centerXAnchor.constraint(equalTo: self.monthTitleBtn.centerXAnchor),
-                view.centerYAnchor.constraint(equalTo: self.monthTitleBtn.centerYAnchor)
+                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                view.bottomAnchor.constraint(equalTo: self.foodCategoryName.topAnchor)
             ]
         }
         
-        self.foodSwipeCategoryView.setupConstraints { view in
+        self.foodCategoryName.setupConstraints { view in
             [
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.topAnchor.constraint(equalTo: self.monthTitleBtn.bottomAnchor, constant: 10),
-                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10),
-                view.heightAnchor.constraint(equalToConstant: 25)
+                view.topAnchor.constraint(equalTo: self.monthTitle.bottomAnchor, constant: 10),
+                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10)
+            ]
+        }
+        
+        self.chevronLeftButton.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.foodCategoryName.topAnchor),
+                view.trailingAnchor.constraint(equalTo: self.foodCategoryName.leadingAnchor, constant: -20),
+                view.bottomAnchor.constraint(equalTo: self.foodCategoryName.bottomAnchor)
+            ]
+        }
+        self.chevronRightButton.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.foodCategoryName.topAnchor),
+                view.leadingAnchor.constraint(equalTo: self.foodCategoryName.trailingAnchor, constant: 20),
+                view.bottomAnchor.constraint(equalTo: self.foodCategoryName.bottomAnchor)
             ]
         }
         
         self.collectionView.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.foodSwipeCategoryView.bottomAnchor),
+                view.topAnchor.constraint(equalTo: self.foodCategoryName.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
@@ -100,7 +120,7 @@ extension FoodView: ViewCode {
     }
 
     func setupAdditionalConfiguration() {
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor(named: "Background")
     }
 }
 
@@ -111,12 +131,20 @@ extension FoodView {
         self.currentMonth = currentMonth
         self.category = category
         
-        self.foodSwipeCategoryView.setup(selectedCategory: category, categorySwipeDelegate: categorySwipeDelegeta)
+        self.foodCategoryName.text = category.name_category
         self.collectionView.setup(foods: foods, currentMonth: currentMonth, foodDelegate: foodDelegate)
         self.monthTitle.text = currentMonth
         
+        self.categorySwipeDelegate = categorySwipeDelegeta
         self.monthButtonDelegate = monthButtonDelegate
         self.setupViewConfiguration()
+    }
+    
+    @objc func chevronLeftAction() {
+        self.categorySwipeDelegate?.didClickBackCategory()
+    }
+    @objc func chevronRightAction() {
+        self.categorySwipeDelegate?.didClickNextCategory()
     }
     
     @objc func centeredMonthButtonAction() {

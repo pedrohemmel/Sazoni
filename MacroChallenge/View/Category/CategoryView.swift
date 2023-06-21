@@ -12,25 +12,13 @@ class CategoryView: UIView {
     private var currentMonth: String? = nil
     
     //MARK: - Views
-    lazy var categoryTitle: UILabel = {
-        let title = UILabel()
-        title.text = "Categorias"
-        title.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        title.textColor = .black
-        title.translatesAutoresizingMaskIntoConstraints = false
-        return title
-    }()
-    
-    lazy var monthBtn: UIButton = {
-        let monthBtn = UIButton()
-        monthBtn.setTitle("Mês", for: .normal)
-        monthBtn.setTitleColor(.black, for: .normal)
-        monthBtn.titleLabel?.font =  UIFont.systemFont(ofSize: 30, weight: .heavy)
-        monthBtn.layer.borderColor = UIColor.black.cgColor
-        monthBtn.layer.borderWidth = 5
-        monthBtn.layer.cornerRadius = 20
-        monthBtn.translatesAutoresizingMaskIntoConstraints = false
-        return monthBtn
+    lazy var monthTitle: UILabel = {
+        let monthTitle = UILabel()
+        monthTitle.text = self.currentMonth
+        monthTitle.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        monthTitle.textColor = .brown
+        monthTitle.translatesAutoresizingMaskIntoConstraints = false
+        return monthTitle
     }()
     
     lazy var categoryCollectionViewComponent = {
@@ -57,22 +45,20 @@ class CategoryView: UIView {
 
 extension CategoryView: ViewCode {
     func buildViewHierarchy() {
-        [self.monthBtn, self.categoryCollectionViewComponent].forEach({self.addSubview($0)})
+        [self.monthTitle, self.categoryCollectionViewComponent].forEach({self.addSubview($0)})
     }
     
     func setupConstraints() {
-        self.monthBtn.setupConstraints { view in
+        self.monthTitle.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: (self.bounds.height * 0.05)),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-                view.bottomAnchor.constraint(equalTo: self.categoryCollectionViewComponent.topAnchor, constant: -20),
-                view.heightAnchor.constraint(equalToConstant: 150)
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                view.bottomAnchor.constraint(equalTo: self.categoryCollectionViewComponent.topAnchor, constant: -(self.bounds.height * 0.1))
             ]
         }
         self.categoryCollectionViewComponent.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.monthBtn.bottomAnchor, constant: 20),
+                view.topAnchor.constraint(equalTo: self.monthTitle.bottomAnchor, constant: (self.bounds.height * 0.1)),
                 view.widthAnchor.constraint(equalToConstant: self.bounds.width),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
@@ -82,7 +68,7 @@ extension CategoryView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor(named: "Background")
     }
 }
 
@@ -90,6 +76,6 @@ extension CategoryView: ViewCode {
 extension CategoryView {
     func setup(currentMonth: String) {
         self.currentMonth = currentMonth
-        self.monthBtn.setTitle("\(currentMonth)", for: .normal)
+        self.monthTitle.text = currentMonth
     }
 }

@@ -54,7 +54,8 @@ extension SearchView: ViewCode{
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -0),
                 view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor)
-            ]}
+            ]
+        }
         
         self.fastFilterComponent.setupConstraints { view in
             [
@@ -62,7 +63,8 @@ extension SearchView: ViewCode{
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
                 view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10)
-            ]}
+            ]
+        }
         
         self.collectionView.setupConstraints { view in
             [

@@ -19,7 +19,6 @@ class FavoriteFoodViewController: UIViewController {
     //FastFilter
     private var choosenFilters = [FastFilterModel]()
     private var fastFilters = [
-        FastFilterModel(name: "months", idCategory: nil, filterIsSelected: false),
         FastFilterModel(name: "fruits", idCategory: 0, filterIsSelected: false),
         FastFilterModel(name: "greenstuff", idCategory: 1, filterIsSelected: false),
         FastFilterModel(name: "greens", idCategory: 2, filterIsSelected: false),
@@ -53,7 +52,11 @@ extension FavoriteFoodViewController {
 }
 
 extension FavoriteFoodViewController: FastFilterDelegate {
-    
+    func selectInitialMonth() {
+        self.choosenFilters.append(FastFilterModel(name: self.getCurrentMonth(), idCategory: nil, filterIsSelected: nil))
+        self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
+        self.filterFoods()
+    }
     func didClickCategoryFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.append(FastFilterModel(name: fastFilter.name, idCategory: fastFilter.idCategory, filterIsSelected: nil))
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: true)
@@ -147,5 +150,13 @@ extension FavoriteFoodViewController {
                 self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == month }) ?? 0)
             }
         }
+    }
+    
+    private func getCurrentMonth() -> String {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth = dateFormatter.string(from: now)
+        return nameOfMonth.capitalized
     }
 }

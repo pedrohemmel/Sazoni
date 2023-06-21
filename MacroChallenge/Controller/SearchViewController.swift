@@ -109,7 +109,7 @@ extension SearchViewController{
         
         if !searchText.isEmpty {
             self.filteredFoods = filteredFoods.filter { $0.name_food.lowercased().contains(searchText.lowercased()) ||
-                $0.seasonalities[5].state_seasonality.lowercased().contains(searchText.lowercased()) ||
+                $0.seasonalities[self.getCurrentMonthNumber()].state_seasonality.lowercased().contains(searchText.lowercased()) ||
                 $0.category_food.name_category.lowercased().contains(searchText.lowercased())
             }
         }
@@ -178,12 +178,56 @@ extension SearchViewController{
         }
     }
     
+    func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Alta", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Média", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Baixa", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Muito baixa", foods: foods, currentMonth: currentMonth))
+        return newFoods
+    }
+    func getFoodsInCurrentMonthWithState(state: String, foods: [Food], currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        for food in foods {
+            for seasonality in food.seasonalities {
+                if seasonality.month_name_seasonality.lowercased() == currentMonth.lowercased() {
+                    if seasonality.state_seasonality.lowercased() == state.lowercased() {
+                        newFoods.append(food)
+                    }
+                }
+            }
+        }
+        return newFoods
+    }
+    
     private func getCurrentMonth() -> String {
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
         let nameOfMonth = dateFormatter.string(from: now)
         return nameOfMonth.capitalized
+    }
+    
+    func getCurrentMonthNumber() -> Int {
+        let months = [
+            "janeiro",
+            "fevereiro",
+            "março",
+            "abril",
+            "maio",
+            "junho",
+            "julho",
+            "agosto",
+            "setembro",
+            "outubro",
+            "novembro",
+            "dezembro"
+        ]
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth = dateFormatter.string(from: now)
+        return months.firstIndex(where: {$0.lowercased() == nameOfMonth.lowercased()}) ?? 0
     }
     
     

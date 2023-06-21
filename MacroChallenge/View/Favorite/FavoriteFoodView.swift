@@ -57,22 +57,23 @@ extension FavoriteFoodView: ViewCode {
                 view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -5.5)
 
-            ]}
+            ]
+        }
         
         self.fastFilterComponent.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 20),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-                view.heightAnchor.constraint(equalToConstant: 100),
-                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor)
-            ]}
+                view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10)
+            ]
+        }
         
         self.collectionView.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.fastFilterComponent.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
                 view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
             ]
         }
@@ -81,5 +82,4 @@ extension FavoriteFoodView: ViewCode {
     func setupAdditionalConfiguration() {
         self.backgroundColor = UIColor(red: 1, green: 0.98, blue: 0.867, alpha: 1)
     }
-    
 }

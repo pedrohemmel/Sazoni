@@ -36,7 +36,6 @@ class TabBarViewController: UITabBarController {
     
     private var categoryViewController = CategoryViewController()
     private var exampleViewController = SearchViewController()
-    private var exampleSecondaryViewController = ExampleSecondaryViewController()
     private var foodViewController = FoodViewController()
     private let favoriteFoodViewController = FavoriteFoodViewController()
     
@@ -79,7 +78,7 @@ extension TabBarViewController {
         
         items[0].image = UIImage(systemName: "house")
         items[1].image = UIImage(systemName: "magnifyingglass")
-        items[2].image = UIImage(systemName: "person.circle")
+        items[2].image = UIImage(systemName: "star")
     }
     
     private func setupViewControllers() {

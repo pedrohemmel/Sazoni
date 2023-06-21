@@ -11,25 +11,34 @@ protocol MCMonthUpdatesDelegate: AnyObject {
     func didChangeMonth(newMonthName: String)
 }
 
+protocol FavoritesObserver: AnyObject{
+    func favoriteListDidUpdate()
+}
+
+
 class TabBarViewController: UITabBarController {
+    
     lazy var currentMonth = self.getCurrentMonth() {
         didSet {
             self.setupViewControllers()
         }
     }
     private var categories: [Category] = [Category]()
+    private let favorite = FavoriteList.shared
     
     var foods = [Food]()
-         private var dataIsReceived = false
-         lazy private var foodManager = FoodManager(response: {
-             self.dataIsReceived = true
-             self.getFoodData()
-         })
-
+    var favoriteFoods = [Food]()
+    private var dataIsReceived = false
+    lazy private var foodManager = FoodManager(response: {
+        self.dataIsReceived = true
+        self.getFoodData()
+    })
+    
     private var categoryViewController = CategoryViewController()
     private var exampleViewController = SearchViewController()
     private var exampleSecondaryViewController = ExampleSecondaryViewController()
     private var foodViewController = FoodViewController()
+    private let favoriteFoodViewController = FavoriteFoodViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +48,7 @@ class TabBarViewController: UITabBarController {
         self.setupViewControllers()
         self.setupTabItems()
         self.getFoodData()
+        self.favorite.registerObserver(self)
     }
 }
 
@@ -53,7 +63,7 @@ extension TabBarViewController {
     private func setupTabItems() {
         let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
         let exampleViewController = UINavigationController(rootViewController: self.exampleViewController)
-        let exampleSecondaryViewController = UINavigationController(rootViewController: self.exampleSecondaryViewController)
+        let exampleSecondaryViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
         
         self.setViewControllers([categoryViewController, exampleViewController, exampleSecondaryViewController], animated: false)
         
@@ -75,8 +85,10 @@ extension TabBarViewController {
             self.foodManager.fetchFood()
         } else {
             self.foods = self.foodManager.foods
+            self.favoriteFoods = getAllFavoriteFood(list: foods)
             self.getAllCategories()
             self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
+            self.favoriteFoodViewController.setup(food: self.favoriteFoods, currentMonth: self.currentMonth, foodDelegate: self)
         }
     }
     
@@ -84,12 +96,12 @@ extension TabBarViewController {
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
-//        dateFormatter.locale = Locale(identifier: "pt_BR")
+        dateFormatter.locale = Locale(identifier: "pt_BR")
         let nameOfMonth = dateFormatter.string(from: now)
         return nameOfMonth.capitalized
     }
     
-    private func getAllCategories() {
+    private func getAllCategories(){
         var categories = [Category]()
         for food in self.foods {
             if !categories.contains(where: {$0.id_category == food.category_food.id_category}) {
@@ -98,6 +110,23 @@ extension TabBarViewController {
         }
         self.categories = categories
     }
+    
+    func getAllFavoriteFood(list: [Food])->[Food]{
+        let listFavorite = UserDefaults.standard.array(forKey: "favorite") as? [Int]
+        var listFavoriteFood = [Food]()
+        if let favoriteFood = listFavorite {
+            for id in favoriteFood {
+                for food in list {
+                    if id == food.id_food {
+                        listFavoriteFood.append(food)
+                    }
+                }
+            }
+        }
+        return listFavoriteFood
+    }
+    
+    
 }
 
 extension TabBarViewController: FoodDetailDelegate{
@@ -107,4 +136,24 @@ extension TabBarViewController: FoodDetailDelegate{
         detailVC.sheetPresentationController?.prefersGrabberVisible = true
         self.present(detailVC, animated: true)
     }
+}
+
+extension TabBarViewController: FavoritesObserver{
+    func favoriteListDidUpdate(){
+        let listFavorite = UserDefaults.standard.array(forKey: "favorite") as? [Int]
+        var listFavoriteFood = [Food]()
+        if let favoriteFood = listFavorite {
+            for id in favoriteFood {
+                for food in self.foods {
+                    if id == food.id_food {
+                        listFavoriteFood.append(food)
+                    }
+                }
+            }
+        }
+        DispatchQueue.main.async {
+            self.favoriteFoodViewController.favoriteFoodView.setup(foods: listFavoriteFood, currentMonth: self.currentMonth, foodDelegate: self)
+        }
+    }
+    
 }

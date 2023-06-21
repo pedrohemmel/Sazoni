@@ -22,7 +22,6 @@ class FoodCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
 }
 
 extension FoodCollectionView: ViewCode {
@@ -37,7 +36,7 @@ extension FoodCollectionView: ViewCode {
         self.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "FoodCollectionViewCell")
         self.delegate = self
         self.dataSource = self
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = .clear
         self.backgroundView = UIView(frame: CGRect.zero)
     }
 }

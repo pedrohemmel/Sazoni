@@ -42,8 +42,16 @@ class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.backgroundColor = .white
+        self.tabBar.layer.cornerRadius = 10
+        self.tabBar.addTopBorder(color: .brown, height: 3)
+        
+        self.tabBar.layer.masksToBounds = true
+        self.tabBar.tintColor = .brown
+        self.tabBar.backgroundColor = UIColor(named: "Background")
         self.tabBar.isTranslucent = false
+        
+        self.view.backgroundColor = UIColor(named: "Background")
+        
         self.exampleViewController.searchView.collectionView.foodDelegate = self
         self.setupViewControllers()
         self.setupTabItems()

@@ -44,10 +44,7 @@ class SearchViewController: UISearchController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViewConfiguration()
-//        self.searchView.collectionView.foodDelegate = self
     }
-    
-    
 }
 
 extension SearchViewController: FastFilterDelegate {

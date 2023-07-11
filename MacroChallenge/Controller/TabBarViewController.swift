@@ -15,6 +15,16 @@ protocol FavoritesObserver: AnyObject{
     func favoriteListDidUpdate()
 }
 
+protocol BoughtListCRUDDelegate: AnyObject {
+    func getAllBoughtList() -> [ShoppingListModel]
+    func createNewBoughtList()
+    func deleteBoughtList(idBoughtList: Int)
+    func changeBoughtListStatus(idBoughtList: Int, status: Bool)
+    func changeItemBoughtListStatus(idBoughList: Int, idItem: Int, status: Bool)
+    func addNewItemBoughtList(idBoughtList: Int, idItem: Int)
+    func removeItemBoughtList(idBoughtList: Int, idItem: Int)
+}
+
 
 class TabBarViewController: UITabBarController {
     
@@ -62,6 +72,68 @@ class TabBarViewController: UITabBarController {
 extension TabBarViewController: MCMonthUpdatesDelegate {
     func didChangeMonth(newMonthName: String) {
         self.currentMonth = newMonthName
+    }
+}
+
+extension TabBarViewController: BoughtListCRUDDelegate {
+    func getAllBoughtList() -> [ShoppingListModel] {
+        if let boughtList = UserDefaults.standard.data(forKey: "boughtList") {
+            do {
+                let decoder = JSONDecoder()
+                return try decoder.decode([ShoppingListModel].self, from: boughtList)
+            } catch {
+                print("Couldn't not save the updated boughtList.")
+            }
+        }
+        return [ShoppingListModel]()
+    }
+    
+    func createNewBoughtList() {
+        if let boughtList = UserDefaults.standard.data(forKey: "boughtList") {
+            do {
+                let decoder = JSONDecoder()
+                var newBoughtList = try decoder.decode([ShoppingListModel].self, from: boughtList)
+                newBoughtList.append(ShoppingListModel(
+                    id: newBoughtList.count,
+                    itemShoppingListModel: [ItemShoppingListModel](),
+                    isClosed: false))
+                
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(newBoughtList)
+                UserDefaults.standard.set(data, forKey: "boughtList")
+            } catch {
+                print("Couldn't not save the updated boughtList.")
+            }
+        } else {
+            do {
+                let newBoughtList = [ShoppingListModel(id: 0, itemShoppingListModel: [ItemShoppingListModel](), isClosed: false)]
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(newBoughtList)
+                UserDefaults.standard.set(data, forKey: "boughtList")
+            } catch {
+                print("Couldn't not save boughtList.")
+            }
+        }
+    }
+    
+    func deleteBoughtList(idBoughtList: Int) {
+        
+    }
+    
+    func changeBoughtListStatus(idBoughtList: Int, status: Bool) {
+        
+    }
+    
+    func changeItemBoughtListStatus(idBoughList: Int, idItem: Int, status: Bool) {
+        
+    }
+    
+    func addNewItemBoughtList(idBoughtList: Int, idItem: Int) {
+        
+    }
+    
+    func removeItemBoughtList(idBoughtList: Int, idItem: Int) {
+        
     }
 }
 

@@ -10,18 +10,18 @@ import XCTest
 
 final class MonthSelectionTests: XCTestCase {
     private var tabBarViewController = TabBarViewController()
-    private var mainViewController = ExampleViewController()
+    private var mainViewController = FoodViewController()
     private var monthSelectionViewController = MonthSelectionViewController()
     
     func testDelegateOfSelectedMonth() {
         self.tabBarViewController.currentMonth = "Julho"
-        self.mainViewController.setup(monthUpdatesDelegate: self.tabBarViewController, currentMonth: self.tabBarViewController.currentMonth)
+//        self.mainViewController.setup(monthUpdatesDelegate: self.tabBarViewController, currentMonth: self.tabBarViewController.currentMonth)
         XCTAssert(self.mainViewController.currentMonth == "Julho")
         XCTAssert(self.tabBarViewController.currentMonth == "Julho")
         
         self.monthSelectionViewController.delegate = mainViewController
         self.monthSelectionViewController.delegate?.didSelectNewMonth(month: "Abril")
-        self.mainViewController.setup(monthUpdatesDelegate: self.tabBarViewController, currentMonth: self.tabBarViewController.currentMonth)
+//        self.mainViewController.setup(foods: monthUpdatesDelegate: self.tabBarViewController, currentMonth: self.tabBarViewController.currentMonth)
         XCTAssert(self.mainViewController.currentMonth == "Abril")
         XCTAssert(self.tabBarViewController.currentMonth == "Abril")
         

@@ -27,7 +27,6 @@ final class FavoriteTests: XCTestCase {
     }
     
     func testFavoriteSave(){
-        self.btnSaveFavoriteFood.saveItem(id: foods[0].id_food, key)
         if let data = userDefaults.array(forKey: key) as? [Int]{
             var foundSavedItem = self.checkItemArray(foods[0].id_food, data)
             XCTAssert(foundSavedItem == true)

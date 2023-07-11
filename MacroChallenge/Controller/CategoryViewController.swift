@@ -27,7 +27,6 @@ class CategoryViewController: UIViewController {
         super.loadView()
         self.view = self.categoryView
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

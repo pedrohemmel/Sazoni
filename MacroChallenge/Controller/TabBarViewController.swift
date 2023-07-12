@@ -20,8 +20,8 @@ protocol BoughtListCRUDDelegate: AnyObject {
     func createNewBoughtList(_ key: String)
     func deleteBoughtList(_ key: String, idBoughtList: Int)
     func deleteAllBoughtList(_ key: String)
-    func changeBoughtListStatus(_ key: String, idBoughtList: Int, status: Bool)
-    func changeItemBoughtListStatus(_ key: String, idBoughList: Int, idItem: Int, status: Bool)
+    func changeBoughtListStatus(_ key: String, idBoughtList: Int)
+    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int, status: Bool)
     func addNewItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
     func removeItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
 }
@@ -118,39 +118,71 @@ extension TabBarViewController: BoughtListCRUDDelegate {
     }
     
     func deleteBoughtList(_ key: String, idBoughtList: Int) {
-        
-    }
-    
-    func deleteAllBoughtList(_ key: String) {
-        if let boughtList = UserDefaults.standard.data(forKey: key) {
-            do {
-                let decoder = JSONDecoder()
-                var newBoughtList = try decoder.decode([ShoppingListModel].self, from: boughtList)
-                newBoughtList.removeAll()
-                
-                let encoder = JSONEncoder()
-                let data = try encoder.encode(newBoughtList)
-                UserDefaults.standard.set(data, forKey: key)
-            } catch {
-                print("Couldn't delete all boughtLists.")
+        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: nil) { idBoughtList, _, boughtList in
+            guard let idBoughtList = idBoughtList else { return boughtList }
+            var newBoughtList = boughtList
+            if let index = newBoughtList.firstIndex(where: { $0.id == idBoughtList }) {
+                newBoughtList.remove(at: index)
+            } else {
+                print("Could not find boughtList to delete.")
             }
+            
+            return newBoughtList
         }
     }
     
-    func changeBoughtListStatus(_ key: String, idBoughtList: Int, status: Bool) {
-        
+    func deleteAllBoughtList(_ key: String) {
+        self.boughtListAction(key, idBoughtList: nil, idItem: nil) { _, _, boughtList in
+            var newBoughtList = boughtList
+            newBoughtList.removeAll()
+            
+            return newBoughtList
+        }
     }
     
-    func changeItemBoughtListStatus(_ key: String, idBoughList: Int, idItem: Int, status: Bool) {
-        
+    func changeBoughtListStatus(_ key: String, idBoughtList: Int) {
+        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: nil) { idBoughtList, _, boughtList in
+            guard let idBoughtList = idBoughtList else { return boughtList }
+            var newBoughtList = boughtList
+            newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].isClosed.toggle()
+            
+            return newBoughtList
+        }
+    }
+    
+    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int, status: Bool) {
+        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: idItem) { idBoughtList, idItem, boughtList in
+            guard let idBoughtList = idBoughtList else { return boughtList }
+            guard let idItem = idItem else { return boughtList }
+            var newBoughtList = boughtList
+            var itemsShoppingListModel = newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel
+            newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel[itemsShoppingListModel.firstIndex(where: { $0.id == idItem }) ?? 0].isBought.toggle()
+            
+            return newBoughtList
+        }
     }
     
     func addNewItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int) {
-        
+        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: idItem) { idBoughtList, idItem, boughtList in
+            guard let idBoughtList = idBoughtList else { return boughtList }
+            guard let idItem = idItem else { return boughtList }
+            var newBoughtList = boughtList
+            newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel.append(ItemShoppingListModel(id: idItem, isBought: false))
+            
+            return newBoughtList
+        }
     }
     
     func removeItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int) {
-        
+        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: idItem) { idBoughtList, idItem, boughtList in
+            guard let idBoughtList = idBoughtList else { return boughtList }
+            guard let idItem = idItem else { return boughtList }
+            var newBoughtList = boughtList
+            var itemsShoppingListModel = newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel
+            newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel.remove(at: itemsShoppingListModel.firstIndex(where: { $0.id == idItem }) ?? 0)
+            
+            return newBoughtList
+        }
     }
 }
 
@@ -185,6 +217,23 @@ extension TabBarViewController {
             self.getAllCategories()
             self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
             self.favoriteFoodViewController.setup(food: self.favoriteFoods, currentMonth: self.currentMonth, foodDelegate: self)
+        }
+    }
+    
+    private func boughtListAction(_ key: String, idBoughtList: Int?, idItem: Int?, action: @escaping ((_ idBoughtList: Int?, _ idItem: Int?, _ boughtList: [ShoppingListModel]) -> [ShoppingListModel])) {
+        if let boughtList = UserDefaults.standard.data(forKey: key) {
+            do {
+                let decoder = JSONDecoder()
+                var newBoughtList = try decoder.decode([ShoppingListModel].self, from: boughtList)
+                
+                newBoughtList = action(idBoughtList, idItem, newBoughtList)
+                
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(newBoughtList)
+                UserDefaults.standard.set(data, forKey: key)
+            } catch {
+                print("Couldn't do this issue")
+            }
         }
     }
     

@@ -21,7 +21,7 @@ protocol BoughtListCRUDDelegate: AnyObject {
     func deleteBoughtList(_ key: String, idBoughtList: Int)
     func deleteAllBoughtList(_ key: String)
     func changeBoughtListStatus(_ key: String, idBoughtList: Int)
-    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int, status: Bool)
+    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int)
     func addNewItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
     func removeItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
 }
@@ -122,6 +122,7 @@ extension TabBarViewController: BoughtListCRUDDelegate {
             guard let idBoughtList = idBoughtList else { return boughtList }
             var newBoughtList = boughtList
             if let index = newBoughtList.firstIndex(where: { $0.id == idBoughtList }) {
+                newBoughtList[index].itemShoppingListModel.removeAll()
                 newBoughtList.remove(at: index)
             } else {
                 print("Could not find boughtList to delete.")
@@ -134,6 +135,11 @@ extension TabBarViewController: BoughtListCRUDDelegate {
     func deleteAllBoughtList(_ key: String) {
         self.boughtListAction(key, idBoughtList: nil, idItem: nil) { _, _, boughtList in
             var newBoughtList = boughtList
+            if newBoughtList.count > 0 {
+                for i in 0...(newBoughtList.count - 1) {
+                    newBoughtList[i].itemShoppingListModel.removeAll()
+                }
+            }
             newBoughtList.removeAll()
             
             return newBoughtList
@@ -150,7 +156,7 @@ extension TabBarViewController: BoughtListCRUDDelegate {
         }
     }
     
-    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int, status: Bool) {
+    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int) {
         self.boughtListAction(key, idBoughtList: idBoughtList, idItem: idItem) { idBoughtList, idItem, boughtList in
             guard let idBoughtList = idBoughtList else { return boughtList }
             guard let idItem = idItem else { return boughtList }

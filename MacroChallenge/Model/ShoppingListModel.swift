@@ -9,6 +9,7 @@ import Foundation
 
 struct ShoppingListModel: Codable {
     let id: Int
+    var name: String?
     var itemShoppingListModel: [ItemShoppingListModel]
     var isClosed: Bool
 }

@@ -16,15 +16,15 @@ final class BoughtListTests: XCTestCase {
     }
     
     func test_create_new_bought_list() {
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
         
         XCTAssertFalse(self.tabBarViewController.getAllBoughtList("test_bought_list").isEmpty)
     }
     
     func test_delete_specific_bought_list() {
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
         var boughtList = self.tabBarViewController.getAllBoughtList("test_bought_list")
         XCTAssertNotNil(boughtList.firstIndex(where: { $0.id == 1 }))
         
@@ -34,9 +34,9 @@ final class BoughtListTests: XCTestCase {
     }
     
     func test_delete_all_bought_lists() {
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
         XCTAssertFalse(self.tabBarViewController.getAllBoughtList("test_bought_list").isEmpty)
         
         self.tabBarViewController.deleteAllBoughtList("test_bought_list")
@@ -44,7 +44,7 @@ final class BoughtListTests: XCTestCase {
     }
     
     func test_did_change_bought_list_status() {
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
         let status = self.tabBarViewController.getAllBoughtList("test_bought_list")[0].isClosed ///true
         self.tabBarViewController.changeBoughtListStatus("test_bought_list", idBoughtList: 0)
         let newStatus = self.tabBarViewController.getAllBoughtList("test_bought_list")[0].isClosed ///false
@@ -52,7 +52,7 @@ final class BoughtListTests: XCTestCase {
     }
     
     func test_did_change_item_bought_list_status() {
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
         self.tabBarViewController.addNewItemBoughtList("test_bought_list", idBoughtList: 0, idItem: 1)
         let status = self.tabBarViewController.getAllBoughtList("test_bought_list")[0].itemShoppingListModel[0].isBought ///false
         self.tabBarViewController.changeItemBoughtListStatus("test_bought_list", idBoughtList: 0, idItem: 1)
@@ -61,7 +61,7 @@ final class BoughtListTests: XCTestCase {
     }
     
     func test_add_new_item_bought_list() {
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
         var boughtList = self.tabBarViewController.getAllBoughtList("test_bought_list")
         XCTAssertTrue(boughtList[0].itemShoppingListModel.isEmpty)
         
@@ -71,7 +71,7 @@ final class BoughtListTests: XCTestCase {
     }
     
     func test_delete_specific_item_bought_list() {
-        self.tabBarViewController.createNewBoughtList("test_bought_list")
+        self.tabBarViewController.createNewBoughtList("test_bought_list", name: nil)
         self.tabBarViewController.addNewItemBoughtList("test_bought_list", idBoughtList: 0, idItem: 0)
         self.tabBarViewController.addNewItemBoughtList("test_bought_list", idBoughtList: 0, idItem: 1)
         var boughtList = self.tabBarViewController.getAllBoughtList("test_bought_list")

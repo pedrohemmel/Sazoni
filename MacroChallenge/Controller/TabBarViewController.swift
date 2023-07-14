@@ -17,7 +17,7 @@ protocol FavoritesObserver: AnyObject{
 
 protocol BoughtListCRUDDelegate: AnyObject {
     func getAllBoughtList(_ key: String) -> [ShoppingListModel]
-    func createNewBoughtList(_ key: String)
+    func createNewBoughtList(_ key: String, name: String?)
     func deleteBoughtList(_ key: String, idBoughtList: Int)
     func deleteAllBoughtList(_ key: String)
     func changeBoughtListStatus(_ key: String, idBoughtList: Int)
@@ -89,13 +89,14 @@ extension TabBarViewController: BoughtListCRUDDelegate {
         return [ShoppingListModel]()
     }
     
-    func createNewBoughtList(_ key: String) {
+    func createNewBoughtList(_ key: String, name: String?) {
         if let boughtList = UserDefaults.standard.data(forKey: key) {
             do {
                 let decoder = JSONDecoder()
                 var newBoughtList = try decoder.decode([ShoppingListModel].self, from: boughtList)
                 newBoughtList.append(ShoppingListModel(
                     id: newBoughtList.count,
+                    name: name,
                     itemShoppingListModel: [ItemShoppingListModel](),
                     isClosed: false))
                 

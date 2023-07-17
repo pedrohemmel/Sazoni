@@ -27,6 +27,8 @@ protocol BoughtListCRUDDelegate: AnyObject {
 }
 
 
+
+
 class TabBarViewController: UITabBarController {
     
     lazy var currentMonth = self.getCurrentMonth() {
@@ -46,9 +48,10 @@ class TabBarViewController: UITabBarController {
     })
     
     private var categoryViewController = CategoryViewController()
-    private var exampleViewController = SearchViewController()
+    private var searchViewController = SearchViewController()
     private var foodViewController = FoodViewController()
     private let favoriteFoodViewController = FavoriteFoodViewController()
+    private var shoppingListsViewController = ShoppingListsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +65,7 @@ class TabBarViewController: UITabBarController {
         
         self.view.backgroundColor = UIColor(named: "Background")
         
-        self.exampleViewController.searchView.collectionView.foodDelegate = self
+        self.searchViewController.searchView.collectionView.foodDelegate = self
         self.setupViewControllers()
         self.setupTabItems()
         self.getFoodData()
@@ -197,22 +200,27 @@ extension TabBarViewController: BoughtListCRUDDelegate {
 extension TabBarViewController {
     private func setupTabItems() {
         let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
-        let exampleViewController = UINavigationController(rootViewController: self.exampleViewController)
-        let exampleSecondaryViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
+        let searchViewController = UINavigationController(rootViewController: self.searchViewController)
+        let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
+        let shoppingListsViewController = UINavigationController(rootViewController: self.shoppingListsViewController)
         
-        self.setViewControllers([categoryViewController, exampleViewController, exampleSecondaryViewController], animated: false)
+        self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController, shoppingListsViewController], animated: false)
         
         guard let items = self.tabBar.items else { return }
         
         items[0].image = UIImage(systemName: "house")
         items[1].image = UIImage(systemName: "magnifyingglass")
         items[2].image = UIImage(systemName: "star")
+        items[3].image = UIImage(systemName: "list.bullet.rectangle.portrait")
     }
     
     private func setupViewControllers() {
         if !self.categories.isEmpty {
             self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
         }
+        
+        self.shoppingListsViewController.boughtListCRUDDelegate = self
+        self.shoppingListsViewController.setup(boughtList: self.getAllBoughtList("boughtList"))
     }
     
     private func getFoodData() {

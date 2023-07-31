@@ -11,6 +11,7 @@ class MonthSelectionCollectionView: UICollectionView {
     
     weak var monthSelectionDelegate: MCMonthSelectionDelegate? = nil
     private var months: [String] = [String]()
+    private var monthSelected: String?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -21,7 +22,8 @@ class MonthSelectionCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(months: [String], monthSelectionDelegate: MCMonthSelectionDelegate) {
+    func setup(months: [String], monthSelectionDelegate: MCMonthSelectionDelegate, monthSelected: String) {
+        self.monthSelected = monthSelected
         self.months = months
         self.monthSelectionDelegate = monthSelectionDelegate
     }
@@ -50,8 +52,15 @@ extension MonthSelectionCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: "MonthSelectionCollectionViewCell", for: indexPath) as! MonthSelectionCollectionViewCell
         cell.title.text = self.months[indexPath.row]
-        cell.backgroundColor = .gray
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor(named: "lightBrown")?.cgColor
         cell.layer.cornerRadius = 10
+        if cell.title.text == monthSelected{
+            cell.backgroundColor = UIColor(named: "lightBrown")
+            cell.title.textColor = .white
+        } else {
+            cell.backgroundColor = .white
+        }
         return cell
     }
 }
@@ -59,8 +68,6 @@ extension MonthSelectionCollectionView: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension MonthSelectionCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.monthSelectionDelegate?.didSelectCell(month: "\(self.months[indexPath.row])")
+        self.monthSelected = self.monthSelectionDelegate?.didSelectCell(month: "\(self.months[indexPath.row])")
     }
 }
-
-

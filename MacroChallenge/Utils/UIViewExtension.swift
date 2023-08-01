@@ -33,10 +33,19 @@ extension UIView {
         self.layer.addSublayer(topBorder)
     }
     
-    func removeBottomBorder(borderWidth: CGFloat) {
+    func addRightBorder(color: UIColor, width: CGFloat) {
+        let rightBorder = CALayer()
+        rightBorder.backgroundColor = color.cgColor
+        rightBorder.frame = CGRect(x: self.frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
+        
+        self.layer.addSublayer(rightBorder)
+    }
+    
+    func addBottomBorder(color: UIColor, height: CGFloat) {
         let bottomBorder = CALayer()
-        bottomBorder.backgroundColor = UIColor.clear.cgColor
-        bottomBorder.frame = CGRect(x: 0, y: frame.size.height - borderWidth, width: frame.size.width, height: 1)
+        bottomBorder.backgroundColor = color.cgColor
+        bottomBorder.frame = CGRect(x: 0, y: self.frame.size.height - height, width: self.frame.size.width, height: height)
+        
         self.layer.addSublayer(bottomBorder)
     }
 }

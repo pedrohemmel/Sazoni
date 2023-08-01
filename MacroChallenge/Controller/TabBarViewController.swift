@@ -55,16 +55,7 @@ class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.layer.cornerRadius = 10
-        self.tabBar.addTopBorder(color: .brown, height: 3)
-        
-        self.tabBar.layer.masksToBounds = true
-        self.tabBar.tintColor = .brown
-        self.tabBar.backgroundColor = UIColor(named: "Background")
-        self.tabBar.isTranslucent = false
-        
         self.view.backgroundColor = UIColor(named: "Background")
-        
         self.searchViewController.searchView.collectionView.foodDelegate = self
         self.setupViewControllers()
         self.setupTabItems()
@@ -205,14 +196,63 @@ extension TabBarViewController {
         let shoppingListsViewController = UINavigationController(rootViewController: self.shoppingListsViewController)
         
         self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController, shoppingListsViewController], animated: false)
-        
         guard let items = self.tabBar.items else { return }
-        
-        items[0].image = UIImage(systemName: "house")
+             
+        items[0].image = UIImage(systemName: "house.fill")
         items[1].image = UIImage(systemName: "magnifyingglass")
         items[2].image = UIImage(systemName: "star")
         items[3].image = UIImage(systemName: "list.bullet.rectangle.portrait")
     }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let items = tabBar.items, let selectedItem = items.firstIndex(of: item) else {
+            return
+        }
+        
+        switch selectedItem{
+        case 0:
+            items[0].image = UIImage(systemName: "house.fill")
+            items[1].image = UIImage(systemName: "magnifyingglass")
+            items[2].image = UIImage(systemName: "star")
+            
+        case 1:
+            items[0].image = UIImage(systemName: "house")
+            items[1].image = UIImage(named: "magnifyingglass.fill")
+            items[2].image = UIImage(systemName: "star")
+            
+        case 2:
+            items[0].image = UIImage(systemName: "house")
+            items[1].image = UIImage(systemName: "magnifyingglass")
+            items[2].image = UIImage(systemName: "star.fill")
+        default:
+            break
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.tabBar.backgroundColor = UIColor(named: "Background")
+        self.tabBar.clipsToBounds = false
+        self.tabBar.layer.cornerRadius = 15
+        self.tabBar.layer.borderWidth = 3
+        self.tabBar.layer.borderColor = UIColor.brown.cgColor
+        self.tabBar.tintColor = .brown
+        self.tabBar.isTranslucent = false
+        self.tabBar.frame.size.height = 90
+        self.tabBar.frame.origin.y = view.frame.height - 90
+        
+        let newTabBarHeight: CGFloat = 100
+        self.tabBar.frame.size.height = newTabBarHeight
+        
+        let newTabBarWidth: CGFloat = view.frame.width + 10
+        self.tabBar.frame.size.width = newTabBarWidth
+        
+        let tabBarVerticalOffset: CGFloat = 10
+        self.tabBar.frame.origin.x = (view.frame.width - newTabBarWidth) / 2
+        self.tabBar.frame.origin.y = view.frame.height - newTabBarHeight + tabBarVerticalOffset
+        
+        self.tabBar.frame.origin.x = (view.frame.width - newTabBarWidth) / 2
+    }
+    
     
     private func setupViewControllers() {
         if !self.categories.isEmpty {
@@ -285,6 +325,7 @@ extension TabBarViewController {
         }
         return listFavoriteFood
     }
+    
     
     
 }

@@ -32,6 +32,9 @@
 		BB0EFB312A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */; };
 		BB3B0EBC2A37965500774A3D /* FastFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */; };
 		BB51055F2A421EEF002A928F /* FastFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB51055E2A421EEF002A928F /* FastFilterTests.swift */; };
+		BBC8CCF92A5C8CB600D26D64 /* ShoppingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8CCF82A5C8CB600D26D64 /* ShoppingListModel.swift */; };
+		BBC8CCFB2A5C8CBF00D26D64 /* ItemShoppingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8CCFA2A5C8CBF00D26D64 /* ItemShoppingListModel.swift */; };
+		BBC8CCFD2A5DC70900D26D64 /* BoughtListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8CCFC2A5DC70900D26D64 /* BoughtListTests.swift */; };
 		BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F002A2516A0001F71ED /* AppDelegate.swift */; };
 		BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F022A2516A0001F71ED /* SceneDelegate.swift */; };
 		BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F042A2516A0001F71ED /* TabBarViewController.swift */; };
@@ -91,6 +94,9 @@
 		BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterModel.swift; sourceTree = "<group>"; };
 		BB51055E2A421EEF002A928F /* FastFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterTests.swift; sourceTree = "<group>"; };
+		BBC8CCF82A5C8CB600D26D64 /* ShoppingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListModel.swift; sourceTree = "<group>"; };
+		BBC8CCFA2A5C8CBF00D26D64 /* ItemShoppingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemShoppingListModel.swift; sourceTree = "<group>"; };
+		BBC8CCFC2A5DC70900D26D64 /* BoughtListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoughtListTests.swift; sourceTree = "<group>"; };
 		BBD62EFD2A2516A0001F71ED /* MacroChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD62F002A2516A0001F71ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD62F022A2516A0001F71ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +242,7 @@
 				8894BF202A3B9D4000C97894 /* FavoriteTests.swift */,
 				BBD62F632A290442001F71ED /* MonthSelectionTests.swift */,
 				BB51055E2A421EEF002A928F /* FastFilterTests.swift */,
+				BBC8CCFC2A5DC70900D26D64 /* BoughtListTests.swift */,
 			);
 			path = MacroChallengeTests;
 			sourceTree = "<group>";
@@ -247,6 +254,8 @@
 				3F1252EB2A266FE00048E7FB /* CategoryModel.swift */,
 				3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */,
 				BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */,
+				BBC8CCF82A5C8CB600D26D64 /* ShoppingListModel.swift */,
+				BBC8CCFA2A5C8CBF00D26D64 /* ItemShoppingListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -490,6 +499,7 @@
 				BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */,
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
 				3F1252EA2A266DD90048E7FB /* FoodModel.swift in Sources */,
+				BBC8CCF92A5C8CB600D26D64 /* ShoppingListModel.swift in Sources */,
 				BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */,
 				BBD62F742A2996F3001F71ED /* FoodCollectionView.swift in Sources */,
 				BBD62F532A2696C0001F71ED /* NavigationBarViewComponent.swift in Sources */,
@@ -506,6 +516,7 @@
 				BBD62F382A251C8B001F71ED /* ViewCode.swift in Sources */,
 				BB0EFA922A30FD3E009DA542 /* FilterSelectedCollectionView.swift in Sources */,
 				3F1252EC2A266FE00048E7FB /* CategoryModel.swift in Sources */,
+				BBC8CCFB2A5C8CBF00D26D64 /* ItemShoppingListModel.swift in Sources */,
 				88272BA42A39082C00B807BD /* SeasonalityCollectionViewCell.swift in Sources */,
 				3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */,
 				BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */,
@@ -522,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8894BF212A3B9D4000C97894 /* FavoriteTests.swift in Sources */,
+				BBC8CCFD2A5DC70900D26D64 /* BoughtListTests.swift in Sources */,
 				3F1252F02A267EF50048E7FB /* FoodManagerTests.swift in Sources */,
 				BBD62F642A290442001F71ED /* MonthSelectionTests.swift in Sources */,
 				BB51055F2A421EEF002A928F /* FastFilterTests.swift in Sources */,

@@ -31,6 +31,12 @@
 		BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */; };
 		BB0EFB312A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */; };
 		BB3B0EBC2A37965500774A3D /* FastFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */; };
+		BB3F83462A61A6FD00C0DFA1 /* ShoppingListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */; };
+		BB3F83492A61A8FF00C0DFA1 /* ShoppingListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */; };
+		BB3F834D2A61AD1B00C0DFA1 /* ShoppingListsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F834C2A61AD1B00C0DFA1 /* ShoppingListsTableView.swift */; };
+		BB3F834F2A61AD5800C0DFA1 /* ShoppingListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F834E2A61AD5800C0DFA1 /* ShoppingListsTableViewCell.swift */; };
+		BB3F83512A65C54700C0DFA1 /* ShoppingListCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83502A65C54700C0DFA1 /* ShoppingListCreateViewController.swift */; };
+		BB3F83542A65C5C700C0DFA1 /* ShoppingListCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83532A65C5C700C0DFA1 /* ShoppingListCreateView.swift */; };
 		BB51055F2A421EEF002A928F /* FastFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB51055E2A421EEF002A928F /* FastFilterTests.swift */; };
 		BBC8CCF92A5C8CB600D26D64 /* ShoppingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8CCF82A5C8CB600D26D64 /* ShoppingListModel.swift */; };
 		BBC8CCFB2A5C8CBF00D26D64 /* ItemShoppingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8CCFA2A5C8CBF00D26D64 /* ItemShoppingListModel.swift */; };
@@ -93,6 +99,12 @@
 		BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterModel.swift; sourceTree = "<group>"; };
+		BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsViewController.swift; sourceTree = "<group>"; };
+		BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsView.swift; sourceTree = "<group>"; };
+		BB3F834C2A61AD1B00C0DFA1 /* ShoppingListsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsTableView.swift; sourceTree = "<group>"; };
+		BB3F834E2A61AD5800C0DFA1 /* ShoppingListsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsTableViewCell.swift; sourceTree = "<group>"; };
+		BB3F83502A65C54700C0DFA1 /* ShoppingListCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCreateViewController.swift; sourceTree = "<group>"; };
+		BB3F83532A65C5C700C0DFA1 /* ShoppingListCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCreateView.swift; sourceTree = "<group>"; };
 		BB51055E2A421EEF002A928F /* FastFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterTests.swift; sourceTree = "<group>"; };
 		BBC8CCF82A5C8CB600D26D64 /* ShoppingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListModel.swift; sourceTree = "<group>"; };
 		BBC8CCFA2A5C8CBF00D26D64 /* ItemShoppingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemShoppingListModel.swift; sourceTree = "<group>"; };
@@ -201,6 +213,42 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		BB3F83472A61A72B00C0DFA1 /* ShoppingListsView */ = {
+			isa = PBXGroup;
+			children = (
+				BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */,
+				BB3F83532A65C5C700C0DFA1 /* ShoppingListCreateView.swift */,
+				BB3F834A2A61ACF700C0DFA1 /* Views */,
+			);
+			path = ShoppingListsView;
+			sourceTree = "<group>";
+		};
+		BB3F834A2A61ACF700C0DFA1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB3F834C2A61AD1B00C0DFA1 /* ShoppingListsTableView.swift */,
+				BB3F834B2A61AD0500C0DFA1 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB3F834B2A61AD0500C0DFA1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BB3F834E2A61AD5800C0DFA1 /* ShoppingListsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BB3F83522A65C55300C0DFA1 /* ShoppingLists */ = {
+			isa = PBXGroup;
+			children = (
+				BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */,
+				BB3F83502A65C54700C0DFA1 /* ShoppingListCreateViewController.swift */,
+			);
+			path = ShoppingLists;
+			sourceTree = "<group>";
+		};
 		BBD62EF42A2516A0001F71ED = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */,
+				BB3F83472A61A72B00C0DFA1 /* ShoppingListsView */,
 				883A7F172A426FDC00E7D4E1 /* Favorite */,
 				BBD62F452A253E5C001F71ED /* Category */,
 				886664932A31001F0031D242 /* DetailsFood */,
@@ -284,6 +333,7 @@
 				BBD62F042A2516A0001F71ED /* TabBarViewController.swift */,
 				BBD62F562A27BE42001F71ED /* FoodViewController.swift */,
 				BBD62F582A27CC5B001F71ED /* MonthSelectionViewController.swift */,
+				BB3F83522A65C55300C0DFA1 /* ShoppingLists */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -486,12 +536,15 @@
 			files = (
 				BB0EFB312A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift in Sources */,
 				BBD62F712A2996AE001F71ED /* FoodView.swift in Sources */,
+				BB3F83512A65C54700C0DFA1 /* ShoppingListCreateViewController.swift in Sources */,
 				BBD62F5F2A27CE7F001F71ED /* MonthSelectionCollectionView.swift in Sources */,
 				BBD62F052A2516A0001F71ED /* TabBarViewController.swift in Sources */,
 				3F1252E82A266C230048E7FB /* FoodManager.swift in Sources */,
+				BB3F834D2A61AD1B00C0DFA1 /* ShoppingListsTableView.swift in Sources */,
 				BBD62F622A2845EE001F71ED /* MonthSelectionCollectionViewCell.swift in Sources */,
 				88B469522A299CCB00755698 /* SearchView.swift in Sources */,
 				883A7F192A42700D00E7D4E1 /* FavoriteFoodView.swift in Sources */,
+				BB3F83462A61A6FD00C0DFA1 /* ShoppingListsViewController.swift in Sources */,
 				BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */,
 				88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */,
 				BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */,
@@ -506,7 +559,9 @@
 				BBD62F5C2A27CD38001F71ED /* MonthSelectionView.swift in Sources */,
 				BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */,
 				BBD62F422A253C90001F71ED /* CategoryViewController.swift in Sources */,
+				BB3F834F2A61AD5800C0DFA1 /* ShoppingListsTableViewCell.swift in Sources */,
 				883A7F1B2A429F1A00E7D4E1 /* FavoriteList.swift in Sources */,
+				BB3F83542A65C5C700C0DFA1 /* ShoppingListCreateView.swift in Sources */,
 				883A7F162A426FD100E7D4E1 /* FavoriteFoodViewController.swift in Sources */,
 				8894BF232A3BA97500C97894 /* TitleDetailView.swift in Sources */,
 				889904822A2A0BA40067FEC7 /* SearchViewController.swift in Sources */,
@@ -516,6 +571,7 @@
 				BBD62F382A251C8B001F71ED /* ViewCode.swift in Sources */,
 				BB0EFA922A30FD3E009DA542 /* FilterSelectedCollectionView.swift in Sources */,
 				3F1252EC2A266FE00048E7FB /* CategoryModel.swift in Sources */,
+				BB3F83492A61A8FF00C0DFA1 /* ShoppingListsView.swift in Sources */,
 				BBC8CCFB2A5C8CBF00D26D64 /* ItemShoppingListModel.swift in Sources */,
 				88272BA42A39082C00B807BD /* SeasonalityCollectionViewCell.swift in Sources */,
 				3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */,

@@ -17,7 +17,7 @@ protocol FavoritesObserver: AnyObject{
 
 protocol BoughtListCRUDDelegate: AnyObject {
     func getAllBoughtList(_ key: String) -> [ShoppingListModel]
-    func createNewBoughtList(_ key: String)
+    func createNewBoughtList(_ key: String, name: String?)
     func deleteBoughtList(_ key: String, idBoughtList: Int)
     func deleteAllBoughtList(_ key: String)
     func changeBoughtListStatus(_ key: String, idBoughtList: Int)
@@ -25,6 +25,8 @@ protocol BoughtListCRUDDelegate: AnyObject {
     func addNewItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
     func removeItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
 }
+
+
 
 
 class TabBarViewController: UITabBarController {
@@ -49,6 +51,7 @@ class TabBarViewController: UITabBarController {
     private var searchViewController = SearchViewController()
     private var foodViewController = FoodViewController()
     private let favoriteFoodViewController = FavoriteFoodViewController()
+    private var shoppingListsViewController = ShoppingListsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,13 +83,14 @@ extension TabBarViewController: BoughtListCRUDDelegate {
         return [ShoppingListModel]()
     }
     
-    func createNewBoughtList(_ key: String) {
+    func createNewBoughtList(_ key: String, name: String?) {
         if let boughtList = UserDefaults.standard.data(forKey: key) {
             do {
                 let decoder = JSONDecoder()
                 var newBoughtList = try decoder.decode([ShoppingListModel].self, from: boughtList)
                 newBoughtList.append(ShoppingListModel(
                     id: newBoughtList.count,
+                    name: name,
                     itemShoppingListModel: [ItemShoppingListModel](),
                     isClosed: false))
                 
@@ -188,16 +192,16 @@ extension TabBarViewController {
     private func setupTabItems() {
         let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
         let searchViewController = UINavigationController(rootViewController: self.searchViewController)
-        let favoriteViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
+        let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
+        let shoppingListsViewController = UINavigationController(rootViewController: self.shoppingListsViewController)
         
-        self.setViewControllers([categoryViewController, searchViewController, favoriteViewController], animated: false)
-        
+        self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController, shoppingListsViewController], animated: false)
         guard let items = self.tabBar.items else { return }
-        
-        
+             
         items[0].image = UIImage(systemName: "house.fill")
         items[1].image = UIImage(systemName: "magnifyingglass")
         items[2].image = UIImage(systemName: "star")
+        items[3].image = UIImage(systemName: "list.bullet.rectangle.portrait")
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -254,6 +258,9 @@ extension TabBarViewController {
         if !self.categories.isEmpty {
             self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
         }
+        
+        self.shoppingListsViewController.boughtListCRUDDelegate = self
+        self.shoppingListsViewController.setup(boughtList: self.getAllBoughtList("boughtList"))
     }
     
     private func getFoodData() {

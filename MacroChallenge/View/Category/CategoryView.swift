@@ -15,8 +15,8 @@ class CategoryView: UIView {
     lazy var monthTitle: UILabel = {
         let monthTitle = UILabel()
         monthTitle.text = self.currentMonth
-        monthTitle.font = UIFont.systemFont(ofSize: 40, weight: .bold)
-        monthTitle.textColor = .brown
+        monthTitle.font = UIFont.systemFont(ofSize: 64, weight: .semibold)
+        monthTitle.textColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
         monthTitle.translatesAutoresizingMaskIntoConstraints = false
         return monthTitle
     }()

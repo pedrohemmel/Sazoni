@@ -2,10 +2,16 @@
 
 import UIKit
 
+protocol FavoriteFoodDelegate: AnyObject {
+    func didSelectFood(food: Food)
+    func didSelectFavoriteButton()
+}
+
 class FavoriteFoodViewController: UIViewController {
     
     lazy var favoriteFoodView = FavoriteFoodView(frame: self.view.frame)
-    weak var foodDelegate: FoodDetailDelegate? = nil
+    private let favorite = FavoriteList.shared
+    private var listOfFavoriteFoodsIDs = [Int]()
     private var listFood: [Food] = [Food]()
     private var currentMonth: String = ""
     
@@ -29,9 +35,10 @@ class FavoriteFoodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.listOfFavoriteFoodsIDs = self.favorite.getListOfFoods()
         self.favoriteFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
-        self.favoriteFoodView.collectionView.setup(foods: self.listFood, currentMonth: currentMonth, foodDelegate: foodDelegate)
+        self.favoriteFoodView.collectionView.setup(foods: self.getFavoriteFoods(), currentMonth: currentMonth, foodDelegate: nil, favoriteFoodDelegate: self)
     }
 
     override func loadView() {
@@ -43,11 +50,26 @@ class FavoriteFoodViewController: UIViewController {
 }
 
 extension FavoriteFoodViewController {
-    
-    func setup(food: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate?){
+    func setup(food: [Food], currentMonth: String){
         self.listFood = food
         self.currentMonth = currentMonth
-        self.foodDelegate = foodDelegate
+    }
+}
+
+extension FavoriteFoodViewController: FavoriteFoodDelegate {
+    func didSelectFood(food: Food) {
+        let detailVC = DetailSheetViewController(food)
+        detailVC.favoriteFoodDelegate = self
+        detailVC.sheetPresentationController?.detents = [.large()]
+        detailVC.sheetPresentationController?.prefersGrabberVisible = true
+        self.present(detailVC, animated: true)
+    }
+    
+    func didSelectFavoriteButton() {
+        print("\n\n\n\n\n\n\n\n\n")
+        print(self.choosenFilters)
+        print("\n\n\n\n\n\n\n\n\n")
+        self.filterFoods()
     }
 }
 
@@ -85,8 +107,8 @@ extension FavoriteFoodViewController: FastFilterDelegate {
 extension FavoriteFoodViewController {
     
     func filterFoods() {
-        self.filteredFoods = self.listFood
-        
+        self.listOfFavoriteFoodsIDs = self.favorite.getListOfFoods()
+        self.filteredFoods = self.getFavoriteFoods()
         
         for filter in self.choosenFilters {
             if self.verifyIfFilterIsMonth(nameOfFilter: filter.name) {
@@ -103,6 +125,10 @@ extension FavoriteFoodViewController {
         
         self.favoriteFoodView.collectionView.foods = self.filteredFoods
         self.favoriteFoodView.collectionView.reloadData()
+    }
+    
+    func getFavoriteFoods() -> [Food] {
+        return listFood.filter({ self.listOfFavoriteFoodsIDs.contains($0.id_food) })
     }
     
     func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {

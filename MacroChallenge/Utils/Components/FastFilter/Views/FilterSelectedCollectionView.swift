@@ -9,7 +9,19 @@ import UIKit
 
 class FilterSelectedCollectionView: UICollectionView {
     weak private var fastFilterDelegate: FastFilterDelegate? = nil
-    private var choosenFilters = [FastFilterModel]()
+    
+    lazy var myViewHeightAnchor = self.heightAnchor.constraint(equalToConstant: 0)
+    private var choosenFilters = [FastFilterModel]() {
+        didSet {
+            if self.choosenFilters.isEmpty {
+                myViewHeightAnchor.constant = 0
+                self.layoutIfNeeded()
+            } else {
+                myViewHeightAnchor.constant = 40
+                self.layoutIfNeeded()
+            }
+        }
+    }
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -18,6 +30,7 @@ class FilterSelectedCollectionView: UICollectionView {
         self.register(FilterSelectedCollectionViewCell.self, forCellWithReuseIdentifier: "FilterSelectedCollectionViewCell")
         self.delegate = self
         self.dataSource = self
+        myViewHeightAnchor.isActive = true
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -4,6 +4,7 @@ import UIKit
 class DetailSheetViewController: UIViewController {
     
     private var sheetView = DetailSheetView()
+    weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
     private var food: Food
     
     init(_ food: Food) {
@@ -22,5 +23,6 @@ class DetailSheetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.sheetView.titleFood.favoriteFoodDelegate = self.favoriteFoodDelegate
     }
 }

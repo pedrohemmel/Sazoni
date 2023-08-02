@@ -4,6 +4,7 @@ import UIKit
 
 class TitleDetailView: UIView {
     
+    weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
     private let userDefaults = UserDefaults.standard
     private let keyUserDefaults = "favorite"
     private let favorite = FavoriteList.shared
@@ -96,6 +97,7 @@ extension TitleDetailView{
     
     @objc func addFood(){
         favorite.addFavoriteFood(self.buttonToFavorite)
+        self.favoriteFoodDelegate?.didSelectFavoriteButton()
     }
     
 

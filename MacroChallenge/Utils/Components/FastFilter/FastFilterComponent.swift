@@ -5,14 +5,6 @@
 //  Created by Pedro henrique Dias hemmel de oliveira souza on 07/06/23.
 //
 
-
-//Step to create the component
-/// Create the collectionview of filters - Feito
-/// Create the collectionview of selected filters - Feito
-/// Create cell structure of filters collectionview
-/// Create cell structure of selected filters collectionview
-/// Create the logic of clicking in each filter
-
 import UIKit
 
 class FastFilterComponent: UIView {
@@ -71,8 +63,8 @@ extension FastFilterComponent: ViewCode {
                 view.topAnchor.constraint(equalTo: self.filterCollectionView.bottomAnchor, constant: 5),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                view.heightAnchor.constraint(equalToConstant: 40)
+                view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+//                view.heightAnchor.constraint(equalToConstant: 40)
             ]
         }
     }

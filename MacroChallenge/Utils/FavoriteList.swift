@@ -31,6 +31,13 @@ extension FavoriteList {
         notifyObservers()
         buttonToFavorite.tintColor = UIColor(named: "TextColor")
     }
+    
+    func getListOfFoods() -> [Int] {
+        if let favoriteFood = userDefaults.array(forKey: keyUserDefaults) as? [Int]{
+            return favoriteFood
+        }
+        return [Int]()
+    }
 
     
     func checkFavoriteFood(id: Int) -> Bool {

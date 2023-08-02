@@ -55,7 +55,7 @@ extension FavoriteFoodView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor),
-                view.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -5.5)
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10)
 
             ]
         }

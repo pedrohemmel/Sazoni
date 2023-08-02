@@ -20,7 +20,7 @@ class DetailSheetView: UIView{
         return image
     }()
     
-    private lazy var titleFood: TitleDetailView = {
+    var titleFood: TitleDetailView = {
         let text = TitleDetailView()
         text.translatesAutoresizingMaskIntoConstraints = false
         return text

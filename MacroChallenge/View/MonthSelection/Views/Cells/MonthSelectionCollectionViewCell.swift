@@ -11,7 +11,8 @@ class MonthSelectionCollectionViewCell: UICollectionViewCell {
     //MARK: - Views
     var title: UILabel = {
         let title = UILabel()
-        title.textColor = .white
+        title.textColor = UIColor(named: "lightBrown")
+        title.font = UIFont(name: "SFProDisplay-Bold", size: 14)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()

@@ -71,7 +71,7 @@ extension SearchView: ViewCode{
                 view.topAnchor.constraint(equalTo: self.fastFilterComponent.bottomAnchor, constant: 10),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -83)
+                view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ]
         }
     }

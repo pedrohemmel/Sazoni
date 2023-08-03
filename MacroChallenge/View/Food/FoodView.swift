@@ -97,14 +97,14 @@ extension FoodView: ViewCode {
         self.chevronLeftButton.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.foodCategoryName.topAnchor),
-                view.trailingAnchor.constraint(equalTo: self.foodCategoryName.leadingAnchor, constant: -20),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant:  self.frame.width * 0.25),
                 view.bottomAnchor.constraint(equalTo: self.foodCategoryName.bottomAnchor)
             ]
         }
         self.chevronRightButton.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.foodCategoryName.topAnchor),
-                view.leadingAnchor.constraint(equalTo: self.foodCategoryName.trailingAnchor, constant: 20),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: self.frame.width * -0.25),
                 view.bottomAnchor.constraint(equalTo: self.foodCategoryName.bottomAnchor)
             ]
         }

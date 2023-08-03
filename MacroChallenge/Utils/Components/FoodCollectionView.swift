@@ -54,6 +54,7 @@ extension FoodCollectionView: UICollectionViewDataSource {
         
         let currentStateSeasonality = self.foods[indexPath.row].seasonalities[self.foods[indexPath.row].seasonalities.firstIndex(where: { $0.month_name_seasonality == self.currentMonth }) ?? 0].state_seasonality
         cell.sazonality.text = currentStateSeasonality
+        print(self.currentMonth)
         cell.sazonality.backgroundColor = UIColor(named: "\(currentStateSeasonality)")
         
         cell.backgroundColor = .white
@@ -76,7 +77,10 @@ extension FoodCollectionView {
     func setup(foods: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate?) {
         self.foods = foods
         self.currentMonth = currentMonth
-        self.foodDelegate = foodDelegate
+        if let newFoodDelegate = foodDelegate {
+            self.foodDelegate = newFoodDelegate
+        }
         self.reloadData()
     }
+    
 }

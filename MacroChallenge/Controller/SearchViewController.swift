@@ -71,6 +71,7 @@ extension SearchViewController: FastFilterDelegate {
         self.choosenFilters.append(FastFilterModel(name: monthName, idCategory: nil, filterIsSelected: nil))
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
         self.filterFoods(with: "\(self.searchView.search.text ?? "")")
+        self.searchView.collectionView.setup(foods: self.foods, currentMonth: monthName, foodDelegate: nil)
     }
     func didDeleteFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
@@ -94,7 +95,7 @@ extension SearchViewController: ViewCode{
         } else {
             self.foods = self.foodManager.foods
             self.filteredFoods = self.foods
-            self.searchView.collectionView.foods = self.filteredFoods
+            self.searchView.collectionView.setup(foods: self.foods, currentMonth: self.getCurrentMonth(), foodDelegate: nil)
         }
         
         self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
@@ -203,6 +204,7 @@ extension SearchViewController{
     private func getCurrentMonth() -> String {
         let now = Date()
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt-BR")
         dateFormatter.dateFormat = "LLLL"
         let nameOfMonth = dateFormatter.string(from: now)
         return nameOfMonth.capitalized

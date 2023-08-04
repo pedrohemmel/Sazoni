@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
             endingLineNumber = "129"
-            landmarkName = "TabBarViewController"
-            landmarkType = "21">
+            landmarkName = "deleteBoughtList(_:idBoughtList:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "2B5D79CB-980D-4FD5-B2FF-4CF8E6F6EC5F - 6518baf998be016"
@@ -79,7 +79,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "deleteAllBoughtList(_:)"
+            landmarkName = "deleteBoughtList(_:idBoughtList:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -238,7 +238,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "deleteBoughtList(_:idBoughtList:)"
+            landmarkName = "createNewBoughtList(_:name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -318,7 +318,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
             endingLineNumber = "148"
-            landmarkName = "changeBoughtListStatus(_:idBoughtList:)"
+            landmarkName = "deleteAllBoughtList(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -366,7 +366,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "245"
             endingLineNumber = "245"
-            landmarkName = "viewDidLayoutSubviews()"
+            landmarkName = "tabBar(_:didSelect:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -574,8 +574,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
             endingLineNumber = "105"
-            landmarkName = "FavoriteFoodViewController"
-            landmarkType = "21">
+            landmarkName = "filterFoods()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -702,8 +702,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
             endingLineNumber = "67"
-            landmarkName = "FavoriteFoodViewController"
-            landmarkType = "21">
+            landmarkName = "didSelectFavoriteButton()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "DDEEF734-A7CE-463A-A569-403C44C96D4D - 8441157c8733d8ec"

@@ -7,15 +7,20 @@ class DetailSheetView: UIView{
     private let screenWidth = UIScreen.main.bounds.width
     private let screenHeight = UIScreen.main.bounds.height
     
+    private var capsule: UIImageView = {
+        let capsule = UIImageView(image: UIImage(named: "menuItem"))
+        capsule.translatesAutoresizingMaskIntoConstraints = false
+        return capsule
+    }()
     
     private lazy var imageFood: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: UIScreen.main.bounds.width * 0.55, y: 0, width: screenWidth * 0.35, height: screenHeight * 0.35)
         image.layer.shadowColor = UIColor.gray.cgColor
-        image.layer.shadowRadius = 3.0
-        image.layer.shadowOpacity = 1.0
+        image.layer.shadowRadius = 0.5
+        image.layer.shadowOpacity = 0.5
         image.contentMode = .scaleAspectFill
-        image.layer.shadowOffset = CGSize(width: 6, height: 4)
+        image.layer.shadowOffset = CGSize(width: 1, height: 1)
         image.layer.masksToBounds = false
         return image
     }()
@@ -62,30 +67,39 @@ class DetailSheetView: UIView{
 
 extension DetailSheetView: ViewCode{
     func buildViewHierarchy() {
-        [self.imageFood, self.titleFood, self.subTitle, self.collectionView].forEach({self.addSubview($0)})
+        [self.capsule, self.imageFood, self.titleFood, self.subTitle, self.collectionView].forEach({self.addSubview($0)})
     }
     
     func setupConstraints() {
+        
+        self.capsule.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                view.bottomAnchor.constraint(equalTo: self.imageFood.topAnchor, constant: 30),
+            ]
+        }
+        
         self.imageFood.setupConstraints{ view in
             [
-                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: (self.bounds.height * 0.05)),
+                view.topAnchor.constraint(equalTo: self.capsule.bottomAnchor, constant: -30),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-                view.bottomAnchor.constraint(equalTo: titleFood.topAnchor, constant: -50),
+                view.bottomAnchor.constraint(equalTo: titleFood.topAnchor, constant: 50),
             ]}
         
         self.titleFood.setupConstraints{ view in
             [
-                view.topAnchor.constraint(equalTo: self.imageFood.bottomAnchor, constant: 50),
+                view.topAnchor.constraint(equalTo: self.imageFood.bottomAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-                view.bottomAnchor.constraint(equalTo: self.subTitle.topAnchor, constant: -10),
+                view.bottomAnchor.constraint(equalTo: self.subTitle.topAnchor, constant: -40),
                 view.heightAnchor.constraint(equalToConstant: 40)
             ]}
         
         self.subTitle.setupConstraints{ view in
             [
-                view.topAnchor.constraint(equalTo: self.titleFood.bottomAnchor, constant: 40),
+                view.topAnchor.constraint(equalTo: self.titleFood.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -17),
                 view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -17),
@@ -96,7 +110,7 @@ extension DetailSheetView: ViewCode{
                 view.topAnchor.constraint(equalTo: self.subTitle.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 17),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -17),
-                view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -52),
+                view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             ]
         }
         

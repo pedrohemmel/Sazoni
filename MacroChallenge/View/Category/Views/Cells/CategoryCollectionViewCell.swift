@@ -18,11 +18,11 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     lazy var categoryFood: UILabel = {
         let nameFood = UILabel()
-        nameFood.textColor = .black
         nameFood.translatesAutoresizingMaskIntoConstraints = false
         nameFood.textAlignment = .center
         nameFood.numberOfLines = 3
-        nameFood.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        nameFood.font = UIFont.init(name: "Quicksand-SemiBold", size: 24)
+        
         return nameFood
     }()
     

@@ -18,6 +18,9 @@
 		880A8CB12A7B3AE700567920 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 880A8CAC2A7B3AE700567920 /* Quicksand-Light.ttf */; };
 		880A8CB22A7B3AE700567920 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 880A8CAD2A7B3AE700567920 /* Quicksand-SemiBold.ttf */; };
 		880A8CB32A7B3AE700567920 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 880A8CAE2A7B3AE700567920 /* Quicksand-Regular.ttf */; };
+		880A8CB92A7B43A100567920 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 880A8CB82A7B43A100567920 /* SF-Pro-Display-Bold.otf */; };
+		880A8CBB2A7B43B400567920 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 880A8CBA2A7B43B400567920 /* SF-Pro-Display-Regular.otf */; };
+		880A8CBF2A7CE13000567920 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 880A8CBE2A7CE12F00567920 /* Splash.png */; };
 		88272BA02A388AB100B807BD /* DetailSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88272B9F2A388AB100B807BD /* DetailSheetViewController.swift */; };
 		88272BA22A39036800B807BD /* SeasonalityCollectionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88272BA12A39036800B807BD /* SeasonalityCollectionViewComponent.swift */; };
 		88272BA42A39082C00B807BD /* SeasonalityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88272BA32A39082C00B807BD /* SeasonalityCollectionViewCell.swift */; };
@@ -91,6 +94,9 @@
 		880A8CAC2A7B3AE700567920 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		880A8CAD2A7B3AE700567920 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
 		880A8CAE2A7B3AE700567920 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		880A8CB82A7B43A100567920 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Bold.otf"; path = "MacroChallenge/SF-Pro-Display-Bold.otf"; sourceTree = SOURCE_ROOT; };
+		880A8CBA2A7B43B400567920 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		880A8CBE2A7CE12F00567920 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		88272B9F2A388AB100B807BD /* DetailSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSheetViewController.swift; sourceTree = "<group>"; };
 		88272BA12A39036800B807BD /* SeasonalityCollectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalityCollectionViewComponent.swift; sourceTree = "<group>"; };
 		88272BA32A39082C00B807BD /* SeasonalityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalityCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +182,8 @@
 			children = (
 				880A8CAB2A7B3AE700567920 /* Quicksand-Bold.ttf */,
 				880A8CAC2A7B3AE700567920 /* Quicksand-Light.ttf */,
+				880A8CBA2A7B43B400567920 /* SF-Pro-Display-Regular.otf */,
+				880A8CB82A7B43A100567920 /* SF-Pro-Display-Bold.otf */,
 				880A8CAA2A7B3AE700567920 /* Quicksand-Medium.ttf */,
 				880A8CAE2A7B3AE700567920 /* Quicksand-Regular.ttf */,
 				880A8CAD2A7B3AE700567920 /* Quicksand-SemiBold.ttf */,
@@ -293,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				BBD62F092A2516A1001F71ED /* Assets.xcassets */,
+				880A8CBE2A7CE12F00567920 /* Splash.png */,
 				BBD62F002A2516A0001F71ED /* AppDelegate.swift */,
 				BBD62F022A2516A0001F71ED /* SceneDelegate.swift */,
 				3F47FB232A25199800356430 /* Source */,
@@ -539,11 +548,14 @@
 			files = (
 				BBD62F0A2A2516A1001F71ED /* Assets.xcassets in Resources */,
 				880A8CAF2A7B3AE700567920 /* Quicksand-Medium.ttf in Resources */,
+				880A8CB92A7B43A100567920 /* SF-Pro-Display-Bold.otf in Resources */,
 				3F47FB252A251A2E00356430 /* data.json in Resources */,
 				880A8CB32A7B3AE700567920 /* Quicksand-Regular.ttf in Resources */,
 				880A8CB12A7B3AE700567920 /* Quicksand-Light.ttf in Resources */,
 				BBD62F402A25291F001F71ED /* LaunchScreen.storyboard in Resources */,
 				880A8CB22A7B3AE700567920 /* Quicksand-SemiBold.ttf in Resources */,
+				880A8CBB2A7B43B400567920 /* SF-Pro-Display-Regular.otf in Resources */,
+				880A8CBF2A7CE13000567920 /* Splash.png in Resources */,
 				880A8CB02A7B3AE700567920 /* Quicksand-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

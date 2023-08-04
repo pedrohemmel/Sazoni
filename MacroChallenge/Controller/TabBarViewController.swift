@@ -326,13 +326,27 @@ extension TabBarViewController {
         }
         self.categories = categories
     }
+  
+    func getAllFavoriteFood(list: [Food])->[Food]{
+        let listFavorite = UserDefaults.standard.array(forKey: "favorite") as? [Int]
+        var listFavoriteFood = [Food]()
+        if let favoriteFood = listFavorite {
+            for id in favoriteFood {
+                for food in list {
+                    if id == food.id_food {
+                        listFavoriteFood.append(food)
+                    }
+                }
+            }
+        }
+        return listFavoriteFood
+    }
 }
 
 extension TabBarViewController: FoodDetailDelegate{
     func selectFood(food: Food) {
         let detailVC = DetailSheetViewController(food)
         detailVC.sheetPresentationController?.detents = [.large()]
-        detailVC.sheetPresentationController?.prefersGrabberVisible = true
         self.present(detailVC, animated: true)
     }
 }

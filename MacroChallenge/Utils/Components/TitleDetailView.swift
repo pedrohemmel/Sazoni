@@ -10,7 +10,7 @@ class TitleDetailView: UIView {
     private let favorite = FavoriteList.shared
     private lazy var titleFood: UILabel = {
         let title = UILabel()
-        title.font = UIFont.systemFont(ofSize: 33, weight: .bold)
+        title.font = UIFont(name: "Quicksand-SemiBold", size: 33)
         title.textColor = UIColor(named: "TextColor")
         title.translatesAutoresizingMaskIntoConstraints = false
         return title

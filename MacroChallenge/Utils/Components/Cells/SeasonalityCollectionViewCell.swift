@@ -22,7 +22,7 @@ class SeasonalityCollectionViewCell: UICollectionViewCell {
     
     lazy var month: UILabel = {
         let text = UILabel()
-        text.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        text.font = UIFont(name: "SFProDisplay-Bold", size: 14)
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .center
         text.textColor = .white
@@ -38,7 +38,7 @@ class SeasonalityCollectionViewCell: UICollectionViewCell {
     
     lazy var availability: UILabel = {
         let text = UILabel()
-        text.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        text.font = UIFont(name: "SFProDisplay-Bold", size: 14)
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .center
         return text
@@ -77,10 +77,10 @@ extension SeasonalityCollectionViewCell: ViewCode{
             ]}
         self.month.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.topAnchor, constant: 6),
+                view.topAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.topAnchor, constant: 8),
                 view.leadingAnchor.constraint(equalTo: self.container.leadingAnchor, constant: 5),
                 view.trailingAnchor.constraint(equalTo: self.container.trailingAnchor, constant: -5),
-                view.bottomAnchor.constraint(equalTo: self.subContainer.safeAreaLayoutGuide.topAnchor, constant: -10)
+                view.bottomAnchor.constraint(equalTo: self.subContainer.safeAreaLayoutGuide.topAnchor, constant: -8)
             ]}
         self.subContainer.setupConstraints { view in
             [

@@ -14,8 +14,8 @@ class ShoppingListsView: UIView {
     lazy var title: UILabel = {
         let view = UILabel()
         view.text = "Listas"
-        view.font = UIFont.systemFont(ofSize: 64, weight: .semibold)
-        view.textColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
+        view.font = UIFont(name: "Quicksand-SemiBold", size: 64)
+        view.textColor = UIColor(named: "darkBrown")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -34,7 +34,7 @@ class ShoppingListsView: UIView {
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = UIColor(red: 1, green: 0.98, blue: 0.867, alpha: 1)
         button.backgroundColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
-        button.addTarget(self, action: #selector(buttonCreateAction), for: .touchUpInside)
+        button.addTarget(ShoppingListsView.self, action: #selector(buttonCreateAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

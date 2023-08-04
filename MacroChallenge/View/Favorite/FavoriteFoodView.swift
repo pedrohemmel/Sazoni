@@ -7,8 +7,8 @@ class FavoriteFoodView: UIView {
     lazy var title: UILabel = {
         let view = UILabel()
         view.text = "Favoritos"
-        view.font = UIFont.systemFont(ofSize: 64, weight: .semibold)
-        view.textColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
+        view.font = UIFont(name: "Quicksand-SemiBold", size: 64)
+        view.textColor = UIColor(named: "darkBrown")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -63,9 +63,9 @@ extension FavoriteFoodView: ViewCode {
         self.fastFilterComponent.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: frame.midX / 3.3),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10)
+                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10),
             ]
         }
         

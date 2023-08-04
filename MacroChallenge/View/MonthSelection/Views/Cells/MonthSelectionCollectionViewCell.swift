@@ -12,7 +12,7 @@ class MonthSelectionCollectionViewCell: UICollectionViewCell {
     var title: UILabel = {
         let title = UILabel()
         title.textColor = UIColor(named: "lightBrown")
-        title.font = UIFont(name: "SFProDisplay-Bold", size: 14)
+        title.font = UIFont(name: "SFProDisplay-Regular", size: 14)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()

@@ -19,8 +19,8 @@ class FoodView: UIView {
     lazy var monthTitle: UILabel = {
         let monthTitle = UILabel()
         monthTitle.text = self.currentMonth
-        monthTitle.font = UIFont.systemFont(ofSize: 40, weight: .bold)
-        monthTitle.textColor = .brown
+        monthTitle.font = UIFont(name: "Quicksand-SemiBold", size: 64)
+        monthTitle.textColor = UIColor(named: "darkBrown")
         monthTitle.translatesAutoresizingMaskIntoConstraints = false
         return monthTitle
     }()
@@ -28,15 +28,15 @@ class FoodView: UIView {
     lazy var foodCategoryName: UILabel = {
         let foodCategoryName = UILabel()
         foodCategoryName.text = self.category.name_category
-        foodCategoryName.font = UIFont.systemFont(ofSize: 25, weight: .medium)
-        foodCategoryName.textColor = .brown
+        foodCategoryName.font = UIFont(name: "Quicksand-Medium", size: 34)
+        foodCategoryName.textColor = UIColor(named: "darkBrown")
         foodCategoryName.translatesAutoresizingMaskIntoConstraints = false
         return  foodCategoryName
     }()
     lazy var chevronLeftButton: UIButton = {
         let chevronLeftButton = UIButton()
         chevronLeftButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        chevronLeftButton.tintColor = .brown
+        chevronLeftButton.tintColor = UIColor(named: "darkBrown")
         chevronLeftButton.addTarget(self, action: #selector(self.chevronLeftAction), for: .touchUpInside)
         chevronLeftButton.translatesAutoresizingMaskIntoConstraints = false
         return chevronLeftButton
@@ -44,7 +44,7 @@ class FoodView: UIView {
     lazy var chevronRightButton: UIButton = {
         let chevronRightButton = UIButton()
         chevronRightButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        chevronRightButton.tintColor = .brown
+        chevronRightButton.tintColor = UIColor(named: "darkBrown")
         chevronRightButton.addTarget(self, action: #selector(self.chevronRightAction), for: .touchUpInside)
         chevronRightButton.translatesAutoresizingMaskIntoConstraints = false
         return chevronRightButton
@@ -90,7 +90,7 @@ extension FoodView: ViewCode {
             [
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 view.topAnchor.constraint(equalTo: self.monthTitle.bottomAnchor, constant: 10),
-                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10)
+                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -30)
             ]
         }
         

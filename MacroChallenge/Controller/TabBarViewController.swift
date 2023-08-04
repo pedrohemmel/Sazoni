@@ -342,16 +342,12 @@ extension TabBarViewController {
         }
         return listFavoriteFood
     }
-    
-    
-    
 }
 
 extension TabBarViewController: FoodDetailDelegate{
     func selectFood(food: Food) {
         let detailVC = DetailSheetViewController(food)
         detailVC.sheetPresentationController?.detents = [.large()]
-        detailVC.sheetPresentationController?.prefersGrabberVisible = true
         self.present(detailVC, animated: true)
     }
 }

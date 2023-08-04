@@ -75,7 +75,7 @@ extension SearchViewController: FastFilterDelegate {
         self.monthSelected = monthName
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
         self.filterFoods(with: "\(self.searchView.search.text ?? "")")
-        self.searchView.collectionView.setup(foods: self.foods, currentMonth: monthName, foodDelegate: nil)
+        self.searchView.collectionView.setup(foods: self.foods, currentMonth: monthName, foodDelegate: nil, favoriteFoodDelegate: nil)
     }
     func didDeleteFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
@@ -99,7 +99,7 @@ extension SearchViewController: ViewCode{
         } else {
             self.foods = self.foodManager.foods
             self.filteredFoods = self.foods
-            self.searchView.collectionView.setup(foods: self.foods, currentMonth: self.getCurrentMonth(), foodDelegate: nil)
+            self.searchView.collectionView.setup(foods: self.foods, currentMonth: self.getCurrentMonth(), foodDelegate: nil, favoriteFoodDelegate: nil)
         }
         
         self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)

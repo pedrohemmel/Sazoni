@@ -132,7 +132,7 @@ extension FoodView {
         self.category = category
         
         self.foodCategoryName.text = category.name_category
-        self.collectionView.setup(foods: foods, currentMonth: currentMonth, foodDelegate: foodDelegate)
+        self.collectionView.setup(foods: foods, currentMonth: currentMonth, foodDelegate: foodDelegate, favoriteFoodDelegate: nil)
         self.monthTitle.text = currentMonth
         
         self.categorySwipeDelegate = categorySwipeDelegeta

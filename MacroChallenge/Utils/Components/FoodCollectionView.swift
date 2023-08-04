@@ -9,8 +9,9 @@ import UIKit
  
 
 class FoodCollectionView: UICollectionView {
-    var foods = [Food]()
+    var foods = [Food]() 
     weak var foodDelegate: FoodDetailDelegate? = nil
+    weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
     var currentMonth = ""
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -68,15 +69,23 @@ extension FoodCollectionView: UICollectionViewDataSource {
 
 extension FoodCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.foodDelegate?.selectFood(food: foods[indexPath.row])
+        if let foodDelegate = self.foodDelegate {
+            foodDelegate.selectFood(food: foods[indexPath.row])
+        }
+        
+        if let favoriteFoodDelegate = self.favoriteFoodDelegate {
+            favoriteFoodDelegate.didSelectFood(food: foods[indexPath.row])
+        }
+        
     }
 }
 
 //MARK: - Functions here
 extension FoodCollectionView {
-    func setup(foods: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate?) {
+    func setup(foods: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate?, favoriteFoodDelegate: FavoriteFoodDelegate?) {
         self.foods = foods
         self.currentMonth = currentMonth
+        self.favoriteFoodDelegate = favoriteFoodDelegate
         if let newFoodDelegate = foodDelegate {
             self.foodDelegate = newFoodDelegate
         }

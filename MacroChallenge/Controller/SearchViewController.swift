@@ -16,6 +16,7 @@ protocol FoodDetailDelegate: AnyObject{
 class SearchViewController: UISearchController {
     
     lazy var searchView = SearchView(frame: self.view.frame)
+    var monthSelected = String()
     
     //For collectionViewOfFoods
     var filteredFoods: [Food] = [] {
@@ -58,19 +59,23 @@ extension SearchViewController: FastFilterDelegate {
     func didClickMonthFilter() {
         let newVC = MonthSelectionViewController()
         newVC.fastFilterDelegate = self
+        newVC.monthSelected = monthSelected
         newVC.sheetPresentationController?.detents = [.medium()]
         self.present(newVC, animated: true)
     }
     func selectInitialMonth() {
         self.choosenFilters.append(FastFilterModel(name: self.getCurrentMonth(), idCategory: nil, filterIsSelected: nil))
+        self.monthSelected = self.getCurrentMonth()
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
         self.filterFoods(with: "\(self.searchView.search.text ?? "")")
     }
     func didSelectMonthFilter(monthName: String) {
         self.deleteMonthIfItExists()
         self.choosenFilters.append(FastFilterModel(name: monthName, idCategory: nil, filterIsSelected: nil))
+        self.monthSelected = monthName
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
         self.filterFoods(with: "\(self.searchView.search.text ?? "")")
+        self.searchView.collectionView.setup(foods: self.foods, currentMonth: monthName, foodDelegate: nil)
     }
     func didDeleteFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
@@ -94,7 +99,7 @@ extension SearchViewController: ViewCode{
         } else {
             self.foods = self.foodManager.foods
             self.filteredFoods = self.foods
-            self.searchView.collectionView.foods = self.filteredFoods
+            self.searchView.collectionView.setup(foods: self.foods, currentMonth: self.getCurrentMonth(), foodDelegate: nil)
         }
         
         self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
@@ -203,6 +208,7 @@ extension SearchViewController{
     private func getCurrentMonth() -> String {
         let now = Date()
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt-BR")
         dateFormatter.dateFormat = "LLLL"
         let nameOfMonth = dateFormatter.string(from: now)
         return nameOfMonth.capitalized

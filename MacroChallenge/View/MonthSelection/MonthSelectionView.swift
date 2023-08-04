@@ -10,17 +10,18 @@ import UIKit
 class MonthSelectionView: UIView {
     //MARK: - Views
     private var capsule: UIImageView = {
-        let capsule = UIImageView(image: UIImage(systemName: "chevron.compact.up", withConfiguration: UIImage.SymbolConfiguration(scale: .large)))
+        let capsule = UIImageView(image: UIImage(named: "menuItem"))
         capsule.translatesAutoresizingMaskIntoConstraints = false
         return capsule
     }()
     
     lazy var monthSelectionCollectionView: MonthSelectionCollectionView = {
         let collectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let spaceBetweenItems = 40.0
+        let spaceBetweenItems = 50.0
         collectionViewLayout.itemSize = CGSize(width: (self.bounds.width / 3 - spaceBetweenItems), height: (self.bounds.width / 3 - spaceBetweenItems))
-        collectionViewLayout.minimumInteritemSpacing = 20
-        collectionViewLayout.minimumLineSpacing = 20
+        
+        collectionViewLayout.minimumInteritemSpacing = 10
+        collectionViewLayout.minimumLineSpacing = 30
         collectionViewLayout.scrollDirection = .vertical
         
         let monthSelectionCollectionView = MonthSelectionCollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
@@ -48,12 +49,12 @@ extension MonthSelectionView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.bottomAnchor.constraint(equalTo: self.monthSelectionCollectionView.topAnchor, constant: -20)
+                view.bottomAnchor.constraint(equalTo: self.monthSelectionCollectionView.topAnchor, constant: -30)
             ]
         }
         self.monthSelectionCollectionView.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.capsule.bottomAnchor, constant: 20),
+                view.topAnchor.constraint(equalTo: self.capsule.bottomAnchor, constant: 30),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
@@ -62,13 +63,13 @@ extension MonthSelectionView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor(named: "Background")
     }
 }
 
 //MARK: - Functions here
 extension MonthSelectionView {
-    func setupMonthSelectionCollectionView(months: [String], monthSelectionDelegate: MCMonthSelectionDelegate) {
-        self.monthSelectionCollectionView.setup(months: months, monthSelectionDelegate: monthSelectionDelegate)
+    func setupMonthSelectionCollectionView(months: [String], monthSelectionDelegate: MCMonthSelectionDelegate, monthSelected: String) {
+        self.monthSelectionCollectionView.setup(months: months, monthSelectionDelegate: monthSelectionDelegate, monthSelected: monthSelected)
     }
 }

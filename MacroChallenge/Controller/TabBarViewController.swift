@@ -31,6 +31,15 @@ protocol BoughtListCRUDDelegate: AnyObject {
 
 class TabBarViewController: UITabBarController {
     
+    private let homeIcon = "Home"
+    private let homeFillIcon = "Home.fill"
+    private let searchIcon = "Search"
+    private let searchFillIcon = "Search.fill"
+    private let favoriteIcon = "Favorite"
+    private let favoriteFillIcon = "Favorite.fill"
+    private let listIcon = "List"
+    private let listFillIcon = "List.fill"
+    
     lazy var currentMonth = self.getCurrentMonth() {
         didSet {
             self.setupViewControllers()
@@ -156,7 +165,7 @@ extension TabBarViewController: BoughtListCRUDDelegate {
             guard let idBoughtList = idBoughtList else { return boughtList }
             guard let idItem = idItem else { return boughtList }
             var newBoughtList = boughtList
-            var itemsShoppingListModel = newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel
+            let itemsShoppingListModel = newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel
             newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel[itemsShoppingListModel.firstIndex(where: { $0.id == idItem }) ?? 0].isBought.toggle()
             
             return newBoughtList
@@ -179,7 +188,7 @@ extension TabBarViewController: BoughtListCRUDDelegate {
             guard let idBoughtList = idBoughtList else { return boughtList }
             guard let idItem = idItem else { return boughtList }
             var newBoughtList = boughtList
-            var itemsShoppingListModel = newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel
+            let itemsShoppingListModel = newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel
             newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel.remove(at: itemsShoppingListModel.firstIndex(where: { $0.id == idItem }) ?? 0)
             
             return newBoughtList
@@ -189,6 +198,7 @@ extension TabBarViewController: BoughtListCRUDDelegate {
 
 //MARK: - Functions here
 extension TabBarViewController {
+
     private func setupTabItems() {
         let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
         let searchViewController = UINavigationController(rootViewController: self.searchViewController)
@@ -198,10 +208,14 @@ extension TabBarViewController {
         self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController, shoppingListsViewController], animated: false)
         guard let items = self.tabBar.items else { return }
              
-        items[0].image = UIImage(systemName: "house.fill")
-        items[1].image = UIImage(systemName: "magnifyingglass")
-        items[2].image = UIImage(systemName: "star")
-        items[3].image = UIImage(systemName: "list.bullet.rectangle.portrait")
+        items[0].image = UIImage(named: homeFillIcon)
+        items[0].title = "Início"
+        items[1].image = UIImage(named: searchIcon)
+        items[1].title = "Busca"
+        items[2].image = UIImage(named: favoriteIcon)
+        items[2].title = "Favoritos"
+        items[3].image = UIImage(named: listIcon)
+        items[3].title = "Lista"
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -211,46 +225,49 @@ extension TabBarViewController {
         
         switch selectedItem{
         case 0:
-            items[0].image = UIImage(systemName: "house.fill")
-            items[1].image = UIImage(systemName: "magnifyingglass")
-            items[2].image = UIImage(systemName: "star")
+            items[0].image = UIImage(named: homeFillIcon)
+            items[1].image = UIImage(named: searchIcon)
+            items[2].image = UIImage(named: favoriteIcon)
+            items[3].image = UIImage(named: listIcon)
             
         case 1:
-            items[0].image = UIImage(systemName: "house")
-            items[1].image = UIImage(named: "magnifyingglass.fill")
-            items[2].image = UIImage(systemName: "star")
+            items[0].image = UIImage(named: homeIcon)
+            items[1].image = UIImage(named: searchFillIcon)
+            items[2].image = UIImage(named: favoriteIcon)
+            items[3].image = UIImage(named: listIcon)
+
             
         case 2:
-            items[0].image = UIImage(systemName: "house")
-            items[1].image = UIImage(systemName: "magnifyingglass")
-            items[2].image = UIImage(systemName: "star.fill")
+            items[0].image = UIImage(named: homeIcon)
+            items[1].image = UIImage(named: searchIcon)
+            items[2].image = UIImage(named: favoriteFillIcon)
+            items[3].image = UIImage(named: listIcon)
+            
+        case 3:
+            items[0].image = UIImage(named: homeIcon)
+            items[1].image = UIImage(named: searchIcon)
+            items[2].image = UIImage(named: favoriteIcon)
+            items[3].image = UIImage(named: listFillIcon)
+            
         default:
             break
         }
     }
     
     override func viewDidLayoutSubviews() {
+        let newTabBarWidth: CGFloat = view.frame.width + 10
+        let newTabBarHeight: CGFloat = view.frame.height * 0.1
+        self.tabBar.frame.size.height = newTabBarHeight
+        self.tabBar.frame.size.width = newTabBarWidth
+        self.tabBar.frame.origin.x = (view.frame.width - newTabBarWidth) / 2
+        self.tabBar.frame.origin.y = UIScreen.main.bounds.maxY - view.frame.height * 0.090
         self.tabBar.backgroundColor = UIColor(named: "Background")
         self.tabBar.clipsToBounds = false
         self.tabBar.layer.cornerRadius = 15
         self.tabBar.layer.borderWidth = 3
         self.tabBar.layer.borderColor = UIColor.brown.cgColor
         self.tabBar.tintColor = .brown
-        self.tabBar.isTranslucent = false
-        self.tabBar.frame.size.height = 90
-        self.tabBar.frame.origin.y = view.frame.height - 90
-        
-        let newTabBarHeight: CGFloat = 100
-        self.tabBar.frame.size.height = newTabBarHeight
-        
-        let newTabBarWidth: CGFloat = view.frame.width + 10
-        self.tabBar.frame.size.width = newTabBarWidth
-        
-        let tabBarVerticalOffset: CGFloat = 10
-        self.tabBar.frame.origin.x = (view.frame.width - newTabBarWidth) / 2
-        self.tabBar.frame.origin.y = view.frame.height - newTabBarHeight + tabBarVerticalOffset
-        
-        self.tabBar.frame.origin.x = (view.frame.width - newTabBarWidth) / 2
+        self.tabBar.isTranslucent = true
     }
     
     
@@ -328,7 +345,7 @@ extension TabBarViewController: FavoritesObserver{
         if let favoriteFood = listFavorite {
             for id in favoriteFood {
                 for food in self.foods {
-                    if id == food.id_food {
+                        if id == food.id_food {
                         listFavoriteFood.append(food)
                     }
                 }
@@ -337,6 +354,6 @@ extension TabBarViewController: FavoritesObserver{
         DispatchQueue.main.async {
             self.favoriteFoodViewController.favoriteFoodView.collectionView.setup(foods: listFavoriteFood, currentMonth: self.currentMonth, foodDelegate: self, favoriteFoodDelegate: nil)
         }
-    }
+        }
     
 }

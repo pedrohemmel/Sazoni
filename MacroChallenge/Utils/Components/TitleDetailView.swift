@@ -97,7 +97,12 @@ extension TitleDetailView{
     
     @objc func addFood(){
         favorite.addFavoriteFood(self.buttonToFavorite)
-        self.favoriteFoodDelegate?.didSelectFavoriteButton()
+        if let favoriteFoodDelegate = self.favoriteFoodDelegate {
+            favoriteFoodDelegate.didSelectFavoriteButton()
+        } else {
+            self.favorite.notifyObservers()
+        }
+        
     }
     
 

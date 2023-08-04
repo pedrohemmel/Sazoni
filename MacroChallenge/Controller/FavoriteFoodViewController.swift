@@ -45,8 +45,6 @@ class FavoriteFoodViewController: UIViewController {
         super.loadView()
         self.view = self.favoriteFoodView
     }
-    
-
 }
 
 extension FavoriteFoodViewController {
@@ -66,9 +64,6 @@ extension FavoriteFoodViewController: FavoriteFoodDelegate {
     }
     
     func didSelectFavoriteButton() {
-        print("\n\n\n\n\n\n\n\n\n")
-        print(self.choosenFilters)
-        print("\n\n\n\n\n\n\n\n\n")
         self.filterFoods()
     }
 }

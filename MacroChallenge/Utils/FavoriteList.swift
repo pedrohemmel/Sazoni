@@ -28,7 +28,6 @@ extension FavoriteList {
                 buttonToFavorite.setImage(UIImage(systemName: "star"), for: .normal)
             }
         }
-        notifyObservers()
         buttonToFavorite.tintColor = UIColor(named: "TextColor")
     }
     
@@ -81,7 +80,7 @@ extension FavoriteList {
         observers.removeAll { $0 === observer }
     }
     
-    private func notifyObservers() {
+    func notifyObservers() {
         for observer in observers {
             observer.favoriteListDidUpdate()
         }

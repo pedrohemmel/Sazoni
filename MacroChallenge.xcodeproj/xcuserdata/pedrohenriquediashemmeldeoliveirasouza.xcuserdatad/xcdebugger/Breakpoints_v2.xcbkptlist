@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
             endingLineNumber = "129"
-            landmarkName = "TabBarViewController"
-            landmarkType = "21">
+            landmarkName = "deleteBoughtList(_:idBoughtList:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "2B5D79CB-980D-4FD5-B2FF-4CF8E6F6EC5F - 6518baf998be016"
@@ -79,7 +79,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "deleteAllBoughtList(_:)"
+            landmarkName = "deleteBoughtList(_:idBoughtList:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -238,7 +238,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "deleteBoughtList(_:idBoughtList:)"
+            landmarkName = "createNewBoughtList(_:name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -318,7 +318,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
             endingLineNumber = "148"
-            landmarkName = "changeBoughtListStatus(_:idBoughtList:)"
+            landmarkName = "deleteAllBoughtList(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -366,278 +366,70 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "245"
             endingLineNumber = "245"
-            landmarkName = "viewDidLayoutSubviews()"
+            landmarkName = "tabBar(_:didSelect:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A092AF8A-3741-4B40-9EB4-7DC15003269F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FavoriteFoodViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "filterFoods()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A092AF8A-3741-4B40-9EB4-7DC15003269F - 9cdc2c614fed407d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FavoriteFoodViewController.filterFoods() -&gt; ()"
-                  moduleName = "MacroChallenge"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "110"
-                  endingLineNumber = "110"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  uuid = "A092AF8A-3741-4B40-9EB4-7DC15003269F - 9cdc2c614fed40bb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FavoriteFoodViewController.filterFoods() -&gt; ()"
-                  moduleName = "MacroChallenge"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
-                  offsetFromSymbolStart = "176">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E27ADD4E-E258-446D-8707-A3B5D42977D9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Utils/Components/FastFilter/Views/FilterSelectedCollectionView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "choosenFilters"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AA89323D-801A-4CFB-A7FB-C15FEFDA4BE5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Utils/Components/FastFilter/Views/FilterSelectedCollectionView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "choosenFilters"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "AA89323D-801A-4CFB-A7FB-C15FEFDA4BE5 - 31850665f4e81476"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FilterSelectedCollectionView.choosenFilters.didset : Swift.Array&lt;MacroChallenge.FastFilterModel&gt;"
-                  moduleName = "MacroChallenge"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Utils/Components/FastFilter/Views/FilterSelectedCollectionView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "316">
-               </Location>
-               <Location
-                  uuid = "AA89323D-801A-4CFB-A7FB-C15FEFDA4BE5 - 31850665f4e814a9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FilterSelectedCollectionView.choosenFilters.didset : Swift.Array&lt;MacroChallenge.FastFilterModel&gt;"
-                  moduleName = "MacroChallenge"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Utils/Components/FastFilter/Views/FilterSelectedCollectionView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "204">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "95FA15A0-36E6-477E-914A-24D69ABA56A5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FavoriteFoodViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "filterFoods()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "95FA15A0-36E6-477E-914A-24D69ABA56A5 - 524f62614a98fa6b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (MacroChallenge.Food) -&gt; Swift.Bool in MacroChallenge.FavoriteFoodViewController.filterFoods() -&gt; ()"
-                  moduleName = "MacroChallenge"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "95FA15A0-36E6-477E-914A-24D69ABA56A5 - a8b01fb3ed0251b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MacroChallenge.FastFilterModel) -&gt; Swift.Bool in closure #2 (MacroChallenge.Food) -&gt; Swift.Bool in MacroChallenge.FavoriteFoodViewController.filterFoods() -&gt; ()"
-                  moduleName = "MacroChallenge"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "36A3211C-E1BB-4268-AC43-5F8F5E6290AB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FavoriteFoodViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "filterFoods()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9386332D-195F-4706-ACC4-68F35C9A64E9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FavoriteFoodViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "filterFoods()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "82A974C9-032B-42D7-8FB4-DB9AEB44FFE1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FavoriteFoodViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "FavoriteFoodViewController"
-            landmarkType = "21">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A29DA75B-C84D-4AC8-A060-BEF9AC70C3BE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FavoriteFoodViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "didClickCategoryFilter(fastFilter:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E19C782E-55CC-411B-B798-DE10436E3668"
+            uuid = "7818FDBF-4B42-4889-8320-F51792D2CDE4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FavoriteFoodViewController.swift"
+            filePath = "MacroChallenge/Controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "filterFoods()"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "filterFoods(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1D8CB0F-9F1D-40F5-A820-6D73B81A6F91"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroChallenge/Controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "filterFoods(with:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E19C782E-55CC-411B-B798-DE10436E3668 - 9cdc2c614fed46aa"
+                  uuid = "D1D8CB0F-9F1D-40F5-A820-6D73B81A6F91 - 8cf6bbd435ac60da"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FavoriteFoodViewController.filterFoods() -&gt; ()"
+                  symbolName = "MacroChallenge.SearchViewController.filterFoods(with: Swift.String) -&gt; ()"
                   moduleName = "MacroChallenge"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "1312">
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "144">
                </Location>
                <Location
-                  uuid = "E19C782E-55CC-411B-B798-DE10436E3668 - 9cdc2c614fed46aa"
+                  uuid = "D1D8CB0F-9F1D-40F5-A820-6D73B81A6F91 - 8cf6bbd435ac60da"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FavoriteFoodViewController.filterFoods() -&gt; ()"
+                  symbolName = "MacroChallenge.SearchViewController.filterFoods(with: Swift.String) -&gt; ()"
                   moduleName = "MacroChallenge"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "1120">
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "120">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -645,47 +437,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D81B9235-740C-46A3-92FE-7DE28B56D332"
+            uuid = "5AFAE050-9EA2-4B40-AC04-DA372042CB7E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FavoriteFoodViewController.swift"
+            filePath = "MacroChallenge/Controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "filterFoods()"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "filterFoods(with:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D81B9235-740C-46A3-92FE-7DE28B56D332 - 9cdc2c614fed466c"
+                  uuid = "5AFAE050-9EA2-4B40-AC04-DA372042CB7E - 8cf6bbd435ac60fb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FavoriteFoodViewController.filterFoods() -&gt; ()"
+                  symbolName = "MacroChallenge.SearchViewController.filterFoods(with: Swift.String) -&gt; ()"
                   moduleName = "MacroChallenge"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "1352">
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "168">
                </Location>
                <Location
-                  uuid = "D81B9235-740C-46A3-92FE-7DE28B56D332 - 9cdc2c614fed468b"
+                  uuid = "5AFAE050-9EA2-4B40-AC04-DA372042CB7E - 930e11e1060e0eed"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FavoriteFoodViewController.filterFoods() -&gt; ()"
+                  symbolName = "closure #1 (MacroChallenge.Food) -&gt; Swift.Bool in MacroChallenge.SearchViewController.filterFoods(with: Swift.String) -&gt; ()"
                   moduleName = "MacroChallenge"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "124"
-                  endingLineNumber = "124"
-                  offsetFromSymbolStart = "1260">
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "5AFAE050-9EA2-4B40-AC04-DA372042CB7E - 8cf6bbd435ac60fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroChallenge.SearchViewController.filterFoods(with: Swift.String) -&gt; ()"
+                  moduleName = "MacroChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "144">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -693,65 +500,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DDEEF734-A7CE-463A-A569-403C44C96D4D"
+            uuid = "2897B207-8C03-4EE8-9913-096D2773F39C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Controller/FavoriteFoodViewController.swift"
+            filePath = "MacroChallenge/Controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "FavoriteFoodViewController"
-            landmarkType = "21">
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "didDeleteFilter(fastFilter:)"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "DDEEF734-A7CE-463A-A569-403C44C96D4D - 8441157c8733d8ec"
+                  uuid = "2897B207-8C03-4EE8-9913-096D2773F39C - ca811445dab0ff7a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FavoriteFoodViewController.didSelectFavoriteButton() -&gt; ()"
+                  symbolName = "MacroChallenge.SearchViewController.didDeleteFilter(fastFilter: MacroChallenge.FastFilterModel) -&gt; ()"
                   moduleName = "MacroChallenge"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "24">
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "168">
                </Location>
                <Location
-                  uuid = "DDEEF734-A7CE-463A-A569-403C44C96D4D - 8441157c8733d8cd"
+                  uuid = "2897B207-8C03-4EE8-9913-096D2773F39C - 98f72c66260b1009"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MacroChallenge.FavoriteFoodViewController.didSelectFavoriteButton() -&gt; ()"
+                  symbolName = "closure #1 (MacroChallenge.FastFilterModel) -&gt; Swift.Bool in MacroChallenge.SearchViewController.didDeleteFilter(fastFilter: MacroChallenge.FastFilterModel) -&gt; ()"
                   moduleName = "MacroChallenge"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/FavoriteFoodViewController.swift"
+                  urlString = "file:///Users/pedrohenriquediashemmeldeoliveirasouza/Documents/Github/MacroChallenge/MacroChallenge/Controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "12">
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "120">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EBC83C4E-AB8F-46AD-B27B-F57606EB7F15"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroChallenge/Utils/Components/TitleDetailView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "addFood()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -39,6 +39,8 @@ class FavoriteFoodViewController: UIViewController {
         self.favoriteFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
         self.favoriteFoodView.collectionView.setup(foods: self.getFavoriteFoods(), currentMonth: currentMonth, foodDelegate: nil, favoriteFoodDelegate: self)
+        
+        self.filterFoods()
     }
 
     override func loadView() {
@@ -106,20 +108,40 @@ extension FavoriteFoodViewController {
         self.filteredFoods = self.getFavoriteFoods()
         
         for filter in self.choosenFilters {
-            if self.verifyIfFilterIsMonth(nameOfFilter: filter.name) {
-                self.filteredFoods = self.filteredFoods.filter({
-                    $0.seasonalities[$0.seasonalities.firstIndex(where: {$0.month_name_seasonality == filter.name}) ?? 0].state_seasonality == "Alta" ||
-                    $0.seasonalities[$0.seasonalities.firstIndex(where: {$0.month_name_seasonality == filter.name}) ?? 0].state_seasonality == "Média"
-                })
-            } else {
+            if !self.verifyIfFilterIsMonth(nameOfFilter: filter.name) {
                 self.filteredFoods = self.filteredFoods.filter({ food in
                     self.choosenFilters.contains(where: {$0.idCategory == food.category_food.id_category})
                 })
             }
         }
         
+        self.filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: self.filteredFoods, currentMonth: self.currentMonth)
+        
         self.favoriteFoodView.collectionView.foods = self.filteredFoods
         self.favoriteFoodView.collectionView.reloadData()
+    }
+    
+    func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Alta", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Média", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Baixa", foods: foods, currentMonth: currentMonth))
+        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Muito baixa", foods: foods, currentMonth: currentMonth))
+        return newFoods
+    }
+    
+    func getFoodsInCurrentMonthWithState(state: String, foods: [Food], currentMonth: String) -> [Food] {
+        var newFoods = [Food]()
+        for food in foods {
+            for seasonality in food.seasonalities {
+                if seasonality.month_name_seasonality.lowercased() == currentMonth.lowercased() {
+                    if seasonality.state_seasonality.lowercased() == state.lowercased() {
+                        newFoods.append(food)
+                    }
+                }
+            }
+        }
+        return newFoods
     }
     
     func getFavoriteFoods() -> [Food] {

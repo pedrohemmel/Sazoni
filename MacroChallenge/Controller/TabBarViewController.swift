@@ -285,10 +285,9 @@ extension TabBarViewController {
             self.foodManager.fetchFood()
         } else {
             self.foods = self.foodManager.foods
-            self.favoriteFoods = getAllFavoriteFood(list: foods)
             self.getAllCategories()
             self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
-            self.favoriteFoodViewController.setup(food: self.favoriteFoods, currentMonth: self.currentMonth, foodDelegate: self)
+            self.favoriteFoodViewController.setup(food: self.foods, currentMonth: self.currentMonth)
         }
     }
     
@@ -327,7 +326,7 @@ extension TabBarViewController {
         }
         self.categories = categories
     }
-    
+  
     func getAllFavoriteFood(list: [Food])->[Food]{
         let listFavorite = UserDefaults.standard.array(forKey: "favorite") as? [Int]
         var listFavoriteFood = [Food]()
@@ -367,7 +366,7 @@ extension TabBarViewController: FavoritesObserver{
             }
         }
         DispatchQueue.main.async {
-            self.favoriteFoodViewController.favoriteFoodView.collectionView.setup(foods: listFavoriteFood, currentMonth: self.currentMonth, foodDelegate: self)
+            self.favoriteFoodViewController.favoriteFoodView.collectionView.setup(foods: listFavoriteFood, currentMonth: self.currentMonth, foodDelegate: self, favoriteFoodDelegate: nil)
         }
         }
     

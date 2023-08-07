@@ -37,9 +37,9 @@ extension FilterCollectionView: UICollectionViewDataSource {
         let fastFilter = self.fastFilters[indexPath.row]
         
         if (fastFilter.filterIsSelected ?? false) {
-            cell.filterImage.image = UIImage(named: "\(fastFilter.name)Selected")
+            cell.filterImage.image = UIImage(named: "\(fastFilter.name.lowercased())Selected")
         } else {
-            cell.filterImage.image = UIImage(named: "\(fastFilter.name)")
+            cell.filterImage.image = UIImage(named: "\(fastFilter.name.lowercased())")
         }
         
         return cell

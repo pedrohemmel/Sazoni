@@ -29,10 +29,10 @@ class SearchViewController: UISearchController {
     var choosenFilters = [FastFilterModel]()
     var fastFilters = [
         FastFilterModel(name: "months", idCategory: nil, filterIsSelected: false),
-        FastFilterModel(name: "fruits", idCategory: 0, filterIsSelected: false),
-        FastFilterModel(name: "greenstuff", idCategory: 1, filterIsSelected: false),
-        FastFilterModel(name: "greens", idCategory: 2, filterIsSelected: false),
-        FastFilterModel(name: "fished", idCategory: 3, filterIsSelected: false)
+        FastFilterModel(name: "Frutas", idCategory: 0, filterIsSelected: false),
+        FastFilterModel(name: "Legumes", idCategory: 1, filterIsSelected: false),
+        FastFilterModel(name: "Verduras", idCategory: 2, filterIsSelected: false),
+        FastFilterModel(name: "Pescados", idCategory: 3, filterIsSelected: false)
     ]
     
     //Load food data
@@ -155,7 +155,9 @@ extension SearchViewController{
                 }
             }
         }
+        newFoods = newFoods.sorted(by: { $0.name_food < $1.name_food })
         return newFoods
+        
     }
     
     func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {

@@ -114,6 +114,7 @@ extension FoodViewController {
                 }
             }
         }
+        newFoods = newFoods.sorted(by: { $0.name_food < $1.name_food })
         return newFoods
     }
 }

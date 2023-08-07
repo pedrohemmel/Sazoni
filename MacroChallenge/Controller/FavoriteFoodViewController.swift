@@ -25,13 +25,11 @@ class FavoriteFoodViewController: UIViewController {
     //FastFilter
     private var choosenFilters = [FastFilterModel]()
     private var fastFilters = [
-        FastFilterModel(name: "fruits", idCategory: 0, filterIsSelected: false),
-        FastFilterModel(name: "greenstuff", idCategory: 1, filterIsSelected: false),
-        FastFilterModel(name: "greens", idCategory: 2, filterIsSelected: false),
-        FastFilterModel(name: "fished", idCategory: 3, filterIsSelected: false)
+        FastFilterModel(name: "Frutas", idCategory: 0, filterIsSelected: false),
+        FastFilterModel(name: "Legumes", idCategory: 1, filterIsSelected: false),
+        FastFilterModel(name: "Verduras", idCategory: 2, filterIsSelected: false),
+        FastFilterModel(name: "Pescados", idCategory: 3, filterIsSelected: false)
     ]
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,6 +139,7 @@ extension FavoriteFoodViewController {
                 }
             }
         }
+        newFoods = newFoods.sorted(by: { $0.name_food < $1.name_food })
         return newFoods
     }
     

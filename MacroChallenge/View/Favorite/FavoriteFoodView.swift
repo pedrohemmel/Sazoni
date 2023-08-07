@@ -55,15 +55,14 @@ extension FavoriteFoodView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10)
-
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor)
             ]
         }
         
         self.fastFilterComponent.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: frame.midX / 3.3),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: frame.midX / 3),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
                 view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10),
             ]

@@ -260,7 +260,7 @@ extension TabBarViewController {
         self.tabBar.frame.size.height = newTabBarHeight
         self.tabBar.frame.size.width = newTabBarWidth
         self.tabBar.frame.origin.x = (view.frame.width - newTabBarWidth) / 2
-        self.tabBar.frame.origin.y = UIScreen.main.bounds.maxY - view.frame.height * 0.090
+        self.tabBar.frame.origin.y = UIScreen.main.bounds.maxY - view.frame.height * 0.080
         self.tabBar.backgroundColor = UIColor(named: "Background")
         self.tabBar.clipsToBounds = false
         self.tabBar.layer.cornerRadius = 15

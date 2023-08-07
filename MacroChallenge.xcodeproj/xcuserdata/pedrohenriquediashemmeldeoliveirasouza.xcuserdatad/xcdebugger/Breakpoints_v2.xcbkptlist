@@ -606,8 +606,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
             endingLineNumber = "121"
-            landmarkName = "filterFoods()"
-            landmarkType = "7">
+            landmarkName = "FavoriteFoodViewController"
+            landmarkType = "21">
             <Locations>
                <Location
                   uuid = "E19C782E-55CC-411B-B798-DE10436E3668 - 9cdc2c614fed46aa"
@@ -654,7 +654,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
             endingLineNumber = "122"
-            landmarkName = "filterFoods()"
+            landmarkName = "orderFoodsByHighQualityInCurrentMonth(foods:currentMonth:)"
             landmarkType = "7">
             <Locations>
                <Location

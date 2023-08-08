@@ -345,6 +345,7 @@ extension TabBarViewController {
 
 extension TabBarViewController: FoodDetailDelegate{
     func selectFood(food: Food) {
+        self.view.endEditing(true)
         let detailVC = DetailSheetViewController(food)
         detailVC.sheetPresentationController?.detents = [.large()]
         self.present(detailVC, animated: true)

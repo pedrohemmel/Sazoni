@@ -4817,65 +4817,6 @@
         ]
     },
     {
-        "id_food": 81,
-        "name_food": "Salsa",
-        "image_source_food": "salsa.jpg",
-        "is_favorite_food": false,
-        "category_food": {
-            "id_category": 2,
-            "name_category": "Verduras"
-        },
-        "seasonalities": [{
-            "month_name_seasonality": "Janeiro",
-            "state_seasonality": "Alta"
-        },
-            {
-                "month_name_seasonality": "Fevereiro",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Março",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Abril",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Maio",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Junho",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Julho",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Agosto",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Setembro",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Outubro",
-                "state_seasonality": "Alta"
-            },
-            {
-                "month_name_seasonality": "Novembro",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Dezembro",
-                "state_seasonality": "Alta"
-            }
-        ]
-    },
-    {
         "id_food": 82,
         "name_food": "Acelga",
         "image_source_food": "no_image_greens.jpg",
@@ -5762,7 +5703,7 @@
     {
         "id_food": 97,
         "name_food": "Couve",
-        "image_source_food": "couve_flor.jpg",
+        "image_source_food": "no_image_greens.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 2,
@@ -10421,7 +10362,7 @@
     },
     {
         "id_food": 176,
-        "name_food": "Serigulea",
+        "name_food": "Seriguela",
         "image_source_food": "no_image_fruits.jpg",
         "is_favorite_food": false,
         "category_food": {
@@ -11896,7 +11837,7 @@
     },
     {
         "id_food": 201,
-        "name_food": "Tanquenoco",
+        "name_food": "Taquenoco",
         "image_source_food": "no_image_greenstuff.jpg",
         "is_favorite_food": false,
         "category_food": {
@@ -12132,7 +12073,7 @@
     },
     {
         "id_food": 205,
-        "name_food": "Tomate Camem",
+        "name_food": "Tomate Carmem",
         "image_source_food": "no_image_greenstuff.jpg",
         "is_favorite_food": false,
         "category_food": {
@@ -12604,65 +12545,6 @@
     },
     {
         "id_food": 212,
-        "name_food": "Manjericão",
-        "image_source_food": "no_image_greens.jpg",
-        "is_favorite_food": false,
-        "category_food": {
-            "id_category": 2,
-            "name_category": "Verduras"
-        },
-        "seasonalities": [{
-            "month_name_seasonality": "Janeiro",
-            "state_seasonality": "Média"
-        },
-            {
-                "month_name_seasonality": "Fevereiro",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Março",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Abril",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Maio",
-                "state_seasonality": "Baixa"
-            },
-            {
-                "month_name_seasonality": "Junho",
-                "state_seasonality": "Média"
-            },
-            {
-                "month_name_seasonality": "Julho",
-                "state_seasonality": "Alta"
-            },
-            {
-                "month_name_seasonality": "Agosto",
-                "state_seasonality": "Alta"
-            },
-            {
-                "month_name_seasonality": "Setembro",
-                "state_seasonality": "Alta"
-            },
-            {
-                "month_name_seasonality": "Outubro",
-                "state_seasonality": "Alta"
-            },
-            {
-                "month_name_seasonality": "Novembro",
-                "state_seasonality": "Alta"
-            },
-            {
-                "month_name_seasonality": "Dezembro",
-                "state_seasonality": "Média"
-            }
-        ]
-    },
-    {
-        "id_food": 213,
         "name_food": "Manjericão",
         "image_source_food": "no_image_greens.jpg",
         "is_favorite_food": false,

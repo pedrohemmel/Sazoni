@@ -47,7 +47,6 @@ class TabBarViewController: UITabBarController {
     }
     private var categories: [Category] = [Category]()
     private let favorite = FavoriteList.shared
-    
     var foods = [Food]()
     var favoriteFoods = [Food]()
     private var dataIsReceived = false
@@ -211,7 +210,7 @@ extension TabBarViewController {
         items[0].image = UIImage(named: homeFillIcon)
         items[0].title = "Início"
         items[1].image = UIImage(named: searchIcon)
-        items[1].title = "Busca"
+        items[1].title = "Pesquisa"
         items[2].image = UIImage(named: favoriteIcon)
         items[2].title = "Favoritos"
 //        items[3].image = UIImage(named: listIcon)
@@ -242,6 +241,7 @@ extension TabBarViewController {
             items[1].image = UIImage(named: searchIcon)
             items[2].image = UIImage(named: favoriteFillIcon)
 //            items[3].image = UIImage(named: listIcon)
+            
             
         case 3:
             items[0].image = UIImage(named: homeIcon)
@@ -366,9 +366,9 @@ extension TabBarViewController: FavoritesObserver{
                 }
             }
         }
-        DispatchQueue.main.async {
-            self.favoriteFoodViewController.favoriteFoodView.collectionView.setup(foods: listFavoriteFood, currentMonth: self.currentMonth, foodDelegate: self, favoriteFoodDelegate: nil)
+        if self.favoriteFoodViewController.isViewLoaded {
+            self.favoriteFoodViewController.favoriteFoodView.collectionView.setup(foods: listFavoriteFood, currentMonth: self.currentMonth, foodDelegate: nil, favoriteFoodDelegate: self.favoriteFoodViewController)
+            }
         }
-        }
-    
+        
 }

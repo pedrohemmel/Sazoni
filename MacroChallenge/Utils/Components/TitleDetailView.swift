@@ -102,7 +102,6 @@ extension TitleDetailView{
         } else {
             self.favorite.notifyObservers()
         }
-        
     }
     
 

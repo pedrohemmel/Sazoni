@@ -40,6 +40,7 @@ extension FavoriteList {
 
     
     func checkFavoriteFood(id: Int) -> Bool {
+
         if let favoriteFood = userDefaults.array(forKey: keyUserDefaults) as? [Int]{
             for favorite in favoriteFood {
                 if favorite == id {

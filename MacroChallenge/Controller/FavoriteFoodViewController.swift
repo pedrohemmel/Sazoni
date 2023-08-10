@@ -11,12 +11,13 @@ class FavoriteFoodViewController: UIViewController {
     
     lazy var favoriteFoodView = FavoriteFoodView(frame: self.view.frame)
     private let favorite = FavoriteList.shared
-    private var listOfFavoriteFoodsIDs = [Int]()
+    var listOfFavoriteFoodsIDs = [Int]()
     private var listFood: [Food] = [Food]()
     private var currentMonth: String = ""
-    
+        
     //For collectionViewOfFoods
-    private var filteredFoods: [Food] = [] {
+//    private
+     var filteredFoods: [Food] = [] {
         didSet {
             self.favoriteFoodView.collectionView.reloadData()
         }
@@ -33,14 +34,13 @@ class FavoriteFoodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.listOfFavoriteFoodsIDs = self.favorite.getListOfFoods()
+        self.favoriteFoodView.collectionView.setup(foods: self.getFavoriteFoods(), currentMonth: currentMonth, foodDelegate: nil, favoriteFoodDelegate: self)
         self.favoriteFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
-        self.favoriteFoodView.collectionView.setup(foods: self.getFavoriteFoods(), currentMonth: currentMonth, foodDelegate: nil, favoriteFoodDelegate: self)
-        
+        self.listOfFavoriteFoodsIDs = self.favorite.getListOfFoods()
         self.filterFoods()
     }
-
+    
     override func loadView() {
         super.loadView()
         self.view = self.favoriteFoodView
@@ -101,10 +101,15 @@ extension FavoriteFoodViewController: FastFilterDelegate {
 
 extension FavoriteFoodViewController {
     
+    func getFavoriteFoods() -> [Food] {
+        return listFood.filter({ self.listOfFavoriteFoodsIDs.contains($0.id_food) })
+    }
+    
     func filterFoods() {
+        
         self.listOfFavoriteFoodsIDs = self.favorite.getListOfFoods()
         self.filteredFoods = self.getFavoriteFoods()
-        
+
         for filter in self.choosenFilters {
             if !self.verifyIfFilterIsMonth(nameOfFilter: filter.name) {
                 self.filteredFoods = self.filteredFoods.filter({ food in
@@ -112,9 +117,8 @@ extension FavoriteFoodViewController {
                 })
             }
         }
-        
+
         self.filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: self.filteredFoods, currentMonth: self.currentMonth)
-        
         self.favoriteFoodView.collectionView.foods = self.filteredFoods
         self.favoriteFoodView.collectionView.reloadData()
     }
@@ -143,9 +147,6 @@ extension FavoriteFoodViewController {
         return newFoods
     }
     
-    func getFavoriteFoods() -> [Food] {
-        return listFood.filter({ self.listOfFavoriteFoodsIDs.contains($0.id_food) })
-    }
     
     func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {
         self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0].filterIsSelected = filterIsSelected

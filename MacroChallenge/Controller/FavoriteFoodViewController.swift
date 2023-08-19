@@ -2,11 +2,6 @@
 
 import UIKit
 
-protocol FavoriteFoodDelegate: AnyObject {
-    func didSelectFood(food: Food)
-    func didSelectFavoriteButton()
-}
-
 class FavoriteFoodViewController: UIViewController {
     
     lazy var favoriteFoodView = FavoriteFoodView(frame: self.view.frame)

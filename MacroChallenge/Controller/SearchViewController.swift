@@ -1,23 +1,18 @@
 
 import UIKit
 
-protocol FastFilterDelegate: AnyObject {
-    func didClickCategoryFilter(fastFilter: FastFilterModel)
-    func didClickMonthFilter()
-    func selectInitialMonth()
-    func didSelectMonthFilter(monthName: String)
-    func didDeleteFilter(fastFilter: FastFilterModel)
-}
-
-protocol FoodDetailDelegate: AnyObject{
-    func selectFood(food: Food)
-}
-
 class SearchViewController: UISearchController {
     
     lazy var searchView = SearchView(frame: self.view.frame)
     var monthSelected = String()
     
+    private var foods = [Food]() {
+        didSet {
+            self.filteredFoods = self.foods
+            self.searchView.collectionView.setup(foods: self.foods, currentMonth: self.getCurrentMonth(), foodDelegate: nil, favoriteFoodDelegate: nil)
+            self.filterFoods(with: "")
+        }
+    }
     //For collectionViewOfFoods
     var filteredFoods: [Food] = [] {
         didSet {
@@ -34,14 +29,6 @@ class SearchViewController: UISearchController {
         FastFilterModel(name: "Verduras", idCategory: 2, filterIsSelected: false),
         FastFilterModel(name: "Pescados", idCategory: 3, filterIsSelected: false)
     ]
-    
-    //Load food data
-    private var foods = [Food]()
-    private var dataIsReceived = false
-    lazy private var foodManager = FoodManager(response: {
-        self.dataIsReceived = true
-        self.setupViewConfiguration()
-    })
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,17 +79,7 @@ extension SearchViewController: ViewCode{
     func setupConstraints() {}
     
     func setupAdditionalConfiguration() {
-        self.searchView.search.searchViewController = self
-        
-        if !self.dataIsReceived {
-            self.foodManager.fetchFood()
-        } else {
-            self.foods = self.foodManager.foods
-            self.filteredFoods = self.foods
-            self.searchView.collectionView.setup(foods: self.foods, currentMonth: self.getCurrentMonth(), foodDelegate: nil, favoriteFoodDelegate: nil)
-            self.filterFoods(with: "")
-        }
-        
+        self.searchView.search.searchViewController = self        
         self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.searchView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
     }

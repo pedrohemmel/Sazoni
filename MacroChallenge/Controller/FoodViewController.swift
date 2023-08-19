@@ -1,13 +1,3 @@
-protocol MCMonthNavigationButtonDelegate: AnyObject {
-    func didClickMonthButton(currentMonth: String)
-    func didSelectNewMonth(month: String)
-}
-
-protocol MCCategorySwipeDelegate: AnyObject {
-    func didClickBackCategory()
-    func didClickNextCategory()
-}
-
 import UIKit
 
  final class FoodViewController: UIViewController {

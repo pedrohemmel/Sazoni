@@ -37,6 +37,7 @@
 		BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */; };
 		BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */; };
 		BB0EFB312A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */; };
+		BB1624582A90985800162531 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1624572A90985800162531 /* Protocols.swift */; };
 		BB3B0EBC2A37965500774A3D /* FastFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */; };
 		BB3F83462A61A6FD00C0DFA1 /* ShoppingListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */; };
 		BB3F83492A61A8FF00C0DFA1 /* ShoppingListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */; };
@@ -82,7 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3F1252E72A266C230048E7FB /* FoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodManager.swift; path = MacroChallenge/Utils/FoodManager.swift; sourceTree = SOURCE_ROOT; };
+		3F1252E72A266C230048E7FB /* FoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodManager.swift; path = MacroChallenge/Common/Action/FoodManager.swift; sourceTree = SOURCE_ROOT; };
 		3F1252E92A266DD90048E7FB /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodModel.swift; path = MacroChallenge/Model/FoodModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252EB2A266FE00048E7FB /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = MacroChallenge/Model/CategoryModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeasonalityModel.swift; path = MacroChallenge/Model/SeasonalityModel.swift; sourceTree = SOURCE_ROOT; };
@@ -112,6 +113,7 @@
 		BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
 		BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectedCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB1624572A90985800162531 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterModel.swift; sourceTree = "<group>"; };
 		BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsViewController.swift; sourceTree = "<group>"; };
 		BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsView.swift; sourceTree = "<group>"; };
@@ -167,12 +169,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F47FB232A25199800356430 /* Source */ = {
+		3F47FB232A25199800356430 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				880A8CA92A7B3ACA00567920 /* Fonts */,
+				BBD62F092A2516A1001F71ED /* Assets.xcassets */,
 				3F47FB242A251A2E00356430 /* data.json */,
 			);
-			path = Source;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		880A8CA92A7B3ACA00567920 /* Fonts */ = {
@@ -241,6 +245,32 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		BB1624532A90978C00162531 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F002A2516A0001F71ED /* AppDelegate.swift */,
+				BBD62F022A2516A0001F71ED /* SceneDelegate.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		BB1624542A9097FC00162531 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BB1624552A90982100162531 /* Action */,
+				BBD62F512A2696A0001F71ED /* Components */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BB1624552A90982100162531 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				3F1252E72A266C230048E7FB /* FoodManager.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
 		BB3F83472A61A72B00C0DFA1 /* ShoppingListsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,14 +328,13 @@
 		BBD62EFF2A2516A0001F71ED /* MacroChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				BBD62F092A2516A1001F71ED /* Assets.xcassets */,
-				BBD62F002A2516A0001F71ED /* AppDelegate.swift */,
-				BBD62F022A2516A0001F71ED /* SceneDelegate.swift */,
-				3F47FB232A25199800356430 /* Source */,
-				BBD62F332A25170B001F71ED /* Utils */,
+				BB1624542A9097FC00162531 /* Common */,
 				BBD62F302A2516D6001F71ED /* Model */,
 				BBD62F312A2516DF001F71ED /* View */,
 				BBD62F322A2516E4001F71ED /* Controller */,
+				BBD62F332A25170B001F71ED /* Utils */,
+				3F47FB232A25199800356430 /* Resource */,
+				BB1624532A90978C00162531 /* Supporting */,
 				BBD62F0E2A2516A1001F71ED /* Info.plist */,
 			);
 			path = MacroChallenge;
@@ -369,12 +398,10 @@
 		BBD62F332A25170B001F71ED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				880A8CA92A7B3ACA00567920 /* Fonts */,
-				BBD62F512A2696A0001F71ED /* Components */,
-				3F1252E72A266C230048E7FB /* FoodManager.swift */,
 				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
 				883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */,
 				BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */,
+				BB1624572A90985800162531 /* Protocols.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -585,6 +612,7 @@
 				88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */,
 				BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */,
 				BBD62F592A27CC5B001F71ED /* MonthSelectionViewController.swift in Sources */,
+				BB1624582A90985800162531 /* Protocols.swift in Sources */,
 				BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */,
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
 				3F1252EA2A266DD90048E7FB /* FoodModel.swift in Sources */,
@@ -764,7 +792,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 273QY7G77Q;
+				DEVELOPMENT_TEAM = UFS93RKF34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacroChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -790,7 +818,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 273QY7G77Q;
+				DEVELOPMENT_TEAM = UFS93RKF34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacroChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

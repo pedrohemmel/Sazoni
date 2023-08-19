@@ -8,11 +8,6 @@
 import Foundation
 import UIKit
 
-protocol MCSelectedCategoryDelegate: AnyObject {
-    func didSelectCategory(category: Category)
-    func didSelectMonthButton()
-}
-
 class CategoryViewController: UIViewController {
     //MARK: - Views
     weak private var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil

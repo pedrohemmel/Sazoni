@@ -7,28 +7,6 @@
 
 import UIKit
 
-protocol MCMonthUpdatesDelegate: AnyObject {
-    func didChangeMonth(newMonthName: String)
-}
-
-protocol FavoritesObserver: AnyObject{
-    func favoriteListDidUpdate()
-}
-
-protocol BoughtListCRUDDelegate: AnyObject {
-    func getAllBoughtList(_ key: String) -> [ShoppingListModel]
-    func createNewBoughtList(_ key: String, name: String?)
-    func deleteBoughtList(_ key: String, idBoughtList: Int)
-    func deleteAllBoughtList(_ key: String)
-    func changeBoughtListStatus(_ key: String, idBoughtList: Int)
-    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int)
-    func addNewItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
-    func removeItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
-}
-
-
-
-
 class TabBarViewController: UITabBarController {
     
     private let homeIcon = "Home"

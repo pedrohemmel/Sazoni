@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol MCMonthSelectionDelegate: AnyObject {
-    func didSelectCell(month: String) -> String
-}
-
 class MonthSelectionViewController: UIViewController {
     weak var delegate: MCMonthNavigationButtonDelegate? = nil
     weak var fastFilterDelegate: FastFilterDelegate? = nil

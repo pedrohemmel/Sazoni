@@ -10,7 +10,7 @@ class FoodManager{
         
     }
     
-    func fetchFood(){
+    func fetchFood() {
         if let filePath = Bundle.main.path(forResource: "data", ofType: "json") {
             do
                 {

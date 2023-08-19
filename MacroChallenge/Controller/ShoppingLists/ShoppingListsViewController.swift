@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol BoughtListViewDelegate: AnyObject {
-    func didClickCreateNew()
-    func didCreateNew(name: String?)
-}
-
 class ShoppingListsViewController: UIViewController {
     
     weak var boughtListCRUDDelegate: BoughtListCRUDDelegate? = nil

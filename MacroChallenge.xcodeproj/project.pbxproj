@@ -174,8 +174,9 @@
 				BBD62F092A2516A1001F71ED /* Assets.xcassets */,
 				3F47FB242A251A2E00356430 /* data.json */,
 			);
-			path = Resource;
-			sourceTree = "<group>";
+			name = Resource;
+			path = MacroChallenge/Resource;
+			sourceTree = SOURCE_ROOT;
 		};
 		880A8CA92A7B3ACA00567920 /* Fonts */ = {
 			isa = PBXGroup;
@@ -242,8 +243,9 @@
 				BBD62F002A2516A0001F71ED /* AppDelegate.swift */,
 				BBD62F022A2516A0001F71ED /* SceneDelegate.swift */,
 			);
-			path = Supporting;
-			sourceTree = "<group>";
+			name = Supporting;
+			path = MacroChallenge/Supporting;
+			sourceTree = SOURCE_ROOT;
 		};
 		BB1624692A97F4E400162531 /* ShoppingLists */ = {
 			isa = PBXGroup;

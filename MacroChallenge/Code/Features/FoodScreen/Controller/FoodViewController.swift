@@ -14,13 +14,13 @@ import UIKit
      
      weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
      weak var foodDelegate: FoodDetailDelegate? = nil
-     var currentMonth: String? = nil
-     var foods = [Food]()
-     var category: Category = Category(id_category: 0, name_category: "")
-     var categories = [Category]()
-     var filteredFoods = [Food]()
+     private var currentMonth: String? = nil
+     private var foods = [Food]()
+     private var category: Category = Category(id_category: 0, name_category: "")
+     private var categories = [Category]()
+     private var filteredFoods = [Food]()
      
-     lazy private var foodView = FoodView(frame: self.view.frame)
+     private lazy var foodView = FoodView(frame: self.view.frame)
      
      override func loadView() {
          super.loadView()

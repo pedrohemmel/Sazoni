@@ -20,6 +20,13 @@ class SeasonalityCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
+    private lazy var subContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var month: UILabel = {
         let text = UILabel()
         text.font = UIFont(name: "SFProDisplay-Bold", size: 14)
@@ -27,13 +34,6 @@ class SeasonalityCollectionViewCell: UICollectionViewCell {
         text.textAlignment = .center
         text.textColor = .white
         return text
-    }()
-    
-    lazy var subContainer: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
     }()
     
     lazy var availability: UILabel = {

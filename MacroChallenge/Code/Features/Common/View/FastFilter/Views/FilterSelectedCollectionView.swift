@@ -8,9 +8,9 @@
 import UIKit
 
 class FilterSelectedCollectionView: UICollectionView {
-    weak private var fastFilterDelegate: FastFilterDelegate? = nil
+    weak var fastFilterDelegate: FastFilterDelegate? = nil
     
-    lazy var myViewHeightAnchor = self.heightAnchor.constraint(equalToConstant: 0)
+    private lazy var myViewHeightAnchor = self.heightAnchor.constraint(equalToConstant: 0)
     private var choosenFilters = [FastFilterModel]() {
         didSet {
             if self.choosenFilters.isEmpty {

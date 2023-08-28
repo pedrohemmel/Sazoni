@@ -11,7 +11,7 @@ class ShoppingListsView: UIView {
     
     weak var boughtListViewDelegate: BoughtListViewDelegate? = nil
     
-    lazy var title: UILabel = {
+    private lazy var title: UILabel = {
         let view = UILabel()
         view.text = "Listas"
         view.font = UIFont(name: "Quicksand-SemiBold", size: 64)
@@ -29,7 +29,7 @@ class ShoppingListsView: UIView {
         return shoppingListsTableView
     }()
     
-    var buttonCreateNewShoppingList: UIButton = {
+    private var buttonCreateNewShoppingList: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = UIColor(red: 1, green: 0.98, blue: 0.867, alpha: 1)

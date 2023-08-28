@@ -40,17 +40,17 @@ class TabBarViewController: UITabBarController {
     private let listIcon = "List"
     private let listFillIcon = "List.fill"
     
-    lazy var currentMonth = self.getCurrentMonth() {
+    private lazy var currentMonth = self.getCurrentMonth() {
         didSet {
             self.setupViewControllers()
         }
     }
     private var categories: [Category] = [Category]()
     private let favorite = FavoriteList.shared
-    var foods = [Food]()
-    var favoriteFoods = [Food]()
+    private var foods = [Food]()
+    private var favoriteFoods = [Food]()
     private var dataIsReceived = false
-    lazy private var foodManager = FoodManager(response: {
+    private lazy var foodManager = FoodManager(response: {
         self.dataIsReceived = true
         self.getFoodData()
     })

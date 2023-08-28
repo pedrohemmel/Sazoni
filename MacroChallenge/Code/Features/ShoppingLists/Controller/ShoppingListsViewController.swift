@@ -15,7 +15,7 @@ protocol BoughtListViewDelegate: AnyObject {
 class ShoppingListsViewController: UIViewController {
     
     weak var boughtListCRUDDelegate: BoughtListCRUDDelegate? = nil
-    var shoppingListsView = ShoppingListsView()
+    private var shoppingListsView = ShoppingListsView()
     
     override func loadView() {
         super.loadView()

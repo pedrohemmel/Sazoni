@@ -10,7 +10,7 @@ import UIKit
 class ShoppingListCreateViewController: UIViewController {
     
     weak var boughtListViewDelegate: BoughtListViewDelegate? = nil
-    var shoppingListCreateView = ShoppingListCreateView()
+    private var shoppingListCreateView = ShoppingListCreateView()
     
     override func loadView() {
         super.loadView()

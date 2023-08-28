@@ -14,7 +14,10 @@ class SeasonalityUICollectionView: UICollectionView {
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        setupViewConfiguration()
+        self.register(SeasonalityCollectionViewCell.self, forCellWithReuseIdentifier: identify)
+        self.dataSource = self
+        self.backgroundColor = .clear
+        self.backgroundView = UIView(frame: CGRect.zero)
     }
     
     required init?(coder: NSCoder) {
@@ -34,22 +37,4 @@ extension SeasonalityUICollectionView: UICollectionViewDataSource{
         cell.availability.textColor = UIColor(named: "Border"+(food?.seasonalities[indexPath.row].state_seasonality ?? "Muito baixa"))
         return cell
     }
-}
-
-extension SeasonalityUICollectionView: ViewCode{
-    func buildViewHierarchy() {
-        
-    }
-    
-    func setupConstraints() {
-        
-    }
-    
-    func setupAdditionalConfiguration() {
-        self.register(SeasonalityCollectionViewCell.self, forCellWithReuseIdentifier: identify)
-        self.dataSource = self
-        self.backgroundColor = .clear
-        self.backgroundView = UIView(frame: CGRect.zero)
-    }
-
 }

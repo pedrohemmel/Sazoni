@@ -13,23 +13,7 @@ class SearchBarComponent: UISearchBar {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setupViewConfiguration()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-}
-
-extension SearchBarComponent: ViewCode {
-    func buildViewHierarchy() {
-    }
-    
-    func setupConstraints() {
-    }
-    
-    func setupAdditionalConfiguration() {
+        
         self.delegate = self
         self.layer.borderWidth = 1;
         self.layer.borderColor = UIColor(named: "Background")?.cgColor
@@ -46,6 +30,11 @@ extension SearchBarComponent: ViewCode {
         self.searchTextField.background = .none
         self.searchTextField.backgroundColor = .white
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 }
 
 extension SearchBarComponent: UISearchBarDelegate{

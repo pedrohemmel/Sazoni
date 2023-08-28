@@ -15,7 +15,10 @@ class MonthSelectionCollectionView: UICollectionView {
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        self.setupViewConfiguration()
+        self.register(MonthSelectionCollectionViewCell.self, forCellWithReuseIdentifier: "MonthSelectionCollectionViewCell")
+        self.delegate = self
+        self.dataSource = self
+        self.backgroundColor = UIColor.clear
     }
     
     required init?(coder: NSCoder) {
@@ -26,20 +29,6 @@ class MonthSelectionCollectionView: UICollectionView {
         self.monthSelected = monthSelected
         self.months = months
         self.monthSelectionDelegate = monthSelectionDelegate
-    }
-}
-
-//MARK: - ViewCode
-extension MonthSelectionCollectionView: ViewCode {
-    func buildViewHierarchy() {
-    }
-    func setupConstraints() {
-    }
-    func setupAdditionalConfiguration() {
-        self.register(MonthSelectionCollectionViewCell.self, forCellWithReuseIdentifier: "MonthSelectionCollectionViewCell")
-        self.delegate = self
-        self.dataSource = self
-        self.backgroundColor = UIColor.clear
     }
 }
 

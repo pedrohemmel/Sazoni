@@ -11,24 +11,10 @@ class NavigationBarViewComponent: UINavigationBar {
     weak var monthButtonDelegate: MCMonthNavigationButtonDelegate? = nil
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setupViewConfiguration()
+        self.backgroundColor = UIColor.clear
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension NavigationBarViewComponent: ViewCode {
-    func buildViewHierarchy() {
-        
-    }
-    
-    func setupConstraints() {
-        
-    }
-    
-    func setupAdditionalConfiguration() {
-        self.backgroundColor = UIColor.clear
     }
 }
 

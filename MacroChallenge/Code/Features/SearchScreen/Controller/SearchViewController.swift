@@ -40,12 +40,13 @@ class SearchViewController: UISearchController {
     private var dataIsReceived = false
     lazy private var foodManager = FoodManager(response: {
         self.dataIsReceived = true
-        self.setupViewConfiguration()
+        self.setupView()
     })
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupViewConfiguration()
+        
+        self.setupView()
         self.selectInitialMonth()
     }
 }
@@ -84,14 +85,12 @@ extension SearchViewController: FastFilterDelegate {
     }
 }
 
-extension SearchViewController: ViewCode{
-    func buildViewHierarchy() {
+
+extension SearchViewController{
+    
+    //Refatorar essa função
+    func setupView() {
         view.addSubview(searchView)
-    }
-    
-    func setupConstraints() {}
-    
-    func setupAdditionalConfiguration() {
         self.searchView.search.searchViewController = self
         
         if !self.dataIsReceived {
@@ -106,9 +105,6 @@ extension SearchViewController: ViewCode{
         self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.searchView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
     }
-}
-
-extension SearchViewController{
     
     func filterFoods(with searchText: String) {
         self.filteredFoods = self.foods

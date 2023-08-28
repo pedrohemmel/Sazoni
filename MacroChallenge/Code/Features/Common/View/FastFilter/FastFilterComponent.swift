@@ -64,7 +64,6 @@ extension FastFilterComponent: ViewCode {
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-//                view.heightAnchor.constraint(equalToConstant: 40)
             ]
         }
     }

@@ -202,7 +202,6 @@ extension TabBarViewController {
         let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
         let searchViewController = UINavigationController(rootViewController: self.searchViewController)
         let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
-//        let shoppingListsViewController = UINavigationController(rootViewController: self.shoppingListsViewController)
         
         self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController], animated: false)
         guard let items = self.tabBar.items else { return }
@@ -213,8 +212,6 @@ extension TabBarViewController {
         items[1].title = "Pesquisa"
         items[2].image = UIImage(named: favoriteIcon)
         items[2].title = "Favoritos"
-//        items[3].image = UIImage(named: listIcon)
-//        items[3].title = "Lista"
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -227,27 +224,23 @@ extension TabBarViewController {
             items[0].image = UIImage(named: homeFillIcon)
             items[1].image = UIImage(named: searchIcon)
             items[2].image = UIImage(named: favoriteIcon)
-//            items[3].image = UIImage(named: listIcon)
             
         case 1:
             items[0].image = UIImage(named: homeIcon)
             items[1].image = UIImage(named: searchFillIcon)
             items[2].image = UIImage(named: favoriteIcon)
-//            items[3].image = UIImage(named: listIcon)
 
             
         case 2:
             items[0].image = UIImage(named: homeIcon)
             items[1].image = UIImage(named: searchIcon)
             items[2].image = UIImage(named: favoriteFillIcon)
-//            items[3].image = UIImage(named: listIcon)
             
             
         case 3:
             items[0].image = UIImage(named: homeIcon)
             items[1].image = UIImage(named: searchIcon)
             items[2].image = UIImage(named: favoriteIcon)
-//            items[3].image = UIImage(named: listFillIcon)
             
         default:
             break

@@ -59,7 +59,6 @@
 		BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F4A2A253F51001F71ED /* CategoryCollectionViewComponent.swift */; };
 		BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F4D2A254190001F71ED /* CategoryCollectionViewCell.swift */; };
 		BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */; };
-		BBD62F532A2696C0001F71ED /* NavigationBarViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */; };
 		BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F562A27BE42001F71ED /* FoodViewController.swift */; };
 		BBD62F592A27CC5B001F71ED /* MonthSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F582A27CC5B001F71ED /* MonthSelectionViewController.swift */; };
 		BBD62F5C2A27CD38001F71ED /* MonthSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD62F5B2A27CD38001F71ED /* MonthSelectionView.swift */; };
@@ -137,7 +136,6 @@
 		BBD62F4A2A253F51001F71ED /* CategoryCollectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewComponent.swift; sourceTree = "<group>"; };
 		BBD62F4D2A254190001F71ED /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewComponent.swift; sourceTree = "<group>"; };
 		BBD62F562A27BE42001F71ED /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		BBD62F582A27CC5B001F71ED /* MonthSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionViewController.swift; sourceTree = "<group>"; };
 		BBD62F5B2A27CD38001F71ED /* MonthSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionView.swift; sourceTree = "<group>"; };
@@ -463,7 +461,6 @@
 				BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */,
 				BB0EFA902A30FD07009DA542 /* FastFilter */,
 				BBD62F752A299700001F71ED /* Cells */,
-				BBD62F522A2696C0001F71ED /* NavigationBarViewComponent.swift */,
 				BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */,
 				8894BF222A3BA97500C97894 /* TitleDetailView.swift */,
 				88B4694E2A2995BF00755698 /* SearchBarComponent.swift */,
@@ -745,7 +742,6 @@
 				BBC8CCF92A5C8CB600D26D64 /* ShoppingListModel.swift in Sources */,
 				BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */,
 				BBD62F742A2996F3001F71ED /* FoodCollectionView.swift in Sources */,
-				BBD62F532A2696C0001F71ED /* NavigationBarViewComponent.swift in Sources */,
 				BBD62F5C2A27CD38001F71ED /* MonthSelectionView.swift in Sources */,
 				BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */,
 				BBD62F422A253C90001F71ED /* CategoryViewController.swift in Sources */,

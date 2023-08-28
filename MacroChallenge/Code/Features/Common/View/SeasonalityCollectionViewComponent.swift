@@ -10,7 +10,6 @@ import UIKit
 class SeasonalityUICollectionView: UICollectionView {
 
     var food: Food? = nil
-    private let identify = "SeasonalityCollectionViewCell"
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -28,7 +27,7 @@ extension SeasonalityUICollectionView: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identify, for: indexPath) as! SeasonalityCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeasonalityCollectionViewCell", for: indexPath) as! SeasonalityCollectionViewCell
         cell.month.text = food?.seasonalities[indexPath.row].month_name_seasonality
         cell.availability.text = food?.seasonalities[indexPath.row].state_seasonality
         cell.availability.textColor = UIColor(named: "Border"+(food?.seasonalities[indexPath.row].state_seasonality ?? "Muito baixa"))
@@ -46,7 +45,7 @@ extension SeasonalityUICollectionView: ViewCode{
     }
     
     func setupAdditionalConfiguration() {
-        self.register(SeasonalityCollectionViewCell.self, forCellWithReuseIdentifier: identify)
+        self.register(SeasonalityCollectionViewCell.self, forCellWithReuseIdentifier: "SeasonalityCollectionViewCell")
         self.dataSource = self
         self.backgroundColor = .clear
         self.backgroundView = UIView(frame: CGRect.zero)

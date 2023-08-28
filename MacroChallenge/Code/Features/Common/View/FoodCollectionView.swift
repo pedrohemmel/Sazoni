@@ -9,7 +9,7 @@ import UIKit
  
 
 class FoodCollectionView: UICollectionView {
-    var foods = [Food]() 
+    var foods = [Food]()
     weak var foodDelegate: FoodDetailDelegate? = nil
     weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
     var currentMonth = ""

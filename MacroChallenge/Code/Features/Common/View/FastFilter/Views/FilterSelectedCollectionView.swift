@@ -8,7 +8,6 @@
 import UIKit
 
 class FilterSelectedCollectionView: UICollectionView {
-    weak private var fastFilterDelegate: FastFilterDelegate? = nil
     
     lazy var myViewHeightAnchor = self.heightAnchor.constraint(equalToConstant: 0)
     private var choosenFilters = [FastFilterModel]() {
@@ -28,7 +27,6 @@ class FilterSelectedCollectionView: UICollectionView {
         self.backgroundView = .none
         self.backgroundColor = .clear
         self.register(FilterSelectedCollectionViewCell.self, forCellWithReuseIdentifier: "FilterSelectedCollectionViewCell")
-        self.delegate = self
         self.dataSource = self
         myViewHeightAnchor.isActive = true
     }
@@ -52,16 +50,9 @@ extension FilterSelectedCollectionView: UICollectionViewDataSource {
     }
 }
 
-//MARK: - Delegate
-extension FilterSelectedCollectionView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    }
-}
-
 //MARK: - Functions here
 extension FilterSelectedCollectionView {
     func setup(fastFilterDelegate: FastFilterDelegate, choosenFilters: [FastFilterModel]) {
-        self.fastFilterDelegate = fastFilterDelegate
         self.choosenFilters = choosenFilters
         self.reloadData()
     }

@@ -48,7 +48,6 @@ class TabBarViewController: UITabBarController {
     private var categories: [Category] = [Category]()
     private let favorite = FavoriteList.shared
     var foods = [Food]()
-    var favoriteFoods = [Food]()
     private var dataIsReceived = false
     lazy private var foodManager = FoodManager(response: {
         self.dataIsReceived = true

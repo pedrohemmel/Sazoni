@@ -19,7 +19,7 @@ class CategoryViewController: UIViewController {
     weak private var foodDelegate: FoodDetailDelegate? = nil
     private var categories: [Category] = [Category]()
     private var foods: [Food] = [Food]()
-    var currentMonth: String = ""
+    var currentMonth: String = String()
     
     lazy var categoryView = CategoryView(frame: self.view.frame)
     

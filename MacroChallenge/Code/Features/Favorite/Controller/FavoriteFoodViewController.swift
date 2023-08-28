@@ -13,7 +13,7 @@ class FavoriteFoodViewController: UIViewController {
     private let favorite = FavoriteList.shared
     var listOfFavoriteFoodsIDs = [Int]()
     private var listFood: [Food] = [Food]()
-    private var currentMonth: String = ""
+    private var currentMonth: String = String()
         
     //For collectionViewOfFoods
 //    private

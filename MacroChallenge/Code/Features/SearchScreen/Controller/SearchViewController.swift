@@ -54,7 +54,7 @@ extension SearchViewController: FastFilterDelegate {
     func didClickCategoryFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.append(FastFilterModel(name: fastFilter.name, idCategory: fastFilter.idCategory, filterIsSelected: nil))
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: true)
-        self.filterFoods(with: "\(self.searchView.search.text ?? "")")
+        self.filterFoods(with: "\(self.searchView.search.text ?? String())")
     }
     func didClickMonthFilter() {
         let newVC = MonthSelectionViewController()
@@ -67,7 +67,7 @@ extension SearchViewController: FastFilterDelegate {
         self.choosenFilters.append(FastFilterModel(name: self.getCurrentMonth(), idCategory: nil, filterIsSelected: nil))
         self.monthSelected = self.getCurrentMonth()
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
-        self.filterFoods(with: "\(self.searchView.search.text ?? "")")
+        self.filterFoods(with: "\(self.searchView.search.text ?? String())")
     }
     func didSelectMonthFilter(monthName: String) {
         self.deleteMonthIfItExists()
@@ -75,12 +75,12 @@ extension SearchViewController: FastFilterDelegate {
         self.monthSelected = monthName
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
         self.searchView.collectionView.setup(foods: self.foods, currentMonth: monthName, foodDelegate: nil, favoriteFoodDelegate: nil)
-        self.filterFoods(with: "\(self.searchView.search.text ?? "")")
+        self.filterFoods(with: "\(self.searchView.search.text ?? String())")
     }
     func didDeleteFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: false)
-        self.filterFoods(with: "\(self.searchView.search.text ?? "")")
+        self.filterFoods(with: "\(self.searchView.search.text ?? String())")
     }
 }
 

@@ -16,7 +16,7 @@ import UIKit
      weak var foodDelegate: FoodDetailDelegate? = nil
      var currentMonth: String? = nil
      var foods = [Food]()
-     var category: Category = Category(id_category: 0, name_category: "")
+     var category: Category = Category(id_category: .zero, name_category: String())
      var categories = [Category]()
      var filteredFoods = [Food]()
      

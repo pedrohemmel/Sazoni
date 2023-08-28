@@ -25,12 +25,7 @@ class FavoriteFoodViewController: UIViewController {
     
     //FastFilter
     private var choosenFilters = [FastFilterModel]()
-    private var fastFilters = [
-        FastFilterModel(name: "Frutas", idCategory: 0, filterIsSelected: false),
-        FastFilterModel(name: "Legumes", idCategory: 1, filterIsSelected: false),
-        FastFilterModel(name: "Verduras", idCategory: 2, filterIsSelected: false),
-        FastFilterModel(name: "Pescados", idCategory: 3, filterIsSelected: false)
-    ]
+    private var fastFilters = FastFilter.fastFiltersFavorite
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,38 +150,12 @@ extension FavoriteFoodViewController {
     }
     
     func verifyIfFilterIsMonth(nameOfFilter: String) -> Bool {
-        let months = [
-            "Janeiro",
-            "Fevereiro",
-            "Março",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro"
-        ]
+        let months = Months.monthArray
         return months.contains(nameOfFilter)
     }
     
     func deleteMonthIfItExists() {
-        let months = [
-            "Janeiro",
-            "Fevereiro",
-            "Março",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro"
-        ]
+        let months = Months.monthArray
         
         for month in months {
             if self.choosenFilters.contains(where: { $0.name == month }) {

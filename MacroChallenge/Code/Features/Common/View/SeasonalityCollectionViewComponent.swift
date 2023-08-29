@@ -27,6 +27,7 @@ extension SeasonalityUICollectionView: UICollectionViewDataSource{
         return food?.seasonalities.count ?? 0
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identify, for: indexPath) as! SeasonalityCollectionViewCell
         cell.month.text = food?.seasonalities[indexPath.row].month_name_seasonality
@@ -37,6 +38,8 @@ extension SeasonalityUICollectionView: UICollectionViewDataSource{
 }
 
 extension SeasonalityUICollectionView: ViewCode{
+    
+
     func buildViewHierarchy() {
         
     }
@@ -44,7 +47,6 @@ extension SeasonalityUICollectionView: ViewCode{
     func setupConstraints() {
         
     }
-    
     func setupAdditionalConfiguration() {
         self.register(SeasonalityCollectionViewCell.self, forCellWithReuseIdentifier: identify)
         self.dataSource = self

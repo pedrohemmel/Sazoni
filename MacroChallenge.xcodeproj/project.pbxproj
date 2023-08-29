@@ -20,6 +20,7 @@
 		880A8CB32A7B3AE700567920 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 880A8CAE2A7B3AE700567920 /* Quicksand-Regular.ttf */; };
 		880A8CB92A7B43A100567920 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 880A8CB82A7B43A100567920 /* SF-Pro-Display-Bold.otf */; };
 		880A8CBB2A7B43B400567920 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 880A8CBA2A7B43B400567920 /* SF-Pro-Display-Regular.otf */; };
+		8826C00D2A9E4DF700B7D3E8 /* CGSizeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826C00C2A9E4DF700B7D3E8 /* CGSizeExtension.swift */; };
 		88272BA02A388AB100B807BD /* DetailSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88272B9F2A388AB100B807BD /* DetailSheetViewController.swift */; };
 		88272BA22A39036800B807BD /* SeasonalityCollectionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88272BA12A39036800B807BD /* SeasonalityCollectionViewComponent.swift */; };
 		88272BA42A39082C00B807BD /* SeasonalityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88272BA32A39082C00B807BD /* SeasonalityCollectionViewCell.swift */; };
@@ -32,6 +33,9 @@
 		889904822A2A0BA40067FEC7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889904812A2A0BA40067FEC7 /* SearchViewController.swift */; };
 		88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4694E2A2995BF00755698 /* SearchBarComponent.swift */; };
 		88B469522A299CCB00755698 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B469512A299CCB00755698 /* SearchView.swift */; };
+		88F7DB802A9D0ADB00C03745 /* GCFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7DB7F2A9D0ADB00C03745 /* GCFloatExtension.swift */; };
+		88F7DB822A9D0C3000C03745 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7DB812A9D0C3000C03745 /* UIColorExtension.swift */; };
+		88F7DB842A9D1A9B00C03745 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7DB832A9D1A9B00C03745 /* UIFontExtension.swift */; };
 		BB0EFA8F2A30F625009DA542 /* FastFilterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA8E2A30F625009DA542 /* FastFilterComponent.swift */; };
 		BB0EFA922A30FD3E009DA542 /* FilterSelectedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA912A30FD3E009DA542 /* FilterSelectedCollectionView.swift */; };
 		BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */; };
@@ -95,6 +99,7 @@
 		880A8CAE2A7B3AE700567920 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		880A8CB82A7B43A100567920 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Bold.otf"; path = "MacroChallenge/SF-Pro-Display-Bold.otf"; sourceTree = SOURCE_ROOT; };
 		880A8CBA2A7B43B400567920 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		8826C00C2A9E4DF700B7D3E8 /* CGSizeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtension.swift; sourceTree = "<group>"; };
 		88272B9F2A388AB100B807BD /* DetailSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSheetViewController.swift; sourceTree = "<group>"; };
 		88272BA12A39036800B807BD /* SeasonalityCollectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalityCollectionViewComponent.swift; sourceTree = "<group>"; };
 		88272BA32A39082C00B807BD /* SeasonalityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalityCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -107,6 +112,9 @@
 		889904812A2A0BA40067FEC7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		88B4694E2A2995BF00755698 /* SearchBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarComponent.swift; sourceTree = "<group>"; };
 		88B469512A299CCB00755698 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		88F7DB7F2A9D0ADB00C03745 /* GCFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GCFloatExtension.swift; path = "../../../../../../Creative Cloud Files/GCFloatExtension.swift"; sourceTree = "<group>"; };
+		88F7DB812A9D0C3000C03745 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		88F7DB832A9D1A9B00C03745 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		BB0EFA8E2A30F625009DA542 /* FastFilterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterComponent.swift; sourceTree = "<group>"; };
 		BB0EFA912A30FD3E009DA542 /* FilterSelectedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectedCollectionView.swift; sourceTree = "<group>"; };
 		BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
@@ -566,6 +574,10 @@
 			isa = PBXGroup;
 			children = (
 				3F1252E72A266C230048E7FB /* FoodManager.swift */,
+				88F7DB7F2A9D0ADB00C03745 /* GCFloatExtension.swift */,
+				88F7DB812A9D0C3000C03745 /* UIColorExtension.swift */,
+				88F7DB832A9D1A9B00C03745 /* UIFontExtension.swift */,
+				8826C00C2A9E4DF700B7D3E8 /* CGSizeExtension.swift */,
 				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
 				883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */,
 				BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */,
@@ -740,7 +752,9 @@
 				BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */,
 				BBD62F592A27CC5B001F71ED /* MonthSelectionViewController.swift in Sources */,
 				BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */,
+				88F7DB822A9D0C3000C03745 /* UIColorExtension.swift in Sources */,
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
+				88F7DB842A9D1A9B00C03745 /* UIFontExtension.swift in Sources */,
 				3F1252EA2A266DD90048E7FB /* FoodModel.swift in Sources */,
 				BBC8CCF92A5C8CB600D26D64 /* ShoppingListModel.swift in Sources */,
 				BBD62F502A26695E001F71ED /* UIViewExtension.swift in Sources */,
@@ -749,6 +763,7 @@
 				BBD62F5C2A27CD38001F71ED /* MonthSelectionView.swift in Sources */,
 				BBD62F4B2A253F51001F71ED /* CategoryCollectionViewComponent.swift in Sources */,
 				BBD62F422A253C90001F71ED /* CategoryViewController.swift in Sources */,
+				88F7DB802A9D0ADB00C03745 /* GCFloatExtension.swift in Sources */,
 				BB3F834F2A61AD5800C0DFA1 /* ShoppingListsTableViewCell.swift in Sources */,
 				883A7F1B2A429F1A00E7D4E1 /* FavoriteList.swift in Sources */,
 				BB3F83542A65C5C700C0DFA1 /* ShoppingListCreateView.swift in Sources */,
@@ -759,6 +774,7 @@
 				BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */,
 				BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */,
 				BBD62F382A251C8B001F71ED /* ViewCode.swift in Sources */,
+				8826C00D2A9E4DF700B7D3E8 /* CGSizeExtension.swift in Sources */,
 				BB0EFA922A30FD3E009DA542 /* FilterSelectedCollectionView.swift in Sources */,
 				3F1252EC2A266FE00048E7FB /* CategoryModel.swift in Sources */,
 				BB3F83492A61A8FF00C0DFA1 /* ShoppingListsView.swift in Sources */,

@@ -52,9 +52,9 @@ extension MonthSelectionCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: "MonthSelectionCollectionViewCell", for: indexPath) as! MonthSelectionCollectionViewCell
         cell.title.text = self.months[indexPath.row]
-        cell.layer.borderWidth = 3
+        cell.layer.borderWidth = .SZBorder
         cell.layer.borderColor = UIColor(named: "lightBrown")?.cgColor
-        cell.layer.cornerRadius = 10
+        cell.layer.cornerRadius = .SZCornerRadius
         if cell.title.text == monthSelected{
             cell.backgroundColor = UIColor(named: "lightBrown")
             cell.title.textColor = .white

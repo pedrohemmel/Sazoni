@@ -55,7 +55,7 @@ class TabBarViewController: UITabBarController {
         self.getFoodData()
     })
     
-    private var categoryViewController = CategoryViewController()
+    private lazy var categoryViewController = CategoryViewController(currentMonth: self.currentMonth)
     private var searchViewController = SearchViewController()
     private var foodViewController = FoodViewController()
     private let favoriteFoodViewController = FavoriteFoodViewController()

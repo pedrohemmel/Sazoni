@@ -9,7 +9,7 @@ import UIKit
 
 class CategoryView: UIView {
     
-    private var currentMonth: String? = nil
+    private var currentMonth: String?
     
     //MARK: - Views
     lazy var monthTitle: UILabel = {
@@ -34,8 +34,9 @@ class CategoryView: UIView {
         return categoryCollectionViewComponent
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, currentMonth: String?) {
         super.init(frame: frame)
+        self.monthTitle.text = currentMonth
         self.setupViewConfiguration()
     }
     required init?(coder: NSCoder) {
@@ -73,9 +74,9 @@ extension CategoryView: ViewCode {
 }
 
 //MARK: - Functions here
-extension CategoryView {
-    func setup(currentMonth: String) {
-        self.currentMonth = currentMonth
-        self.monthTitle.text = currentMonth
-    }
-}
+//extension CategoryView {
+//    func setup(currentMonth: String) {
+//        self.currentMonth = currentMonth
+//        self.monthTitle.text = currentMonth
+//    }
+//}

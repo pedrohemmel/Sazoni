@@ -15,13 +15,23 @@ protocol MCSelectedCategoryDelegate: AnyObject {
 
 class CategoryViewController: UIViewController {
     //MARK: - Views
+    
+    init(currentMonth: String) {
+        self.currentMonth = currentMonth
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     weak private var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
     weak private var foodDelegate: FoodDetailDelegate? = nil
     private var categories: [Category] = [Category]()
     private var foods: [Food] = [Food]()
-    var currentMonth: String = ""
+    var currentMonth: String
     
-    lazy var categoryView = CategoryView(frame: self.view.frame)
+    lazy var categoryView = CategoryView(frame: self.view.frame, currentMonth: currentMonth)
     
     override func loadView() {
         super.loadView()
@@ -53,9 +63,7 @@ extension CategoryViewController {
     func setup(categories: [Category], monthUpdatesDelegate: MCMonthUpdatesDelegate, foods: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate) {
         self.foods = foods
         self.categories = categories
-        self.currentMonth = currentMonth
         self.monthUpdatesDelegate = monthUpdatesDelegate
-        self.categoryView.setup(currentMonth: currentMonth)
         self.categoryView.categoryCollectionViewComponent.setup(selectedCategoryDelegate: self, categories: categories)
         self.foodDelegate = foodDelegate
     }

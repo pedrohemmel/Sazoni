@@ -16,18 +16,18 @@ protocol FoodDetailDelegate: AnyObject{
 class SearchViewController: UISearchController {
     
     lazy var searchView = SearchView(frame: self.view.frame)
-    var monthSelected = String()
+    private var monthSelected = String()
     
     //For collectionViewOfFoods
-    var filteredFoods: [Food] = [] {
+    private var filteredFoods: [Food] = [] {
         didSet {
             self.searchView.collectionView.reloadData()
         }
     }
     
     //FastFilter
-    var choosenFilters = [FastFilterModel]()
-    var fastFilters = [
+    private var choosenFilters = [FastFilterModel]()
+    private var fastFilters = [
         FastFilterModel(name: "months", idCategory: nil, filterIsSelected: false),
         FastFilterModel(name: "Frutas", idCategory: 0, filterIsSelected: false),
         FastFilterModel(name: "Legumes", idCategory: 1, filterIsSelected: false),
@@ -38,7 +38,7 @@ class SearchViewController: UISearchController {
     //Load food data
     private var foods = [Food]()
     private var dataIsReceived = false
-    lazy private var foodManager = FoodManager(response: {
+    private lazy var foodManager = FoodManager(response: {
         self.dataIsReceived = true
         self.setupViewConfiguration()
     })

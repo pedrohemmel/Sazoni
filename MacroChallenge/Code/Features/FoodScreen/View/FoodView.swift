@@ -11,11 +11,12 @@ class FoodView: UIView {
     
     weak var categorySwipeDelegate: MCCategorySwipeDelegate? = nil
     weak var monthButtonDelegate: MCMonthNavigationButtonDelegate? = nil
-    var currentMonth: String? = nil
-    var category = Category(id_category: 0, name_category: "")
+    private var currentMonth: String? = nil
+    private var foods = [Food]()
+    private var category = Category(id_category: 0, name_category: "")
     
     //MARK: - Views
-    lazy var monthTitle: UILabel = {
+    private lazy var monthTitle: UILabel = {
         let monthTitle = UILabel()
         monthTitle.text = self.currentMonth
         monthTitle.font = UIFont(name: "Quicksand-SemiBold", size: 64)
@@ -24,7 +25,7 @@ class FoodView: UIView {
         return monthTitle
     }()
     
-    lazy var foodCategoryName: UILabel = {
+    private lazy var foodCategoryName: UILabel = {
         let foodCategoryName = UILabel()
         foodCategoryName.text = self.category.name_category
         foodCategoryName.font = UIFont(name: "Quicksand-Medium", size: 34)
@@ -32,7 +33,7 @@ class FoodView: UIView {
         foodCategoryName.translatesAutoresizingMaskIntoConstraints = false
         return  foodCategoryName
     }()
-    lazy var chevronLeftButton: UIButton = {
+    private lazy var chevronLeftButton: UIButton = {
         let chevronLeftButton = UIButton()
         chevronLeftButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         chevronLeftButton.tintColor = UIColor(named: "darkBrown")
@@ -40,7 +41,7 @@ class FoodView: UIView {
         chevronLeftButton.translatesAutoresizingMaskIntoConstraints = false
         return chevronLeftButton
     }()
-    lazy var chevronRightButton: UIButton = {
+    private lazy var chevronRightButton: UIButton = {
         let chevronRightButton = UIButton()
         chevronRightButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         chevronRightButton.tintColor = UIColor(named: "darkBrown")
@@ -49,7 +50,7 @@ class FoodView: UIView {
         return chevronRightButton
     }()
     
-    lazy var collectionView: FoodCollectionView = {
+    private lazy var collectionView: FoodCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: 105, height: 140)

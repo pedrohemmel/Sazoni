@@ -11,12 +11,11 @@ class FavoriteFoodViewController: UIViewController {
     
     lazy var favoriteFoodView = FavoriteFoodView(frame: self.view.frame)
     private let favorite = FavoriteList.shared
-    var listOfFavoriteFoodsIDs = [Int]()
+    private var listOfFavoriteFoodsIDs = [Int]()
     private var listFood: [Food] = [Food]()
     private var currentMonth: String = ""
         
-    //For collectionViewOfFoods
-     var filteredFoods: [Food] = [] {
+    private var filteredFoods: [Food] = [] {
         didSet {
             self.favoriteFoodView.collectionView.reloadData()
         }

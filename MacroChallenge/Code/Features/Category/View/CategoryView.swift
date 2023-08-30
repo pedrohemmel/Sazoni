@@ -12,7 +12,7 @@ class CategoryView: UIView {
     private var currentMonth: String? = nil
     
     //MARK: - Views
-    lazy var monthTitle: UILabel = {
+    private lazy var monthTitle: UILabel = {
         let monthTitle = UILabel()
         monthTitle.text = self.currentMonth
         monthTitle.font = UIFont(name: "Quicksand-SemiBold", size: 64)

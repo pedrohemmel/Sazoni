@@ -15,7 +15,7 @@ class MonthSelectionView: UIView {
         return capsule
     }()
     
-    lazy var monthSelectionCollectionView: MonthSelectionCollectionView = {
+    private lazy var monthSelectionCollectionView: MonthSelectionCollectionView = {
         let collectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let spaceBetweenItems = 50.0
         collectionViewLayout.itemSize = CGSize(width: (self.bounds.width / 3 - spaceBetweenItems), height: (self.bounds.width / 3 - spaceBetweenItems))

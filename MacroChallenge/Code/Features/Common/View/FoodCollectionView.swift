@@ -9,10 +9,10 @@ import UIKit
  
 
 class FoodCollectionView: UICollectionView {
-    var foods = [Food]()
     weak var foodDelegate: FoodDetailDelegate? = nil
     weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
-    var currentMonth = ""
+    private var currentMonth = ""
+    var foods = [Food]()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)

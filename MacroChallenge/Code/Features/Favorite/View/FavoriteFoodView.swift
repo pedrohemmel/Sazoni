@@ -4,7 +4,7 @@ import UIKit
 
 class FavoriteFoodView: UIView {
 
-    lazy var title: UILabel = {
+    private lazy var title: UILabel = {
         let view = UILabel()
         view.text = "Favoritos"
         view.font = UIFont(name: "Quicksand-SemiBold", size: 64)

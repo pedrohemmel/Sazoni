@@ -15,7 +15,7 @@ class MonthSelectionViewController: UIViewController {
     weak var delegate: MCMonthNavigationButtonDelegate? = nil
     weak var fastFilterDelegate: FastFilterDelegate? = nil
     var monthSelected = String()
-    lazy var monthSelectionView = MonthSelectionView(frame: self.view.frame)
+    private lazy var monthSelectionView = MonthSelectionView(frame: self.view.frame)
     private var months: [String] = [
         "Janeiro",
         "Fevereiro",

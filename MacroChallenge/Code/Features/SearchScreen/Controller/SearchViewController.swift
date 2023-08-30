@@ -1,5 +1,6 @@
 
 import UIKit
+import Combine
 
 protocol FastFilterDelegate: AnyObject {
     func didClickCategoryFilter(fastFilter: FastFilterModel)
@@ -13,7 +14,9 @@ protocol FoodDetailDelegate: AnyObject{
     func selectFood(food: Food)
 }
 
-class SearchViewController: UISearchController {
+class SearchViewController: UIViewController {
+    
+    var observer: AnyCancellable?
     
     lazy var searchView = SearchView(frame: self.view.frame)
     var monthSelected = String()
@@ -38,14 +41,28 @@ class SearchViewController: UISearchController {
     //Load food data
     private var foods = [Food]()
     private var dataIsReceived = false
-    lazy private var foodManager = FoodManager(response: {
-        self.dataIsReceived = true
-        self.setupViewConfiguration()
-    })
+    
+    init(foods: [Food]) {
+        super.init(nibName: nil, bundle: nil)
+        self.foods = foods
+        self.filteredFoods = self.foods
+        self.searchView.collectionView.setup(foods: self.foods, currentMonth: self.getCurrentMonth(), foodDelegate: nil, favoriteFoodDelegate: nil)
+        self.filterFoods(with: "")
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        self.view = self.searchView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupViewConfiguration()
+        self.searchView.search.searchViewController = self
+        self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
+        self.searchView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
         self.selectInitialMonth()
     }
 }
@@ -81,30 +98,6 @@ extension SearchViewController: FastFilterDelegate {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: false)
         self.filterFoods(with: "\(self.searchView.search.text ?? "")")
-    }
-}
-
-extension SearchViewController: ViewCode{
-    func buildViewHierarchy() {
-        view.addSubview(searchView)
-    }
-    
-    func setupConstraints() {}
-    
-    func setupAdditionalConfiguration() {
-        self.searchView.search.searchViewController = self
-        
-        if !self.dataIsReceived {
-            self.foodManager.fetchFood()
-        } else {
-            self.foods = self.foodManager.foods
-            self.filteredFoods = self.foods
-            self.searchView.collectionView.setup(foods: self.foods, currentMonth: self.getCurrentMonth(), foodDelegate: nil, favoriteFoodDelegate: nil)
-            self.filterFoods(with: "")
-        }
-        
-        self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
-        self.searchView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
     }
 }
 

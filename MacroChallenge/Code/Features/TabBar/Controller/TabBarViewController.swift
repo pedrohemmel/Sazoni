@@ -55,7 +55,6 @@ class TabBarViewController: UITabBarController {
     private var dataIsReceived = false
     
     private var categoryViewController = CategoryViewController()
-    private var searchViewController = SearchViewController()
     private var foodViewController = FoodViewController()
     private let favoriteFoodViewController = FavoriteFoodViewController()
     private var shoppingListsViewController = ShoppingListsViewController()
@@ -63,7 +62,6 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "Background")
-        self.searchViewController.searchView.collectionView.foodDelegate = self
         self.setupViewControllers()
         self.setupTabItems()
         self.observer = FoodManager.shared.fetchFoods()
@@ -73,6 +71,7 @@ class TabBarViewController: UITabBarController {
                     self.getAllCategories()
                     self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
                     self.favoriteFoodViewController.setup(food: self.foods, currentMonth: self.currentMonth)
+                    
                 case .failure(let error):
                     print(error)
                 }
@@ -211,10 +210,11 @@ extension TabBarViewController {
 
     private func setupTabItems() {
         let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
-        let searchViewController = UINavigationController(rootViewController: self.searchViewController)
+        let searchViewController = UINavigationController(rootViewController: SearchViewController(foods: self.foods))
         let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
 //        let shoppingListsViewController = UINavigationController(rootViewController: self.shoppingListsViewController)
         
+//        searchViewController.searchView.collectionView.foodDelegate = self
         self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController], animated: false)
         guard let items = self.tabBar.items else { return }
              

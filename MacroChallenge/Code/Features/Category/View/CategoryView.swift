@@ -10,6 +10,7 @@ import UIKit
 class CategoryView: UIView {
     
     private var currentMonth: String?
+    private var categories: [Category]
     
     //MARK: - Views
     lazy var monthTitle: UILabel = {
@@ -29,12 +30,13 @@ class CategoryView: UIView {
         collectionViewLayout.minimumLineSpacing = 10
         collectionViewLayout.scrollDirection = .vertical
         
-        let categoryCollectionViewComponent = CategoryCollectionViewComponent(frame: .zero, collectionViewLayout: collectionViewLayout)
+        let categoryCollectionViewComponent = CategoryCollectionViewComponent(frame: .zero, collectionViewLayout: collectionViewLayout, categories: self.categories)
         categoryCollectionViewComponent.translatesAutoresizingMaskIntoConstraints = false
         return categoryCollectionViewComponent
     }()
     
-    init(frame: CGRect, currentMonth: String?) {
+    init(frame: CGRect, currentMonth: String?, categories: [Category]) {
+        self.categories = categories
         super.init(frame: frame)
         self.monthTitle.text = currentMonth
         self.setupViewConfiguration()
@@ -72,11 +74,3 @@ extension CategoryView: ViewCode {
         self.backgroundColor = UIColor(named: "Background")
     }
 }
-
-//MARK: - Functions here
-//extension CategoryView {
-//    func setup(currentMonth: String) {
-//        self.currentMonth = currentMonth
-//        self.monthTitle.text = currentMonth
-//    }
-//}

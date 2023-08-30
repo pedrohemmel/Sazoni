@@ -55,19 +55,20 @@ class TabBarViewController: UITabBarController {
         self.getFoodData()
     })
     
-    private lazy var categoryViewController = CategoryViewController(currentMonth: self.currentMonth)
+//    private lazy var categoryViewController =
     private var searchViewController = SearchViewController()
     private var foodViewController = FoodViewController()
     private let favoriteFoodViewController = FavoriteFoodViewController()
     private var shoppingListsViewController = ShoppingListsViewController()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "Background")
+        self.getFoodData()
         self.searchViewController.searchView.collectionView.foodDelegate = self
         self.setupViewControllers()
-        self.setupTabItems()
-        self.getFoodData()
+        
         self.favorite.registerObserver(self)
     }
 }
@@ -199,7 +200,8 @@ extension TabBarViewController: BoughtListCRUDDelegate {
 extension TabBarViewController {
 
     private func setupTabItems() {
-        let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
+        
+        let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories))
         let searchViewController = UINavigationController(rootViewController: self.searchViewController)
         let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
 //        let shoppingListsViewController = UINavigationController(rootViewController: self.shoppingListsViewController)
@@ -273,7 +275,8 @@ extension TabBarViewController {
     
     private func setupViewControllers() {
         if !self.categories.isEmpty {
-            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
+            
+//            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
         }
         
         self.shoppingListsViewController.boughtListCRUDDelegate = self
@@ -286,7 +289,8 @@ extension TabBarViewController {
         } else {
             self.foods = self.foodManager.foods
             self.getAllCategories()
-            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
+//            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
+            self.setupTabItems()
             self.favoriteFoodViewController.setup(food: self.foods, currentMonth: self.currentMonth)
         }
     }

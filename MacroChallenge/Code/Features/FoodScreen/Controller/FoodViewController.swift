@@ -14,11 +14,11 @@ import UIKit
      
      weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
      weak var foodDelegate: FoodDetailDelegate? = nil
-     private var currentMonth: String? = nil
-     private var foods = [Food]()
-     private var category: Category = Category(id_category: 0, name_category: "")
-     private var categories = [Category]()
-     private var filteredFoods = [Food]()
+     var currentMonth: String? = nil
+     var foods = [Food]()
+     var category: Category = Category(id_category: .zero, name_category: String())
+     var categories = [Category]()
+     var filteredFoods = [Food]()
      
      private lazy var foodView = FoodView(frame: self.view.frame)
      

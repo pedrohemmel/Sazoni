@@ -36,7 +36,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.categoryFood.text = ""
+        self.categoryFood.text = String()
         self.categoryImage.image = nil
     }
 }

@@ -13,7 +13,7 @@ class FoodView: UIView {
     weak var monthButtonDelegate: MCMonthNavigationButtonDelegate? = nil
     private var currentMonth: String? = nil
     private var foods = [Food]()
-    private var category = Category(id_category: 0, name_category: "")
+    var category = Category(id_category: 0, name_category: String())
     
     //MARK: - Views
     private lazy var monthTitle: UILabel = {

@@ -48,8 +48,8 @@ class FoodCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.foodImage.image = nil
-        self.nameFood.text = ""
-        self.sazonality.text = ""
+        self.nameFood.text = String()
+        self.sazonality.text = String()
     }
 }
 

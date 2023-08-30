@@ -5,9 +5,8 @@ import UIKit
 class TitleDetailView: UIView {
     
     weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
-    private let userDefaults = UserDefaults.standard
-    private let keyUserDefaults = "favorite"
     private let favorite = FavoriteList.shared
+    
     private lazy var titleFood: UILabel = {
         let title = UILabel()
         title.font = UIFont(name: "Quicksand-SemiBold", size: 33)

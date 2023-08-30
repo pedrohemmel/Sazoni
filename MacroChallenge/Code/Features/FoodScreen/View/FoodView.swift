@@ -12,7 +12,6 @@ class FoodView: UIView {
     weak var categorySwipeDelegate: MCCategorySwipeDelegate? = nil
     weak var monthButtonDelegate: MCMonthNavigationButtonDelegate? = nil
     var currentMonth: String? = nil
-    private var foods = [Food]()
     var category = Category(id_category: 0, name_category: "")
     
     //MARK: - Views
@@ -127,7 +126,6 @@ extension FoodView: ViewCode {
 //MARK: - Functions here
 extension FoodView {
     func setup(foods: [Food], currentMonth: String, category: Category, monthButtonDelegate: MCMonthNavigationButtonDelegate, categorySwipeDelegeta: MCCategorySwipeDelegate, foodDelegate: FoodDetailDelegate?) {
-        self.foods = foods
         self.currentMonth = currentMonth
         self.category = category
         

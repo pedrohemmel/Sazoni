@@ -8,9 +8,6 @@
 import UIKit
 
 class FilterSelectedCollectionViewCell: UICollectionViewCell {
-    
-    weak var fastFilterDelegate: FastFilterDelegate? = nil
-    
     //MARK: - Views
     var lblFilterSelected: UILabel = {
         let lblFilterSelected = UILabel()

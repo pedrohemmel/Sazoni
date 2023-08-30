@@ -16,7 +16,6 @@ class FavoriteFoodViewController: UIViewController {
     private var currentMonth: String = ""
         
     //For collectionViewOfFoods
-//    private
      var filteredFoods: [Food] = [] {
         didSet {
             self.favoriteFoodView.collectionView.reloadData()

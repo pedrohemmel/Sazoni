@@ -11,7 +11,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
     //MARK: - Views
     lazy var foodImage: UIImageView = {
         let imageView = UIImageView()
-//        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

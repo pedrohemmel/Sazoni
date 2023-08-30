@@ -51,14 +51,12 @@ extension CategoryCollectionViewCell: ViewCode {
         self.categoryImage.setupConstraints { view in
             [
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//                view.bottomAnchor.constraint(equalTo: self.categoryFood.topAnchor, constant: -20)
                 view.bottomAnchor.constraint(equalTo: self.categoryFood.topAnchor)
             ]
         }
         self.categoryFood.setupConstraints { view in
             [
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//                view.topAnchor.constraint(equalTo: self.categoryImage.bottomAnchor, constant: 20),
                 view.topAnchor.constraint(equalTo: self.categoryImage.bottomAnchor),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20)
             ]

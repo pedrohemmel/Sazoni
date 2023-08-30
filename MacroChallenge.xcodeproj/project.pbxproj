@@ -37,6 +37,9 @@
 		BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */; };
 		BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */; };
 		BB0EFB312A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */; };
+		BB16248D2A9D221700162531 /* TabIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16248C2A9D221700162531 /* TabIcons.swift */; };
+		BB16248F2A9D2B4A00162531 /* Months.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16248E2A9D2B4A00162531 /* Months.swift */; };
+		BB1624912A9D2BFF00162531 /* FastFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1624902A9D2BFF00162531 /* FastFilter.swift */; };
 		BB3B0EBC2A37965500774A3D /* FastFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */; };
 		BB3F83462A61A6FD00C0DFA1 /* ShoppingListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */; };
 		BB3F83492A61A8FF00C0DFA1 /* ShoppingListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */; };
@@ -111,6 +114,9 @@
 		BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
 		BB0EFA972A311DE7009DA542 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB0EFB302A336EF7009DA542 /* FilterSelectedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectedCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB16248C2A9D221700162531 /* TabIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcons.swift; sourceTree = "<group>"; };
+		BB16248E2A9D2B4A00162531 /* Months.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Months.swift; sourceTree = "<group>"; };
+		BB1624902A9D2BFF00162531 /* FastFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilter.swift; sourceTree = "<group>"; };
 		BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterModel.swift; sourceTree = "<group>"; };
 		BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsViewController.swift; sourceTree = "<group>"; };
 		BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsView.swift; sourceTree = "<group>"; };
@@ -566,6 +572,9 @@
 				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
 				883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */,
 				BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */,
+				BB16248C2A9D221700162531 /* TabIcons.swift */,
+				BB16248E2A9D2B4A00162531 /* Months.swift */,
+				BB1624902A9D2BFF00162531 /* FastFilter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -733,6 +742,7 @@
 				883A7F192A42700D00E7D4E1 /* FavoriteFoodView.swift in Sources */,
 				BB3F83462A61A6FD00C0DFA1 /* ShoppingListsViewController.swift in Sources */,
 				BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */,
+				BB16248D2A9D221700162531 /* TabIcons.swift in Sources */,
 				88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */,
 				BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */,
 				BBD62F592A27CC5B001F71ED /* MonthSelectionViewController.swift in Sources */,
@@ -752,6 +762,7 @@
 				8894BF232A3BA97500C97894 /* TitleDetailView.swift in Sources */,
 				889904822A2A0BA40067FEC7 /* SearchViewController.swift in Sources */,
 				88272BA02A388AB100B807BD /* DetailSheetViewController.swift in Sources */,
+				BB16248F2A9D2B4A00162531 /* Months.swift in Sources */,
 				BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */,
 				BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */,
 				BBD62F382A251C8B001F71ED /* ViewCode.swift in Sources */,
@@ -763,6 +774,7 @@
 				3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */,
 				BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */,
 				886664952A31005D0031D242 /* DetailSheetView.swift in Sources */,
+				BB1624912A9D2BFF00162531 /* FastFilter.swift in Sources */,
 				BBD912952A3B8B0000BE1BA5 /* FoodCollectionViewCell.swift in Sources */,
 				88272BA22A39036800B807BD /* SeasonalityCollectionViewComponent.swift in Sources */,
 				BB0EFA8F2A30F625009DA542 /* FastFilterComponent.swift in Sources */,

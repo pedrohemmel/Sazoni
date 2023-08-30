@@ -27,23 +27,9 @@ protocol BoughtListCRUDDelegate: AnyObject {
     func removeItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
 }
 
-
-
-
 class TabBarViewController: UITabBarController {
-    
     var observer: AnyCancellable?
-    
-    private let homeIcon = "Home"
-    private let homeFillIcon = "Home.fill"
-    private let searchIcon = "Search"
-    private let searchFillIcon = "Search.fill"
-    private let favoriteIcon = "Favorite"
-    private let favoriteFillIcon = "Favorite.fill"
-    private let listIcon = "List"
-    private let listFillIcon = "List.fill"
-    
-    private lazy var currentMonth = self.getCurrentMonth() {
+    lazy var currentMonth = self.getCurrentMonth() {
         didSet {
             self.setupViewControllers()
         }
@@ -217,11 +203,11 @@ extension TabBarViewController {
         self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController], animated: false)
         guard let items = self.tabBar.items else { return }
              
-        items[0].image = UIImage(named: homeFillIcon)
+        items[0].image = UIImage(named: TabIcons.homeFillIcon)
         items[0].title = "Início"
-        items[1].image = UIImage(named: searchIcon)
+        items[1].image = UIImage(named: TabIcons.searchIcon)
         items[1].title = "Pesquisa"
-        items[2].image = UIImage(named: favoriteIcon)
+        items[2].image = UIImage(named: TabIcons.favoriteIcon)
         items[2].title = "Favoritos"
     }
     
@@ -232,26 +218,26 @@ extension TabBarViewController {
         
         switch selectedItem{
         case 0:
-            items[0].image = UIImage(named: homeFillIcon)
-            items[1].image = UIImage(named: searchIcon)
-            items[2].image = UIImage(named: favoriteIcon)
+            items[0].image = UIImage(named: TabIcons.homeFillIcon)
+            items[1].image = UIImage(named: TabIcons.searchIcon)
+            items[2].image = UIImage(named: TabIcons.favoriteIcon)
             
         case 1:
-            items[0].image = UIImage(named: homeIcon)
-            items[1].image = UIImage(named: searchFillIcon)
-            items[2].image = UIImage(named: favoriteIcon)
+            items[0].image = UIImage(named: TabIcons.homeIcon)
+            items[1].image = UIImage(named: TabIcons.searchFillIcon)
+            items[2].image = UIImage(named: TabIcons.favoriteIcon)
 
             
         case 2:
-            items[0].image = UIImage(named: homeIcon)
-            items[1].image = UIImage(named: searchIcon)
-            items[2].image = UIImage(named: favoriteFillIcon)
+            items[0].image = UIImage(named: TabIcons.homeIcon)
+            items[1].image = UIImage(named: TabIcons.searchIcon)
+            items[2].image = UIImage(named: TabIcons.favoriteFillIcon)
             
             
         case 3:
-            items[0].image = UIImage(named: homeIcon)
-            items[1].image = UIImage(named: searchIcon)
-            items[2].image = UIImage(named: favoriteIcon)
+            items[0].image = UIImage(named: TabIcons.homeIcon)
+            items[1].image = UIImage(named: TabIcons.searchIcon)
+            items[2].image = UIImage(named: TabIcons.favoriteIcon)
             
         default:
             break

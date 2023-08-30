@@ -15,21 +15,8 @@ class MonthSelectionViewController: UIViewController {
     weak var delegate: MCMonthNavigationButtonDelegate? = nil
     weak var fastFilterDelegate: FastFilterDelegate? = nil
     var monthSelected = String()
-    private lazy var monthSelectionView = MonthSelectionView(frame: self.view.frame)
-    private var months: [String] = [
-        "Janeiro",
-        "Fevereiro",
-        "Março",
-        "Abril",
-        "Maio",
-        "Junho",
-        "Julho",
-        "Agosto",
-        "Setembro",
-        "Outubro",
-        "Novembro",
-        "Dezembro"
-    ]
+    lazy var monthSelectionView = MonthSelectionView(frame: self.view.frame)
+    private var months = Months.monthArray
     
     override func loadView() {
         super.loadView()

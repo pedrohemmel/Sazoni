@@ -26,14 +26,8 @@ class SearchViewController: UISearchController {
     }
     
     //FastFilter
-    private var choosenFilters = [FastFilterModel]()
-    private var fastFilters = [
-        FastFilterModel(name: "months", idCategory: nil, filterIsSelected: false),
-        FastFilterModel(name: "Frutas", idCategory: 0, filterIsSelected: false),
-        FastFilterModel(name: "Legumes", idCategory: 1, filterIsSelected: false),
-        FastFilterModel(name: "Verduras", idCategory: 2, filterIsSelected: false),
-        FastFilterModel(name: "Pescados", idCategory: 3, filterIsSelected: false)
-    ]
+    var choosenFilters = [FastFilterModel]()
+    var fastFilters = FastFilter.fastFilters
     
     //Load food data
     private var foods = [Food]()
@@ -163,38 +157,12 @@ extension SearchViewController{
     }
     
     func verifyIfFilterIsMonth(nameOfFilter: String) -> Bool {
-        let months = [
-            "Janeiro",
-            "Fevereiro",
-            "Março",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro"
-        ]
+        let months = Months.monthArray
         return months.contains(nameOfFilter)
     }
     
     func deleteMonthIfItExists() {
-        let months = [
-            "Janeiro",
-            "Fevereiro",
-            "Março",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro"
-        ]
+        let months = Months.monthArray
         
         for month in months {
             if self.choosenFilters.contains(where: { $0.name == month }) {
@@ -212,20 +180,7 @@ extension SearchViewController{
     }
     
     func getCurrentMonthNumber() -> Int {
-        let months = [
-            "janeiro",
-            "fevereiro",
-            "março",
-            "abril",
-            "maio",
-            "junho",
-            "julho",
-            "agosto",
-            "setembro",
-            "outubro",
-            "novembro",
-            "dezembro"
-        ]
+        let months = Months.monthArray
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"

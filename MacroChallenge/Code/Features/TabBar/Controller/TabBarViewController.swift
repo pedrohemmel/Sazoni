@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol MCMonthUpdatesDelegate: AnyObject {
     func didChangeMonth(newMonthName: String)
@@ -31,6 +32,8 @@ protocol BoughtListCRUDDelegate: AnyObject {
 
 class TabBarViewController: UITabBarController {
     
+    var observer: AnyCancellable?
+    
     private let homeIcon = "Home"
     private let homeFillIcon = "Home.fill"
     private let searchIcon = "Search"
@@ -50,10 +53,6 @@ class TabBarViewController: UITabBarController {
     var foods = [Food]()
     var favoriteFoods = [Food]()
     private var dataIsReceived = false
-    lazy private var foodManager = FoodManager(response: {
-        self.dataIsReceived = true
-        self.getFoodData()
-    })
     
     private var categoryViewController = CategoryViewController()
     private var searchViewController = SearchViewController()
@@ -67,7 +66,19 @@ class TabBarViewController: UITabBarController {
         self.searchViewController.searchView.collectionView.foodDelegate = self
         self.setupViewControllers()
         self.setupTabItems()
-        self.getFoodData()
+        self.observer = FoodManager.shared.fetchFoods()
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    self.getAllCategories()
+                    self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
+                    self.favoriteFoodViewController.setup(food: self.foods, currentMonth: self.currentMonth)
+                case .failure(let error):
+                    print(error)
+                }
+            }, receiveValue: { (foods) in
+                self.foods = foods
+            })
         self.favorite.registerObserver(self)
     }
 }
@@ -278,17 +289,6 @@ extension TabBarViewController {
         
         self.shoppingListsViewController.boughtListCRUDDelegate = self
         self.shoppingListsViewController.setup(boughtList: self.getAllBoughtList("boughtList"))
-    }
-    
-    private func getFoodData() {
-        if !self.dataIsReceived {
-            self.foodManager.fetchFood()
-        } else {
-            self.foods = self.foodManager.foods
-            self.getAllCategories()
-            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
-            self.favoriteFoodViewController.setup(food: self.foods, currentMonth: self.currentMonth)
-        }
     }
     
     private func boughtListAction(_ key: String, idBoughtList: Int?, idItem: Int?, action: @escaping ((_ idBoughtList: Int?, _ idItem: Int?, _ boughtList: [ShoppingListModel]) -> [ShoppingListModel])) {

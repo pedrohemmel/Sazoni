@@ -40,24 +40,25 @@ class TabBarViewController: UITabBarController {
     private var favoriteFoods = [Food]()
     private var dataIsReceived = false
     
-    private var categoryViewController = CategoryViewController()
+//    private lazy var categoryViewController =
     private var searchViewController = SearchViewController()
     private var foodViewController = FoodViewController()
     private let favoriteFoodViewController = FavoriteFoodViewController()
     private var shoppingListsViewController = ShoppingListsViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "Background")
         self.searchViewController.searchView.collectionView.foodDelegate = self
         self.setupViewControllers()
-        self.setupTabItems()
+        
         self.observer = FoodManager.shared.fetchFoods()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
                     self.getAllCategories()
-                    self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
+                    self.setupTabItems()
                     self.favoriteFoodViewController.setup(food: self.foods, currentMonth: self.currentMonth)
                 case .failure(let error):
                     print(error)
@@ -196,7 +197,8 @@ extension TabBarViewController: BoughtListCRUDDelegate {
 extension TabBarViewController {
 
     private func setupTabItems() {
-        let categoryViewController = UINavigationController(rootViewController: self.categoryViewController)
+        
+        let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self))
         let searchViewController = UINavigationController(rootViewController: self.searchViewController)
         let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
         
@@ -263,13 +265,14 @@ extension TabBarViewController {
     
     private func setupViewControllers() {
         if !self.categories.isEmpty {
-            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
+            
+//            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
         }
         
         self.shoppingListsViewController.boughtListCRUDDelegate = self
         self.shoppingListsViewController.setup(boughtList: self.getAllBoughtList("boughtList"))
     }
-    
+
     private func boughtListAction(_ key: String, idBoughtList: Int?, idItem: Int?, action: @escaping ((_ idBoughtList: Int?, _ idItem: Int?, _ boughtList: [ShoppingListModel]) -> [ShoppingListModel])) {
         if let boughtList = UserDefaults.standard.data(forKey: key) {
             do {

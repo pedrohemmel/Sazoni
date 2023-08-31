@@ -9,12 +9,13 @@ import UIKit
 
 class CategoryCollectionViewComponent: UICollectionView {
     
-    weak var selectedCategoryDelegate: MCSelectedCategoryDelegate? = nil
+    weak var selectedCategoryDelegate: MCSelectedCategoryDelegate?
     
     private var categories: [Category] = [Category]()
     
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout, categories: [Category]) {
         super.init(frame: frame, collectionViewLayout: layout)
+        self.categories = categories
         self.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         self.delegate = self
         self.dataSource = self
@@ -24,7 +25,6 @@ class CategoryCollectionViewComponent: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 //MARK: - UICollectionViewDataSource
 extension CategoryCollectionViewComponent: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -53,10 +53,10 @@ extension CategoryCollectionViewComponent: UICollectionViewDelegate {
 
 //MARK: - Functions
 extension CategoryCollectionViewComponent {
-    func setup(selectedCategoryDelegate: MCSelectedCategoryDelegate, categories: [Category]) {
-        self.categories = categories
-        self.selectedCategoryDelegate = selectedCategoryDelegate
-        self.reloadData()
-    }
+//    func setup(selectedCategoryDelegate: MCSelectedCategoryDelegate, categories: [Category]) {
+//        self.categories = categories
+//        self.selectedCategoryDelegate = selectedCategoryDelegate
+//        self.reloadData()
+//    }
 }
 

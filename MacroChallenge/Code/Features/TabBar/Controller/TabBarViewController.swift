@@ -198,7 +198,7 @@ extension TabBarViewController {
 
     private func setupTabItems() {
         
-        let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self))
+        let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self, foods: self.foods))
         let searchViewController = UINavigationController(rootViewController: self.searchViewController)
         let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
         

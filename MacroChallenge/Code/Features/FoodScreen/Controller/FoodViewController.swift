@@ -73,7 +73,7 @@ extension FoodViewController: MCCategorySwipeDelegate {
 
 //MARK: - Functions here
 extension FoodViewController {
-    func setup(foods: [Food], currentMonth: String, monthUpdatesDelegate: MCMonthUpdatesDelegate, category: Category, categories: [Category], foodDelegate: FoodDetailDelegate?) {
+    func setup(foods: [Food], currentMonth: String, monthUpdatesDelegate: MCMonthUpdatesDelegate?, category: Category, categories: [Category], foodDelegate: FoodDetailDelegate?) {
         self.foods = foods
         self.currentMonth = currentMonth
         self.monthUpdatesDelegate = monthUpdatesDelegate

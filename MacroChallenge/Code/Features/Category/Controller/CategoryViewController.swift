@@ -16,10 +16,11 @@ protocol MCSelectedCategoryDelegate: AnyObject {
 class CategoryViewController: UIViewController {
     //MARK: - Views
     
-    init(currentMonth: String, categories: [Category], foodDelegate: FoodDetailDelegate) {
+    init(currentMonth: String, categories: [Category], foodDelegate: FoodDetailDelegate, foods: [Food]) {
         self.categories = categories
         self.currentMonth = currentMonth
         self.foodDelegate = foodDelegate
+        self.foods = foods
         super.init(nibName: nil, bundle: nil)
     }
     

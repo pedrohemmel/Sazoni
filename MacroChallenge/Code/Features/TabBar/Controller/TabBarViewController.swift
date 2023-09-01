@@ -40,7 +40,6 @@ class TabBarViewController: UITabBarController {
     private var favoriteFoods = [Food]()
     private var dataIsReceived = false
     
-    
     private var foodViewController = FoodViewController()
     private let favoriteFoodViewController = FavoriteFoodViewController()
     private var shoppingListsViewController = ShoppingListsViewController()

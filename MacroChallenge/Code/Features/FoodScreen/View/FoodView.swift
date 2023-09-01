@@ -126,12 +126,12 @@ extension FoodView: ViewCode {
 
 //MARK: - Functions here
 extension FoodView {
-    func setup(foods: [Food], currentMonth: String, category: Category, monthButtonDelegate: MCMonthNavigationButtonDelegate, categorySwipeDelegeta: MCCategorySwipeDelegate, foodDelegate: FoodDetailDelegate?) {
+    func setup(currentMonth: String, category: Category, monthButtonDelegate: MCMonthNavigationButtonDelegate, categorySwipeDelegeta: MCCategorySwipeDelegate, foodDelegate: FoodDetailDelegate?) {
         self.currentMonth = currentMonth
         self.category = category
         
         self.foodCategoryName.text = category.name_category
-        self.collectionView.setup(foods: foods, currentMonth: currentMonth, foodDelegate: foodDelegate, favoriteFoodDelegate: nil)
+        self.collectionView.setup(foods: FoodManager.shared.filteredFoods, currentMonth: currentMonth, foodDelegate: foodDelegate, favoriteFoodDelegate: nil)
         self.monthTitle.text = currentMonth
         
         self.categorySwipeDelegate = categorySwipeDelegeta

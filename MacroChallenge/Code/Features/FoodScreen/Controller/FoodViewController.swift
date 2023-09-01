@@ -15,10 +15,8 @@ import UIKit
      weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
      weak var foodDelegate: FoodDetailDelegate? = nil
      var currentMonth: String? = nil
-     var foods = [Food]()
      var category: Category = Category(id_category: .zero, name_category: String())
      var categories = [Category]()
-     var filteredFoods = [Food]()
      
      private lazy var foodView = FoodView(frame: self.view.frame)
      
@@ -29,7 +27,7 @@ import UIKit
 
      override func viewDidLoad() {
          super.viewDidLoad()
-         self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "Erro mês", category: self.category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
+         self.foodView.setup(currentMonth: self.currentMonth ?? "Erro mês", category: self.category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
          self.navigationItem.hidesBackButton = true
      }
  }
@@ -43,9 +41,9 @@ extension FoodViewController: MCMonthNavigationButtonDelegate {
     }
     func didSelectNewMonth(month: String) {
         self.monthUpdatesDelegate?.didChangeMonth(newMonthName: month)
-        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: month)
+        FoodManager.shared.filteredFoods = self.filterFoods(foods: FoodManager.shared.foods, category: category, currentMonth: month)
     
-        self.foodView.setup(foods: self.filteredFoods, currentMonth: month, category: category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
+        self.foodView.setup(currentMonth: month, category: category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
     }
 }
 
@@ -55,8 +53,8 @@ extension FoodViewController: MCCategorySwipeDelegate {
         if currentCategoryIndex > 0 {
             self.category = self.categories[currentCategoryIndex - 1]
         }
-        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: self.currentMonth ?? "")
-        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
+        FoodManager.shared.filteredFoods = self.filterFoods(foods: FoodManager.shared.foods, category: category, currentMonth: self.currentMonth ?? "")
+        self.foodView.setup(currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
     }
     
     func didClickNextCategory() {
@@ -65,22 +63,21 @@ extension FoodViewController: MCCategorySwipeDelegate {
         if currentCategoryIndex < lastIndexOfCategories {
             self.category = self.categories[currentCategoryIndex + 1]
         }
-        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: self.currentMonth ?? "")
-        self.foodView.setup(foods: self.filteredFoods, currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
+        FoodManager.shared.filteredFoods = self.filterFoods(foods: FoodManager.shared.foods, category: category, currentMonth: self.currentMonth ?? "")
+        self.foodView.setup(currentMonth: self.currentMonth ?? "", category: category, monthButtonDelegate: self, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
     }
     
 }
 
 //MARK: - Functions here
 extension FoodViewController {
-    func setup(foods: [Food], currentMonth: String, monthUpdatesDelegate: MCMonthUpdatesDelegate?, category: Category, categories: [Category], foodDelegate: FoodDetailDelegate?) {
-        self.foods = foods
+    func setup(currentMonth: String, monthUpdatesDelegate: MCMonthUpdatesDelegate?, category: Category, categories: [Category], foodDelegate: FoodDetailDelegate?) {
         self.currentMonth = currentMonth
         self.monthUpdatesDelegate = monthUpdatesDelegate
         self.category = category
         self.categories = categories
         self.foodDelegate = foodDelegate
-        self.filteredFoods = self.filterFoods(foods: foods, category: category, currentMonth: currentMonth)
+        FoodManager.shared.filteredFoods = self.filterFoods(foods: FoodManager.shared.foods, category: category, currentMonth: currentMonth)
     }
     
     func filterFoods(foods: [Food], category: Category, currentMonth: String) -> [Food] {

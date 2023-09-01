@@ -5,7 +5,6 @@ import UIKit
 class TitleDetailView: UIView {
     
     weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
-    private let favorite = FavoriteList.shared
     
     private lazy var titleFood: UILabel = {
         let title = UILabel()
@@ -95,18 +94,25 @@ extension TitleDetailView{
     }
     
     @objc func addFood(){
-        favorite.addFavoriteFood(self.buttonToFavorite)
+        FavoriteList.shared.addFavoriteFood(self.buttonToFavorite)
+        FoodManager.shared.getFavoriteFoods()
+        
+        let foodCollection = FoodCollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        foodCollection.foods = FoodManager.shared.favoriteFoods
+        NotificationCenter.default.post(name: .favoriteCollectionFoods, object: foodCollection)
+//        foodCollection.fre
+        
         if let favoriteFoodDelegate = self.favoriteFoodDelegate {
             favoriteFoodDelegate.didSelectFavoriteButton()
         } else {
-            self.favorite.notifyObservers()
+            FavoriteList.shared.notifyObservers()
         }
     }
     
 
     func setButton(id: Int){
         self.buttonToFavorite.tag = id
-        self.buttonToFavorite.setImage(UIImage(systemName: favorite.setImageButton(favorite.checkFavoriteFood(id: id))), for: .normal)
+        self.buttonToFavorite.setImage(UIImage(systemName: FavoriteList.shared.setImageButton(FavoriteList.shared.checkFavoriteFood(id: id))), for: .normal)
         self.buttonToFavorite.tintColor = UIColor(named: "TextColor")
     }
     

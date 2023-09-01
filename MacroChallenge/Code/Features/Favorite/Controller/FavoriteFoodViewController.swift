@@ -1,6 +1,7 @@
 
 
 import UIKit
+import Combine
 
 protocol FavoriteFoodDelegate: AnyObject {
     func didSelectFood(food: Food)
@@ -10,27 +11,30 @@ protocol FavoriteFoodDelegate: AnyObject {
 class FavoriteFoodViewController: UIViewController {
     
     lazy var favoriteFoodView = FavoriteFoodView(frame: self.view.frame)
-    private let favorite = FavoriteList.shared
-    private var listOfFavoriteFoodsIDs = [Int]()
-    private var listFood: [Food] = [Food]()
     private var currentMonth: String = String()
-        
-    private var filteredFoods: [Food] = [] {
-        didSet {
-            self.favoriteFoodView.collectionView.reloadData()
-        }
-    }
     
     //FastFilter
     private var choosenFilters = [FastFilterModel]()
     private var fastFilters = FastFilter.fastFiltersFavorite
     
+    private lazy var favoriteFoodSubscriber = Subscribers.Assign(object: favoriteFoodView.collectionView, keyPath: \.foods)
+    
+    init(currentMonth: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.currentMonth = currentMonth
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.favoriteFoodView.collectionView.setup(foods: self.getFavoriteFoods(), currentMonth: currentMonth, foodDelegate: nil, favoriteFoodDelegate: self)
+        favoriteCollectionFoodsPublisher.subscribe(favoriteFoodSubscriber)
+        
+        self.favoriteFoodView.collectionView.setup(foods: FoodManager.shared.favoriteFoods, currentMonth: currentMonth, foodDelegate: nil, favoriteFoodDelegate: self)
         self.favoriteFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
-        self.listOfFavoriteFoodsIDs = self.favorite.getListOfFoods()
         self.filterFoods()
     }
     
@@ -40,12 +44,6 @@ class FavoriteFoodViewController: UIViewController {
     }
 }
 
-extension FavoriteFoodViewController {
-    func setup(food: [Food], currentMonth: String){
-        self.listFood = food
-        self.currentMonth = currentMonth
-    }
-}
 
 extension FavoriteFoodViewController: FavoriteFoodDelegate {
     func didSelectFood(food: Food) {
@@ -94,26 +92,20 @@ extension FavoriteFoodViewController: FastFilterDelegate {
 
 extension FavoriteFoodViewController {
     
-    func getFavoriteFoods() -> [Food] {
-        return listFood.filter({ self.listOfFavoriteFoodsIDs.contains($0.id_food) })
-    }
-    
     func filterFoods() {
-        
-        self.listOfFavoriteFoodsIDs = self.favorite.getListOfFoods()
-        self.filteredFoods = self.getFavoriteFoods()
+        FoodManager.shared.getFavoriteFoods()
+        FoodManager.shared.filteredFoods = FoodManager.shared.favoriteFoods
 
         for filter in self.choosenFilters {
             if !self.verifyIfFilterIsMonth(nameOfFilter: filter.name) {
-                self.filteredFoods = self.filteredFoods.filter({ food in
+                FoodManager.shared.filteredFoods = FoodManager.shared.filteredFoods.filter({ food in
                     self.choosenFilters.contains(where: {$0.idCategory == food.category_food.id_category})
                 })
             }
         }
 
-        self.filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: self.filteredFoods, currentMonth: self.currentMonth)
-        self.favoriteFoodView.collectionView.foods = self.filteredFoods
-        self.favoriteFoodView.collectionView.reloadData()
+        FoodManager.shared.filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: FoodManager.shared.filteredFoods, currentMonth: self.currentMonth)
+        self.favoriteFoodView.collectionView.foods = FoodManager.shared.filteredFoods
     }
     
     func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {

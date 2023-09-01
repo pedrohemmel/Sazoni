@@ -51,7 +51,7 @@ extension CategoryViewController: MCSelectedCategoryDelegate {
     func didSelectCategory(category: Category) {
         let foodViewController = FoodViewController()
         if let foodDelegate = self.foodDelegate {
-            foodViewController.setup(foods: self.foods, currentMonth: self.currentMonth, monthUpdatesDelegate: nil, category: category, categories: self.categories, foodDelegate: foodDelegate)
+            foodViewController.setup(currentMonth: self.currentMonth, monthUpdatesDelegate: nil, category: category, categories: self.categories, foodDelegate: foodDelegate)
         }
         
         self.navigationController?.pushViewController(foodViewController, animated: true)

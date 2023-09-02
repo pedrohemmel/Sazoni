@@ -21,7 +21,6 @@ class SearchViewController: UIViewController {
     lazy var searchView = SearchView(frame: self.view.frame)
     private var monthSelected = String()
     
-    //For collectionViewOfFoods
     //FastFilter
     var choosenFilters = [FastFilterModel]()
     var fastFilters = FastFilter.fastFilters
@@ -37,7 +36,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchView.search.searchViewController = self
-        self.filterFoods(with: "")
+        
+        FoodManager.shared.filterFoods(with: "", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
         self.searchView.collectionView.setup(foods: FoodManager.shared.filteredFoods, currentMonth: self.getCurrentMonth(), foodDelegate: nil, favoriteFoodDelegate: nil)
         self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.searchView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
@@ -49,7 +49,9 @@ extension SearchViewController: FastFilterDelegate {
     func didClickCategoryFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.append(FastFilterModel(name: fastFilter.name, idCategory: fastFilter.idCategory, filterIsSelected: nil))
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: true)
-        self.filterFoods(with: "\(self.searchView.search.text ?? String())")
+        FoodManager.shared.filterFoods(with: "\(self.searchView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
+        self.searchView.collectionView.foods = FoodManager.shared.filteredFoods
+        
     }
     func didClickMonthFilter() {
         let newVC = MonthSelectionViewController()
@@ -62,7 +64,8 @@ extension SearchViewController: FastFilterDelegate {
         self.choosenFilters.append(FastFilterModel(name: self.getCurrentMonth(), idCategory: nil, filterIsSelected: nil))
         self.monthSelected = self.getCurrentMonth()
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
-        self.filterFoods(with: "\(self.searchView.search.text ?? String())")
+        FoodManager.shared.filterFoods(with: "\(self.searchView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
+        self.searchView.collectionView.foods = FoodManager.shared.filteredFoods
     }
     func didSelectMonthFilter(monthName: String) {
         self.deleteMonthIfItExists()
@@ -70,75 +73,28 @@ extension SearchViewController: FastFilterDelegate {
         self.monthSelected = monthName
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
         self.searchView.collectionView.setup(foods: FoodManager.shared.filteredFoods, currentMonth: monthName, foodDelegate: nil, favoriteFoodDelegate: nil)
-        self.filterFoods(with: "\(self.searchView.search.text ?? String())")
+        FoodManager.shared.filterFoods(with: "\(self.searchView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
+        self.searchView.collectionView.foods = FoodManager.shared.filteredFoods
     }
     func didDeleteFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: false)
-        self.filterFoods(with: "\(self.searchView.search.text ?? String())")
+        FoodManager.shared.filterFoods(with: "\(self.searchView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
+        self.searchView.collectionView.foods = FoodManager.shared.filteredFoods
     }
 }
 
-extension SearchViewController{
+extension SearchViewController {
     
-    func filterFoods(with searchText: String) {
-        FoodManager.shared.filteredFoods = FoodManager.shared.foods
-        
-        if !searchText.isEmpty {
-            FoodManager.shared.filteredFoods = FoodManager.shared.filteredFoods.filter { $0.name_food.lowercased().contains(searchText.lowercased()) ||
-                $0.seasonalities[self.getCurrentMonthNumber()].state_seasonality.lowercased().contains(searchText.lowercased()) ||
-                $0.category_food.name_category.lowercased().contains(searchText.lowercased())
-            }
-        }
-        
-        
-        for filter in self.choosenFilters {
-            if !self.verifyIfFilterIsMonth(nameOfFilter: filter.name) {
-                FoodManager.shared.filteredFoods = FoodManager.shared.filteredFoods.filter({ food in
-                    self.choosenFilters.contains(where: {$0.idCategory == food.category_food.id_category})
-                })
-            }
-        }
-        
-        FoodManager.shared.filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: FoodManager.shared.filteredFoods, currentMonth: self.monthSelected)
-        
+    func search() {
+        FoodManager.shared.filterFoods(with: "\(self.searchView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
         self.searchView.collectionView.foods = FoodManager.shared.filteredFoods
-    }
-    
-    func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {
-        var newFoods = [Food]()
-        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Alta", foods: foods, currentMonth: currentMonth))
-        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Média", foods: foods, currentMonth: currentMonth))
-        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Baixa", foods: foods, currentMonth: currentMonth))
-        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Muito baixa", foods: foods, currentMonth: currentMonth))
-        return newFoods
-    }
-    
-    func getFoodsInCurrentMonthWithState(state: String, foods: [Food], currentMonth: String) -> [Food] {
-        var newFoods = [Food]()
-        for food in foods {
-            for seasonality in food.seasonalities {
-                if seasonality.month_name_seasonality.lowercased() == currentMonth.lowercased() {
-                    if seasonality.state_seasonality.lowercased() == state.lowercased() {
-                        newFoods.append(food)
-                    }
-                }
-            }
-        }
-        newFoods = newFoods.sorted(by: { $0.name_food < $1.name_food })
-        return newFoods
-        
     }
     
     func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {
         self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0].filterIsSelected = filterIsSelected
         self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.searchView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
-    }
-    
-    func verifyIfFilterIsMonth(nameOfFilter: String) -> Bool {
-        let months = Months.monthArray
-        return months.contains(nameOfFilter)
     }
     
     func deleteMonthIfItExists() {

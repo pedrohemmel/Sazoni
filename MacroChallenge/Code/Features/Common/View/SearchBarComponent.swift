@@ -39,6 +39,6 @@ class SearchBarComponent: UISearchBar {
 
 extension SearchBarComponent: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchViewController?.filterFoods(with: searchText)
+        searchViewController?.search()
     }
 }

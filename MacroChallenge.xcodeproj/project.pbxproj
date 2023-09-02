@@ -85,7 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3F1252E72A266C230048E7FB /* FoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodManager.swift; path = MacroChallenge/Code/Utils/FoodManager.swift; sourceTree = SOURCE_ROOT; };
+		3F1252E72A266C230048E7FB /* FoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodManager.swift; path = MacroChallenge/Code/Features/Common/Model/FoodManager.swift; sourceTree = SOURCE_ROOT; };
 		3F1252E92A266DD90048E7FB /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodModel.swift; path = MacroChallenge/Code/Features/Common/Model/FoodModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252EB2A266FE00048E7FB /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = MacroChallenge/Code/Features/Category/Model/CategoryModel.swift; sourceTree = SOURCE_ROOT; };
 		3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeasonalityModel.swift; path = MacroChallenge/Code/Features/Common/Model/SeasonalityModel.swift; sourceTree = SOURCE_ROOT; };
@@ -389,6 +389,8 @@
 		BB16247A2A97F61100162531 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F1252E72A266C230048E7FB /* FoodManager.swift */,
+				883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */,
 				BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */,
 				3F1252ED2A26700C0048E7FB /* SeasonalityModel.swift */,
 				3F1252E92A266DD90048E7FB /* FoodModel.swift */,
@@ -578,9 +580,7 @@
 		BBD62F332A25170B001F71ED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3F1252E72A266C230048E7FB /* FoodManager.swift */,
 				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
-				883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */,
 				BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */,
 				BB16248C2A9D221700162531 /* TabIcons.swift */,
 				BB16248E2A9D2B4A00162531 /* Months.swift */,

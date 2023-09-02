@@ -85,7 +85,6 @@ extension TitleDetailView: ViewCode{
     
 }
 
-
 //MARK: Functions
 extension TitleDetailView{
     
@@ -100,12 +99,9 @@ extension TitleDetailView{
         let foodCollection = FoodCollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         foodCollection.foods = FoodManager.shared.favoriteFoods
         NotificationCenter.default.post(name: .favoriteCollectionFoods, object: foodCollection)
-//        foodCollection.fre
         
         if let favoriteFoodDelegate = self.favoriteFoodDelegate {
             favoriteFoodDelegate.didSelectFavoriteButton()
-        } else {
-            FavoriteList.shared.notifyObservers()
         }
     }
     

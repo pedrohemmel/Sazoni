@@ -61,14 +61,3 @@ extension CategoryViewController: MCSelectedCategoryDelegate {
         
     }
 }
-
-//MARK: - Functions
-extension CategoryViewController {
-//    func setup(categories: [Category], monthUpdatesDelegate: MCMonthUpdatesDelegate, foods: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate) {
-//        self.foods = foods
-//        self.categories = categories
-//        self.monthUpdatesDelegate = monthUpdatesDelegate
-//        self.categoryView.categoryCollectionViewComponent.setup(selectedCategoryDelegate: self, categories: categories)
-//        self.foodDelegate = foodDelegate
-//    }
-}

@@ -5,7 +5,6 @@ import UIKit
 class FavoriteList{
     
     static let shared = FavoriteList()
-    private var observers: [FavoritesObserver] = []
     private let userDefaults = UserDefaults.standard
     private let keyUserDefaults = "favorite"
     
@@ -69,21 +68,4 @@ extension FavoriteList {
         }
     }
     
-}
-
-extension FavoriteList {
-    
-    func registerObserver(_ observer: FavoritesObserver) {
-        observers.append(observer)
-    }
-    
-    func removeObserver(_ observer: FavoritesObserver) {
-        observers.removeAll { $0 === observer }
-    }
-    
-    func notifyObservers() {
-        for observer in observers {
-            observer.favoriteListDidUpdate()
-        }
-    }
 }

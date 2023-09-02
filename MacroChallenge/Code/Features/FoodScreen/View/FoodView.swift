@@ -8,9 +8,7 @@
 import UIKit
 
 class FoodView: UIView {
-    
     weak var categorySwipeDelegate: MCCategorySwipeDelegate? = nil
-    weak var monthButtonDelegate: MCMonthNavigationButtonDelegate? = nil
     private var currentMonth: String? = nil
     private var foods = [Food]()
     var category = Category(id_category: 0, name_category: String())
@@ -126,7 +124,7 @@ extension FoodView: ViewCode {
 
 //MARK: - Functions here
 extension FoodView {
-    func setup(currentMonth: String, category: Category, monthButtonDelegate: MCMonthNavigationButtonDelegate, categorySwipeDelegeta: MCCategorySwipeDelegate, foodDelegate: FoodDetailDelegate?) {
+    func setup(currentMonth: String, category: Category, categorySwipeDelegeta: MCCategorySwipeDelegate, foodDelegate: FoodDetailDelegate?) {
         self.currentMonth = currentMonth
         self.category = category
         
@@ -135,7 +133,6 @@ extension FoodView {
         self.monthTitle.text = currentMonth
         
         self.categorySwipeDelegate = categorySwipeDelegeta
-        self.monthButtonDelegate = monthButtonDelegate
         self.setupViewConfiguration()
     }
     
@@ -144,9 +141,5 @@ extension FoodView {
     }
     @objc func chevronRightAction() {
         self.categorySwipeDelegate?.didClickNextCategory()
-    }
-    
-    @objc func centeredMonthButtonAction() {
-        self.monthButtonDelegate?.didClickMonthButton(currentMonth: "Abril")
     }
 }

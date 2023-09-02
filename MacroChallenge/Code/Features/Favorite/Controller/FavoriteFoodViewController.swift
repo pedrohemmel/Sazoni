@@ -32,10 +32,10 @@ class FavoriteFoodViewController: UIViewController {
         super.viewDidLoad()
         favoriteCollectionFoodsPublisher.subscribe(favoriteFoodSubscriber)
         
-        self.favoriteFoodView.collectionView.setup(foods: FoodManager.shared.favoriteFoods, currentMonth: currentMonth, foodDelegate: nil, favoriteFoodDelegate: self)
         self.favoriteFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
-        self.filterFoods()
+        FoodManager.shared.filterFavoriteFoods(choosenFilters: self.choosenFilters, monthSelected: self.currentMonth)
+        self.favoriteFoodView.collectionView.setup(foods: FoodManager.shared.filteredFoods, currentMonth: currentMonth, foodDelegate: nil, favoriteFoodDelegate: self)
     }
     
     override func loadView() {
@@ -55,7 +55,8 @@ extension FavoriteFoodViewController: FavoriteFoodDelegate {
     }
     
     func didSelectFavoriteButton() {
-        self.filterFoods()
+        FoodManager.shared.filterFavoriteFoods(choosenFilters: self.choosenFilters, monthSelected: self.currentMonth)
+        self.favoriteFoodView.collectionView.foods = FoodManager.shared.filteredFoods
     }
 }
 
@@ -63,12 +64,14 @@ extension FavoriteFoodViewController: FastFilterDelegate {
     func selectInitialMonth() {
         self.choosenFilters.append(FastFilterModel(name: self.getCurrentMonth(), idCategory: nil, filterIsSelected: nil))
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
-        self.filterFoods()
+        FoodManager.shared.filterFavoriteFoods(choosenFilters: self.choosenFilters, monthSelected: self.currentMonth)
+        self.favoriteFoodView.collectionView.foods = FoodManager.shared.filteredFoods
     }
     func didClickCategoryFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.append(FastFilterModel(name: fastFilter.name, idCategory: fastFilter.idCategory, filterIsSelected: nil))
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: true)
-        self.filterFoods()
+        FoodManager.shared.filterFavoriteFoods(choosenFilters: self.choosenFilters, monthSelected: self.currentMonth)
+        self.favoriteFoodView.collectionView.foods = FoodManager.shared.filteredFoods
     }
     func didClickMonthFilter() {
         let newVC = MonthSelectionViewController()
@@ -80,68 +83,22 @@ extension FavoriteFoodViewController: FastFilterDelegate {
         self.deleteMonthIfItExists()
         self.choosenFilters.append(FastFilterModel(name: monthName, idCategory: nil, filterIsSelected: nil))
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
-        self.filterFoods()
+        FoodManager.shared.filterFavoriteFoods(choosenFilters: self.choosenFilters, monthSelected: self.currentMonth)
+        self.favoriteFoodView.collectionView.foods = FoodManager.shared.filteredFoods
     }
     func didDeleteFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: false)
-        self.filterFoods()
+        FoodManager.shared.filterFavoriteFoods(choosenFilters: self.choosenFilters, monthSelected: self.currentMonth)
+        self.favoriteFoodView.collectionView.foods = FoodManager.shared.filteredFoods
     }
-    
 }
 
 extension FavoriteFoodViewController {
-    
-    func filterFoods() {
-        FoodManager.shared.getFavoriteFoods()
-        FoodManager.shared.filteredFoods = FoodManager.shared.favoriteFoods
-
-        for filter in self.choosenFilters {
-            if !self.verifyIfFilterIsMonth(nameOfFilter: filter.name) {
-                FoodManager.shared.filteredFoods = FoodManager.shared.filteredFoods.filter({ food in
-                    self.choosenFilters.contains(where: {$0.idCategory == food.category_food.id_category})
-                })
-            }
-        }
-
-        FoodManager.shared.filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: FoodManager.shared.filteredFoods, currentMonth: self.currentMonth)
-        self.favoriteFoodView.collectionView.foods = FoodManager.shared.filteredFoods
-    }
-    
-    func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {
-        var newFoods = [Food]()
-        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Alta", foods: foods, currentMonth: currentMonth))
-        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Média", foods: foods, currentMonth: currentMonth))
-        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Baixa", foods: foods, currentMonth: currentMonth))
-        newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Muito baixa", foods: foods, currentMonth: currentMonth))
-        return newFoods
-    }
-    
-    func getFoodsInCurrentMonthWithState(state: String, foods: [Food], currentMonth: String) -> [Food] {
-        var newFoods = [Food]()
-        for food in foods {
-            for seasonality in food.seasonalities {
-                if seasonality.month_name_seasonality.lowercased() == currentMonth.lowercased() {
-                    if seasonality.state_seasonality.lowercased() == state.lowercased() {
-                        newFoods.append(food)
-                    }
-                }
-            }
-        }
-        newFoods = newFoods.sorted(by: { $0.name_food < $1.name_food })
-        return newFoods
-    }
-    
-    
     func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {
         self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0].filterIsSelected = filterIsSelected
         self.favoriteFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
-    }
-    
-    func verifyIfFilterIsMonth(nameOfFilter: String) -> Bool {
-        let months = Months.monthArray
-        return months.contains(nameOfFilter)
     }
     
     func deleteMonthIfItExists() {

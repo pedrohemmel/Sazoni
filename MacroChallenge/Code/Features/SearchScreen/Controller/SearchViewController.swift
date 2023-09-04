@@ -2,18 +2,6 @@
 import UIKit
 import Combine
 
-protocol FastFilterDelegate: AnyObject {
-    func didClickCategoryFilter(fastFilter: FastFilterModel)
-    func didClickMonthFilter()
-    func selectInitialMonth()
-    func didSelectMonthFilter(monthName: String)
-    func didDeleteFilter(fastFilter: FastFilterModel)
-}
-
-protocol FoodDetailDelegate: AnyObject{
-    func selectFood(food: Food)
-}
-
 class SearchViewController: UIViewController {
     
     var observer: AnyCancellable?
@@ -107,7 +95,6 @@ extension SearchViewController{
             }
         }
         
-        
         for filter in self.choosenFilters {
             if !self.verifyIfFilterIsMonth(nameOfFilter: filter.name) {
                 self.filteredFoods = self.filteredFoods.filter({ food in
@@ -115,9 +102,7 @@ extension SearchViewController{
                 })
             }
         }
-        
         self.filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: self.filteredFoods, currentMonth: self.monthSelected)
-        
         self.searchView.collectionView.foods = self.filteredFoods
         self.searchView.collectionView.reloadData()
     }
@@ -167,6 +152,7 @@ extension SearchViewController{
             }
         }
     }
+    
     private func getCurrentMonth() -> String {
         let now = Date()
         let dateFormatter = DateFormatter()

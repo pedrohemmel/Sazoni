@@ -29,9 +29,18 @@
 		886664952A31005D0031D242 /* DetailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886664942A31005D0031D242 /* DetailSheetView.swift */; };
 		8894BF212A3B9D4000C97894 /* FavoriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8894BF202A3B9D4000C97894 /* FavoriteTests.swift */; };
 		8894BF232A3BA97500C97894 /* TitleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8894BF222A3BA97500C97894 /* TitleDetailView.swift */; };
+		8896EBBB2AA154BA00529CA5 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8896EBBA2AA154BA00529CA5 /* UIFontExtension.swift */; };
+		8896EBBD2AA1593E00529CA5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8896EBBC2AA1593E00529CA5 /* UIColorExtension.swift */; };
+		8896EBE02AA256BF00529CA5 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8896EBDF2AA256BF00529CA5 /* UIImageExtension.swift */; };
+		8896EBE22AA261E700529CA5 /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8896EBE12AA261E700529CA5 /* CGFloatExtension.swift */; };
 		889904822A2A0BA40067FEC7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889904812A2A0BA40067FEC7 /* SearchViewController.swift */; };
 		88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4694E2A2995BF00755698 /* SearchBarComponent.swift */; };
 		88B469522A299CCB00755698 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B469512A299CCB00755698 /* SearchView.swift */; };
+		88EB7AD82AA2907700E0CF43 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB7AD72AA2907700E0CF43 /* Protocols.swift */; };
+		88EB7ADA2AA2994700E0CF43 /* CGSizeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB7AD92AA2994700E0CF43 /* CGSizeExtension.swift */; };
+		88EB7ADC2AA3BD2600E0CF43 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 88EB7ADB2AA3BD2600E0CF43 /* SF-Pro-Display-Medium.otf */; };
+		88EB7ADF2AA4DEF300E0CF43 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB7ADE2AA4DEF300E0CF43 /* InfoView.swift */; };
+		88EB7AE32AA4DF7300E0CF43 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB7AE22AA4DF7300E0CF43 /* InfoController.swift */; };
 		BB0EFA8F2A30F625009DA542 /* FastFilterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA8E2A30F625009DA542 /* FastFilterComponent.swift */; };
 		BB0EFA922A30FD3E009DA542 /* FilterSelectedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA912A30FD3E009DA542 /* FilterSelectedCollectionView.swift */; };
 		BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */; };
@@ -106,9 +115,18 @@
 		886664942A31005D0031D242 /* DetailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSheetView.swift; sourceTree = "<group>"; };
 		8894BF202A3B9D4000C97894 /* FavoriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTests.swift; sourceTree = "<group>"; };
 		8894BF222A3BA97500C97894 /* TitleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailView.swift; sourceTree = "<group>"; };
+		8896EBBA2AA154BA00529CA5 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		8896EBBC2AA1593E00529CA5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		8896EBDF2AA256BF00529CA5 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		8896EBE12AA261E700529CA5 /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
 		889904812A2A0BA40067FEC7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		88B4694E2A2995BF00755698 /* SearchBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarComponent.swift; sourceTree = "<group>"; };
 		88B469512A299CCB00755698 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		88EB7AD72AA2907700E0CF43 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		88EB7AD92AA2994700E0CF43 /* CGSizeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtension.swift; sourceTree = "<group>"; };
+		88EB7ADB2AA3BD2600E0CF43 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		88EB7ADE2AA4DEF300E0CF43 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		88EB7AE22AA4DF7300E0CF43 /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		BB0EFA8E2A30F625009DA542 /* FastFilterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterComponent.swift; sourceTree = "<group>"; };
 		BB0EFA912A30FD3E009DA542 /* FilterSelectedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectedCollectionView.swift; sourceTree = "<group>"; };
 		BB0EFA942A30FD66009DA542 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
@@ -189,11 +207,37 @@
 				880A8CAC2A7B3AE700567920 /* Quicksand-Light.ttf */,
 				880A8CBA2A7B43B400567920 /* SF-Pro-Display-Regular.otf */,
 				880A8CB82A7B43A100567920 /* SF-Pro-Display-Bold.otf */,
+				88EB7ADB2AA3BD2600E0CF43 /* SF-Pro-Display-Medium.otf */,
 				880A8CAA2A7B3AE700567920 /* Quicksand-Medium.ttf */,
 				880A8CAE2A7B3AE700567920 /* Quicksand-Regular.ttf */,
 				880A8CAD2A7B3AE700567920 /* Quicksand-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		88EB7ADD2AA4DEC000E0CF43 /* InfoScreen */ = {
+			isa = PBXGroup;
+			children = (
+				88EB7AE12AA4DF5F00E0CF43 /* Controller */,
+				88EB7AE02AA4DF4B00E0CF43 /* View */,
+			);
+			path = InfoScreen;
+			sourceTree = "<group>";
+		};
+		88EB7AE02AA4DF4B00E0CF43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88EB7ADE2AA4DEF300E0CF43 /* InfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		88EB7AE12AA4DF5F00E0CF43 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				88EB7AE22AA4DF7300E0CF43 /* InfoController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		BB0EFA902A30FD07009DA542 /* FastFilter */ = {
@@ -503,6 +547,7 @@
 				BB1624712A97F59B00162531 /* Favorite */,
 				BB16246D2A97F56200162531 /* Category */,
 				BB1624692A97F4E400162531 /* ShoppingLists */,
+				88EB7ADD2AA4DEC000E0CF43 /* InfoScreen */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -568,13 +613,19 @@
 		BBD62F332A25170B001F71ED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3F1252E72A266C230048E7FB /* FoodManager.swift */,
-				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
-				883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */,
-				BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */,
-				BB16248C2A9D221700162531 /* TabIcons.swift */,
-				BB16248E2A9D2B4A00162531 /* Months.swift */,
 				BB1624902A9D2BFF00162531 /* FastFilter.swift */,
+				883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */,
+				3F1252E72A266C230048E7FB /* FoodManager.swift */,
+				8896EBE12AA261E700529CA5 /* CGFloatExtension.swift */,
+				88EB7AD92AA2994700E0CF43 /* CGSizeExtension.swift */,
+				8896EBBC2AA1593E00529CA5 /* UIColorExtension.swift */,
+				8896EBBA2AA154BA00529CA5 /* UIFontExtension.swift */,
+				8896EBDF2AA256BF00529CA5 /* UIImageExtension.swift */,
+				BBD62F4F2A26695E001F71ED /* UIViewExtension.swift */,
+				BB16248E2A9D2B4A00162531 /* Months.swift */,
+				88EB7AD72AA2907700E0CF43 /* Protocols.swift */,
+				BB16248C2A9D221700162531 /* TabIcons.swift */,
+				BBD62F372A251C8B001F71ED /* ViewCode.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -709,6 +760,7 @@
 				3F47FB252A251A2E00356430 /* data.json in Resources */,
 				880A8CB32A7B3AE700567920 /* Quicksand-Regular.ttf in Resources */,
 				880A8CB12A7B3AE700567920 /* Quicksand-Light.ttf in Resources */,
+				88EB7ADC2AA3BD2600E0CF43 /* SF-Pro-Display-Medium.otf in Resources */,
 				BBD62F402A25291F001F71ED /* LaunchScreen.storyboard in Resources */,
 				880A8CB22A7B3AE700567920 /* Quicksand-SemiBold.ttf in Resources */,
 				880A8CBB2A7B43B400567920 /* SF-Pro-Display-Regular.otf in Resources */,
@@ -741,12 +793,15 @@
 				88B469522A299CCB00755698 /* SearchView.swift in Sources */,
 				883A7F192A42700D00E7D4E1 /* FavoriteFoodView.swift in Sources */,
 				BB3F83462A61A6FD00C0DFA1 /* ShoppingListsViewController.swift in Sources */,
+				88EB7AE32AA4DF7300E0CF43 /* InfoController.swift in Sources */,
 				BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */,
 				BB16248D2A9D221700162531 /* TabIcons.swift in Sources */,
 				88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */,
 				BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */,
 				BBD62F592A27CC5B001F71ED /* MonthSelectionViewController.swift in Sources */,
 				BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */,
+				88EB7ADA2AA2994700E0CF43 /* CGSizeExtension.swift in Sources */,
+				8896EBBD2AA1593E00529CA5 /* UIColorExtension.swift in Sources */,
 				BBD62F012A2516A0001F71ED /* AppDelegate.swift in Sources */,
 				3F1252EA2A266DD90048E7FB /* FoodModel.swift in Sources */,
 				BBC8CCF92A5C8CB600D26D64 /* ShoppingListModel.swift in Sources */,
@@ -764,14 +819,19 @@
 				88272BA02A388AB100B807BD /* DetailSheetViewController.swift in Sources */,
 				BB16248F2A9D2B4A00162531 /* Months.swift in Sources */,
 				BBD62F032A2516A0001F71ED /* SceneDelegate.swift in Sources */,
+				8896EBE02AA256BF00529CA5 /* UIImageExtension.swift in Sources */,
+				8896EBE22AA261E700529CA5 /* CGFloatExtension.swift in Sources */,
 				BBD62F4E2A254190001F71ED /* CategoryCollectionViewCell.swift in Sources */,
 				BBD62F382A251C8B001F71ED /* ViewCode.swift in Sources */,
+				88EB7AD82AA2907700E0CF43 /* Protocols.swift in Sources */,
+				8896EBBB2AA154BA00529CA5 /* UIFontExtension.swift in Sources */,
 				BB0EFA922A30FD3E009DA542 /* FilterSelectedCollectionView.swift in Sources */,
 				3F1252EC2A266FE00048E7FB /* CategoryModel.swift in Sources */,
 				BB3F83492A61A8FF00C0DFA1 /* ShoppingListsView.swift in Sources */,
 				BBC8CCFB2A5C8CBF00D26D64 /* ItemShoppingListModel.swift in Sources */,
 				88272BA42A39082C00B807BD /* SeasonalityCollectionViewCell.swift in Sources */,
 				3F1252EE2A26700C0048E7FB /* SeasonalityModel.swift in Sources */,
+				88EB7ADF2AA4DEF300E0CF43 /* InfoView.swift in Sources */,
 				BBD62F442A253D29001F71ED /* CategoryView.swift in Sources */,
 				886664952A31005D0031D242 /* DetailSheetView.swift in Sources */,
 				BB1624912A9D2BFF00162531 /* FastFilter.swift in Sources */,

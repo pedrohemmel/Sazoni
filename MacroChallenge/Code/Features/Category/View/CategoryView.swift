@@ -9,36 +9,44 @@ import UIKit
 
 class CategoryView: UIView {
     
-    private var currentMonth: String?
     private var categories: [Category]
     
     //MARK: - Views
-    private lazy var monthTitle: UILabel = {
-        let monthTitle = UILabel()
-        monthTitle.text = self.currentMonth
-        monthTitle.font = UIFont(name: "Quicksand-SemiBold", size: 64)
-        monthTitle.textColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
-        monthTitle.translatesAutoresizingMaskIntoConstraints = false
-        return monthTitle
+    private lazy var title: UILabel = {
+        let text = UILabel()
+        text.text = "Bem vindo ao Sazoni!"
+        text.font = .SZFontTitle
+        text.textColor = .SZColorBeige
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
+    }()
+    
+    private lazy var subTitle: UILabel = {
+        let text = UILabel()
+        text.text = "Escolha uma categoria para \ncomeçar."
+        text.font = .SZFontSubTitle
+        text.textColor = .SZColorBeige
+        text.textAlignment = .center
+        text.numberOfLines = 2
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
     }()
     
     lazy var categoryCollectionViewComponent = {
         let collectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let spaceBetweenItems = 20.0
-        collectionViewLayout.itemSize = CGSize(width: (self.bounds.width / 2 - spaceBetweenItems), height: (self.bounds.width / 2 - spaceBetweenItems))
-        collectionViewLayout.minimumInteritemSpacing = 10
-        collectionViewLayout.minimumLineSpacing = 10
+        collectionViewLayout.itemSize = .SZSizeLargeCell
+        collectionViewLayout.minimumLineSpacing = 36
+        collectionViewLayout.minimumInteritemSpacing = 26
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: 64, left: 8, bottom: 32, right: 8)
         collectionViewLayout.scrollDirection = .vertical
-        
         let categoryCollectionViewComponent = CategoryCollectionViewComponent(frame: .zero, collectionViewLayout: collectionViewLayout, categories: self.categories)
         categoryCollectionViewComponent.translatesAutoresizingMaskIntoConstraints = false
         return categoryCollectionViewComponent
     }()
     
-    init(frame: CGRect, currentMonth: String?, categories: [Category]) {
+    init(frame: CGRect, categories: [Category]) {
         self.categories = categories
         super.init(frame: frame)
-        self.monthTitle.text = currentMonth
         self.setupViewConfiguration()
     }
     required init?(coder: NSCoder) {
@@ -48,29 +56,39 @@ class CategoryView: UIView {
 
 extension CategoryView: ViewCode {
     func buildViewHierarchy() {
-        [self.monthTitle, self.categoryCollectionViewComponent].forEach({self.addSubview($0)})
+        [self.title,self.subTitle, self.categoryCollectionViewComponent].forEach({self.addSubview($0)})
     }
     
     func setupConstraints() {
-        self.monthTitle.setupConstraints { view in
+        self.title.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: (self.bounds.height * 0.05)),
+                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: (self.bounds.height * 0.01)),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.bottomAnchor.constraint(equalTo: self.categoryCollectionViewComponent.topAnchor, constant: -(self.bounds.height * 0.1))
+                view.bottomAnchor.constraint(equalTo: self.subTitle.topAnchor, constant: -(self.bounds.height * 0.05))
             ]
         }
+        
+        self.subTitle.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: (self.bounds.height * 0.1)),
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                view.bottomAnchor.constraint(equalTo: self.categoryCollectionViewComponent.topAnchor)
+            ]
+        }
+        
         self.categoryCollectionViewComponent.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.monthTitle.bottomAnchor, constant: (self.bounds.height * 0.1)),
+                view.topAnchor.constraint(equalTo: self.subTitle.bottomAnchor, constant: (self.bounds.height * 0.1)),
                 view.widthAnchor.constraint(equalToConstant: self.bounds.width),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ]
         }
+        
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = UIColor(named: "Background")
+        self.backgroundColor = .SZColorPrimaryColor
     }
 }

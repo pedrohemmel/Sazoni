@@ -34,7 +34,7 @@ extension FilterCollectionViewCell: ViewCode {
                 view.topAnchor.constraint(equalTo: self.topAnchor),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             ]
         }
     }

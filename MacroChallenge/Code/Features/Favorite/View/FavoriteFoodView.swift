@@ -7,8 +7,8 @@ class FavoriteFoodView: UIView {
     private lazy var title: UILabel = {
         let view = UILabel()
         view.text = "Favoritos"
-        view.font = UIFont(name: "Quicksand-SemiBold", size: 64)
-        view.textColor = UIColor(named: "darkBrown")
+        view.font = .SZFontTitle
+        view.textColor = .SZColorBeige
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -21,14 +21,13 @@ class FavoriteFoodView: UIView {
     
     lazy var collectionView: FoodCollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.itemSize = .SZSizeCellFood
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 105, height: 140)
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 10
-        
+        layout.minimumInteritemSpacing = 8
+        layout.minimumInteritemSpacing = 8
+        layout.sectionInset = UIEdgeInsets(top: 40, left: 8, bottom: 32, right: 8)
         let collectionViewInstance = FoodCollectionView(frame: .zero, collectionViewLayout: layout)
         collectionViewInstance.translatesAutoresizingMaskIntoConstraints = false
-        
         return collectionViewInstance
     }()
     
@@ -54,7 +53,7 @@ extension FavoriteFoodView: ViewCode {
         self.title.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor),
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor, constant: -16),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor)
             ]
         }
@@ -62,9 +61,9 @@ extension FavoriteFoodView: ViewCode {
         self.fastFilterComponent.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: frame.midX / 3),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor, constant: -10),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.midX * 0.4),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -self.frame.midX * 0.4),
+                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor),
             ]
         }
         
@@ -79,6 +78,6 @@ extension FavoriteFoodView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = UIColor(red: 1, green: 0.98, blue: 0.867, alpha: 1)
+        self.backgroundColor = .SZColorPrimaryColor
     }
 }

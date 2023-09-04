@@ -8,25 +8,6 @@
 import UIKit
 import Combine
 
-protocol MCMonthUpdatesDelegate: AnyObject {
-    func didChangeMonth(newMonthName: String)
-}
-
-protocol FavoritesObserver: AnyObject{
-    func favoriteListDidUpdate()
-}
-
-protocol BoughtListCRUDDelegate: AnyObject {
-    func getAllBoughtList(_ key: String) -> [ShoppingListModel]
-    func createNewBoughtList(_ key: String, name: String?)
-    func deleteBoughtList(_ key: String, idBoughtList: Int)
-    func deleteAllBoughtList(_ key: String)
-    func changeBoughtListStatus(_ key: String, idBoughtList: Int)
-    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int)
-    func addNewItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
-    func removeItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
-}
-
 class TabBarViewController: UITabBarController {
     var observer: AnyCancellable?
     lazy var currentMonth = self.getCurrentMonth() {
@@ -39,13 +20,9 @@ class TabBarViewController: UITabBarController {
     private var foods = [Food]()
     private var favoriteFoods = [Food]()
     private var dataIsReceived = false
-    
-    
-    private var foodViewController = FoodViewController()
     private let favoriteFoodViewController = FavoriteFoodViewController()
     private var shoppingListsViewController = ShoppingListsViewController()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "Background")
@@ -67,6 +44,8 @@ class TabBarViewController: UITabBarController {
             })
         self.favorite.registerObserver(self)
     }
+    
+    
 }
 
 extension TabBarViewController: MCMonthUpdatesDelegate {
@@ -199,65 +178,19 @@ extension TabBarViewController {
         let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self, foods: self.foods))
         let searchViewController = UINavigationController(rootViewController: SearchViewController(foods: self.foods))
         let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
-        
-//        searchViewController.searchView.collectionView.foodDelegate = self
+        let icon1 = UITabBarItem(title: "Início", image: .SZIconHome, selectedImage: .SZIconHomeFill)
+        let icon2 = UITabBarItem(title: "Favorito", image: .SZIconFavorite, selectedImage: .SZIconFavoriteFill)
+        categoryViewController.tabBarItem = icon1
+        favoriteFoodViewController.tabBarItem = icon2
         self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController], animated: false)
-        guard let items = self.tabBar.items else { return }
-             
-        items[0].image = UIImage(named: TabIcons.homeFillIcon)
-        items[0].title = "Início"
-        items[1].image = UIImage(named: TabIcons.searchIcon)
-        items[1].title = "Pesquisa"
-        items[2].image = UIImage(named: TabIcons.favoriteIcon)
-        items[2].title = "Favoritos"
     }
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard let items = tabBar.items, let selectedItem = items.firstIndex(of: item) else {
-            return
-        }
-        
-        switch selectedItem{
-        case 0:
-            items[0].image = UIImage(named: TabIcons.homeFillIcon)
-            items[1].image = UIImage(named: TabIcons.searchIcon)
-            items[2].image = UIImage(named: TabIcons.favoriteIcon)
-            
-        case 1:
-            items[0].image = UIImage(named: TabIcons.homeIcon)
-            items[1].image = UIImage(named: TabIcons.searchFillIcon)
-            items[2].image = UIImage(named: TabIcons.favoriteIcon)
-
-            
-        case 2:
-            items[0].image = UIImage(named: TabIcons.homeIcon)
-            items[1].image = UIImage(named: TabIcons.searchIcon)
-            items[2].image = UIImage(named: TabIcons.favoriteFillIcon)
-            
-            
-        case 3:
-            items[0].image = UIImage(named: TabIcons.homeIcon)
-            items[1].image = UIImage(named: TabIcons.searchIcon)
-            items[2].image = UIImage(named: TabIcons.favoriteIcon)
-            
-        default:
-            break
-        }
-    }
     
     override func viewDidLayoutSubviews() {
-        let newTabBarWidth: CGFloat = view.frame.width + 10
-        let newTabBarHeight: CGFloat = view.frame.height * 0.1
-        self.tabBar.frame.size.height = newTabBarHeight
-        self.tabBar.frame.size.width = newTabBarWidth
-        self.tabBar.frame.origin.x = (view.frame.width - newTabBarWidth) / 2
-        self.tabBar.frame.origin.y = UIScreen.main.bounds.maxY - view.frame.height * 0.080
-        self.tabBar.backgroundColor = UIColor(named: "Background")
+        self.tabBar.backgroundColor = .SZColorSecundaryColor
+        self.tabBar.tintColor = .SZColorBeige
+        self.tabBar.unselectedItemTintColor = .SZColorBeige
         self.tabBar.clipsToBounds = false
-        self.tabBar.layer.cornerRadius = 15
-        self.tabBar.layer.borderWidth = 3
-        self.tabBar.layer.borderColor = UIColor.brown.cgColor
-        self.tabBar.tintColor = .brown
         self.tabBar.isTranslucent = true
     }
     

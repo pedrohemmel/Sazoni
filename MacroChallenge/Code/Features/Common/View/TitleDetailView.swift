@@ -9,15 +9,15 @@ class TitleDetailView: UIView {
     
     private lazy var titleFood: UILabel = {
         let title = UILabel()
-        title.font = UIFont(name: "Quicksand-SemiBold", size: 33)
-        title.textColor = UIColor(named: "TextColor")
+        title.font = .SZFontTitle
+        title.textColor = .SZColorBeige
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
     
     private lazy var line: UIView = {
         let line = UIView()
-        line.backgroundColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
+        line.backgroundColor = .SZColorBeige
         line.layer.cornerRadius = 3
         line.translatesAutoresizingMaskIntoConstraints = false
         return line
@@ -107,8 +107,8 @@ extension TitleDetailView{
     func setButton(id: Int){
         self.buttonToFavorite.tag = id
         self.buttonToFavorite.setImage(UIImage(systemName: favorite.setImageButton(favorite.checkFavoriteFood(id: id))), for: .normal)
-        self.buttonToFavorite.tintColor = UIColor(named: "TextColor")
+        self.buttonToFavorite.tintColor = .SZColorBeige
     }
-    
+
     
 }

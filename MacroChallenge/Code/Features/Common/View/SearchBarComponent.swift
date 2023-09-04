@@ -13,22 +13,13 @@ class SearchBarComponent: UISearchBar {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self.delegate = self
-        self.layer.borderWidth = 1;
-        self.layer.borderColor = UIColor(named: "Background")?.cgColor
         self.searchBarStyle = UISearchBar.Style.minimal
+        self.searchTextField.layer.cornerRadius = 4
+        self.searchTextField.layer.borderWidth = 1
+        self.searchTextField.layer.borderColor = UIColor.SZColorBeige?.cgColor
+        self.searchTextField.leftView?.tintColor = .SZColorBeige
         
-        self.searchTextField.layer.cornerRadius = 10
-        self.searchTextField.layer.borderWidth = 3
-        self.searchTextField.layer.borderColor = UIColor.brown.cgColor
-        
-        self.searchTextField.tintColor = .brown
-        self.searchTextField.textColor = .brown
-        self.searchTextField.leftView?.tintColor = .brown
-        
-        self.searchTextField.background = .none
-        self.searchTextField.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {

@@ -28,7 +28,7 @@ extension FavoriteList {
                 buttonToFavorite.setImage(UIImage(systemName: "star"), for: .normal)
             }
         }
-        buttonToFavorite.tintColor = UIColor(named: "TextColor")
+        buttonToFavorite.tintColor = .SZColorBeige
     }
     
     func getListOfFoods() -> [Int] {

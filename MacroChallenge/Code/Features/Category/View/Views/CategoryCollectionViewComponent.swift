@@ -21,9 +21,12 @@ class CategoryCollectionViewComponent: UICollectionView {
         self.dataSource = self
         self.backgroundColor = UIColor.clear
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+
 }
 //MARK: - UICollectionViewDataSource
 extension CategoryCollectionViewComponent: UICollectionViewDataSource {
@@ -34,14 +37,13 @@ extension CategoryCollectionViewComponent: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         cell.categoryFood.text = self.categories[indexPath.row].name_category
-        cell.categoryFood.textColor = .brown
-        cell.categoryImage.image = UIImage(named: "icon_\(self.categories[indexPath.row].id_category)")
-        cell.backgroundColor = .white
-        cell.layer.borderColor = UIColor.brown.cgColor
-        cell.layer.borderWidth = 5
-        cell.layer.cornerRadius = 20
+        cell.categoryFood.textColor = .SZColorSecundaryColor
+        cell.categoryImage.image = UIImage.getImageCategory("icon_\(self.categories[indexPath.row].id_category)")
+        cell.backgroundColor = .SZColorBeige
+        cell.layer.cornerRadius = .SZCornerRadiusLargeShapes
         return cell
     }
+    
 }
 
 //MARK: - UICollectionViewDelegate
@@ -50,13 +52,3 @@ extension CategoryCollectionViewComponent: UICollectionViewDelegate {
         self.selectedCategoryDelegate?.didSelectCategory(category: self.categories[indexPath.row])
     }
 }
-
-//MARK: - Functions
-extension CategoryCollectionViewComponent {
-//    func setup(selectedCategoryDelegate: MCSelectedCategoryDelegate, categories: [Category]) {
-//        self.categories = categories
-//        self.selectedCategoryDelegate = selectedCategoryDelegate
-//        self.reloadData()
-//    }
-}
-

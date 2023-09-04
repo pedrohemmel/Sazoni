@@ -11,10 +11,7 @@ class FastFilterComponent: UIView {
     lazy var filterSelectedCollectionView: FilterSelectedCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 150, height: 60)
-        layout.minimumInteritemSpacing = 5
-        layout.minimumLineSpacing = 5
         layout.scrollDirection = .horizontal
-        
         let filterSelectedCollectionView = FilterSelectedCollectionView(frame: .zero, collectionViewLayout: layout)
         filterSelectedCollectionView.translatesAutoresizingMaskIntoConstraints = false
         return filterSelectedCollectionView
@@ -22,11 +19,8 @@ class FastFilterComponent: UIView {
     
     lazy var filterCollectionView: FilterCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 60, height: 60)
-        layout.minimumInteritemSpacing = 5
-        layout.minimumLineSpacing = 5
+        layout.itemSize = .SZSizeButtonFastFilter
         layout.scrollDirection = .horizontal
-        
         let filterCollectionView = FilterCollectionView(frame: .zero, collectionViewLayout: layout)
         filterCollectionView.translatesAutoresizingMaskIntoConstraints = false
         return filterCollectionView
@@ -55,7 +49,8 @@ extension FastFilterComponent: ViewCode {
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: self.filterSelectedCollectionView.topAnchor, constant: -5),
-                view.heightAnchor.constraint(equalToConstant: 60)
+                view.heightAnchor.constraint(equalToConstant: 60),
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor)
             ]
         }
         self.filterSelectedCollectionView.setupConstraints { view in

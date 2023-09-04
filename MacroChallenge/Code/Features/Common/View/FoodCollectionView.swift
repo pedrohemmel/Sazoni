@@ -8,11 +8,13 @@
 import UIKit
  
 
-class FoodCollectionView: UICollectionView {
+class FoodCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout{
     weak var foodDelegate: FoodDetailDelegate? = nil
     weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
     var foods = [Food]()
     var currentMonth = String()
+    private let spacing:CGFloat = 16.0
+
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -37,18 +39,12 @@ extension FoodCollectionView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCollectionViewCell", for: indexPath) as! FoodCollectionViewCell
+        let currentStateSeasonality = self.foods[indexPath.row].seasonalities[self.foods[indexPath.row].seasonalities.firstIndex(where: { $0.month_name_seasonality == self.currentMonth }) ?? 0].state_seasonality
+        cell.sazonality.image = UIImage.getImageSazonality(currentStateSeasonality)
         cell.foodImage.image = UIImage(named: "\(self.foods[indexPath.row].image_source_food)")
         cell.nameFood.text = foods[indexPath.row].name_food
-        
-        let currentStateSeasonality = self.foods[indexPath.row].seasonalities[self.foods[indexPath.row].seasonalities.firstIndex(where: { $0.month_name_seasonality == self.currentMonth }) ?? 0].state_seasonality
-        cell.sazonality.text = currentStateSeasonality
-        cell.sazonality.backgroundColor = UIColor(named: "\(currentStateSeasonality)")
-        
-        cell.backgroundColor = .white
-        cell.layer.cornerRadius = 20
-        cell.layer.borderWidth = 3
-        cell.layer.borderColor = UIColor.brown.cgColor
-        
+        cell.backgroundColor = .SZColorBeige
+        cell.layer.cornerRadius = .SZCornerRadiusMediumShape
         return cell
     }
 }

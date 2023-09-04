@@ -2,10 +2,6 @@
 
 import UIKit
 
-protocol FavoriteFoodDelegate: AnyObject {
-    func didSelectFood(food: Food)
-    func didSelectFavoriteButton()
-}
 
 class FavoriteFoodViewController: UIViewController {
     
@@ -29,7 +25,7 @@ class FavoriteFoodViewController: UIViewController {
         super.viewDidLoad()
         self.favoriteFoodView.collectionView.setup(foods: self.getFavoriteFoods(), currentMonth: currentMonth, foodDelegate: nil, favoriteFoodDelegate: self)
         self.favoriteFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
-        self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
+//        self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
         self.listOfFavoriteFoodsIDs = self.favorite.getListOfFoods()
         self.filterFoods()
     }
@@ -98,6 +94,7 @@ extension FavoriteFoodViewController {
         return listFood.filter({ self.listOfFavoriteFoodsIDs.contains($0.id_food) })
     }
     
+    
     func filterFoods() {
         
         self.listOfFavoriteFoodsIDs = self.favorite.getListOfFoods()
@@ -144,7 +141,7 @@ extension FavoriteFoodViewController {
     func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {
         self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0].filterIsSelected = filterIsSelected
         self.favoriteFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
-        self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
+//        self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
     }
     
     func verifyIfFilterIsMonth(nameOfFilter: String) -> Bool {
@@ -154,7 +151,6 @@ extension FavoriteFoodViewController {
     
     func deleteMonthIfItExists() {
         let months = Months.monthArray
-        
         for month in months {
             if self.choosenFilters.contains(where: { $0.name == month }) {
                 self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == month }) ?? 0)

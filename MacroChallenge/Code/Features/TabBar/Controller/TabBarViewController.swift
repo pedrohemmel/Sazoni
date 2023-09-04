@@ -12,10 +12,6 @@ protocol MCMonthUpdatesDelegate: AnyObject {
     func didChangeMonth(newMonthName: String)
 }
 
-protocol FavoritesObserver: AnyObject{
-    func favoriteListDidUpdate()
-}
-
 protocol BoughtListCRUDDelegate: AnyObject {
     func getAllBoughtList(_ key: String) -> [ShoppingListModel]
     func createNewBoughtList(_ key: String, name: String?)
@@ -29,43 +25,18 @@ protocol BoughtListCRUDDelegate: AnyObject {
 
 class TabBarViewController: UITabBarController {
     var observer: AnyCancellable?
-    lazy var currentMonth = self.getCurrentMonth() {
-        didSet {
-            self.setupViewControllers()
-        }
-    }
+    lazy var currentMonth = self.getCurrentMonth()
     private var categories: [Category] = [Category]()
-    private let favorite = FavoriteList.shared
-    private var foods = [Food]()
     private var favoriteFoods = [Food]()
     private var dataIsReceived = false
-    
-    
-    private var foodViewController = FoodViewController()
-    private let favoriteFoodViewController = FavoriteFoodViewController()
-    private var shoppingListsViewController = ShoppingListsViewController()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "Background")
-        self.setupViewControllers()
-        
-        self.observer = FoodManager.shared.fetchFoods()
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    self.getAllCategories()
-                    self.setupTabItems()
-                    self.favoriteFoodViewController.setup(food: self.foods, currentMonth: self.currentMonth)
-                    
-                case .failure(let error):
-                    print(error)
-                }
-            }, receiveValue: { (foods) in
-                self.foods = foods
-            })
-        self.favorite.registerObserver(self)
+        FoodManager.shared.getFoods {
+            self.getAllCategories()
+            self.setupTabItems()
+        }
     }
 }
 
@@ -196,11 +167,9 @@ extension TabBarViewController: BoughtListCRUDDelegate {
 extension TabBarViewController {
 
     private func setupTabItems() {
-        let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self, foods: self.foods))
-        let searchViewController = UINavigationController(rootViewController: SearchViewController(foods: self.foods))
-        let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
-        
-//        searchViewController.searchView.collectionView.foodDelegate = self
+        let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self, foods: FoodManager.shared.foods))
+        let searchViewController = UINavigationController(rootViewController: SearchViewController())
+        let favoriteFoodViewController = UINavigationController(rootViewController: FavoriteFoodViewController(currentMonth: self.currentMonth))
         self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController], animated: false)
         guard let items = self.tabBar.items else { return }
              
@@ -261,17 +230,6 @@ extension TabBarViewController {
         self.tabBar.isTranslucent = true
     }
     
-    
-    private func setupViewControllers() {
-        if !self.categories.isEmpty {
-            
-//            self.categoryViewController.setup(categories: self.categories, monthUpdatesDelegate: self, foods: self.foods, currentMonth: self.currentMonth, foodDelegate: self)
-        }
-        
-        self.shoppingListsViewController.boughtListCRUDDelegate = self
-        self.shoppingListsViewController.setup(boughtList: self.getAllBoughtList("boughtList"))
-    }
-
     private func boughtListAction(_ key: String, idBoughtList: Int?, idItem: Int?, action: @escaping ((_ idBoughtList: Int?, _ idItem: Int?, _ boughtList: [ShoppingListModel]) -> [ShoppingListModel])) {
         if let boughtList = UserDefaults.standard.data(forKey: key) {
             do {
@@ -300,7 +258,7 @@ extension TabBarViewController {
     
     private func getAllCategories(){
         var categories = [Category]()
-        for food in self.foods {
+        for food in FoodManager.shared.foods {
             if !categories.contains(where: {$0.id_category == food.category_food.id_category}) {
                 categories.append(food.category_food)
             }
@@ -308,20 +266,6 @@ extension TabBarViewController {
         self.categories = categories
     }
   
-    func getAllFavoriteFood(list: [Food])->[Food]{
-        let listFavorite = UserDefaults.standard.array(forKey: "favorite") as? [Int]
-        var listFavoriteFood = [Food]()
-        if let favoriteFood = listFavorite {
-            for id in favoriteFood {
-                for food in list {
-                    if id == food.id_food {
-                        listFavoriteFood.append(food)
-                    }
-                }
-            }
-        }
-        return listFavoriteFood
-    }
 }
 
 extension TabBarViewController: FoodDetailDelegate{
@@ -331,25 +275,4 @@ extension TabBarViewController: FoodDetailDelegate{
         detailVC.sheetPresentationController?.detents = [.large()]
         self.present(detailVC, animated: true)
     }
-}
-
-
-extension TabBarViewController: FavoritesObserver{
-    func favoriteListDidUpdate(){
-        let listFavorite = UserDefaults.standard.array(forKey: "favorite") as? [Int]
-        var listFavoriteFood = [Food]()
-        if let favoriteFood = listFavorite {
-            for id in favoriteFood {
-                for food in self.foods {
-                        if id == food.id_food {
-                        listFavoriteFood.append(food)
-                    }
-                }
-            }
-        }
-        if self.favoriteFoodViewController.isViewLoaded {
-            self.favoriteFoodViewController.favoriteFoodView.collectionView.setup(foods: listFavoriteFood, currentMonth: self.currentMonth, foodDelegate: nil, favoriteFoodDelegate: self.favoriteFoodViewController)
-            }
-        }
-        
 }

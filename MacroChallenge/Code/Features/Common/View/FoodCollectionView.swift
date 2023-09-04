@@ -11,7 +11,11 @@ import UIKit
 class FoodCollectionView: UICollectionView {
     weak var foodDelegate: FoodDetailDelegate? = nil
     weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
-    var foods = [Food]()
+    var foods = [Food]() {
+        didSet {
+            reloadData()
+        }
+    }
     var currentMonth = String()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -74,7 +78,6 @@ extension FoodCollectionView {
         if let newFoodDelegate = foodDelegate {
             self.foodDelegate = newFoodDelegate
         }
-        self.reloadData()
     }
     
 }

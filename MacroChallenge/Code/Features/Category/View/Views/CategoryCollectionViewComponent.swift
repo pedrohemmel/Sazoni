@@ -51,12 +51,3 @@ extension CategoryCollectionViewComponent: UICollectionViewDelegate {
     }
 }
 
-//MARK: - Functions
-extension CategoryCollectionViewComponent {
-//    func setup(selectedCategoryDelegate: MCSelectedCategoryDelegate, categories: [Category]) {
-//        self.categories = categories
-//        self.selectedCategoryDelegate = selectedCategoryDelegate
-//        self.reloadData()
-//    }
-}
-

@@ -1,24 +1,24 @@
-//
-//  FoodCollectionView.swift
-//  MacroChallenge
-//
-//  Created by Pedro henrique Dias hemmel de oliveira souza on 01/06/23.
-//
+
 
 import UIKit
  
 
-class FoodCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout{
+class FoodToSelectCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout{
+    
     weak var foodDelegate: FoodDetailDelegate? = nil
     weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
-    var foods = [Food]()
+    var foods: [Food] = [Food]()
     var currentMonth = String()
     private let spacing:CGFloat = 16.0
+    
+    var arrData = [Food]() 
+    var arrSelectedIndex = [IndexPath]()
+    var arrSelectedData = [Food]()
 
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        self.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: "FoodCollectionViewCell")
+        self.register(SelectionCellView.self, forCellWithReuseIdentifier: "SelectionCellView")
         self.delegate = self
         self.dataSource = self
         self.backgroundView = .none
@@ -31,45 +31,45 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout{
     
 }
 
-extension FoodCollectionView: UICollectionViewDataSource {
+extension FoodToSelectCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return foods.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCollectionViewCell", for: indexPath) as! FoodCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectionCellView", for: indexPath) as! SelectionCellView
         let currentStateSeasonality = self.foods[indexPath.row].seasonalities[self.foods[indexPath.row].seasonalities.firstIndex(where: { $0.month_name_seasonality == self.currentMonth }) ?? 0].state_seasonality
         cell.sazonality.image = UIImage.getImageSazonality(currentStateSeasonality)
         cell.foodImage.image = UIImage(named: "\(self.foods[indexPath.row].image_source_food)")
         cell.nameFood.text = foods[indexPath.row].name_food
         cell.backgroundColor = .SZColorBeige
         cell.layer.cornerRadius = .SZCornerRadiusMediumShape
+        if arrSelectedIndex.contains(indexPath) {
+            cell.btnSelect.image = UIImage(named: "SZ.checkmark.circle.fill")
+           }
+           else {
+               cell.btnSelect.image = UIImage(named: "SZ.checkmark.circle")
+           }
+        
         return cell
     }
-}
-
-extension FoodCollectionView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let foodDelegate = self.foodDelegate {
-            foodDelegate.selectFood(food: foods[indexPath.row])
-        }
-        if let favoriteFoodDelegate = self.favoriteFoodDelegate {
-            favoriteFoodDelegate.didSelectFood(food: foods[indexPath.row])
-        }
-    }
-}
-
-//MARK: - Functions here
-extension FoodCollectionView {
-    func setup(foods: [Food], currentMonth: String, foodDelegate: FoodDetailDelegate?, favoriteFoodDelegate: FavoriteFoodDelegate?) {
-        self.foods = foods
-        self.currentMonth = currentMonth
-        self.favoriteFoodDelegate = favoriteFoodDelegate
-        if let newFoodDelegate = foodDelegate {
-            self.foodDelegate = newFoodDelegate
-        }
-        self.reloadData()
-    }
     
+    
+}
+
+extension FoodToSelectCollectionView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+               let strData = foods[indexPath.item]
+               if arrSelectedIndex.contains(indexPath) {
+                   arrSelectedIndex = arrSelectedIndex.filter { $0 != indexPath}
+                   arrSelectedData = arrSelectedData.filter { $0.id_food != strData.id_food}
+               }
+               else {
+                   arrSelectedIndex.append(indexPath)
+                   arrSelectedData.append(strData)
+               }
+
+               collectionView.reloadData()
+    }
 }

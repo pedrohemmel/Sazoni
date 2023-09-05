@@ -128,10 +128,10 @@ extension FoodView {
     func setup(foods: [Food], currentMonth: String, category: Category, foodDelegate: FoodDetailDelegate?) {
         self.currentMonth = currentMonth
         self.category = category
-        
+
         self.collectionView.setup(foods: foods, currentMonth: currentMonth, foodDelegate: foodDelegate, favoriteFoodDelegate: nil)
         self.monthTitle.text = currentMonth
-        
+
         self.setupViewConfiguration()
     }
 }

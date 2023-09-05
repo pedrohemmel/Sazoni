@@ -1,15 +1,16 @@
 //
-//  FoodCollectionViewCell.swift
+//  SelectionCellView.swift
 //  MacroChallenge
 //
-//  Created by Bruno Lafayette on 31/05/23.
+//  Created by Bruno Lafayette on 04/09/23.
 //
 
 import UIKit
 
-class FoodCollectionViewCell: UICollectionViewCell {
+class SelectionCellView: UICollectionViewCell {
     //MARK: - Views
-        
+    
+    
     lazy var foodImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +33,11 @@ class FoodCollectionViewCell: UICollectionViewCell {
         return sazonality
     }()
     
+    lazy var btnSelect: UIImageView = {
+        let btn = UIImageView()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,9 +55,9 @@ class FoodCollectionViewCell: UICollectionViewCell {
 }
 
 
-extension FoodCollectionViewCell: ViewCode{
+extension SelectionCellView: ViewCode{
     func buildViewHierarchy() {
-        [self.foodImage, self.sazonality, self.nameFood].forEach({self.addSubview($0)})
+        [self.foodImage, self.sazonality, self.nameFood, self.btnSelect].forEach({self.addSubview($0)})
     }
     
     func setupConstraints() {
@@ -81,12 +87,18 @@ extension FoodCollectionViewCell: ViewCode{
             ]
         }
         
+        self.btnSelect.setupConstraints { view in
+            [
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -8),
+                view.topAnchor.constraint(equalTo: self.topAnchor, constant: -8)
+            ]
+        }
+        
         
         
     }
     
     func setupAdditionalConfiguration() {
-        self.clipsToBounds = true
     }
     
 }

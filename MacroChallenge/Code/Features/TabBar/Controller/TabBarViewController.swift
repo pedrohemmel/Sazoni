@@ -176,13 +176,15 @@ extension TabBarViewController {
 
     private func setupTabItems() {
         let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self, foods: self.foods))
-        let searchViewController = UINavigationController(rootViewController: SearchViewController(foods: self.foods))
         let favoriteFoodViewController = UINavigationController(rootViewController: self.favoriteFoodViewController)
+        let listController = UINavigationController(rootViewController: AddFoodController(foods: self.foods))
         let icon1 = UITabBarItem(title: "Início", image: .SZIconHome, selectedImage: .SZIconHomeFill)
         let icon2 = UITabBarItem(title: "Favorito", image: .SZIconFavorite, selectedImage: .SZIconFavoriteFill)
+        let icon3 = UITabBarItem(title: "Lista", image: .SZIconList, selectedImage: .SZIconListFill)
         categoryViewController.tabBarItem = icon1
         favoriteFoodViewController.tabBarItem = icon2
-        self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController], animated: false)
+        listController.tabBarItem = icon3
+        self.setViewControllers([categoryViewController, favoriteFoodViewController, listController, ], animated: false)
     }
     
     

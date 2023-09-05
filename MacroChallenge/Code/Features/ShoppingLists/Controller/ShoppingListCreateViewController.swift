@@ -7,26 +7,33 @@
 
 import UIKit
 
+protocol ShoppingListCreateDelegate: AnyObject {
+    func didClickConfirm()
+}
+
 class ShoppingListCreateViewController: UIViewController {
-    
-    weak var boughtListViewDelegate: BoughtListViewDelegate? = nil
     private var shoppingListCreateView = ShoppingListCreateView()
+    
+    init(currentShoppingList: ShoppingListModel?) {
+        self.shoppingListCreateView.currentShoppingList = currentShoppingList
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
-        self.view = self.shoppingListCreateView
+        self.view = shoppingListCreateView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let addNewBtn = UIBarButtonItem(title: "Adicionar", style: .done, target: self, action: #selector(addNewShoppingList))
-        addNewBtn.tintColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
-        self.navigationItem.rightBarButtonItem = addNewBtn
+        shoppingListCreateView.delegate = self
     }
 }
 
-extension ShoppingListCreateViewController {
-    @objc func addNewShoppingList() {
-        self.boughtListViewDelegate?.didCreateNew(name: self.shoppingListCreateView.txtField.text)
-        self.navigationController?.popViewController(animated: true)
+extension ShoppingListCreateViewController: ShoppingListCreateDelegate {
+    func didClickConfirm() {
+        self.dismiss(animated: true)
     }
 }

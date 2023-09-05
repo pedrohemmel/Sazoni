@@ -9,12 +9,13 @@ import UIKit
 
 class ShoppingListsTableView: UITableView {
     
+    weak var boughtListViewDelegate: BoughtListViewDelegate? = nil
     var shoppingLists = [ShoppingListModel]() {
         didSet {
             self.reloadData()
         }
     }
-    
+
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         self.register(ShoppingListsTableViewCell.self, forCellReuseIdentifier: "ShoppingListsTableViewCell")
@@ -41,5 +42,20 @@ extension ShoppingListsTableView: UITableViewDataSource {
 extension ShoppingListsTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteItem = UIContextualAction(style: .destructive, title: "Deletar") {  (contextualAction, view, boolValue) in
+            ShoppingListManager.shared.deleteBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: self.shoppingLists[indexPath.row].id)
+            ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
+                self.shoppingLists = ShoppingListManager.shared.shoppingLists
+            }
+        }
+        let editItem = UIContextualAction(style: .normal, title: "Editar") {  (contextualAction, view, boolValue) in
+            self.boughtListViewDelegate?.didClickEditList(currentShoppingList: self.shoppingLists[indexPath.row])
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteItem, editItem])
+
+        return swipeActions
     }
 }

@@ -8,8 +8,7 @@
 import UIKit
 
 class SearchBarComponent: UISearchBar {
-        
-    weak var searchViewController: SearchViewController?
+    weak var searchDelegate: SearchDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,6 +38,6 @@ class SearchBarComponent: UISearchBar {
 
 extension SearchBarComponent: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchViewController?.search()
+        searchDelegate?.search(with: searchText)
     }
 }

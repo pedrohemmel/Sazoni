@@ -14,6 +14,10 @@ protocol FoodDetailDelegate: AnyObject{
     func selectFood(food: Food)
 }
 
+protocol SearchDelegate: AnyObject {
+    func search(with searchText: String)
+}
+
 class SearchViewController: UIViewController {
     
     var observer: AnyCancellable?
@@ -35,7 +39,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchView.search.searchViewController = self
+        self.searchView.search.searchDelegate = self
         
         FoodManager.shared.filterFoods(with: "", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
         self.searchView.collectionView.setup(foods: FoodManager.shared.filteredFoods, currentMonth: self.getCurrentMonth(), foodDelegate: nil, favoriteFoodDelegate: nil)
@@ -84,13 +88,14 @@ extension SearchViewController: FastFilterDelegate {
     }
 }
 
-extension SearchViewController {
-    
-    func search() {
-        FoodManager.shared.filterFoods(with: "\(self.searchView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
+extension SearchViewController: SearchDelegate {
+    func search(with searchText: String) {
+        FoodManager.shared.filterFoods(with: searchText, choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
         self.searchView.collectionView.foods = FoodManager.shared.filteredFoods
     }
-    
+}
+
+extension SearchViewController {
     func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {
         self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0].filterIsSelected = filterIsSelected
         self.searchView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)

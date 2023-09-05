@@ -34,7 +34,7 @@ class CategoryViewController: UIViewController {
     private var foods: [Food] = [Food]()
     var currentMonth: String
     
-    lazy var categoryView = CategoryView(frame: self.view.frame, currentMonth: currentMonth, categories: categories)
+    lazy var categoryView = CategoryView(frame: self.view.frame,categories: categories)
     
     override func loadView() {
         super.loadView()
@@ -44,16 +44,19 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         categoryView.categoryCollectionViewComponent.selectedCategoryDelegate = self
     }
+    
+
+    
+    
 }
 
 extension CategoryViewController: MCSelectedCategoryDelegate {
-    
+
     func didSelectCategory(category: Category) {
         let foodViewController = FoodViewController()
         if let foodDelegate = self.foodDelegate {
             foodViewController.setup(currentMonth: self.currentMonth, monthUpdatesDelegate: nil, category: category, categories: self.categories, foodDelegate: foodDelegate)
         }
-        
         self.navigationController?.pushViewController(foodViewController, animated: true)
     }
     

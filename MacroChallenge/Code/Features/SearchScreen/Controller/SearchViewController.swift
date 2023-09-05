@@ -111,6 +111,7 @@ extension SearchViewController {
             }
         }
     }
+    
     private func getCurrentMonth() -> String {
         let now = Date()
         let dateFormatter = DateFormatter()

@@ -38,6 +38,8 @@ class TabBarViewController: UITabBarController {
             self.setupTabItems()
         }
     }
+    
+    
 }
 
 extension TabBarViewController: MCMonthUpdatesDelegate {
@@ -51,66 +53,22 @@ extension TabBarViewController {
 
     private func setupTabItems() {
         let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self, foods: FoodManager.shared.foods))
-        let searchViewController = UINavigationController(rootViewController: SearchViewController())
         let favoriteFoodViewController = UINavigationController(rootViewController: FavoriteFoodViewController(currentMonth: self.currentMonth))
-        let shoppingListsViewController = UINavigationController(rootViewController: ShoppingListsViewController())
-        self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController, shoppingListsViewController], animated: false)
-        guard let items = self.tabBar.items else { return }
-             
-        items[0].image = UIImage(named: TabIcons.homeFillIcon)
-        items[0].title = "Início"
-        items[1].image = UIImage(named: TabIcons.searchIcon)
-        items[1].title = "Pesquisa"
-        items[2].image = UIImage(named: TabIcons.favoriteIcon)
-        items[2].title = "Favoritos"
-        items[3].image = UIImage(named: TabIcons.listIcon)
-        items[3].title = "Lista"
-    }
-    
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard let items = tabBar.items, let selectedItem = items.firstIndex(of: item) else {
-            return
-        }
-        
-        switch selectedItem{
-        case 0:
-            items[0].image = UIImage(named: TabIcons.homeFillIcon)
-            items[1].image = UIImage(named: TabIcons.searchIcon)
-            items[2].image = UIImage(named: TabIcons.favoriteIcon)
-            items[3].image = UIImage(named: TabIcons.listIcon)
-        case 1:
-            items[0].image = UIImage(named: TabIcons.homeIcon)
-            items[1].image = UIImage(named: TabIcons.searchFillIcon)
-            items[2].image = UIImage(named: TabIcons.favoriteIcon)
-            items[3].image = UIImage(named: TabIcons.listIcon)
-        case 2:
-            items[0].image = UIImage(named: TabIcons.homeIcon)
-            items[1].image = UIImage(named: TabIcons.searchIcon)
-            items[2].image = UIImage(named: TabIcons.favoriteFillIcon)
-            items[3].image = UIImage(named: TabIcons.listIcon)
-        case 3:
-            items[0].image = UIImage(named: TabIcons.homeIcon)
-            items[1].image = UIImage(named: TabIcons.searchIcon)
-            items[2].image = UIImage(named: TabIcons.favoriteIcon)
-            items[3].image = UIImage(named: TabIcons.listFillIcon)
-        default:
-            break
-        }
+        let listController = UINavigationController(rootViewController: AddFoodController(foods: self.foods))
+        let icon1 = UITabBarItem(title: "Início", image: .SZIconHome, selectedImage: .SZIconHomeFill)
+        let icon2 = UITabBarItem(title: "Favorito", image: .SZIconFavorite, selectedImage: .SZIconFavoriteFill)
+        let icon3 = UITabBarItem(title: "Lista", image: .SZIconList, selectedImage: .SZIconListFill)
+        categoryViewController.tabBarItem = icon1
+        favoriteFoodViewController.tabBarItem = icon2
+        listController.tabBarItem = icon3
+        self.setViewControllers([categoryViewController, favoriteFoodViewController, listController, ], animated: false)
     }
     
     override func viewDidLayoutSubviews() {
-        let newTabBarWidth: CGFloat = view.frame.width + 10
-        let newTabBarHeight: CGFloat = view.frame.height * 0.1
-        self.tabBar.frame.size.height = newTabBarHeight
-        self.tabBar.frame.size.width = newTabBarWidth
-        self.tabBar.frame.origin.x = (view.frame.width - newTabBarWidth) / 2
-        self.tabBar.frame.origin.y = UIScreen.main.bounds.maxY - view.frame.height * 0.080
-        self.tabBar.backgroundColor = UIColor(named: "Background")
+        self.tabBar.backgroundColor = .SZColorSecundaryColor
+        self.tabBar.tintColor = .SZColorBeige
+        self.tabBar.unselectedItemTintColor = .SZColorBeige
         self.tabBar.clipsToBounds = false
-        self.tabBar.layer.cornerRadius = 15
-        self.tabBar.layer.borderWidth = 3
-        self.tabBar.layer.borderColor = UIColor.brown.cgColor
-        self.tabBar.tintColor = .brown
         self.tabBar.isTranslucent = true
     }
     

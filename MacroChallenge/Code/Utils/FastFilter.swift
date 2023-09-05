@@ -8,6 +8,9 @@
 import Foundation
 
 struct FastFilter {
+    
+    static let fastFilterMonth: [FastFilterModel] = [FastFilterModel(name: "months", idCategory: nil, filterIsSelected: false)]
+    
     static let fastFilters: [FastFilterModel] = [
         FastFilterModel(name: "months", idCategory: nil, filterIsSelected: false),
         FastFilterModel(name: "Frutas", idCategory: 0, filterIsSelected: false),

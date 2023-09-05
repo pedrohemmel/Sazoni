@@ -14,11 +14,11 @@ class FilterCollectionView: UICollectionView {
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        self.backgroundView = .none
-        self.backgroundColor = .clear
         self.register(FilterCollectionViewCell.self, forCellWithReuseIdentifier: "filterCollectionViewCell")
         self.delegate = self
         self.dataSource = self
+        self.backgroundView = .none
+        self.backgroundColor = .clear
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -9,6 +9,7 @@ import UIKit
 
 class FoodCollectionViewCell: UICollectionViewCell {
     //MARK: - Views
+        
     lazy var foodImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -17,25 +18,20 @@ class FoodCollectionViewCell: UICollectionViewCell {
     
     lazy var nameFood: UILabel = {
         let nameFood = UILabel()
-        nameFood.textColor = .black
-        nameFood.textAlignment = .left
+        nameFood.font = .SZFontText
+        nameFood.textColor = .SZColorDarkGrey
         nameFood.numberOfLines = 2
-        nameFood.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        nameFood.textAlignment = .center
         nameFood.translatesAutoresizingMaskIntoConstraints = false
         return nameFood
     }()
     
-    lazy var sazonality: UILabel = {
-        let sazonality = UILabel()
-        sazonality.textColor = .black
-        sazonality.textAlignment = .center
-        sazonality.numberOfLines = 2
-        sazonality.font = UIFont.systemFont(ofSize: 11, weight: .regular)
-        sazonality.layer.cornerRadius = 11/2
-        sazonality.clipsToBounds = true
+    lazy var sazonality: UIImageView = {
+        let sazonality = UIImageView()
         sazonality.translatesAutoresizingMaskIntoConstraints = false
         return sazonality
     }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,7 +45,6 @@ class FoodCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         self.foodImage.image = nil
         self.nameFood.text = String()
-        self.sazonality.text = String()
     }
 }
 
@@ -64,34 +59,34 @@ extension FoodCollectionViewCell: ViewCode{
         self.sazonality.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-                view.widthAnchor.constraint(equalToConstant: self.frame.width / 2)
+                view.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -4),
             ]
         }
         
         self.foodImage.setupConstraints { view in
             [
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 view.topAnchor.constraint(equalTo: self.topAnchor),
-                view.heightAnchor.constraint(equalToConstant: self.frame.width),
-                view.widthAnchor.constraint(equalToConstant: self.frame.width),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20),
+                view.heightAnchor.constraint(equalToConstant: 90),
+                view.widthAnchor.constraint(equalToConstant: 90),
+                view.bottomAnchor.constraint(equalTo: self.nameFood.topAnchor, constant: 16)
             ]
         }
         
         self.nameFood.setupConstraints { view in
             [
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
             ]
         }
         
         
+        
     }
     
     func setupAdditionalConfiguration() {
         self.clipsToBounds = true
-        
     }
     
 }

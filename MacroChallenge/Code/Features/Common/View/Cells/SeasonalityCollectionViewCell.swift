@@ -11,34 +11,34 @@ class SeasonalityCollectionViewCell: UICollectionViewCell {
     
     private lazy var container: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
-        view.layer.cornerRadius = 12
+        view.clipsToBounds = true
+        view.layer.cornerRadius = .SZCornerRadiusSmallShape
         view.layer.borderWidth = 3
-        view.layer.borderColor = CGColor(red: 0.647, green: 0.408, blue: 0.18, alpha: 1)
-        view.backgroundColor = UIColor(cgColor: CGColor(red: 0.647, green: 0.408, blue: 0.18, alpha: 1))
+        view.layer.borderColor = UIColor(red: 0.467, green: 0.358, blue: 0.262, alpha: 1).cgColor
+        view.backgroundColor = .SZColorSecundaryColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private lazy var subContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .SZColorBeige
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var month: UILabel = {
         let text = UILabel()
-        text.font = UIFont(name: "SFProDisplay-Bold", size: 14)
-        text.translatesAutoresizingMaskIntoConstraints = false
+        text.font = .SZFontText
+        text.textColor = .SZColorBeige
         text.textAlignment = .center
-        text.textColor = .white
+        text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
     
     lazy var availability: UILabel = {
         let text = UILabel()
-        text.font = UIFont(name: "SFProDisplay-Bold", size: 14)
+        text.font = .SZFontText
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .center
         return text

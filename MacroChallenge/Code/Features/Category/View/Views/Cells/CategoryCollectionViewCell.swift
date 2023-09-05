@@ -11,21 +11,20 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     //MARK: - Views
     lazy var categoryImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
+
     lazy var categoryFood: UILabel = {
         let nameFood = UILabel()
         nameFood.translatesAutoresizingMaskIntoConstraints = false
-        nameFood.textAlignment = .center
+        nameFood.textAlignment = .left
         nameFood.numberOfLines = 3
-        nameFood.font = UIFont.init(name: "Quicksand-SemiBold", size: 24)
-        
+        nameFood.font = .SZFontSubTitleCategory
+
         return nameFood
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViewConfiguration()
@@ -33,7 +32,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         self.categoryFood.text = String()
@@ -46,12 +45,14 @@ extension CategoryCollectionViewCell: ViewCode {
     func buildViewHierarchy() {
         [self.categoryFood, self.categoryImage].forEach({self.addSubview($0)})
     }
-    
+
     func setupConstraints() {
         self.categoryImage.setupConstraints { view in
             [
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.bottomAnchor.constraint(equalTo: self.categoryFood.topAnchor)
+                view.bottomAnchor.constraint(equalTo: self.categoryFood.topAnchor, constant: bounds.minY + (bounds.height * 0.15)),
+                view.heightAnchor.constraint(equalToConstant: 132),
+                view.widthAnchor.constraint(equalToConstant: 132)
             ]
         }
         self.categoryFood.setupConstraints { view in
@@ -62,7 +63,7 @@ extension CategoryCollectionViewCell: ViewCode {
             ]
         }
     }
-    
+
     func setupAdditionalConfiguration() {
     }
 }

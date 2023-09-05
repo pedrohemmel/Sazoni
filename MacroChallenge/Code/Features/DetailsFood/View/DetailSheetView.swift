@@ -34,8 +34,8 @@ class DetailSheetView: UIView{
     
     private lazy var subTitle: UILabel = {
         let title = UILabel()
-        title.textColor = UIColor(named: "TextColor")
-        title.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        title.textColor = .SZColorBeige
+        title.font = .SZFontSubTitle
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = "Período sazonal"
         return title
@@ -47,7 +47,6 @@ class DetailSheetView: UIView{
         layout.itemSize = CGSize(width: 80, height: 91)
         layout.minimumInteritemSpacing = 1
         layout.minimumLineSpacing = 12
-        
         let collectionSeasonality = SeasonalityUICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionSeasonality.translatesAutoresizingMaskIntoConstraints = false
         return collectionSeasonality
@@ -117,7 +116,7 @@ extension DetailSheetView: ViewCode{
     }
     
     func setupAdditionalConfiguration() {
-        backgroundColor = UIColor(named: "Background")
+        backgroundColor = .SZColorPrimaryColor
     }
     
     

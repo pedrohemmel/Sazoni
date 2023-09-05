@@ -10,7 +10,15 @@ import UIKit
 class ShoppingListCreateView: UIView {
     
     weak var delegate: ShoppingListCreateDelegate? = nil
-    var currentShoppingList: ShoppingListModel?
+    var currentShoppingList: ShoppingListModel? {
+        didSet {
+            if let currentShoppingList {
+                if !(currentShoppingList.name == "Sem título") {
+                    txtField.text = currentShoppingList.name
+                }
+            }
+        }
+    }
     
     private var title: UILabel = {
         let view = UILabel()
@@ -21,7 +29,7 @@ class ShoppingListCreateView: UIView {
         return view
     }()
     
-    var txtField: UITextField = {
+    lazy var txtField: UITextField = {
         let txtField = UITextField()
         txtField.placeholder = "Digite aqui"
         txtField.layer.cornerRadius = 10

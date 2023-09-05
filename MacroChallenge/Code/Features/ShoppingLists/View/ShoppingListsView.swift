@@ -20,6 +20,14 @@ class ShoppingListsView: UIView {
         return view
     }()
     
+    lazy var search: SearchBarComponent = {
+        let view = SearchBarComponent()
+        view.placeholder = "Digite sua pesquisa"
+        view.barTintColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var shoppingListsTableView: ShoppingListsTableView = {
         let shoppingListsTableView = ShoppingListsTableView()
         shoppingListsTableView.backgroundColor = .clear
@@ -51,7 +59,7 @@ class ShoppingListsView: UIView {
 
 extension ShoppingListsView: ViewCode {
     func buildViewHierarchy() {
-        [self.title, self.shoppingListsTableView, self.buttonCreateNewShoppingList].forEach({ self.addSubview($0) })
+        [self.title, self.search, self.shoppingListsTableView, self.buttonCreateNewShoppingList].forEach({ self.addSubview($0) })
     }
     
     func setupConstraints() {
@@ -59,6 +67,15 @@ extension ShoppingListsView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -5.5),
+                view.bottomAnchor.constraint(equalTo: self.search.topAnchor)
+
+            ]
+        }
+        self.search.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: self.shoppingListsTableView.topAnchor)
 
             ]
@@ -66,7 +83,7 @@ extension ShoppingListsView: ViewCode {
         
         self.shoppingListsTableView.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
+                view.topAnchor.constraint(equalTo: self.search.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)

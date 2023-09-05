@@ -15,7 +15,7 @@ class ShoppingListsTableView: UITableView {
             self.reloadData()
         }
     }
-    
+
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         self.register(ShoppingListsTableViewCell.self, forCellReuseIdentifier: "ShoppingListsTableViewCell")

@@ -9,21 +9,44 @@ import Foundation
 
 class ShoppingListManager {
     var shoppingLists = [ShoppingListModel]()
+    var filteredShoppingLists = [ShoppingListModel]()
     let defaultKey = "boughtList"
     
     static let shared = ShoppingListManager()
     
+    func searchShoppingLists(with searchText: String) {
+        filteredShoppingLists = shoppingLists
+        print(filteredShoppingLists)
+        if searchText != "" {
+            filteredShoppingLists = filteredShoppingLists.filter { ($0.name ?? "Sem Título").lowercased().contains(searchText.lowercased()) }
+        }
+       
+    }
+    
+    func orderShoppingLists(by orderType: Int) {
+        switch orderType {
+        case 0:
+            print("Alfabética crescente")
+        case 1:
+            print("Alfabética crescente")
+        default:
+            print("Não identificado")
+        }
+    }
+}
+
+extension ShoppingListManager {
     func getAllBoughtList(_ key: String, response: @escaping (() -> Void)) {
         if let boughtList = UserDefaults.standard.data(forKey: key) {
             do {
                 let decoder = JSONDecoder()
                 shoppingLists = try decoder.decode([ShoppingListModel].self, from: boughtList)
+                filteredShoppingLists = shoppingLists
                 response()
             } catch {
                 print("Couldn't not save the updated boughtList.")
             }
         }
-        shoppingLists = [ShoppingListModel]()
     }
     
     func createNewBoughtList(_ key: String, name: String?) {

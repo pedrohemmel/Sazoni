@@ -31,6 +31,14 @@ class ShoppingListsViewController: UIViewController {
         }
         self.shoppingListsView.boughtListViewDelegate = self
         self.shoppingListsView.shoppingListsTableView.boughtListViewDelegate = self
+        self.shoppingListsView.search.searchDelegate = self
+    }
+}
+
+extension ShoppingListsViewController: SearchDelegate {
+    func search(with searchText: String) {
+        ShoppingListManager.shared.searchShoppingLists(with: searchText)
+        self.shoppingListsView.shoppingListsTableView.shoppingLists = ShoppingListManager.shared.filteredShoppingLists
     }
 }
 

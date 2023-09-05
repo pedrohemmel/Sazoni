@@ -34,7 +34,7 @@ class ShoppingListsView: UIView {
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = UIColor(red: 1, green: 0.98, blue: 0.867, alpha: 1)
         button.backgroundColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
-        button.addTarget(ShoppingListsView.self, action: #selector(buttonCreateAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonCreateAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -75,7 +75,7 @@ extension ShoppingListsView: ViewCode {
         
         self.buttonCreateNewShoppingList.setupConstraints { view in
             [
-                view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+                view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
                 view.widthAnchor.constraint(equalToConstant: 50),
                 view.heightAnchor.constraint(equalToConstant: 50)

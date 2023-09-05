@@ -6,16 +6,18 @@
 //
 
 import UIKit
+import Combine
 
 protocol BoughtListViewDelegate: AnyObject {
     func didClickCreateNew()
-    func didCreateNew(name: String?)
+    func didClickEditList(currentShoppingList: ShoppingListModel)
 }
 
 class ShoppingListsViewController: UIViewController {
     
-    weak var boughtListCRUDDelegate: BoughtListCRUDDelegate? = nil
     private var shoppingListsView = ShoppingListsView()
+    
+    private lazy var shoppingListSubscriper = Subscribers.Assign(object: shoppingListsView.shoppingListsTableView, keyPath: \.shoppingLists)
     
     override func loadView() {
         super.loadView()
@@ -23,38 +25,23 @@ class ShoppingListsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        shoppingListPublisher.subscribe(shoppingListSubscriper)
+        ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
+            self.shoppingListsView.shoppingListsTableView.shoppingLists = ShoppingListManager.shared.shoppingLists
+        }
         self.shoppingListsView.boughtListViewDelegate = self
+        self.shoppingListsView.shoppingListsTableView.boughtListViewDelegate = self
     }
 }
 
 extension ShoppingListsViewController: BoughtListViewDelegate {
     func didClickCreateNew() {
-        let newVC = ShoppingListCreateViewController()
-        
-        newVC.boughtListViewDelegate = self
-        
-        let backBtn = UIBarButtonItem(title: "Voltar", style: .plain, target: self, action: #selector(back))
-        backBtn.tintColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
-        newVC.navigationItem.leftBarButtonItem = backBtn
-        
-        self.navigationController?.pushViewController(newVC, animated: true)
+        let newVC = ShoppingListCreateViewController(currentShoppingList: nil)
+        self.present(newVC, animated: true)
     }
-    
-    func didCreateNew(name: String?) {
-        self.boughtListCRUDDelegate?.createNewBoughtList("boughtList", name: name)
-        if let boughtList = self.boughtListCRUDDelegate?.getAllBoughtList("boughtList") {
-            self.shoppingListsView.shoppingListsTableView.shoppingLists = boughtList
-        }
+    func didClickEditList(currentShoppingList: ShoppingListModel) {
+        let newVC = ShoppingListCreateViewController(currentShoppingList: currentShoppingList)
+        self.present(newVC, animated: true)
     }
 }
 
-//MARK: - Functions here
-extension ShoppingListsViewController {
-    func setup(boughtList: [ShoppingListModel]) {
-        self.shoppingListsView.shoppingListsTableView.shoppingLists = boughtList
-    }
-    
-    @objc func back() {
-        self.navigationController?.popViewController(animated: true)
-    }
-}

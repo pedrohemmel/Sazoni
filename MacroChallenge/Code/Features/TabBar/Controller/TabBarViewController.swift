@@ -46,123 +46,6 @@ extension TabBarViewController: MCMonthUpdatesDelegate {
     }
 }
 
-extension TabBarViewController: BoughtListCRUDDelegate {
-    func getAllBoughtList(_ key: String) -> [ShoppingListModel] {
-        if let boughtList = UserDefaults.standard.data(forKey: key) {
-            do {
-                let decoder = JSONDecoder()
-                return try decoder.decode([ShoppingListModel].self, from: boughtList)
-            } catch {
-                print("Couldn't not save the updated boughtList.")
-            }
-        }
-        return [ShoppingListModel]()
-    }
-    
-    func createNewBoughtList(_ key: String, name: String?) {
-        if let boughtList = UserDefaults.standard.data(forKey: key) {
-            do {
-                let decoder = JSONDecoder()
-                var newBoughtList = try decoder.decode([ShoppingListModel].self, from: boughtList)
-                newBoughtList.append(ShoppingListModel(
-                    id: newBoughtList.count,
-                    name: name,
-                    itemShoppingListModel: [ItemShoppingListModel](),
-                    isClosed: false))
-                
-                let encoder = JSONEncoder()
-                let data = try encoder.encode(newBoughtList)
-                UserDefaults.standard.set(data, forKey: key)
-            } catch {
-                print("Couldn't not save the updated boughtList.")
-            }
-        } else {
-            do {
-                let newBoughtList = [ShoppingListModel(id: 0, itemShoppingListModel: [ItemShoppingListModel](), isClosed: false)]
-                let encoder = JSONEncoder()
-                let data = try encoder.encode(newBoughtList)
-                UserDefaults.standard.set(data, forKey: key)
-            } catch {
-                print("Couldn't not save boughtList.")
-            }
-        }
-    }
-    
-    func deleteBoughtList(_ key: String, idBoughtList: Int) {
-        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: nil) { idBoughtList, _, boughtList in
-            guard let idBoughtList = idBoughtList else { return boughtList }
-            var newBoughtList = boughtList
-            if let index = newBoughtList.firstIndex(where: { $0.id == idBoughtList }) {
-                newBoughtList[index].itemShoppingListModel.removeAll()
-                newBoughtList.remove(at: index)
-            } else {
-                print("Could not find boughtList to delete.")
-            }
-            
-            return newBoughtList
-        }
-    }
-    
-    func deleteAllBoughtList(_ key: String) {
-        self.boughtListAction(key, idBoughtList: nil, idItem: nil) { _, _, boughtList in
-            var newBoughtList = boughtList
-            if newBoughtList.count > 0 {
-                for i in 0...(newBoughtList.count - 1) {
-                    newBoughtList[i].itemShoppingListModel.removeAll()
-                }
-            }
-            newBoughtList.removeAll()
-            
-            return newBoughtList
-        }
-    }
-    
-    func changeBoughtListStatus(_ key: String, idBoughtList: Int) {
-        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: nil) { idBoughtList, _, boughtList in
-            guard let idBoughtList = idBoughtList else { return boughtList }
-            var newBoughtList = boughtList
-            newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].isClosed.toggle()
-            
-            return newBoughtList
-        }
-    }
-    
-    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int) {
-        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: idItem) { idBoughtList, idItem, boughtList in
-            guard let idBoughtList = idBoughtList else { return boughtList }
-            guard let idItem = idItem else { return boughtList }
-            var newBoughtList = boughtList
-            let itemsShoppingListModel = newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel
-            newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel[itemsShoppingListModel.firstIndex(where: { $0.id == idItem }) ?? 0].isBought.toggle()
-            
-            return newBoughtList
-        }
-    }
-    
-    func addNewItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int) {
-        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: idItem) { idBoughtList, idItem, boughtList in
-            guard let idBoughtList = idBoughtList else { return boughtList }
-            guard let idItem = idItem else { return boughtList }
-            var newBoughtList = boughtList
-            newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel.append(ItemShoppingListModel(id: idItem, isBought: false))
-            
-            return newBoughtList
-        }
-    }
-    
-    func removeItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int) {
-        self.boughtListAction(key, idBoughtList: idBoughtList, idItem: idItem) { idBoughtList, idItem, boughtList in
-            guard let idBoughtList = idBoughtList else { return boughtList }
-            guard let idItem = idItem else { return boughtList }
-            var newBoughtList = boughtList
-            let itemsShoppingListModel = newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel
-            newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel.remove(at: itemsShoppingListModel.firstIndex(where: { $0.id == idItem }) ?? 0)
-            
-            return newBoughtList
-        }
-    }
-}
-
 //MARK: - Functions here
 extension TabBarViewController {
 
@@ -170,7 +53,8 @@ extension TabBarViewController {
         let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self, foods: FoodManager.shared.foods))
         let searchViewController = UINavigationController(rootViewController: SearchViewController())
         let favoriteFoodViewController = UINavigationController(rootViewController: FavoriteFoodViewController(currentMonth: self.currentMonth))
-        self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController], animated: false)
+        let shoppingListsViewController = UINavigationController(rootViewController: ShoppingListsViewController())
+        self.setViewControllers([categoryViewController, searchViewController, favoriteFoodViewController, shoppingListsViewController], animated: false)
         guard let items = self.tabBar.items else { return }
              
         items[0].image = UIImage(named: TabIcons.homeFillIcon)
@@ -179,6 +63,8 @@ extension TabBarViewController {
         items[1].title = "Pesquisa"
         items[2].image = UIImage(named: TabIcons.favoriteIcon)
         items[2].title = "Favoritos"
+        items[3].image = UIImage(named: TabIcons.listIcon)
+        items[3].title = "Lista"
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -191,24 +77,22 @@ extension TabBarViewController {
             items[0].image = UIImage(named: TabIcons.homeFillIcon)
             items[1].image = UIImage(named: TabIcons.searchIcon)
             items[2].image = UIImage(named: TabIcons.favoriteIcon)
-            
+            items[3].image = UIImage(named: TabIcons.listIcon)
         case 1:
             items[0].image = UIImage(named: TabIcons.homeIcon)
             items[1].image = UIImage(named: TabIcons.searchFillIcon)
             items[2].image = UIImage(named: TabIcons.favoriteIcon)
-
-            
+            items[3].image = UIImage(named: TabIcons.listIcon)
         case 2:
             items[0].image = UIImage(named: TabIcons.homeIcon)
             items[1].image = UIImage(named: TabIcons.searchIcon)
             items[2].image = UIImage(named: TabIcons.favoriteFillIcon)
-            
-            
+            items[3].image = UIImage(named: TabIcons.listIcon)
         case 3:
             items[0].image = UIImage(named: TabIcons.homeIcon)
             items[1].image = UIImage(named: TabIcons.searchIcon)
             items[2].image = UIImage(named: TabIcons.favoriteIcon)
-            
+            items[3].image = UIImage(named: TabIcons.listFillIcon)
         default:
             break
         }
@@ -228,23 +112,6 @@ extension TabBarViewController {
         self.tabBar.layer.borderColor = UIColor.brown.cgColor
         self.tabBar.tintColor = .brown
         self.tabBar.isTranslucent = true
-    }
-    
-    private func boughtListAction(_ key: String, idBoughtList: Int?, idItem: Int?, action: @escaping ((_ idBoughtList: Int?, _ idItem: Int?, _ boughtList: [ShoppingListModel]) -> [ShoppingListModel])) {
-        if let boughtList = UserDefaults.standard.data(forKey: key) {
-            do {
-                let decoder = JSONDecoder()
-                var newBoughtList = try decoder.decode([ShoppingListModel].self, from: boughtList)
-                
-                newBoughtList = action(idBoughtList, idItem, newBoughtList)
-                
-                let encoder = JSONEncoder()
-                let data = try encoder.encode(newBoughtList)
-                UserDefaults.standard.set(data, forKey: key)
-            } catch {
-                print("Couldn't do this issue")
-            }
-        }
     }
     
     private func getCurrentMonth() -> String {

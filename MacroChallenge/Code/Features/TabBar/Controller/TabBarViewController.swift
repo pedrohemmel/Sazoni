@@ -8,21 +8,6 @@
 import UIKit
 import Combine
 
-protocol MCMonthUpdatesDelegate: AnyObject {
-    func didChangeMonth(newMonthName: String)
-}
-
-protocol BoughtListCRUDDelegate: AnyObject {
-    func getAllBoughtList(_ key: String) -> [ShoppingListModel]
-    func createNewBoughtList(_ key: String, name: String?)
-    func deleteBoughtList(_ key: String, idBoughtList: Int)
-    func deleteAllBoughtList(_ key: String)
-    func changeBoughtListStatus(_ key: String, idBoughtList: Int)
-    func changeItemBoughtListStatus(_ key: String, idBoughtList: Int, idItem: Int)
-    func addNewItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
-    func removeItemBoughtList(_ key: String, idBoughtList: Int, idItem: Int)
-}
-
 class TabBarViewController: UITabBarController {
     var observer: AnyCancellable?
     lazy var currentMonth = self.getCurrentMonth()
@@ -38,8 +23,6 @@ class TabBarViewController: UITabBarController {
             self.setupTabItems()
         }
     }
-    
-    
 }
 
 extension TabBarViewController: MCMonthUpdatesDelegate {
@@ -54,10 +37,10 @@ extension TabBarViewController {
     private func setupTabItems() {
         let categoryViewController = UINavigationController(rootViewController: CategoryViewController(currentMonth: self.currentMonth, categories: self.categories, foodDelegate: self, foods: FoodManager.shared.foods))
         let favoriteFoodViewController = UINavigationController(rootViewController: FavoriteFoodViewController(currentMonth: self.currentMonth))
-        let listController = UINavigationController(rootViewController: AddFoodController(foods: self.foods))
-        let icon1 = UITabBarItem(title: "Início", image: .SZIconHome, selectedImage: .SZIconHomeFill)
-        let icon2 = UITabBarItem(title: "Favorito", image: .SZIconFavorite, selectedImage: .SZIconFavoriteFill)
-        let icon3 = UITabBarItem(title: "Lista", image: .SZIconList, selectedImage: .SZIconListFill)
+        let listController = UINavigationController(rootViewController: ShoppingListsViewController())
+        let icon1 = UITabBarItem(title: "Início", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        let icon2 = UITabBarItem(title: "Favorito", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
+        let icon3 = UITabBarItem(title: "Lista", image: UIImage(systemName: "list.bullet.clipboard"), selectedImage: UIImage(systemName: "list.bullet.clipboard.fill"))
         categoryViewController.tabBarItem = icon1
         favoriteFoodViewController.tabBarItem = icon2
         listController.tabBarItem = icon3

@@ -2,11 +2,14 @@
 import UIKit
 
 final class FoodViewController: UIViewController {
-     weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
-     weak var foodDelegate: FoodDetailDelegate? = nil
-     var currentMonth: String? = nil
-     var category: Category = Category(id_category: .zero, name_category: String())
-     var categories = [Category]()
+    private var choosenFilters = [FastFilterModel]()
+    weak var monthUpdatesDelegate: MCMonthUpdatesDelegate? = nil
+    weak var foodDelegate: FoodDetailDelegate? = nil
+    private var fastFilters = FastFilter.fastFiltersFavorite
+    var currentMonth: String? = nil
+    var monthSelected = String()
+    var category: Category = Category(id_category: .zero, name_category: String())
+    var categories = [Category]()
      
      private lazy var foodView = FoodView(frame: self.view.frame)
      
@@ -18,9 +21,17 @@ final class FoodViewController: UIViewController {
      override func viewDidLoad() {
          super.viewDidLoad()
          self.foodView.setup(currentMonth: self.currentMonth ?? "Erro mês", category: self.category, categorySwipeDelegeta: self, foodDelegate: self.foodDelegate)
+         self.foodView.search.searchDelegate = self
          self.navigationItem.hidesBackButton = true
      }
  }
+
+extension FoodViewController: SearchDelegate {
+    func search(with searchText: String) {
+        FoodManager.shared.filterFoods(with: searchText, choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.currentMonth ?? "")
+        self.foodView.collectionView.foods = FoodManager.shared.filteredFoods
+    }
+}
 
 extension FoodViewController: MCCategorySwipeDelegate {
     func didClickBackCategory() {
@@ -104,39 +115,50 @@ extension FoodViewController {
     }
 }
 
-extension FoodViewController: FastFilterDelegate{
-    func selectInitialMonth() {
-        self.choosenFilters.append(FastFilterModel(name: self.getCurrentMonth(), idCategory: nil, filterIsSelected: nil))
-        self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
-        self.filterFoods()
-    }
+extension FoodViewController: FastFilterDelegate {
     func didClickCategoryFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.append(FastFilterModel(name: fastFilter.name, idCategory: fastFilter.idCategory, filterIsSelected: nil))
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: true)
-        self.filterFoods()
+        FoodManager.shared.filterFoods(with: "\(self.foodView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
+        self.foodView.collectionView.foods = FoodManager.shared.filteredFoods
+        
     }
     func didClickMonthFilter() {
         let newVC = MonthSelectionViewController()
         newVC.fastFilterDelegate = self
+        newVC.monthSelected = monthSelected
         newVC.sheetPresentationController?.detents = [.medium()]
         self.present(newVC, animated: true)
+    }
+    func selectInitialMonth() {
+        self.choosenFilters.append(FastFilterModel(name: self.getCurrentMonth(), idCategory: nil, filterIsSelected: nil))
+        self.monthSelected = self.getCurrentMonth()
+        self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
+        FoodManager.shared.filterFoods(with: "\(self.foodView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
+        self.foodView.collectionView.foods = FoodManager.shared.filteredFoods
     }
     func didSelectMonthFilter(monthName: String) {
         self.deleteMonthIfItExists()
         self.choosenFilters.append(FastFilterModel(name: monthName, idCategory: nil, filterIsSelected: nil))
+        self.monthSelected = monthName
         self.reloadFastFilterData(fastFilter: FastFilterModel(name: "months", idCategory: nil), filterIsSelected: true)
-        self.filterFoods()
+        self.foodView.collectionView.setup(foods: FoodManager.shared.filteredFoods, currentMonth: monthName, foodDelegate: nil, favoriteFoodDelegate: nil)
+        FoodManager.shared.filterFoods(with: "\(self.foodView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
+        self.foodView.collectionView.foods = FoodManager.shared.filteredFoods
     }
     func didDeleteFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: false)
-        self.filterFoods()
+        FoodManager.shared.filterFoods(with: "\(self.foodView.search.text ?? String())", choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: self.getCurrentMonthNumber(), monthSelected: self.monthSelected)
+        self.foodView.collectionView.foods = FoodManager.shared.filteredFoods
     }
-    
+}
+
+
+extension FoodViewController {
     func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {
         self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0].filterIsSelected = filterIsSelected
         self.foodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
-        //        self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
     }
     
     func deleteMonthIfItExists() {
@@ -146,10 +168,6 @@ extension FoodViewController: FastFilterDelegate{
                 self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == month }) ?? 0)
             }
         }
-    }
-    
-    func filterFoods() {
-        
     }
 }
 

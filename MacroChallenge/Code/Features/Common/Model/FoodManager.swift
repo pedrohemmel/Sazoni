@@ -13,7 +13,10 @@ class FoodManager{
     func getFavoriteFoods() {
         self.favoriteFoods = self.foods.filter({ FavoriteList.shared.getListOfFoods().contains($0.id_food) })
     }
-    
+}
+
+//Getting foods
+extension FoodManager {
     func getFoods(response: @escaping(() -> Void)) {
         self.observer = self.fetchFoods()
             .sink(receiveCompletion: { completion in
@@ -30,7 +33,7 @@ class FoodManager{
             })
     }
     
-    func fetchFoods() -> Future<[Food], Error> {
+    private func fetchFoods() -> Future<[Food], Error> {
         return Future { promixe in
             if let filePath = Bundle.main.path(forResource: "data", ofType: "json") {
                 do
@@ -95,7 +98,7 @@ extension FoodManager {
         filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: filteredFoods, currentMonth: monthSelected)
     }
     
-    func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {
+    private func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {
         var newFoods = [Food]()
         newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Alta", foods: foods, currentMonth: currentMonth))
         newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Média", foods: foods, currentMonth: currentMonth))
@@ -104,7 +107,7 @@ extension FoodManager {
         return newFoods
     }
     
-    func getFoodsInCurrentMonthWithState(state: String, foods: [Food], currentMonth: String) -> [Food] {
+    private func getFoodsInCurrentMonthWithState(state: String, foods: [Food], currentMonth: String) -> [Food] {
         var newFoods = [Food]()
         for food in foods {
             for seasonality in food.seasonalities {
@@ -120,7 +123,7 @@ extension FoodManager {
         
     }
     
-    func verifyIfFilterIsMonth(nameOfFilter: String) -> Bool {
+    private func verifyIfFilterIsMonth(nameOfFilter: String) -> Bool {
         let months = Months.monthArray
         return months.contains(nameOfFilter)
     }

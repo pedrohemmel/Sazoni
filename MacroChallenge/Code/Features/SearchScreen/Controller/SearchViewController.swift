@@ -2,21 +2,7 @@
 import UIKit
 import Combine
 
-protocol FastFilterDelegate: AnyObject {
-    func didClickCategoryFilter(fastFilter: FastFilterModel)
-    func didClickMonthFilter()
-    func selectInitialMonth()
-    func didSelectMonthFilter(monthName: String)
-    func didDeleteFilter(fastFilter: FastFilterModel)
-}
 
-protocol FoodDetailDelegate: AnyObject{
-    func selectFood(food: Food)
-}
-
-protocol SearchDelegate: AnyObject {
-    func search(with searchText: String)
-}
 
 class SearchViewController: UIViewController {
     

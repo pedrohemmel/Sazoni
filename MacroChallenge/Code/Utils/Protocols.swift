@@ -56,3 +56,7 @@ protocol FastFilterDelegate: AnyObject {
 protocol FoodDetailDelegate: AnyObject{
     func selectFood(food: Food)
 }
+
+protocol SearchDelegate: AnyObject {
+    func search(with searchText: String)
+}

@@ -10,7 +10,6 @@ import UIKit
 class FoodView: UIView {
     weak var categorySwipeDelegate: MCCategorySwipeDelegate? = nil
     private var currentMonth: String? = nil
-    private var foods = [Food]()
     var category = Category(id_category: .zero, name_category: String())
     
     //MARK: - Views
@@ -129,7 +128,6 @@ extension FoodView {
         self.currentMonth = currentMonth
         self.category = category
         
-        self.foodCategoryName.text = category.name_category
         self.collectionView.setup(foods: FoodManager.shared.filteredFoods, currentMonth: currentMonth, foodDelegate: foodDelegate, favoriteFoodDelegate: nil)
         self.monthTitle.text = currentMonth
         

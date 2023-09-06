@@ -3,14 +3,11 @@ import UIKit
 class AddFoodController: UIViewController{
     
     private var addFoodView: AddFoodView
-    private var foods: [Food]
     
-    init(foods: [Food]) {
-        self.foods = foods
-        self.addFoodView = AddFoodView(frame: .zero, foods: self.foods)
+    init() {
+        self.addFoodView = AddFoodView(frame: .zero, foods: FoodManager.shared.foods)
         super.init(nibName: nil, bundle: nil)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +23,6 @@ class AddFoodController: UIViewController{
     override func loadView() {
         self.view = self.addFoodView
     }
-
-    
 }
 
 extension AddFoodController{
@@ -36,7 +31,12 @@ extension AddFoodController{
         btn.tintColor = .SZColorBeige
         btn.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         btn.setTitle("Voltar", for: .normal)
+        btn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+    }
+    
+    @objc func backBtnAction() {
+        navigationController?.popViewController(animated: true)
     }
     
     func addFoodBtn(){
@@ -44,8 +44,7 @@ extension AddFoodController{
         btn.tintColor = .SZColorBeige
         btn.setTitle("Ok", for: .normal)
         btn.titleLabel?.font = .SZFontTextBold
+        btn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
     }
-    
-    
 }

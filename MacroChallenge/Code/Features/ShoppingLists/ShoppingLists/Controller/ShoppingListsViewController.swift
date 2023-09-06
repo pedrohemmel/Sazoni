@@ -10,6 +10,7 @@ import Combine
 
 protocol BoughtListViewDelegate: AnyObject {
     func didClickCreateNew()
+    func didSelectList(shoppingList: ShoppingListModel)
     func didClickEditList(currentShoppingList: ShoppingListModel)
 }
 
@@ -25,7 +26,7 @@ class ShoppingListsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        shoppingListPublisher.subscribe(shoppingListSubscriper)
+        shoppingListsPublisher.subscribe(shoppingListSubscriper)
         ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
             self.shoppingListsView.shoppingListsTableView.shoppingLists = ShoppingListManager.shared.shoppingLists
         }
@@ -47,9 +48,29 @@ extension ShoppingListsViewController: BoughtListViewDelegate {
         let newVC = ShoppingListCreateViewController(currentShoppingList: nil)
         self.present(newVC, animated: true)
     }
+    
+    func didSelectList(shoppingList: ShoppingListModel) {
+        let newVC = ShoppingListController(shoppingList: shoppingList)
+        
+        let btn = UIButton(type: .system)
+        btn.tintColor = .SZColorBeige
+        btn.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        btn.setTitle("Voltar", for: .normal)
+        btn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
+        newVC.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+        
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
+    
     func didClickEditList(currentShoppingList: ShoppingListModel) {
         let newVC = ShoppingListCreateViewController(currentShoppingList: currentShoppingList)
         self.present(newVC, animated: true)
+    }
+}
+
+extension ShoppingListsViewController {
+    @objc func backBtnAction() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

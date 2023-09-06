@@ -11,7 +11,7 @@ class ShoppingListsTableViewCell: UITableViewCell {
     
     var title: UILabel = {
         let title = UILabel()
-        title.textColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
+        title.textColor = .SZColorBeige
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()

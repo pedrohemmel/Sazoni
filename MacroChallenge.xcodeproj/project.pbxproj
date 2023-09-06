@@ -63,6 +63,8 @@
 		BB3F83542A65C5C700C0DFA1 /* ShoppingListCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83532A65C5C700C0DFA1 /* ShoppingListCreateView.swift */; };
 		BB51055F2A421EEF002A928F /* FastFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB51055E2A421EEF002A928F /* FastFilterTests.swift */; };
 		BB5EEAD72AA63E4400A46A0E /* ShoppingListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5EEAD62AA63E4400A46A0E /* ShoppingListManager.swift */; };
+		BB8F2D732AA8ECFB0001FB47 /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2D722AA8ECFB0001FB47 /* ShoppingListController.swift */; };
+		BB8F2D752AA8ED060001FB47 /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2D742AA8ED060001FB47 /* ShoppingListView.swift */; };
 		BBC8CCF92A5C8CB600D26D64 /* ShoppingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8CCF82A5C8CB600D26D64 /* ShoppingListModel.swift */; };
 		BBC8CCFB2A5C8CBF00D26D64 /* ItemShoppingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8CCFA2A5C8CBF00D26D64 /* ItemShoppingListModel.swift */; };
 		BBC8CCFD2A5DC70900D26D64 /* BoughtListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8CCFC2A5DC70900D26D64 /* BoughtListTests.swift */; };
@@ -155,6 +157,8 @@
 		BB3F83532A65C5C700C0DFA1 /* ShoppingListCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCreateView.swift; sourceTree = "<group>"; };
 		BB51055E2A421EEF002A928F /* FastFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterTests.swift; sourceTree = "<group>"; };
 		BB5EEAD62AA63E4400A46A0E /* ShoppingListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListManager.swift; sourceTree = "<group>"; };
+		BB8F2D722AA8ECFB0001FB47 /* ShoppingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListController.swift; sourceTree = "<group>"; };
+		BB8F2D742AA8ED060001FB47 /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
 		BBC8CCF82A5C8CB600D26D64 /* ShoppingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListModel.swift; sourceTree = "<group>"; };
 		BBC8CCFA2A5C8CBF00D26D64 /* ItemShoppingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemShoppingListModel.swift; sourceTree = "<group>"; };
 		BBC8CCFC2A5DC70900D26D64 /* BoughtListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoughtListTests.swift; sourceTree = "<group>"; };
@@ -255,8 +259,8 @@
 		88EB7AE42AA6509200E0CF43 /* AddFoodScreen */ = {
 			isa = PBXGroup;
 			children = (
-				88EB7AEA2AA652DB00E0CF43 /* Controller */,
 				88EB7AE92AA652D100E0CF43 /* View */,
+				88EB7AEA2AA652DB00E0CF43 /* Controller */,
 			);
 			path = AddFoodScreen;
 			sourceTree = "<group>";
@@ -335,9 +339,9 @@
 		BB1624692A97F4E400162531 /* ShoppingLists */ = {
 			isa = PBXGroup;
 			children = (
-				BB16246A2A97F50500162531 /* Model */,
-				BB16246B2A97F50C00162531 /* View */,
-				BB16246C2A97F51700162531 /* Controller */,
+				BB8F2D6B2AA8E9490001FB47 /* ShoppingList */,
+				BB8F2D6A2AA8E9390001FB47 /* ShoppingLists */,
+				BB8F2D672AA8E8F70001FB47 /* CreateNew */,
 			);
 			path = ShoppingLists;
 			sourceTree = "<group>";
@@ -346,7 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				BBC8CCF82A5C8CB600D26D64 /* ShoppingListModel.swift */,
-				BBC8CCFA2A5C8CBF00D26D64 /* ItemShoppingListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,7 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */,
-				BB3F83532A65C5C700C0DFA1 /* ShoppingListCreateView.swift */,
 				BB3F834A2A61ACF700C0DFA1 /* Views */,
 			);
 			path = View;
@@ -365,7 +367,6 @@
 			isa = PBXGroup;
 			children = (
 				BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */,
-				BB3F83502A65C54700C0DFA1 /* ShoppingListCreateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -597,7 +598,6 @@
 				BB16246D2A97F56200162531 /* Category */,
 				BB1624692A97F4E400162531 /* ShoppingLists */,
 				88EB7ADD2AA4DEC000E0CF43 /* InfoScreen */,
-				88EB7AE42AA6509200E0CF43 /* AddFoodScreen */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -617,6 +617,84 @@
 				BB3F834E2A61AD5800C0DFA1 /* ShoppingListsTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BB8F2D672AA8E8F70001FB47 /* CreateNew */ = {
+			isa = PBXGroup;
+			children = (
+				BB8F2D692AA8E9110001FB47 /* View */,
+				BB8F2D682AA8E90D0001FB47 /* Controller */,
+			);
+			path = CreateNew;
+			sourceTree = "<group>";
+		};
+		BB8F2D682AA8E90D0001FB47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BB3F83502A65C54700C0DFA1 /* ShoppingListCreateViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BB8F2D692AA8E9110001FB47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB3F83532A65C5C700C0DFA1 /* ShoppingListCreateView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB8F2D6A2AA8E9390001FB47 /* ShoppingLists */ = {
+			isa = PBXGroup;
+			children = (
+				BB16246A2A97F50500162531 /* Model */,
+				BB16246B2A97F50C00162531 /* View */,
+				BB16246C2A97F51700162531 /* Controller */,
+			);
+			path = ShoppingLists;
+			sourceTree = "<group>";
+		};
+		BB8F2D6B2AA8E9490001FB47 /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				BB8F2D6E2AA8E9640001FB47 /* ShoppingListScreen */,
+				88EB7AE42AA6509200E0CF43 /* AddFoodScreen */,
+			);
+			path = ShoppingList;
+			sourceTree = "<group>";
+		};
+		BB8F2D6E2AA8E9640001FB47 /* ShoppingListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BB8F2D712AA8EA4D0001FB47 /* Model */,
+				BB8F2D702AA8EA220001FB47 /* View */,
+				BB8F2D6F2AA8EA170001FB47 /* Controller */,
+			);
+			path = ShoppingListScreen;
+			sourceTree = "<group>";
+		};
+		BB8F2D6F2AA8EA170001FB47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BB8F2D722AA8ECFB0001FB47 /* ShoppingListController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BB8F2D702AA8EA220001FB47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB8F2D742AA8ED060001FB47 /* ShoppingListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB8F2D712AA8EA4D0001FB47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BBC8CCFA2A5C8CBF00D26D64 /* ItemShoppingListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BBD62EF42A2516A0001F71ED = {
@@ -866,6 +944,7 @@
 				BB3F834F2A61AD5800C0DFA1 /* ShoppingListsTableViewCell.swift in Sources */,
 				883A7F1B2A429F1A00E7D4E1 /* FavoriteList.swift in Sources */,
 				BB3F83542A65C5C700C0DFA1 /* ShoppingListCreateView.swift in Sources */,
+				BB8F2D752AA8ED060001FB47 /* ShoppingListView.swift in Sources */,
 				883A7F162A426FD100E7D4E1 /* FavoriteFoodViewController.swift in Sources */,
 				BB08F31A2AA26A8800116A68 /* NotificationNameExtension.swift in Sources */,
 				8894BF232A3BA97500C97894 /* TitleDetailView.swift in Sources */,
@@ -895,6 +974,7 @@
 				88272BA22A39036800B807BD /* SeasonalityCollectionViewComponent.swift in Sources */,
 				BB0EFA8F2A30F625009DA542 /* FastFilterComponent.swift in Sources */,
 				BB3B0EBC2A37965500774A3D /* FastFilterModel.swift in Sources */,
+				BB8F2D732AA8ECFB0001FB47 /* ShoppingListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -98,6 +98,15 @@ extension FoodManager {
         filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: filteredFoods, currentMonth: monthSelected)
     }
     
+    func filterShoppingFoods(itemsShoppingListModel: [ItemShoppingListModel]) {
+        filteredFoods = foods
+        filteredFoods = filteredFoods.filter({ food in
+            return itemsShoppingListModel.contains(where: { $0.id == food.id_food })
+        })
+        print(getCurrentMonth())
+        filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: filteredFoods, currentMonth: getCurrentMonth())
+    }
+    
     private func orderFoodsByHighQualityInCurrentMonth(foods: [Food], currentMonth: String) -> [Food] {
         var newFoods = [Food]()
         newFoods.append(contentsOf: self.getFoodsInCurrentMonthWithState(state: "Alta", foods: foods, currentMonth: currentMonth))
@@ -126,5 +135,16 @@ extension FoodManager {
     private func verifyIfFilterIsMonth(nameOfFilter: String) -> Bool {
         let months = Months.monthArray
         return months.contains(nameOfFilter)
+    }
+}
+
+extension FoodManager {
+    func getCurrentMonth() -> String {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt-BR")
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth = dateFormatter.string(from: now)
+        return nameOfMonth.capitalized
     }
 }

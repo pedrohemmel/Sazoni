@@ -60,3 +60,7 @@ protocol FoodDetailDelegate: AnyObject{
 protocol SearchDelegate: AnyObject {
     func search(with searchText: String)
 }
+
+protocol AddFoodDelegate: AnyObject {
+    func didClickAddNewFood()
+}

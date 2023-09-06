@@ -20,11 +20,18 @@ class ShoppingListCreateView: UIView {
         }
     }
     
+    private var capsule: UIImageView = {
+        let capsule = UIImageView(image: UIImage(named: "menuItem"))
+        capsule.translatesAutoresizingMaskIntoConstraints = false
+        return capsule
+    }()
+    
     private var title: UILabel = {
         let view = UILabel()
-        view.text = "Crie uma nova lista"
-        view.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
-        view.textColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
+        view.text = "Dê um nome para sua lista"
+        view.lineBreakMode = .byClipping
+        view.font = .SZFontTitle
+        view.textColor = .SZColorBeige
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -32,21 +39,29 @@ class ShoppingListCreateView: UIView {
     lazy var txtField: UITextField = {
         let txtField = UITextField()
         txtField.placeholder = "Digite aqui"
-        txtField.layer.cornerRadius = 10
-        txtField.layer.borderWidth = 3
-        txtField.layer.borderColor = UIColor.brown.cgColor
-        txtField.tintColor = .brown
-        txtField.textColor = .brown
-        txtField.leftView?.tintColor = .brown
-        txtField.background = .none
-        txtField.backgroundColor = .white
+        txtField.textAlignment = .center
+        txtField.textColor = .SZColorBeige
+        txtField.font = UIFont.systemFont(ofSize: 25)
+        txtField.attributedPlaceholder = NSAttributedString(
+            string: "Digite aqui",
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.SZColorBeige,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25)]
+        )
         txtField.translatesAutoresizingMaskIntoConstraints = false
         return txtField
+    }()
+    var lineTxtField: UIView = {
+        let view = UIView()
+        view.backgroundColor = .SZColorBeige
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     lazy var confirmBtn: UIButton = {
         let createBtn = UIButton()
-        createBtn.backgroundColor = .blue
+        createBtn.setTitleColor(.SZColorSecundaryColor, for: .normal)
+        createBtn.backgroundColor = .SZColorBeige
         createBtn.layer.cornerRadius = 15
         createBtn.setTitle("Confirmar", for: .normal)
         createBtn.addTarget(self, action: #selector(confirmShoppingList), for: .touchUpInside)
@@ -66,30 +81,48 @@ class ShoppingListCreateView: UIView {
 
 extension ShoppingListCreateView: ViewCode {
     func buildViewHierarchy() {
-        [self.title, self.txtField, self.confirmBtn].forEach({ self.addSubview($0) })
+        [self.title, self.txtField, self.lineTxtField, self.confirmBtn, self.capsule].forEach({ self.addSubview($0) })
     }
     
     func setupConstraints() {
+        self.capsule.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                view.bottomAnchor.constraint(equalTo: self.title.topAnchor, constant: -30)
+            ]
+        }
         self.title.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-                view.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -5.5),
-                view.bottomAnchor.constraint(equalTo: self.txtField.topAnchor)
+                view.topAnchor.constraint(equalTo: self.capsule.bottomAnchor, constant: 30),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+                view.bottomAnchor.constraint(equalTo: self.txtField.topAnchor, constant: -50)
             ]
         }
         
         self.txtField.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
+                view.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 50),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                view.bottomAnchor.constraint(equalTo: self.confirmBtn.topAnchor, constant: -30),
+                view.bottomAnchor.constraint(equalTo: self.lineTxtField.topAnchor, constant: -5),
                 view.heightAnchor.constraint(equalToConstant: 30)
+            ]
+        }
+        
+        self.lineTxtField.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.txtField.bottomAnchor, constant: 5),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+                view.bottomAnchor.constraint(equalTo: self.lineTxtField.topAnchor, constant: -50),
+                view.heightAnchor.constraint(equalToConstant: 2)
             ]
         }
         self.confirmBtn.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.txtField.bottomAnchor, constant: 30),
+                view.topAnchor.constraint(equalTo: self.lineTxtField.bottomAnchor, constant: 50),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 view.heightAnchor.constraint(equalToConstant: 50),
                 view.widthAnchor.constraint(equalToConstant: self.confirmBtn.intrinsicContentSize.width + 30)
@@ -98,7 +131,7 @@ extension ShoppingListCreateView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = UIColor(red: 1, green: 0.98, blue: 0.867, alpha: 1)
+        self.backgroundColor = .SZColorPrimaryColor
     }
 }
 
@@ -122,7 +155,7 @@ extension ShoppingListCreateView {
         let shoppingListsTableView = ShoppingListsTableView(frame: .zero, style: .grouped)
         ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
             shoppingListsTableView.shoppingLists = ShoppingListManager.shared.shoppingLists
-            NotificationCenter.default.post(name: .shoppingList, object: shoppingListsTableView)
+            NotificationCenter.default.post(name: .shoppingLists, object: shoppingListsTableView)
         }
         delegate?.didClickConfirm()
     }

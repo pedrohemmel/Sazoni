@@ -1,11 +1,6 @@
 import UIKit
 
-class AddFoodView: UIView{
-    
-    /// sempre inicio com duas lista de alimentos - lista de mercado e a lista que temos em nosso json
-    /// eu preciso comparar a lista criada pelo usuario e a lista do json,
-    /// apresentar com um botão preenchido os itens que o user tem em sua lista
-    /// apresentar com o outro botão os itens que o usuario não adicionou ainda
+class AddFoodView: UIView {
     
     private lazy var title: UILabel = {
         let view = UILabel()

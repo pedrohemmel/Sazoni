@@ -42,15 +42,18 @@ extension ShoppingListsTableView: UITableViewDataSource {
 extension ShoppingListsTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.deselectRow(at: indexPath, animated: true)
+        self.boughtListViewDelegate?.didSelectList(shoppingList: shoppingLists[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
         let deleteItem = UIContextualAction(style: .destructive, title: "Deletar") {  (contextualAction, view, boolValue) in
             ShoppingListManager.shared.deleteBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: self.shoppingLists[indexPath.row].id)
             ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
                 self.shoppingLists = ShoppingListManager.shared.shoppingLists
             }
         }
+        
         let editItem = UIContextualAction(style: .normal, title: "Editar") {  (contextualAction, view, boolValue) in
             self.boughtListViewDelegate?.didClickEditList(currentShoppingList: self.shoppingLists[indexPath.row])
         }

@@ -14,16 +14,16 @@ class ShoppingListsView: UIView {
     private lazy var title: UILabel = {
         let view = UILabel()
         view.text = "Listas"
-        view.font = UIFont(name: "Quicksand-SemiBold", size: 64)
-        view.textColor = UIColor(named: "darkBrown")
+        view.font = .SZFontTitle
+        view.textColor = .SZColorBeige
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var search: SearchBarComponent = {
         let view = SearchBarComponent()
-        view.placeholder = "Digite sua pesquisa"
-        view.barTintColor = .white
+        view.searchTextField.attributedPlaceholder = NSAttributedString(string: "Buscar", attributes: [NSAttributedString.Key.foregroundColor: UIColor.SZColorBeige ?? .white])
+        view.searchTextField.textColor = .SZColorBeige
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -32,7 +32,7 @@ class ShoppingListsView: UIView {
         let shoppingListsTableView = ShoppingListsTableView()
         shoppingListsTableView.backgroundColor = .clear
         shoppingListsTableView.backgroundView = .none
-        shoppingListsTableView.separatorColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
+        shoppingListsTableView.separatorColor = .SZColorBeige
         shoppingListsTableView.translatesAutoresizingMaskIntoConstraints = false
         return shoppingListsTableView
     }()
@@ -40,8 +40,8 @@ class ShoppingListsView: UIView {
     private var buttonCreateNewShoppingList: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus"), for: .normal)
-        button.tintColor = UIColor(red: 1, green: 0.98, blue: 0.867, alpha: 1)
-        button.backgroundColor = UIColor(red: 0.329, green: 0.204, blue: 0.09, alpha: 1)
+        button.tintColor = .SZColorBeige
+        button.backgroundColor = .SZColorSecundaryColor
         button.addTarget(self, action: #selector(buttonCreateAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -102,7 +102,7 @@ extension ShoppingListsView: ViewCode {
     
     func setupAdditionalConfiguration() {
         self.buttonCreateNewShoppingList.layer.cornerRadius = 25
-        self.backgroundColor = UIColor(red: 1, green: 0.98, blue: 0.867, alpha: 1)
+        self.backgroundColor = .SZColorPrimaryColor
     }
 }
 

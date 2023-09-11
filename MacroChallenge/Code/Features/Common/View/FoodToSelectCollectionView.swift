@@ -5,23 +5,16 @@ import UIKit
 
 class FoodToSelectCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout{
     
-    weak var foodDelegate: FoodDetailDelegate? = nil
-    weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
+    weak var foodToSelectDelegate: FoodToSelectDelegate? = nil
     var shoppingList: ShoppingListModel?
     var foods: [Food] = [Food]() {
         didSet {
             self.reloadData()
         }
     }
-    var currentMonth = String()
     private let spacing:CGFloat = 16.0
     
     var isShoppingList = false
-    
-    var arrData = [Food]() 
-    var arrSelectedIndex = [IndexPath]()
-    var arrSelectedData = [Food]()
-
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -46,23 +39,26 @@ extension FoodToSelectCollectionView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectionCellView", for: indexPath) as! SelectionCellView
-        let currentStateSeasonality = self.foods[indexPath.row].seasonalities[self.foods[indexPath.row].seasonalities.firstIndex(where: { $0.month_name_seasonality == self.currentMonth }) ?? 0].state_seasonality
+        let currentStateSeasonality = self.foods[indexPath.row].seasonalities[self.foods[indexPath.row].seasonalities.firstIndex(where: { $0.month_name_seasonality == FoodManager.shared.getCurrentMonth() }) ?? 0].state_seasonality
         
         cell.sazonality.image = UIImage.getImageSazonality(currentStateSeasonality)
         cell.foodImage.image = UIImage(named: "\(self.foods[indexPath.row].image_source_food)")
         cell.nameFood.text = foods[indexPath.row].name_food
         cell.backgroundColor = .SZColorBeige
         cell.layer.cornerRadius = .SZCornerRadiusMediumShape
-        if !isShoppingList {
-            if arrSelectedIndex.contains(indexPath) {
-                cell.btnSelect.image = UIImage(named: "SZ.checkmark.circle.fill")
+        
+        if let shoppingList {
+            if !isShoppingList {
+                if ShoppingListManager.shared.verifyIfFoodIsInList(food: foods[indexPath.row], shoppingList: shoppingList) {
+                    cell.btnSelect.image = UIImage(named: "SZ.checkmark.circle.fill")
+                } else {
+                    cell.btnSelect.image = UIImage(named: "SZ.checkmark.circle")
+                }
+            } else {
+                cell.btnSelect.image = UIImage(named: "button_delete")
             }
-            else {
-                cell.btnSelect.image = UIImage(named: "SZ.checkmark.circle")
-            }
-        } else {
-            cell.btnSelect.image = UIImage(named: "button_delete")
         }
+        
         return cell
     }
     
@@ -71,24 +67,30 @@ extension FoodToSelectCollectionView: UICollectionViewDataSource {
 
 extension FoodToSelectCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if !isShoppingList {
-            let strData = foods[indexPath.item]
-            if arrSelectedIndex.contains(indexPath) {
-                arrSelectedIndex = arrSelectedIndex.filter { $0 != indexPath}
-                arrSelectedData = arrSelectedData.filter { $0.id_food != strData.id_food}
+        if let shoppingList {
+            if !isShoppingList {
+                if ShoppingListManager.shared.verifyIfFoodIsInList(food: foods[indexPath.row], shoppingList: shoppingList) {
+                    ShoppingListManager.shared.removeItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList.id, idItem: foods[indexPath.row].id_food)
+                    foodToSelectDelegate?.didUpdateShoppingList(shoppingList: shoppingList, food: foods[indexPath.row])
+    
+                } else {
+                    ShoppingListManager.shared.addNewItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList.id, idItem: foods[indexPath.row].id_food)
+                    
+                    foodToSelectDelegate?.didUpdateShoppingList(shoppingList: shoppingList, food: foods[indexPath.row])
+                } 
+            } else {
+                if ShoppingListManager.shared.verifyIfFoodIsInList(food: foods[indexPath.row], shoppingList: shoppingList) {
+                    ShoppingListManager.shared.removeItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList.id, idItem: foods[indexPath.row].id_food)
+                    foodToSelectDelegate?.didUpdateShoppingList(shoppingList: shoppingList, food: foods[indexPath.row])
+                }
             }
-            else {
-                ShoppingListManager.shared.addNewItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList?.id ?? 0, idItem: foods[indexPath.row].id_food)
-                
-                
-                arrSelectedIndex.append(indexPath)
-                arrSelectedData.append(strData)
+            ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
+                let shoppingLists = ShoppingListManager.shared.filteredShoppingLists
+                if let shoppingList = self.shoppingList {
+                    self.shoppingList = shoppingLists[shoppingLists.firstIndex(where: {$0.id == shoppingList.id}) ?? 0]
+                }
+                collectionView.reloadData()
             }
-
-            collectionView.reloadData()
-        } else {
-            //Apagar fruta aqui
         }
-       
     }
 }

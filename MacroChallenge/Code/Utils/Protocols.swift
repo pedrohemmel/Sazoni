@@ -64,3 +64,7 @@ protocol SearchDelegate: AnyObject {
 protocol AddFoodDelegate: AnyObject {
     func didClickAddNewFood()
 }
+
+protocol FoodToSelectDelegate: AnyObject {
+    func didUpdateShoppingList(shoppingList: ShoppingListModel, food: Food)
+}

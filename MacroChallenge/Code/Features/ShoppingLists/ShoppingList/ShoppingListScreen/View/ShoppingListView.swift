@@ -32,23 +32,10 @@ class ShoppingListView: UIView{
         return view
     }()
     
-    private var buttonToAddFoods: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
-        button.tintColor = .SZColorBeige
-        button.backgroundColor = .SZColorSecundaryColor
-        button.addTarget(self, action: #selector(buttonAddAction), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViewConfiguration()
     }
-    
-    
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -57,7 +44,7 @@ class ShoppingListView: UIView{
 
 extension ShoppingListView: ViewCode {
     func buildViewHierarchy() {
-        [self.title, fastFilterComponent, collectionView, buttonToAddFoods].forEach({addSubview($0)})
+        [self.title, fastFilterComponent, collectionView].forEach({addSubview($0)})
     }
     
     func setupConstraints() {
@@ -71,8 +58,8 @@ extension ShoppingListView: ViewCode {
         self.fastFilterComponent.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.midX * 0.4),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -self.frame.midX * 0.4),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: (UIScreen.main.bounds.midX) * 0.4),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -(UIScreen.main.bounds.midX) * 0.4),
                 view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor),
             ]
         }
@@ -85,23 +72,8 @@ extension ShoppingListView: ViewCode {
             ]
             
         }
-        buttonToAddFoods.setupConstraints { view in
-            [
-                view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-                view.widthAnchor.constraint(equalToConstant: 50),
-                view.heightAnchor.constraint(equalToConstant: 50)
-            ]
-        }
     }
     
     func setupAdditionalConfiguration() {
-        buttonToAddFoods.layer.cornerRadius = 25
-    }
-}
-
-extension ShoppingListView {
-    @objc func buttonAddAction() {
-        addFoodDelegate?.didClickAddNewFood()
     }
 }

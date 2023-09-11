@@ -12,12 +12,11 @@ class ShoppingListController: UIViewController {
     
     private var shoppingList: ShoppingListModel
     
-    private lazy var shoppingListSubscriper = Subscribers.Assign(object: shoppingListView.collectionView, keyPath: \.foods)
-    
-    init(shoppingList: ShoppingListModel) {
+    init(shoppingList: ShoppingListModel, frame: CGRect) {
         self.shoppingList = shoppingList
-//        FoodManager.shared.filterShoppingFoods(itemsShoppingListModel: shoppingList.itemShoppingListModel)
+        FoodManager.shared.filterShoppingFoods(itemsShoppingListModel: shoppingList.itemShoppingListModel, choosenFilters: [FastFilterModel]())
         super.init(nibName: nil, bundle: nil)
+        self.view.frame = frame
         self.shoppingListView.collectionView.foods = FoodManager.shared.filteredFoods
         self.shoppingListView.collectionView.shoppingList = shoppingList
     }
@@ -30,12 +29,15 @@ class ShoppingListController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .SZColorPrimaryColor
         
-        shoppingListPublisher.subscribe(shoppingListSubscriper)
-        
-        self.shoppingListView.addFoodDelegate = self
+        self.shoppingListView.collectionView.foodToSelectDelegate = self
         self.shoppingListView.title.text = shoppingList.name
+        
         self.shoppingListView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.shoppingListView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
+        self.shoppingListView.collectionView.foodToSelectDelegate = self
+        
+        backBtn()
+        addFoodBtn()
     }
     
     required init?(coder: NSCoder) {
@@ -45,16 +47,18 @@ class ShoppingListController: UIViewController {
 
 extension ShoppingListController: AddFoodDelegate {
     func didClickAddNewFood() {
-        let newVC = AddFoodController()
         
-//        let btn = UIButton(type: .system)
-//        btn.tintColor = .SZColorBeige
-//        btn.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-//        btn.setTitle("Voltar", for: .normal)
-//        btn.addTarget(self, action: #selector(), for: .touchUpInside)
-//        newVC.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
-    
-        navigationController?.pushViewController(newVC, animated: true)
+    }
+}
+
+extension ShoppingListController: FoodToSelectDelegate {
+    func didUpdateShoppingList(shoppingList: ShoppingListModel, food: Food) {
+        ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
+            let newShoppingLists = ShoppingListManager.shared.shoppingLists
+            self.shoppingList = newShoppingLists[newShoppingLists.firstIndex(where: { $0.id == self.shoppingList.id }) ?? 0]
+            FoodManager.shared.filterShoppingFoods(itemsShoppingListModel: self.shoppingList.itemShoppingListModel, choosenFilters: self.choosenFilters)
+            self.shoppingListView.collectionView.foods = FoodManager.shared.filteredFoods
+        }
     }
 }
 
@@ -64,32 +68,26 @@ extension ShoppingListController: FastFilterDelegate {
     func didClickCategoryFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.append(FastFilterModel(name: fastFilter.name, idCategory: fastFilter.idCategory, filterIsSelected: nil))
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: true)
-        FoodManager.shared.filterFoods(
-            with: String(),
-            choosenFilters: self.choosenFilters,
-            byCategory: nil,
-            currentMonthNumber: self.getCurrentMonthNumber(),
-            monthSelected: FoodManager.shared.getCurrentMonth())
-        self.shoppingListView.collectionView.foods = FoodManager.shared.filteredFoods
+        ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
+            let newShoppingLists = ShoppingListManager.shared.shoppingLists
+            self.shoppingList = newShoppingLists[newShoppingLists.firstIndex(where: { $0.id == self.shoppingList.id }) ?? 0]
+            FoodManager.shared.filterShoppingFoods(itemsShoppingListModel: self.shoppingList.itemShoppingListModel, choosenFilters: self.choosenFilters)
+            self.shoppingListView.collectionView.foods = FoodManager.shared.filteredFoods
+        }
     }
     func didClickMonthFilter() {
-        let newVC = MonthSelectionViewController()
-        newVC.fastFilterDelegate = self
-        newVC.sheetPresentationController?.detents = [.medium()]
-        self.present(newVC, animated: true)
     }
     func didSelectMonthFilter(monthName: String) {
     }
     func didDeleteFilter(fastFilter: FastFilterModel) {
         self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
         self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: false)
-        FoodManager.shared.filterFoods(
-            with: String(),
-            choosenFilters: self.choosenFilters,
-            byCategory: nil,
-            currentMonthNumber: self.getCurrentMonthNumber(),
-            monthSelected: FoodManager.shared.getCurrentMonth())
-        self.shoppingListView.collectionView.foods = FoodManager.shared.filteredFoods
+        ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
+            let newShoppingLists = ShoppingListManager.shared.shoppingLists
+            self.shoppingList = newShoppingLists[newShoppingLists.firstIndex(where: { $0.id == self.shoppingList.id }) ?? 0]
+            FoodManager.shared.filterShoppingFoods(itemsShoppingListModel: self.shoppingList.itemShoppingListModel, choosenFilters: self.choosenFilters)
+            self.shoppingListView.collectionView.foods = FoodManager.shared.filteredFoods
+        }
     }
 }
 
@@ -106,6 +104,34 @@ extension ShoppingListController {
         dateFormatter.dateFormat = "LLLL"
         let nameOfMonth = dateFormatter.string(from: now)
         return months.firstIndex(where: {$0.lowercased() == nameOfMonth.lowercased()}) ?? 0
-
+    }
+    
+    func backBtn() {
+        let btn = UIButton(type: .system)
+        btn.tintColor = .SZColorBeige
+        btn.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        btn.setTitle("Voltar", for: .normal)
+        btn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+    }
+    
+    func addFoodBtn(){
+        let btn = UIButton(type: .system)
+        btn.tintColor = .SZColorBeige
+        btn.setTitle("Adicionar", for: .normal)
+        btn.titleLabel?.font = .SZFontTextBold
+        btn.addTarget(self, action: #selector(addFoodAction), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
+    }
+    
+    @objc func addFoodAction() {
+        let newVC = AddFoodController(shoppingList: shoppingList)
+    
+        newVC.foodToSelectDelegate = self
+        navigationController?.pushViewController(newVC, animated: true)
+    }
+    
+    @objc func backBtnAction() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

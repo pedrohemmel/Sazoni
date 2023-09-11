@@ -98,12 +98,20 @@ extension FoodManager {
         filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: filteredFoods, currentMonth: monthSelected)
     }
     
-    func filterShoppingFoods(itemsShoppingListModel: [ItemShoppingListModel]) {
+    func filterShoppingFoods(itemsShoppingListModel: [ItemShoppingListModel], choosenFilters: [FastFilterModel]) {
         filteredFoods = foods
         filteredFoods = filteredFoods.filter({ food in
             return itemsShoppingListModel.contains(where: { $0.id == food.id_food })
         })
-        print(getCurrentMonth())
+        
+        for filter in choosenFilters {
+            if !self.verifyIfFilterIsMonth(nameOfFilter: filter.name) {
+                filteredFoods = filteredFoods.filter({ food in
+                    choosenFilters.contains(where: {$0.idCategory == food.category_food.id_category})
+                })
+            }
+        }
+        
         filteredFoods = orderFoodsByHighQualityInCurrentMonth(foods: filteredFoods, currentMonth: getCurrentMonth())
     }
     

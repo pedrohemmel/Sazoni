@@ -5,8 +5,8 @@ import UIKit
 
 class FoodToSelectCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout{
     
-    weak var foodDelegate: FoodDetailDelegate? = nil
-    weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
+    weak var foodToSelectDelegate: FoodToSelectDelegate? = nil
+//    weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
     var shoppingList: ShoppingListModel?
     var foods: [Food] = [Food]() {
         didSet {
@@ -71,24 +71,35 @@ extension FoodToSelectCollectionView: UICollectionViewDataSource {
 
 extension FoodToSelectCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if !isShoppingList {
-            let strData = foods[indexPath.item]
-            if arrSelectedIndex.contains(indexPath) {
-                arrSelectedIndex = arrSelectedIndex.filter { $0 != indexPath}
-                arrSelectedData = arrSelectedData.filter { $0.id_food != strData.id_food}
-            }
-            else {
-                ShoppingListManager.shared.addNewItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList?.id ?? 0, idItem: foods[indexPath.row].id_food)
-                
-                
-                arrSelectedIndex.append(indexPath)
-                arrSelectedData.append(strData)
-            }
+        print("OLA")
+        if let shoppingList {
+            if !isShoppingList {
+                let strData = foods[indexPath.item]
+                if arrSelectedIndex.contains(indexPath) {
+                    arrSelectedIndex = arrSelectedIndex.filter { $0 != indexPath}
+                    arrSelectedData = arrSelectedData.filter { $0.id_food != strData.id_food}
+                }
+                else {
+                    ShoppingListManager.shared.addNewItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList.id, idItem: foods[indexPath.row].id_food)
+                    
+                    foodToSelectDelegate?.didSelectFood(shoppingList: shoppingList, food: foods[indexPath.row])
+    //               ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
+    //                    let newShoppingLists = ShoppingListManager.shared.shoppingLists
+    //                    self.shoppingList = newShoppingLists[newShoppingLists.firstIndex(where: { $0.id == self.shoppingList?.id }) ?? 0]
+    //                    let foodToSelectCollectionView = FoodToSelectCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    //                    foodToSelectCollectionView.foods = [Food(id_food: 4, name_food: "s", image_source_food: "w", is_favorite_food: false, category_food: Category(id_category: 0, name_category: " "), seasonalities: [Seasonality(month_name_seasonality: "", state_seasonality: "")])]
+    //                    NotificationCenter.default.post(name: .shoppingList, object: foodToSelectCollectionView)
+    //                }
+                    arrSelectedIndex.append(indexPath)
+                    arrSelectedData.append(strData)
+                }
 
-            collectionView.reloadData()
-        } else {
-            //Apagar fruta aqui
+                collectionView.reloadData()
+            } else {
+                //Apagar fruta aqui
+            }
         }
+        
        
     }
 }

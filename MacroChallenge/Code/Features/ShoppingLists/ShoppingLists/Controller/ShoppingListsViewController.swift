@@ -50,16 +50,16 @@ extension ShoppingListsViewController: BoughtListViewDelegate {
     }
     
     func didSelectList(shoppingList: ShoppingListModel) {
-        let newVC = ShoppingListController(shoppingList: shoppingList)
         
-        let btn = UIButton(type: .system)
-        btn.tintColor = .SZColorBeige
-        btn.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        btn.setTitle("Voltar", for: .normal)
-        btn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
-        newVC.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
-        
-        self.navigationController?.pushViewController(newVC, animated: true)
+        ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
+            
+            let newShoppingLists = ShoppingListManager.shared.shoppingLists
+            let newVC = ShoppingListController(shoppingList: newShoppingLists[newShoppingLists.firstIndex(where: { $0.id == shoppingList.id }) ?? 0])
+            
+            
+            
+            self.navigationController?.pushViewController(newVC, animated: true)
+        }
     }
     
     func didClickEditList(currentShoppingList: ShoppingListModel) {
@@ -68,9 +68,4 @@ extension ShoppingListsViewController: BoughtListViewDelegate {
     }
 }
 
-extension ShoppingListsViewController {
-    @objc func backBtnAction() {
-        self.navigationController?.popViewController(animated: true)
-    }
-}
 

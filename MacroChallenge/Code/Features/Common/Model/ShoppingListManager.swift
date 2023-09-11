@@ -16,11 +16,9 @@ class ShoppingListManager {
     
     func searchShoppingLists(with searchText: String) {
         filteredShoppingLists = shoppingLists
-        print(filteredShoppingLists)
         if searchText != "" {
             filteredShoppingLists = filteredShoppingLists.filter { ($0.name ?? "Sem Título").lowercased().contains(searchText.lowercased()) }
         }
-       
     }
     
     func orderShoppingLists(by orderType: Int) {

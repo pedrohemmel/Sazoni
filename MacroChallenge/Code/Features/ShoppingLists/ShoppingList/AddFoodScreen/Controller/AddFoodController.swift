@@ -3,8 +3,11 @@ import UIKit
 class AddFoodController: UIViewController{
     
     private var addFoodView: AddFoodView
+    weak var foodToSelectDelegate: FoodToSelectDelegate? = nil
+    var shoppingList: ShoppingListModel
     
-    init() {
+    init(shoppingList: ShoppingListModel) {
+        self.shoppingList = shoppingList
         self.addFoodView = AddFoodView(frame: .zero, foods: FoodManager.shared.foods)
         super.init(nibName: nil, bundle: nil)
     }
@@ -12,6 +15,8 @@ class AddFoodController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .SZColorPrimaryColor
+        addFoodView.collectionView.shoppingList = shoppingList
+        addFoodView.collectionView.foodToSelectDelegate = foodToSelectDelegate
         backBtn()
         addFoodBtn()
     }

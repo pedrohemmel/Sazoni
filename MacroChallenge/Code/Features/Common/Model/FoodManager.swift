@@ -58,6 +58,7 @@ extension FoodManager {
 
 //Manipulating foods
 extension FoodManager {
+    
     func filterFoods(with searchText: String, choosenFilters: [FastFilterModel], byCategory: Category?, currentMonthNumber: Int, monthSelected: String) {
         filteredFoods = foods
         

@@ -68,3 +68,7 @@ protocol AddFoodDelegate: AnyObject {
 protocol FoodToSelectDelegate: AnyObject {
     func didUpdateShoppingList(shoppingList: ShoppingListModel, food: Food)
 }
+
+protocol ShoppingListsSortingDelegate: AnyObject {
+    func didChangeSortingOrder()
+}

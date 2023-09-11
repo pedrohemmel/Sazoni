@@ -28,6 +28,12 @@ class ShoppingListsView: UIView {
         return view
     }()
     
+    lazy var sortButton: SortButton = {
+        let view = SortButton()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var shoppingListsTableView: ShoppingListsTableView = {
         let shoppingListsTableView = ShoppingListsTableView()
         shoppingListsTableView.backgroundColor = .clear
@@ -59,7 +65,7 @@ class ShoppingListsView: UIView {
 
 extension ShoppingListsView: ViewCode {
     func buildViewHierarchy() {
-        [self.title, self.search, self.shoppingListsTableView, self.buttonCreateNewShoppingList].forEach({ self.addSubview($0) })
+        [self.title, self.search,self.sortButton, self.shoppingListsTableView, self.buttonCreateNewShoppingList].forEach({ self.addSubview($0) })
     }
     
     func setupConstraints() {
@@ -74,16 +80,28 @@ extension ShoppingListsView: ViewCode {
         self.search.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                view.bottomAnchor.constraint(equalTo: self.shoppingListsTableView.topAnchor)
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+                view.trailingAnchor.constraint(equalTo: self.sortButton.leadingAnchor, constant: -5),
+                view.bottomAnchor.constraint(equalTo: self.shoppingListsTableView.topAnchor),
+                view.heightAnchor.constraint(equalToConstant: 36)
 
+            ]
+        }
+        
+        self.sortButton.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: self.search.trailingAnchor),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+                view.bottomAnchor.constraint(equalTo: self.shoppingListsTableView.topAnchor),
+                view.widthAnchor.constraint(equalToConstant: 36),
+                view.heightAnchor.constraint(equalToConstant: 36)
             ]
         }
         
         self.shoppingListsTableView.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.search.bottomAnchor),
+                view.topAnchor.constraint(equalTo: self.sortButton.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)

@@ -109,9 +109,9 @@
             filePath = "MacroChallenge/Code/Features/Common/Model/ShoppingListManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "removeItemBoughtList(_:idBoughtList:idItem:)"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "changeItemBoughtListStatus(_:idBoughtList:idItem:)"
             landmarkType = "7">
             <Locations>
                <Location

@@ -27,6 +27,7 @@
 		883A7F192A42700D00E7D4E1 /* FavoriteFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A7F182A42700D00E7D4E1 /* FavoriteFoodView.swift */; };
 		883A7F1B2A429F1A00E7D4E1 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */; };
 		886664952A31005D0031D242 /* DetailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886664942A31005D0031D242 /* DetailSheetView.swift */; };
+		8889667E2AAE06E40093E497 /* SortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889667D2AAE06E40093E497 /* SortButton.swift */; };
 		8894BF212A3B9D4000C97894 /* FavoriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8894BF202A3B9D4000C97894 /* FavoriteTests.swift */; };
 		8894BF232A3BA97500C97894 /* TitleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8894BF222A3BA97500C97894 /* TitleDetailView.swift */; };
 		8896EBBB2AA154BA00529CA5 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8896EBBA2AA154BA00529CA5 /* UIFontExtension.swift */; };
@@ -45,6 +46,7 @@
 		88EB7AE82AA6529A00E0CF43 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB7AE72AA6529A00E0CF43 /* AddFoodController.swift */; };
 		88EB7AEC2AA6794300E0CF43 /* FoodToSelectCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB7AEB2AA6794300E0CF43 /* FoodToSelectCollectionView.swift */; };
 		88EB7AEE2AA69C5200E0CF43 /* SelectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB7AED2AA69C5200E0CF43 /* SelectionCellView.swift */; };
+		88F81F902AAF792900486AEB /* ChangeSearchMonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F81F8F2AAF792900486AEB /* ChangeSearchMonthButton.swift */; };
 		BB08F31A2AA26A8800116A68 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB08F3192AA26A8800116A68 /* NotificationNameExtension.swift */; };
 		BB0EFA8F2A30F625009DA542 /* FastFilterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA8E2A30F625009DA542 /* FastFilterComponent.swift */; };
 		BB0EFA922A30FD3E009DA542 /* FilterSelectedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EFA912A30FD3E009DA542 /* FilterSelectedCollectionView.swift */; };
@@ -121,6 +123,7 @@
 		883A7F182A42700D00E7D4E1 /* FavoriteFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFoodView.swift; sourceTree = "<group>"; };
 		883A7F1A2A429F1A00E7D4E1 /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteList.swift; path = MacroChallenge/Code/Features/Common/Model/FavoriteList.swift; sourceTree = SOURCE_ROOT; };
 		886664942A31005D0031D242 /* DetailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSheetView.swift; sourceTree = "<group>"; };
+		8889667D2AAE06E40093E497 /* SortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButton.swift; sourceTree = "<group>"; };
 		8894BF202A3B9D4000C97894 /* FavoriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTests.swift; sourceTree = "<group>"; };
 		8894BF222A3BA97500C97894 /* TitleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailView.swift; sourceTree = "<group>"; };
 		8896EBBA2AA154BA00529CA5 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
@@ -139,6 +142,7 @@
 		88EB7AE72AA6529A00E0CF43 /* AddFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodController.swift; sourceTree = "<group>"; };
 		88EB7AEB2AA6794300E0CF43 /* FoodToSelectCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodToSelectCollectionView.swift; sourceTree = "<group>"; };
 		88EB7AED2AA69C5200E0CF43 /* SelectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCellView.swift; sourceTree = "<group>"; };
+		88F81F8F2AAF792900486AEB /* ChangeSearchMonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSearchMonthButton.swift; sourceTree = "<group>"; };
 		BB08F3192AA26A8800116A68 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		BB0EFA8E2A30F625009DA542 /* FastFilterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterComponent.swift; sourceTree = "<group>"; };
 		BB0EFA912A30FD3E009DA542 /* FilterSelectedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectedCollectionView.swift; sourceTree = "<group>"; };
@@ -561,10 +565,12 @@
 				BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */,
 				BB0EFA902A30FD07009DA542 /* FastFilter */,
 				BBD62F752A299700001F71ED /* Cells */,
+				88F81F8F2AAF792900486AEB /* ChangeSearchMonthButton.swift */,
 				BBD62F732A2996F3001F71ED /* FoodCollectionView.swift */,
 				88EB7AEB2AA6794300E0CF43 /* FoodToSelectCollectionView.swift */,
 				88B4694E2A2995BF00755698 /* SearchBarComponent.swift */,
 				88272BA12A39036800B807BD /* SeasonalityCollectionViewComponent.swift */,
+				8889667D2AAE06E40093E497 /* SortButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -925,10 +931,12 @@
 				BB3F83462A61A6FD00C0DFA1 /* ShoppingListsViewController.swift in Sources */,
 				88EB7AE32AA4DF7300E0CF43 /* InfoController.swift in Sources */,
 				BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */,
+				8889667E2AAE06E40093E497 /* SortButton.swift in Sources */,
 				BB16248D2A9D221700162531 /* TabIcons.swift in Sources */,
 				88B4694F2A2995BF00755698 /* SearchBarComponent.swift in Sources */,
 				BB0EFA952A30FD66009DA542 /* FilterCollectionView.swift in Sources */,
 				BBD62F592A27CC5B001F71ED /* MonthSelectionViewController.swift in Sources */,
+				88F81F902AAF792900486AEB /* ChangeSearchMonthButton.swift in Sources */,
 				BBD62F572A27BE42001F71ED /* FoodViewController.swift in Sources */,
 				88EB7ADA2AA2994700E0CF43 /* CGSizeExtension.swift in Sources */,
 				8896EBBD2AA1593E00529CA5 /* UIColorExtension.swift in Sources */,

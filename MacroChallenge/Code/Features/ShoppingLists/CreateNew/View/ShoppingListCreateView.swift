@@ -29,7 +29,8 @@ class ShoppingListCreateView: UIView {
     private var title: UILabel = {
         let view = UILabel()
         view.text = "Dê um nome para sua lista"
-        view.lineBreakMode = .byClipping
+        view.numberOfLines = 0
+        view.textAlignment = .center
         view.font = .SZFontTitle
         view.textColor = .SZColorBeige
         view.translatesAutoresizingMaskIntoConstraints = false

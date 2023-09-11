@@ -12,12 +12,11 @@ class ShoppingListController: UIViewController {
     
     private var shoppingList: ShoppingListModel
     
-    private lazy var shoppingListSubscriper = Subscribers.Assign(object: shoppingListView.collectionView, keyPath: \.foods)
-    
-    init(shoppingList: ShoppingListModel) {
+    init(shoppingList: ShoppingListModel, frame: CGRect) {
         self.shoppingList = shoppingList
         FoodManager.shared.filterShoppingFoods(itemsShoppingListModel: shoppingList.itemShoppingListModel, choosenFilters: [FastFilterModel]())
         super.init(nibName: nil, bundle: nil)
+        self.view.frame = frame
         self.shoppingListView.collectionView.foods = FoodManager.shared.filteredFoods
         self.shoppingListView.collectionView.shoppingList = shoppingList
     }
@@ -30,14 +29,15 @@ class ShoppingListController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .SZColorPrimaryColor
         
-        shoppingListPublisher.subscribe(shoppingListSubscriper)
-        
-        self.shoppingListView.addFoodDelegate = self
+        self.shoppingListView.collectionView.foodToSelectDelegate = self
         self.shoppingListView.title.text = shoppingList.name
+        
         self.shoppingListView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.shoppingListView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
         self.shoppingListView.collectionView.foodToSelectDelegate = self
+        
         backBtn()
+        addFoodBtn()
     }
     
     required init?(coder: NSCoder) {
@@ -47,24 +47,18 @@ class ShoppingListController: UIViewController {
 
 extension ShoppingListController: AddFoodDelegate {
     func didClickAddNewFood() {
-        let newVC = AddFoodController(shoppingList: shoppingList)
-    
-        newVC.foodToSelectDelegate = self
-        navigationController?.pushViewController(newVC, animated: true)
+        
     }
 }
 
 extension ShoppingListController: FoodToSelectDelegate {
-    func didClickDeleteBtn(shoppingList: ShoppingListModel, food: Food) {
-        print("oi delete")
-    }
-    
-    func didSelectFood(shoppingList: ShoppingListModel, food: Food) {
-        print("oi select")
-    }
-    
-    func didDeselectFood(shoppingList: ShoppingListModel, food: Food) {
-        print("oi deselect")
+    func didUpdateShoppingList(shoppingList: ShoppingListModel, food: Food) {
+        ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
+            let newShoppingLists = ShoppingListManager.shared.shoppingLists
+            self.shoppingList = newShoppingLists[newShoppingLists.firstIndex(where: { $0.id == self.shoppingList.id }) ?? 0]
+            FoodManager.shared.filterShoppingFoods(itemsShoppingListModel: self.shoppingList.itemShoppingListModel, choosenFilters: self.choosenFilters)
+            self.shoppingListView.collectionView.foods = FoodManager.shared.filteredFoods
+        }
     }
 }
 
@@ -82,10 +76,6 @@ extension ShoppingListController: FastFilterDelegate {
         }
     }
     func didClickMonthFilter() {
-        let newVC = MonthSelectionViewController()
-        newVC.fastFilterDelegate = self
-        newVC.sheetPresentationController?.detents = [.medium()]
-        self.present(newVC, animated: true)
     }
     func didSelectMonthFilter(monthName: String) {
     }
@@ -123,6 +113,22 @@ extension ShoppingListController {
         btn.setTitle("Voltar", for: .normal)
         btn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+    }
+    
+    func addFoodBtn(){
+        let btn = UIButton(type: .system)
+        btn.tintColor = .SZColorBeige
+        btn.setTitle("Adicionar", for: .normal)
+        btn.titleLabel?.font = .SZFontTextBold
+        btn.addTarget(self, action: #selector(addFoodAction), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
+    }
+    
+    @objc func addFoodAction() {
+        let newVC = AddFoodController(shoppingList: shoppingList)
+    
+        newVC.foodToSelectDelegate = self
+        navigationController?.pushViewController(newVC, animated: true)
     }
     
     @objc func backBtnAction() {

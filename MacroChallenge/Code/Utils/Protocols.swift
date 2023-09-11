@@ -66,7 +66,5 @@ protocol AddFoodDelegate: AnyObject {
 }
 
 protocol FoodToSelectDelegate: AnyObject {
-    func didClickDeleteBtn(shoppingList: ShoppingListModel, food: Food)
-    func didSelectFood(shoppingList: ShoppingListModel, food: Food)
-    func didDeselectFood(shoppingList: ShoppingListModel, food: Food)
+    func didUpdateShoppingList(shoppingList: ShoppingListModel, food: Food)
 }

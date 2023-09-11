@@ -31,6 +31,13 @@ class ShoppingListManager {
             print("Não identificado")
         }
     }
+    
+    func verifyIfFoodIsInList(food: Food, shoppingList: ShoppingListModel) -> Bool {
+        FoodManager.shared.filterShoppingFoods(itemsShoppingListModel: shoppingList.itemShoppingListModel, choosenFilters: [FastFilterModel]())
+        
+        return FoodManager.shared.filteredFoods.contains(where: { $0.id_food == food.id_food })
+    }
+    
 }
 
 extension ShoppingListManager {
@@ -169,6 +176,7 @@ extension ShoppingListManager {
             guard let idItem = idItem else { return boughtList }
             var newBoughtList = boughtList
             let itemsShoppingListModel = newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel
+            
             newBoughtList[newBoughtList.firstIndex(where: { $0.id == idBoughtList }) ?? 0].itemShoppingListModel.remove(at: itemsShoppingListModel.firstIndex(where: { $0.id == idItem }) ?? 0)
             
             return newBoughtList

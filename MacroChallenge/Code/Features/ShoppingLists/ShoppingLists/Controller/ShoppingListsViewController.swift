@@ -52,12 +52,10 @@ extension ShoppingListsViewController: BoughtListViewDelegate {
     func didSelectList(shoppingList: ShoppingListModel) {
         
         ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
-            
             let newShoppingLists = ShoppingListManager.shared.shoppingLists
-            let newVC = ShoppingListController(shoppingList: newShoppingLists[newShoppingLists.firstIndex(where: { $0.id == shoppingList.id }) ?? 0])
-            
-            
-            
+            let newVC = ShoppingListController(
+                shoppingList: newShoppingLists[newShoppingLists.firstIndex(where: { $0.id == shoppingList.id }) ?? 0],
+                frame: self.view.frame)
             self.navigationController?.pushViewController(newVC, animated: true)
         }
     }

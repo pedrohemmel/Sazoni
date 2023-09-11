@@ -13,6 +13,11 @@ class AddFoodView: UIView {
     
     private var foods: [Food]
     
+    var fastFilterComponent: FastFilterComponent = {
+        let fastFilterComponent = FastFilterComponent(frame: .zero)
+        fastFilterComponent.translatesAutoresizingMaskIntoConstraints = false
+        return fastFilterComponent
+    }()
     
     lazy var collectionView: FoodToSelectCollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -43,24 +48,32 @@ class AddFoodView: UIView {
 
 extension AddFoodView: ViewCode {
     func buildViewHierarchy() {
-        [self.title, collectionView].forEach({addSubview($0)})
+        [self.title, fastFilterComponent, collectionView].forEach({addSubview($0)})
     }
     
     func setupConstraints() {
         self.title.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-                view.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor)
+            ]
+        }
+        fastFilterComponent.setupConstraints { view in
+            [
+                view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: (UIScreen.main.bounds.midX) * 0.4),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -(UIScreen.main.bounds.midX) * 0.4),
+                view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor),
             ]
         }
         collectionView.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
+                view.topAnchor.constraint(equalTo: self.fastFilterComponent.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            ]
-            
+            ] 
         }
     }
     

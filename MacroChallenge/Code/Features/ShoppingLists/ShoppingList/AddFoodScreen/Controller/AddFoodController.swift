@@ -6,19 +6,27 @@ class AddFoodController: UIViewController{
     weak var foodToSelectDelegate: FoodToSelectDelegate? = nil
     var shoppingList: ShoppingListModel
     
+    //FastFilter
+    private var choosenFilters = [FastFilterModel]()
+    private var fastFilters = FastFilter.fastFiltersFavorite
+    
     init(shoppingList: ShoppingListModel) {
         self.shoppingList = shoppingList
-        self.addFoodView = AddFoodView(frame: .zero, foods: FoodManager.shared.foods)
+        FoodManager.shared.filterFoods(with: String(), choosenFilters: [FastFilterModel](), byCategory: nil, currentMonthNumber: FoodManager.shared.getCurrentMonthNumber(), monthSelected:  FoodManager.shared.getCurrentMonth())
+        self.addFoodView = AddFoodView(frame: .zero, foods: FoodManager.shared.filteredFoods)
         super.init(nibName: nil, bundle: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .SZColorPrimaryColor
+        
+        addFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
+        addFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
+        
         addFoodView.collectionView.shoppingList = shoppingList
         addFoodView.collectionView.foodToSelectDelegate = foodToSelectDelegate
         backBtn()
-        addFoodBtn()
     }
     
     required init?(coder: NSCoder) {
@@ -30,7 +38,34 @@ class AddFoodController: UIViewController{
     }
 }
 
+extension AddFoodController: FastFilterDelegate {
+    func didClickCategoryFilter(fastFilter: FastFilterModel) {
+        self.choosenFilters.append(FastFilterModel(name: fastFilter.name, idCategory: fastFilter.idCategory, filterIsSelected: nil))
+        self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: true)
+        FoodManager.shared.filterFoods(with: String(), choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: FoodManager.shared.getCurrentMonthNumber(), monthSelected: FoodManager.shared.getCurrentMonth())
+        addFoodView.collectionView.foods = FoodManager.shared.filteredFoods
+    }
+    func didClickMonthFilter() {
+    }
+    func selectInitialMonth() {
+    }
+    func didSelectMonthFilter(monthName: String) {
+    }
+    func didDeleteFilter(fastFilter: FastFilterModel) {
+        self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0)
+        self.reloadFastFilterData(fastFilter: fastFilter, filterIsSelected: false)
+        FoodManager.shared.filterFoods(with: String(), choosenFilters: self.choosenFilters, byCategory: nil, currentMonthNumber: FoodManager.shared.getCurrentMonthNumber(), monthSelected: FoodManager.shared.getCurrentMonth())
+        addFoodView.collectionView.foods = FoodManager.shared.filteredFoods
+    }
+}
+
 extension AddFoodController{
+    
+    func reloadFastFilterData(fastFilter: FastFilterModel, filterIsSelected: Bool) {
+        self.fastFilters[self.fastFilters.firstIndex(where: { $0.name == fastFilter.name }) ?? 0].filterIsSelected = filterIsSelected
+        self.addFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
+    }
+    
     func backBtn(){
         let btn = UIButton(type: .system)
         btn.tintColor = .SZColorBeige
@@ -42,14 +77,5 @@ extension AddFoodController{
     
     @objc func backBtnAction() {
         navigationController?.popViewController(animated: true)
-    }
-    
-    func addFoodBtn(){
-        let btn = UIButton(type: .system)
-        btn.tintColor = .SZColorBeige
-        btn.setTitle("Ok", for: .normal)
-        btn.titleLabel?.font = .SZFontTextBold
-        btn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
     }
 }

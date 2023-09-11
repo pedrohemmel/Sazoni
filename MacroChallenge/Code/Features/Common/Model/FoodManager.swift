@@ -155,4 +155,13 @@ extension FoodManager {
         let nameOfMonth = dateFormatter.string(from: now)
         return nameOfMonth.capitalized
     }
+    
+    func getCurrentMonthNumber() -> Int {
+        let months = Months.monthArray
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth = dateFormatter.string(from: now)
+        return months.firstIndex(where: {$0.lowercased() == nameOfMonth.lowercased()}) ?? 0
+    }
 }

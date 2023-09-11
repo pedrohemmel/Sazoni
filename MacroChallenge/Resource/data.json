@@ -7178,7 +7178,7 @@
     {
         "id_food": 122,
         "name_food": "Caqui Fuyu",
-        "image_source_food": "no_image_fruits.jpg",
+        "image_source_food": "caqui_fuyu.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -7296,7 +7296,7 @@
     {
         "id_food": 124,
         "name_food": "Caqui Rama Forte",
-        "image_source_food": "no_image_fruits.jpg",
+        "image_source_food": "caqui_rama.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -7355,7 +7355,7 @@
     {
         "id_food": 125,
         "name_food": "Castanha do Pará",
-        "image_source_food": "no_image_fruits.jpg",
+        "image_source_food": "castanha_do_para.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -7591,7 +7591,7 @@
     {
         "id_food": 129,
         "name_food": "Damasco",
-        "image_source_food": "no_image_fruits.jpg",
+        "image_source_food": "damasco.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -7886,7 +7886,7 @@
     {
         "id_food": 134,
         "name_food": "Graviola",
-        "image_source_food": "no_image_fruits.jpg",
+        "image_source_food": "graviola.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -8063,7 +8063,7 @@
     {
         "id_food": 137,
         "name_food": "Kiwi Nacional",
-        "image_source_food": "no_image_fruits.jpg",
+        "image_source_food": "kiwi_nacional.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -8357,8 +8357,8 @@
     },
     {
         "id_food": 142,
-        "name_food": "Limão da Taiti",
-        "image_source_food": "no_image_fruits.jpg",
+        "name_food": "Limão Taiti",
+        "image_source_food": "limao_taiti.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -8417,7 +8417,7 @@
     {
         "id_food": 143,
         "name_food": "Maçã Verde",
-        "image_source_food": "no_image_fruits.jpg",
+        "image_source_food": "maca_verde.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -8535,7 +8535,7 @@
     {
         "id_food": 145,
         "name_food": "Maçã Fuji",
-        "image_source_food": "no_image_fruits.jpg",
+        "image_source_food": "maca_fuji.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -8594,7 +8594,7 @@
     {
         "id_food": 146,
         "name_food": "Mamão Formosa",
-        "image_source_food": "no_image_fruits.jpg",
+        "image_source_food": "mamao_formosa.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 0,
@@ -11425,7 +11425,7 @@
     {
         "id_food": 194,
         "name_food": "Pepino Comum",
-        "image_source_food": "no_image_greenstuff.jpg",
+        "image_source_food": "pepino_comum.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 1,
@@ -11601,7 +11601,7 @@
     },
     {
         "id_food": 197,
-        "name_food": "Pimenta Amarelo",
+        "name_food": "Pimentao Amarelo",
         "image_source_food": "no_image_greenstuff.jpg",
         "is_favorite_food": false,
         "category_food": {
@@ -11719,8 +11719,8 @@
     },
     {
         "id_food": 199,
-        "name_food": "Pimenta Vermelho",
-        "image_source_food": "no_image_greenstuff.jpg",
+        "name_food": "Pimenta Vermelha",
+        "image_source_food": "pimenta_vermelha.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 1,
@@ -11897,7 +11897,7 @@
     {
         "id_food": 202,
         "name_food": "Tomate Caqui",
-        "image_source_food": "no_image_greenstuff.jpg",
+        "image_source_food": "tomate_caqui.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 1,
@@ -11956,7 +11956,7 @@
     {
         "id_food": 203,
         "name_food": "Tomate Cereja",
-        "image_source_food": "no_image_greenstuff.jpg",
+        "image_source_food": "tomate_cereja.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 1,
@@ -12487,7 +12487,7 @@
     {
         "id_food": 211,
         "name_food": "Hortelã",
-        "image_source_food": "no_image_greens.jpg",
+        "image_source_food": "hortela.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 2,
@@ -12546,7 +12546,7 @@
     {
         "id_food": 212,
         "name_food": "Manjericão",
-        "image_source_food": "no_image_greens.jpg",
+        "image_source_food": "manjericao.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 2,
@@ -12959,7 +12959,7 @@
     {
         "id_food": 220,
         "name_food": "Repolho Verde",
-        "image_source_food": "no_image_greens.jpg",
+        "image_source_food": "repolho_verde.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 2,
@@ -13018,7 +13018,7 @@
     {
         "id_food": 221,
         "name_food": "Repolho Roxo",
-        "image_source_food": "no_image_greens.jpg",
+        "image_source_food": "repolho_roxo.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 2,
@@ -13077,7 +13077,7 @@
     {
         "id_food": 222,
         "name_food": "Salsão",
-        "image_source_food": "no_image_greens.jpg",
+        "image_source_food": "salsao.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 2,
@@ -14375,7 +14375,7 @@
     {
         "id_food": 244,
         "name_food": "Polvo",
-        "image_source_food": "no_image_fisheds.jpg",
+        "image_source_food": "polvo.jpg",
         "is_favorite_food": false,
         "category_food": {
             "id_category": 3,

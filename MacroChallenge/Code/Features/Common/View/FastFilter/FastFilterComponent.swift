@@ -10,7 +10,7 @@ import UIKit
 class FastFilterComponent: UIView {
     lazy var filterSelectedCollectionView: FilterSelectedCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 150, height: 60)
+//        layout.itemSize = CGSize(width: 150, height: 60)
         layout.scrollDirection = .horizontal
         let filterSelectedCollectionView = FilterSelectedCollectionView(frame: .zero, collectionViewLayout: layout)
         filterSelectedCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +20,7 @@ class FastFilterComponent: UIView {
     lazy var filterCollectionView: FilterCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = .SZSizeButtonFastFilter
+        layout.minimumLineSpacing = 16
         layout.scrollDirection = .horizontal
         let filterCollectionView = FilterCollectionView(frame: .zero, collectionViewLayout: layout)
         filterCollectionView.translatesAutoresizingMaskIntoConstraints = false

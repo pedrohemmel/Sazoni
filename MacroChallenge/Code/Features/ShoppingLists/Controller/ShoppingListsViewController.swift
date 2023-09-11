@@ -32,6 +32,7 @@ class ShoppingListsViewController: UIViewController {
         self.shoppingListsView.boughtListViewDelegate = self
         self.shoppingListsView.shoppingListsTableView.boughtListViewDelegate = self
         self.shoppingListsView.search.searchDelegate = self
+        self.shoppingListsView.sortButton.sortingDelegate = self
     }
 }
 
@@ -53,3 +54,8 @@ extension ShoppingListsViewController: BoughtListViewDelegate {
     }
 }
 
+extension ShoppingListsViewController: ShoppingListsSortingDelegate{
+    func didChangeSortingOrder() {
+        self.shoppingListsView.shoppingListsTableView.shoppingLists = ShoppingListManager.shared.shoppingLists
+    }
+}

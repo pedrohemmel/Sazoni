@@ -13,7 +13,7 @@ class FoodView: UIView {
     var category = Category(id_category: .zero, name_category: String())
     
     //MARK: - Views
-    private lazy var monthTitle: UILabel = {
+    lazy var monthTitle: UILabel = {
         let monthTitle = UILabel()
         monthTitle.text = self.currentMonth
         monthTitle.font = .SZFontTitle
@@ -30,15 +30,14 @@ class FoodView: UIView {
         return view
     }()
     
-    var fastFilterComponent: FastFilterComponent = {
-        let fastFilterComponent = FastFilterComponent(frame: .zero)
-        fastFilterComponent.translatesAutoresizingMaskIntoConstraints = false
-        return fastFilterComponent
+    lazy var changeMonthButton: ChangeSearchMonthButton = {
+        let view = ChangeSearchMonthButton()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
-    var fastFilterMonth: FastFilterComponent = {
+    var fastFilterComponent: FastFilterComponent = {
         let fastFilterComponent = FastFilterComponent(frame: .zero)
-        fastFilterComponent.backgroundColor = .clear
         fastFilterComponent.translatesAutoresizingMaskIntoConstraints = false
         return fastFilterComponent
     }()
@@ -68,7 +67,7 @@ class FoodView: UIView {
 
 extension FoodView: ViewCode {
     func buildViewHierarchy() {
-        [self.monthTitle, self.search, self.fastFilterComponent, self.fastFilterMonth, self.collectionView].forEach({self.addSubview($0)})
+        [self.monthTitle, self.search, self.changeMonthButton, self.fastFilterComponent, self.collectionView].forEach({self.addSubview($0)})
     }
 
     func setupConstraints() {
@@ -84,25 +83,28 @@ extension FoodView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.monthTitle.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor)
+                view.trailingAnchor.constraint(equalTo: self.changeMonthButton.leadingAnchor),
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor, constant: -28),
             ]
         }
         
-        self.fastFilterMonth.setupConstraints { view in
+        self.changeMonthButton.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.monthTitle.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.search.trailingAnchor, constant: 10),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor)
+                view.leadingAnchor.constraint(equalTo: self.search.trailingAnchor, constant: 5),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor, constant: -28),
+                view.widthAnchor.constraint(equalToConstant: 36),
+                view.heightAnchor.constraint(equalToConstant: 36)
             ]
         }
+        
         
         self.fastFilterComponent.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.search.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.midX * 0.4),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -self.frame.midX * 0.4),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.midX * 0.25),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -self.frame.midX * 0.1),
                 view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor),
             ]
         }
@@ -124,14 +126,12 @@ extension FoodView: ViewCode {
 
 //MARK: - Functions here
 extension FoodView {
-    func setup(currentMonth: String, category: Category, categorySwipeDelegeta: MCCategorySwipeDelegate, foodDelegate: FoodDetailDelegate?) {
+    func setup(currentMonth: String, category: Category, foodDelegate: FoodDetailDelegate?) {
         self.currentMonth = currentMonth
         self.category = category
         
         self.collectionView.setup(foods: FoodManager.shared.filteredFoods, currentMonth: currentMonth, foodDelegate: foodDelegate, favoriteFoodDelegate: nil)
         self.monthTitle.text = currentMonth
-        
-        self.categorySwipeDelegate = categorySwipeDelegeta
         self.setupViewConfiguration()
     }
     

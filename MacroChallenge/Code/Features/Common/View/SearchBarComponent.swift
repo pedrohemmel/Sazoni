@@ -8,6 +8,7 @@
 import UIKit
 
 class SearchBarComponent: UISearchBar {
+    
     weak var searchDelegate: SearchDelegate?
     
     override init(frame: CGRect) {
@@ -18,7 +19,6 @@ class SearchBarComponent: UISearchBar {
         self.searchTextField.layer.borderWidth = 1
         self.searchTextField.layer.borderColor = UIColor.SZColorBeige?.cgColor
         self.searchTextField.leftView?.tintColor = .SZColorBeige
-        
     }
     
     required init?(coder: NSCoder) {

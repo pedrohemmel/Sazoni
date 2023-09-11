@@ -27,7 +27,6 @@ class FavoriteFoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteCollectionFoodsPublisher.subscribe(favoriteFoodSubscriber)
-        
         self.favoriteFoodView.fastFilterComponent.filterCollectionView.setup(fastFilterDelegate: self, fastFilters: self.fastFilters)
         self.favoriteFoodView.fastFilterComponent.filterSelectedCollectionView.setup(fastFilterDelegate: self, choosenFilters: self.choosenFilters)
         FoodManager.shared.filterFavoriteFoods(choosenFilters: self.choosenFilters, monthSelected: self.currentMonth)
@@ -98,12 +97,12 @@ extension FavoriteFoodViewController {
     }
     
     func deleteMonthIfItExists() {
-        let months = Months.monthArray
-        for month in months {
-            if self.choosenFilters.contains(where: { $0.name == month }) {
-                self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == month }) ?? 0)
-            }
-        }
+//        let months = Months.monthArray
+//        for month in months {
+//            if self.choosenFilters.contains(where: { $0.name == month }) {
+//                self.choosenFilters.remove(at: self.choosenFilters.firstIndex(where: { $0.name == month }) ?? 0)
+//            }
+//        }
     }
     
     private func getCurrentMonth() -> String {

@@ -7,10 +7,20 @@
 
 import Foundation
 
+
 class ShoppingListManager {
+    
+    init() {
+        self.getAllBoughtList(self.defaultKey) {}
+    }
+
     var shoppingLists = [ShoppingListModel]()
     var filteredShoppingLists = [ShoppingListModel]()
     let defaultKey = "boughtList"
+    
+    enum orderType {
+        case growingAlphabetical, decreasingAlphabetical, crescentDate, decreasingDate
+    }
     
     static let shared = ShoppingListManager()
     
@@ -20,22 +30,30 @@ class ShoppingListManager {
         if searchText != "" {
             filteredShoppingLists = filteredShoppingLists.filter { ($0.name ?? "Sem Título").lowercased().contains(searchText.lowercased()) }
         }
-       
+        
     }
     
-    func orderShoppingLists(by orderType: Int) {
+    func orderShoppingLists(by orderType: orderType) {
         switch orderType {
-        case 0:
-            print("Alfabética crescente")
-        case 1:
-            print("Alfabética crescente")
-        default:
-            print("Não identificado")
+        case .growingAlphabetical:
+            self.shoppingLists.sort {$0.name ?? "" < $1.name ?? ""}
+            print(self.shoppingLists)
+        case .decreasingAlphabetical:
+            self.shoppingLists.sort {$0.name ?? "" > $1.name ?? ""}
+            print(self.shoppingLists)
+        case .crescentDate:
+            self.shoppingLists.sort {$0.name ?? "" < $1.name ?? ""}
+            print("Data crescente")
+        case .decreasingDate:
+            print("Data crescente")
         }
+
+        
     }
 }
 
 extension ShoppingListManager {
+    
     func getAllBoughtList(_ key: String, response: @escaping (() -> Void)) {
         if let boughtList = UserDefaults.standard.data(forKey: key) {
             do {
@@ -78,7 +96,7 @@ extension ShoppingListManager {
             }
         }
         
-       
+        
     }
     
     private func boughtListAction(_ key: String, idBoughtList: Int?, idItem: Int?, action: @escaping ((_ idBoughtList: Int?, _ idItem: Int?, _ boughtList: [ShoppingListModel]) -> [ShoppingListModel])) {

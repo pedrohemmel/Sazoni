@@ -63,7 +63,7 @@ extension MonthSelectionView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        self.backgroundColor = UIColor(named: "Background")
+        self.backgroundColor = .SZColorPrimaryColor
     }
 }
 

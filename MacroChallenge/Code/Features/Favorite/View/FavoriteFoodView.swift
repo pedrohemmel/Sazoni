@@ -61,8 +61,8 @@ extension FavoriteFoodView: ViewCode {
         self.fastFilterComponent.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.midX * 0.4),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -self.frame.midX * 0.4),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.midX * 0.25),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -self.frame.midX * 0.1),
                 view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor),
             ]
         }

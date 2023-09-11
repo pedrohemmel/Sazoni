@@ -11,6 +11,7 @@ import UIKit
 class FoodCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout{
     weak var foodDelegate: FoodDetailDelegate? = nil
     weak var favoriteFoodDelegate: FavoriteFoodDelegate? = nil
+    
     var foods = [Food]() {
         didSet {
             reloadData()

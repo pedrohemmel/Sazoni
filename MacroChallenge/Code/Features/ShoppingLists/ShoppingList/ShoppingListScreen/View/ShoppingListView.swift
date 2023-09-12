@@ -6,7 +6,7 @@ class ShoppingListView: UIView{
     
     lazy var title: UILabel = {
         let view = UILabel()
-        view.text = ""
+        view.text = String()
         view.font = .SZFontTitle
         view.textColor = .SZColorBeige
         view.textAlignment = .center
@@ -55,7 +55,7 @@ extension ShoppingListView: ViewCode {
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor)
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor
             ]
         }
         self.fastFilterComponent.setupConstraints { view in

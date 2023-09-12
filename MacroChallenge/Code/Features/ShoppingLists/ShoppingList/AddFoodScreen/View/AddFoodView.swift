@@ -56,7 +56,7 @@ extension AddFoodView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor)
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor, constant: -24)
             ]
         }
         fastFilterComponent.setupConstraints { view in

@@ -33,8 +33,8 @@ class SelectionCellView: UICollectionViewCell {
         return sazonality
     }()
     
-    lazy var btnSelect: UIImageView = {
-        let btn = UIImageView()
+    lazy var btnSelect: UIButton = {
+        let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()

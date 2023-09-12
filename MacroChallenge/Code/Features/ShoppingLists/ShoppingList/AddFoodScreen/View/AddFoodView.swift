@@ -63,7 +63,7 @@ extension AddFoodView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: (UIScreen.main.bounds.midX) * 0.25),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -(UIScreen.main.bounds.midX) * 0.1),
                 view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor),
             ]
         }

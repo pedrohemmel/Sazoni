@@ -9,6 +9,8 @@ class ShoppingListView: UIView{
         view.text = String()
         view.font = .SZFontTitle
         view.textColor = .SZColorBeige
+        view.textAlignment = .center
+        view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -51,15 +53,16 @@ extension ShoppingListView: ViewCode {
         self.title.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-                view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor, constant: -24)
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor
             ]
         }
         self.fastFilterComponent.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: (UIScreen.main.bounds.midX) * 0.25),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -(UIScreen.main.bounds.midX) * 0.1),
                 view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor),
             ]
         }

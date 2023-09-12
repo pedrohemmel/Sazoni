@@ -48,14 +48,18 @@ extension FoodToSelectCollectionView: UICollectionViewDataSource {
         cell.layer.cornerRadius = .SZCornerRadiusMediumShape
         
         if let shoppingList {
+            cell.btnSelect.tag = indexPath.row
+            cell.isUserInteractionEnabled = true
+            cell.btnSelect.addTarget(self, action: #selector(addOrRemoveItem), for: .touchUpInside)
             if !isShoppingList {
                 if ShoppingListManager.shared.verifyIfFoodIsInList(food: foods[indexPath.row], shoppingList: shoppingList) {
-                    cell.btnSelect.image = UIImage(named: "SZ.checkmark.circle.fill")
+                    cell.btnSelect.setImage(UIImage(named: "SZ.checkmark.circle.fill"), for: .normal)
                 } else {
-                    cell.btnSelect.image = UIImage(named: "SZ.checkmark.circle")
+                    cell.btnSelect.setImage(UIImage(named: "SZ.checkmark.circle"), for: .normal)
+                    
                 }
             } else {
-                cell.btnSelect.image = UIImage(named: "button_delete")
+                cell.btnSelect.setImage(UIImage(named: "button_delete"), for: .normal)
             }
         }
         
@@ -67,29 +71,30 @@ extension FoodToSelectCollectionView: UICollectionViewDataSource {
 
 extension FoodToSelectCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let shoppingList {
-            if !isShoppingList {
-                if ShoppingListManager.shared.verifyIfFoodIsInList(food: foods[indexPath.row], shoppingList: shoppingList) {
-                    ShoppingListManager.shared.removeItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList.id, idItem: foods[indexPath.row].id_food)
-                    foodToSelectDelegate?.didUpdateShoppingList(shoppingList: shoppingList, food: foods[indexPath.row])
+        print("OI")
+    }
+}
+
+
+extension FoodToSelectCollectionView {
     
-                } else {
-                    ShoppingListManager.shared.addNewItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList.id, idItem: foods[indexPath.row].id_food)
-                    
-                    foodToSelectDelegate?.didUpdateShoppingList(shoppingList: shoppingList, food: foods[indexPath.row])
-                } 
+    @objc func addOrRemoveItem(button: UIButton) {
+        if let shoppingList {
+            if ShoppingListManager.shared.verifyIfFoodIsInList(food: foods[button.tag], shoppingList: shoppingList) {
+                ShoppingListManager.shared.removeItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList.id, idItem: foods[button.tag].id_food)
+                foodToSelectDelegate?.didUpdateShoppingList(shoppingList: shoppingList, food: foods[button.tag])
             } else {
-                if ShoppingListManager.shared.verifyIfFoodIsInList(food: foods[indexPath.row], shoppingList: shoppingList) {
-                    ShoppingListManager.shared.removeItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList.id, idItem: foods[indexPath.row].id_food)
-                    foodToSelectDelegate?.didUpdateShoppingList(shoppingList: shoppingList, food: foods[indexPath.row])
-                }
+                ShoppingListManager.shared.addNewItemBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: shoppingList.id, idItem: foods[button.tag].id_food)
+                
+                foodToSelectDelegate?.didUpdateShoppingList(shoppingList: shoppingList, food: foods[button.tag])
             }
+            
             ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {
                 let shoppingLists = ShoppingListManager.shared.filteredShoppingLists
                 if let shoppingList = self.shoppingList {
                     self.shoppingList = shoppingLists[shoppingLists.firstIndex(where: {$0.id == shoppingList.id}) ?? 0]
                 }
-                collectionView.reloadData()
+                self.reloadData()
             }
         }
     }

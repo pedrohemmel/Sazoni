@@ -56,14 +56,14 @@ extension AddFoodView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor)
+                view.bottomAnchor.constraint(equalTo: self.fastFilterComponent.topAnchor, constant: -24)
             ]
         }
         fastFilterComponent.setupConstraints { view in
             [
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: (UIScreen.main.bounds.midX) * 0.4),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -(UIScreen.main.bounds.midX) * 0.4),
+                view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: (UIScreen.main.bounds.midX) * 0.25),
+                view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: self.collectionView.topAnchor),
             ]
         }

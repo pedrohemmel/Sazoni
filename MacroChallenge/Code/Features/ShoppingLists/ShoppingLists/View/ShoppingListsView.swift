@@ -73,7 +73,7 @@ extension ShoppingListsView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -5.5),
-                view.bottomAnchor.constraint(equalTo: self.search.topAnchor)
+                view.bottomAnchor.constraint(equalTo: self.search.topAnchor, constant: -24)
 
             ]
         }
@@ -82,7 +82,7 @@ extension ShoppingListsView: ViewCode {
                 view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
                 view.trailingAnchor.constraint(equalTo: self.sortButton.leadingAnchor, constant: -5),
-                view.bottomAnchor.constraint(equalTo: self.shoppingListsTableView.topAnchor),
+                view.bottomAnchor.constraint(equalTo: self.shoppingListsTableView.topAnchor, constant: -36),
                 view.heightAnchor.constraint(equalToConstant: 36)
 
             ]
@@ -90,10 +90,10 @@ extension ShoppingListsView: ViewCode {
         
         self.sortButton.setupConstraints { view in
             [
-                view.topAnchor.constraint(equalTo: self.title.bottomAnchor),
+                view.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 24),
                 view.leadingAnchor.constraint(equalTo: self.search.trailingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-                view.bottomAnchor.constraint(equalTo: self.shoppingListsTableView.topAnchor),
+                view.bottomAnchor.constraint(equalTo: self.shoppingListsTableView.topAnchor, constant: -36),
                 view.widthAnchor.constraint(equalToConstant: 36),
                 view.heightAnchor.constraint(equalToConstant: 36)
             ]

@@ -64,7 +64,7 @@ extension ShoppingListsTableView: UITableViewDelegate {
     }
     
     func presentDeletionFailsafe(indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Apagar a lista ”\(self.shoppingLists[indexPath.row].name!)”", message: "Isto apagará todos os itens da sua lista.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Apagar a lista \(self.shoppingLists[indexPath.row].name ?? "")", message: "Isto apagará todos os itens da sua lista.", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Apagar", style: .destructive) { _ in
             ShoppingListManager.shared.deleteBoughtList(ShoppingListManager.shared.defaultKey, idBoughtList: self.shoppingLists[indexPath.row].id)
             ShoppingListManager.shared.getAllBoughtList(ShoppingListManager.shared.defaultKey) {

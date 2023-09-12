@@ -31,7 +31,7 @@ class ShoppingListCreateView: UIView {
         view.text = "Dê um nome para sua lista"
         view.numberOfLines = 0
         view.textAlignment = .center
-        view.font = .SZFontTitle
+        view.font = .SZFontSubTitle
         view.textColor = .SZColorBeige
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -42,11 +42,11 @@ class ShoppingListCreateView: UIView {
         txtField.placeholder = "Digite aqui"
         txtField.textAlignment = .center
         txtField.textColor = .SZColorBeige
-        txtField.font = UIFont.systemFont(ofSize: 25)
+        txtField.font = .SZFontTitle
         txtField.attributedPlaceholder = NSAttributedString(
             string: "Digite aqui",
             attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.SZColorBeige,
+                NSAttributedString.Key.foregroundColor: UIColor.SZColorBeige ?? .white,
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25)]
         )
         txtField.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +64,7 @@ class ShoppingListCreateView: UIView {
         createBtn.setTitleColor(.SZColorSecundaryColor, for: .normal)
         createBtn.backgroundColor = .SZColorBeige
         createBtn.layer.cornerRadius = 15
-        createBtn.setTitle("Confirmar", for: .normal)
+        createBtn.setTitle("Criar", for: .normal)
         createBtn.addTarget(self, action: #selector(confirmShoppingList), for: .touchUpInside)
         createBtn.translatesAutoresizingMaskIntoConstraints = false
         return createBtn
@@ -90,7 +90,7 @@ extension ShoppingListCreateView: ViewCode {
             [
                 view.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                view.bottomAnchor.constraint(equalTo: self.title.topAnchor, constant: -30)
+                view.bottomAnchor.constraint(equalTo: self.title.topAnchor, constant: -128)
             ]
         }
         self.title.setupConstraints { view in
@@ -126,7 +126,7 @@ extension ShoppingListCreateView: ViewCode {
                 view.topAnchor.constraint(equalTo: self.lineTxtField.bottomAnchor, constant: 50),
                 view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 view.heightAnchor.constraint(equalToConstant: 50),
-                view.widthAnchor.constraint(equalToConstant: self.confirmBtn.intrinsicContentSize.width + 30)
+                view.widthAnchor.constraint(equalToConstant: self.confirmBtn.intrinsicContentSize.width + 64)
             ]
         }
     }

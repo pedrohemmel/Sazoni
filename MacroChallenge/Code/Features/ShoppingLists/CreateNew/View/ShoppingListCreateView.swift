@@ -64,7 +64,7 @@ class ShoppingListCreateView: UIView {
         createBtn.setTitleColor(.SZColorSecundaryColor, for: .normal)
         createBtn.backgroundColor = .SZColorBeige
         createBtn.layer.cornerRadius = 15
-        createBtn.setTitle("Criar", for: .normal)
+        createBtn.setTitle("Confirmar", for: .normal)
         createBtn.addTarget(self, action: #selector(confirmShoppingList), for: .touchUpInside)
         createBtn.translatesAutoresizingMaskIntoConstraints = false
         return createBtn

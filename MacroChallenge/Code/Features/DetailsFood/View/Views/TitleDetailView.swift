@@ -109,7 +109,7 @@ extension TitleDetailView{
     func setButton(id: Int){
         self.buttonToFavorite.tag = id
         self.buttonToFavorite.setImage(UIImage(systemName: FavoriteList.shared.setImageButton(FavoriteList.shared.checkFavoriteFood(id: id))), for: .normal)
-        self.buttonToFavorite.tintColor = UIColor(named: "TextColor")
+        self.buttonToFavorite.tintColor = .SZColorBeige
     }
 
     

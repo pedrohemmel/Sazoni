@@ -24,7 +24,6 @@ extension UIImage {
     static let SZIconListFill = UIImage(named: "list.fill")
     
     static func getImageSazonality(_ sazonality: String) -> UIImage?{
-        print(sazonality)
         switch sazonality{
         case "Alta":
             return self.SZSazonalityHeigth

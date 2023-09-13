@@ -33,7 +33,6 @@ class MonthSelectionViewController: UIViewController {
 extension MonthSelectionViewController: MCMonthSelectionDelegate {
     func didSelectCell(month: String) -> String{
         self.delegate?.didSelectNewMonth(month: month)
-        //print("________-------------____________ENTREI AQUIIIIIII_____________------------ Mes selecionado = \(month)" )
 
         self.fastFilterDelegate?.didSelectMonthFilter(monthName: month)
         self.dismiss(animated: true)

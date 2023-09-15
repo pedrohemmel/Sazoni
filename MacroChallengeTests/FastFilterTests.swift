@@ -13,7 +13,6 @@ final class FastFilterTests: XCTestCase {
     
     //Testing if all foods are filtered by fished category
     func testSelectionFastFilter() {
-        ///self.searchViewController.fastFilters[1] same of  FastFilterModel(name: "fruits", idCategory: 0, filterIsSelected: false)
         self.searchViewController.didClickCategoryFilter(fastFilter: self.searchViewController.fastFilters[1])
         
         XCTAssert(self.searchViewController.choosenFilters[0].name == self.searchViewController.fastFilters[1].name)

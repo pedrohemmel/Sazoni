@@ -56,6 +56,8 @@
 		BB16248D2A9D221700162531 /* TabIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16248C2A9D221700162531 /* TabIcons.swift */; };
 		BB16248F2A9D2B4A00162531 /* Months.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16248E2A9D2B4A00162531 /* Months.swift */; };
 		BB1624912A9D2BFF00162531 /* FastFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1624902A9D2BFF00162531 /* FastFilter.swift */; };
+		BB3866712AB4DFD1005152B7 /* LaunchScreenVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3866702AB4DFD1005152B7 /* LaunchScreenVideoViewController.swift */; };
+		BB3866782AB4EE0B005152B7 /* LaunchscreenVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = BB3866772AB4EE0B005152B7 /* LaunchscreenVideo.mov */; };
 		BB3B0EBC2A37965500774A3D /* FastFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */; };
 		BB3F83462A61A6FD00C0DFA1 /* ShoppingListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */; };
 		BB3F83492A61A8FF00C0DFA1 /* ShoppingListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */; };
@@ -152,6 +154,8 @@
 		BB16248C2A9D221700162531 /* TabIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcons.swift; sourceTree = "<group>"; };
 		BB16248E2A9D2B4A00162531 /* Months.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Months.swift; sourceTree = "<group>"; };
 		BB1624902A9D2BFF00162531 /* FastFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilter.swift; sourceTree = "<group>"; };
+		BB3866702AB4DFD1005152B7 /* LaunchScreenVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVideoViewController.swift; sourceTree = "<group>"; };
+		BB3866772AB4EE0B005152B7 /* LaunchscreenVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = LaunchscreenVideo.mov; sourceTree = "<group>"; };
 		BB3B0EBB2A37965500774A3D /* FastFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFilterModel.swift; sourceTree = "<group>"; };
 		BB3F83452A61A6FD00C0DFA1 /* ShoppingListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsViewController.swift; sourceTree = "<group>"; };
 		BB3F83482A61A8FF00C0DFA1 /* ShoppingListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListsView.swift; sourceTree = "<group>"; };
@@ -174,7 +178,7 @@
 		BBD62F0E2A2516A1001F71ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBD62F132A2516A1001F71ED /* MacroChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacroChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD62F372A251C8B001F71ED /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
-		BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MacroChallenge/Code/Features/Common/View/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MacroChallenge/Code/Features/Common/View/LaunchScreen/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		BBD62F412A253C90001F71ED /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		BBD62F432A253D29001F71ED /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryView.swift; path = MacroChallenge/Code/Features/Category/View/CategoryView.swift; sourceTree = SOURCE_ROOT; };
 		BBD62F4A2A253F51001F71ED /* CategoryCollectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewComponent.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 		3F47FB232A25199800356430 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BB3866772AB4EE0B005152B7 /* LaunchscreenVideo.mov */,
 				880A8CA92A7B3ACA00567920 /* Fonts */,
 				BBD62F092A2516A1001F71ED /* Assets.xcassets */,
 				3F47FB242A251A2E00356430 /* data.json */,
@@ -562,7 +567,7 @@
 		BB1624862A97F9B500162531 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */,
+				BB3866722AB4DFDF005152B7 /* LaunchScreen */,
 				BB0EFA902A30FD07009DA542 /* FastFilter */,
 				BBD62F752A299700001F71ED /* Cells */,
 				88F81F8F2AAF792900486AEB /* ChangeSearchMonthButton.swift */,
@@ -606,6 +611,15 @@
 				88EB7ADD2AA4DEC000E0CF43 /* InfoScreen */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		BB3866722AB4DFDF005152B7 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BBD62F3F2A25291F001F71ED /* LaunchScreen.storyboard */,
+				BB3866702AB4DFD1005152B7 /* LaunchScreenVideoViewController.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		BB3F834A2A61ACF700C0DFA1 /* Views */ = {
@@ -899,6 +913,7 @@
 				880A8CB22A7B3AE700567920 /* Quicksand-SemiBold.ttf in Resources */,
 				880A8CBB2A7B43B400567920 /* SF-Pro-Display-Regular.otf in Resources */,
 				880A8CB02A7B3AE700567920 /* Quicksand-Bold.ttf in Resources */,
+				BB3866782AB4EE0B005152B7 /* LaunchscreenVideo.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,6 +944,7 @@
 				88B469522A299CCB00755698 /* SearchView.swift in Sources */,
 				883A7F192A42700D00E7D4E1 /* FavoriteFoodView.swift in Sources */,
 				BB3F83462A61A6FD00C0DFA1 /* ShoppingListsViewController.swift in Sources */,
+				BB3866712AB4DFD1005152B7 /* LaunchScreenVideoViewController.swift in Sources */,
 				88EB7AE32AA4DF7300E0CF43 /* InfoController.swift in Sources */,
 				BB0EFA982A311DE7009DA542 /* FilterCollectionViewCell.swift in Sources */,
 				8889667E2AAE06E40093E497 /* SortButton.swift in Sources */,

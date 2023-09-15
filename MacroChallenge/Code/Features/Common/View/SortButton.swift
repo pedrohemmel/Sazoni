@@ -25,16 +25,16 @@ class SortButton: UIButton{
                     self.sortingDelegate?.didChangeSortingOrder()
 
                 }),
-                UIAction(title: "Data Crescente",  handler: { _ in
-                    self.manager.orderShoppingLists(by: .crescentDate)
-                    self.sortingDelegate?.didChangeSortingOrder()
-
-                }),
-                UIAction(title: "Data Decrescente",  handler: { _ in
-                    self.manager.orderShoppingLists(by: .decreasingDate)
-                    self.sortingDelegate?.didChangeSortingOrder()
-
-                })
+//                UIAction(title: "Data Crescente",  handler: { _ in
+//                    self.manager.orderShoppingLists(by: .crescentDate)
+//                    self.sortingDelegate?.didChangeSortingOrder()
+//
+//                }),
+//                UIAction(title: "Data Decrescente",  handler: { _ in
+//                    self.manager.orderShoppingLists(by: .decreasingDate)
+//                    self.sortingDelegate?.didChangeSortingOrder()
+//
+//                })
             ]
         }
         return UIMenu(title: "",options: .displayInline,children: menuItens)

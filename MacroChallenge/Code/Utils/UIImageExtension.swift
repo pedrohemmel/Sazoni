@@ -48,10 +48,10 @@ extension UIImage {
             return SZIconApple
             
         case "icon_1":
-            return SZIconCabbage
+            return SZIconCarrot
             
         case "icon_2":
-            return SZIconCarrot
+            return SZIconCabbage
             
         case "icon_3":
             return SZIconFish

@@ -44,20 +44,22 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         categoryView.categoryCollectionViewComponent.selectedCategoryDelegate = self
     }
-    
-
-    
-    
 }
 
 extension CategoryViewController: MCSelectedCategoryDelegate {
 
     func didSelectCategory(category: Category) {
-        let foodViewController = FoodViewController()
+        
         if let foodDelegate = self.foodDelegate {
-            foodViewController.setup(currentMonth: self.currentMonth, monthUpdatesDelegate: nil, category: category, categories: self.categories, foodDelegate: foodDelegate)
+            let foodViewController = FoodViewController(
+                monthUpdatesDelegate: nil,
+                foodDelegate: foodDelegate,
+                currentMonth: self.currentMonth,
+                category: category,
+                categories: self.categories)
+            self.navigationController?.pushViewController(foodViewController, animated: true)
         }
-        self.navigationController?.pushViewController(foodViewController, animated: true)
+        
     }
     
     func didSelectMonthButton() {
